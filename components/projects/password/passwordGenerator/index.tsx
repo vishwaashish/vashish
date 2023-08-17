@@ -1,4 +1,5 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import {
   passwordGeneratorInitialState,
   passwordGeneratorCategory,
@@ -6,7 +7,8 @@ import {
   MIN_CATEGORY_LENGTH,
 } from "./data";
 import clsx from "clsx";
-
+import { twMerge } from "tailwind-merge";
+import {copyText} from "@/components/utils/text"
 export default function GeneratePassword() {
   const [password, setPassword] = useState("");
   const [isCheck, setIsCheck] = useState(passwordGeneratorInitialState);
@@ -17,8 +19,9 @@ export default function GeneratePassword() {
     (val) => !!val[1].checked
   );
   console.log(isCheck, categories, getCategoryCheckedValue);
+
   const disabled = useCallback(
-    (value) => {
+    (value: any) => {
       return !Object.entries(isCheck).filter(
         (val) => val[0] !== value && val[1].checked
       ).length;
@@ -65,7 +68,7 @@ export default function GeneratePassword() {
         return newObj;
       });
     },
-    []
+    [length]
   );
 
   const generateRandomPassword = useCallback((isCheck, max = length) => {
@@ -152,21 +155,94 @@ export default function GeneratePassword() {
           }
         });
         const newObj = Object.fromEntries(mapObj);
-        generatePassword(newObj);
+        generatePassword(newObj,length);
         return newObj;
       });
     },
-    []
+    [length]
   );
 
+  useEffect(() => {
+    generatePassword(isCheck,length);
+  }, []);
+
+
+  const onCopy = async()=>{
+      await   copyText(password).then(val=> {
+  console.log(password,'copid')
+ })
+  }
   return (
     <div className="max-w-[600px] m-auto">
-      {/* <input
-        className="form-control w-full  py-4  text-xl md:text-2xl md:py-5 md:px-5 "
-        value={password}
-        onChange={handleChange}
-      />
-      <h3 className="mb-2">Customize your password</h3> */}
+      <div className="flex items-center relative">
+        <input
+          className={twMerge(
+            "form-control w-full text-xl md:text-2xl py-4 pl-4 pr-[85px]"
+          )}
+          value={password}
+          onChange={handleChange}
+        />
+        <div className=" flex gap-2 absolute right-5 ">
+          <motion.a
+            whileHover={{
+              scale: 1.1,
+            }}
+            whileTap={{
+              scale: 0.95,
+            }}
+            title="Copy"
+            role="button"
+            className="text-offwhite"
+            onClick={onCopy}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75"
+              />
+            </svg>
+          </motion.a>
+          <motion.a
+            whileHover={{
+              scale: 1.1,
+            }}
+            whileTap={{
+              scale: 0.95,
+            }}
+            role="button"
+            className="text-offwhite"
+            title="Regenerate Password"
+            onClick={() => {
+              generatePassword(isCheck);
+            }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6 transition-all hover:animate-spin"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
+              />
+            </svg>
+          </motion.a>
+        </div>
+      </div>
+
+      <h3 className="mb-2">Customize your password</h3>
       <div className="transition-all  p-4 sm:p-8  bg-dark rounded-lg text-left text-base flex flex-col gap-5">
         <div>
           <label htmlFor="passwordLength" className="text-grey">

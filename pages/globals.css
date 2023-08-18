@@ -3,7 +3,7 @@
 @import "tailwindcss/utilities";
 
 @layer components {
-  input {
+  /* input {
     @apply accent-primary;
   }
   .form-control {
@@ -14,9 +14,7 @@
     @apply w-5 h-5 rounded appearance-none bg-semidark disabled:bg-gray-500 accent-primary  border-2 border-neutral-700 checked:bg-primary;
   }
 
-  .form-range {
-    /* @apply w-full h-2 bg-semidark my-auto rounded-lg appearance-none cursor-pointer ; */
-  }
+ 
 
   .form-check {
     @apply flex items-center;
@@ -24,11 +22,21 @@
 
   .form-check-label {
     @apply pl-2 font-normal;
-  }
+  } */
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+:root {
+  --primary: #0ea5e9;
+  --maindark: #171717;
+  --dark: #212121;
+  --darker: #111111;
+  --semidark: #2c2c2c;
+  --grey: #9c9c9c;
+  --offwhite: #f2f2f2;
 }

@@ -1,13 +1,12 @@
-import GeneratePassword from "@/components/projects/passwordGenerator";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 export default function Home() {
   return (
     <AnimatePresence>
-      <div className="min-h-[100vh] sm:min-h-screen w-screen flex flex-col relative font-inter overflow-hidden">
+      <div className=" flex flex-col justify-center  font-inter min-h-[89vh] overflow-hidden">
         <svg
           style={{ filter: "contrast(125%) brightness(110%)" }}
-          className="fixed z-[1] w-full h-full opacity-[35%]"
+          className=" z-[1] w-full h-full top-0  absolute opacity-[35%]"
         >
           <filter id="noise">
             <feTurbulence
@@ -20,7 +19,7 @@ export default function Home() {
           </filter>
           <rect width="100%" height="100%" filter="url(#noise)"></rect>
         </svg>
-        <main className="flex flex-col justify-center h-[90%] static md:fixed w-screen overflow-hidden grid-rows-[1fr_repeat(3,auto)_1fr] z-[100] pt-[30px] pb-[320px] px-4 md:px-20 md:py-0">
+        <main className="flex flex-col max-w-[1200px] mx-auto  w-full   grid-rows-[1fr_repeat(3,auto)_1fr] z-[100] ">
           <h1>My Self,</h1>
 
           <motion.h1
@@ -119,6 +118,26 @@ export default function Home() {
                 Password Validator
               </Link>
             </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 0.55,
+                duration: 0.55,
+                ease: [0.075, 0.82, 0.965, 1],
+              }}
+            >
+              <Link
+                href="/validate-password"
+                className="group rounded-full pl-[8px] min-w-[180px] pr-4 py-2 text-[13px] font-semibold transition-all flex items-center justify-center bg-[#1E2B3A] text-white hover:[linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), #0D2247] no-underline flex gap-x-2  active:scale-95 scale-100 duration-75"
+                style={{
+                  boxShadow:
+                    "0px 1px 4px rgba(13, 34, 71, 0.17), inset 0px 0px 0px 1px #061530, inset 0px 0px 0px 2px rgba(255, 255, 255, 0.1)",
+                }}
+              >
+                CSS
+              </Link>
+            </motion.div>
           </div>
         </main>
 
@@ -139,7 +158,7 @@ export default function Home() {
           }}
           id="gradient-canvas"
           data-transition-in
-          className="z-50 fixed top-0 right-[-2px] w-[80%] md:w-1/2 h-screen bg-[#c3e4ff]"
+          className="z-50 absolute  top-0 right-[-2px] w-[80%] md:w-1/2 h-full bg-[#c3e4ff]"
         ></motion.canvas>
       </div>
     </AnimatePresence>

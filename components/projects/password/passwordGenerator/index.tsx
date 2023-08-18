@@ -6,9 +6,9 @@ import {
   MAX_CATEGORY_LENGTH,
   MIN_CATEGORY_LENGTH,
 } from "./data";
-import clsx from "clsx";
-import { twMerge } from "tailwind-merge";
-import {copyText} from "@/components/utils/text"
+import { copyText } from "@/components/utils/text";
+import { cn } from "@/components/utils";
+
 export default function GeneratePassword() {
   const [password, setPassword] = useState("");
   const [isCheck, setIsCheck] = useState(passwordGeneratorInitialState);
@@ -155,7 +155,7 @@ export default function GeneratePassword() {
           }
         });
         const newObj = Object.fromEntries(mapObj);
-        generatePassword(newObj,length);
+        generatePassword(newObj, length);
         return newObj;
       });
     },
@@ -163,21 +163,18 @@ export default function GeneratePassword() {
   );
 
   useEffect(() => {
-    generatePassword(isCheck,length);
+    generatePassword(isCheck, length);
   }, []);
 
-
-  const onCopy = async()=>{
-      await   copyText(password).then(val=> {
-  console.log(password,'copid')
- })
-  }
+  const onCopy = async () => {
+    await copyText(password);
+  };
   return (
     <div className="max-w-[600px] m-auto">
       <div className="flex items-center relative">
         <input
-          className={twMerge(
-            "form-control w-full text-xl md:text-2xl py-4 pl-4 pr-[85px]"
+          className={cn(
+            "input input-bordered w-full text-xl md:text-2xl input-lg pl-4 pr-[85px]"
           )}
           value={password}
           onChange={handleChange}
@@ -192,7 +189,6 @@ export default function GeneratePassword() {
             }}
             title="Copy"
             role="button"
-            className="text-offwhite"
             onClick={onCopy}
           >
             <svg
@@ -218,7 +214,7 @@ export default function GeneratePassword() {
               scale: 0.95,
             }}
             role="button"
-            className="text-offwhite"
+            // className="text-offwhite"
             title="Regenerate Password"
             onClick={() => {
               generatePassword(isCheck);
@@ -243,11 +239,16 @@ export default function GeneratePassword() {
       </div>
 
       <h3 className="mb-2">Customize your password</h3>
-      <div className="transition-all  p-4 sm:p-8  bg-dark rounded-lg text-left text-base flex flex-col gap-5">
-        <div>
-          <label htmlFor="passwordLength" className="text-grey">
+      <div
+        className="transition-all card input input-bordered h-full  bg-base-100 shadow-xl  p-4 sm:p-8 rounded-lg items-start  flex flex-col gap-5"
+        style={{
+          borderColor: "hsl(var(--bc) / var(--tw-border-opacity))",
+        }}
+      >
+        <div className="w-full text-left">
+          <p htmlFor="passwordLength" className="my-1">
             Password Length
-          </label>
+          </p>
           <div className="flex gap-5 mt-2">
             <input
               id="passwordLength"
@@ -255,13 +256,12 @@ export default function GeneratePassword() {
               min="1"
               max="50"
               value={length}
-              // defaultValue="0"
               onChange={onSetLengthInputChange}
               onBlur={onSetLengthInputBlur}
-              className="form-control w-15 text-center pr-0"
+              className="input input-bordered  w-15 text-center pr-0"
             />
             <input
-              className="form-range flex-auto"
+              className="range range-primary my-auto flex-auto"
               type="range"
               min={MIN_CATEGORY_LENGTH}
               max={MAX_CATEGORY_LENGTH}
@@ -272,23 +272,23 @@ export default function GeneratePassword() {
           </div>
         </div>
 
-        <div className="text-left">
-          <label className="text-grey">Password Type:</label>
+        <div className="w-full text-left">
+          <p className="my-1">Password Type:</p>
           <div className="flex flex-wrap  gap-x-7 gap-y-2 mt-2">
             {Object.entries(categories).map((val) => {
               return (
-                <div className="form-check " key={val[0]}>
-                  <input
-                    className="form-check-input "
-                    name="category"
-                    id={val[0]}
-                    value={val[0]}
-                    checked={!!val[1].checked}
-                    onChange={onCategories(val)}
-                    type="radio"
-                  />
-                  <label className="form-check-label " htmlFor={val[0]}>
-                    {val[1].label}
+                <div className="form-control" key={val[0]}>
+                  <label className="cursor-pointer label " htmlFor={val[0]}>
+                    <input
+                      className="radio radio-primary"
+                      name="category"
+                      id={val[0]}
+                      value={val[0]}
+                      checked={!!val[1].checked}
+                      onChange={onCategories(val)}
+                      type="radio"
+                    />
+                    <span className="label-text pl-2">{val[1].label}</span>
                   </label>
                 </div>
               );
@@ -296,35 +296,28 @@ export default function GeneratePassword() {
           </div>
         </div>
 
-        <div className="text-left">
-          <label className="text-grey">Characters used:</label>
-          <div className="flex flex-wrap    gap-x-7 gap-y-2 mt-2 ">
+        <div className="w-full text-left">
+          <p className="my-1">Characters used:</p>
+          <div className="flex flex-wrap    gap-x-7 gap-y-2">
             {Object.entries(isCheck).map((val) => {
               const isDisabled =
                 disabled(val[0]) ||
                 getCategoryCheckedValue[1].disabled.includes(val[0]);
 
               return (
-                <div className="form-check " key={val[0]}>
-                  <input
-                    className={`form-check-input `}
-                    id={val[0]}
-                    name={val[0]}
-                    checked={val[1].checked}
-                    onChange={onCheck(val)}
-                    type="checkbox"
-                    disabled={isDisabled}
-                  />
-                  <label
-                    className={clsx(
-                      "form-check-label text-offwhite ",
-                      isDisabled && "text-grey"
-                    )}
-                    htmlFor={val[0]}
-                  >
-                    {val[1].label}
+                <div className="form-control" key={val[0]}>
+                  <label className="label cursor-pointer" htmlFor={val[0]}>
+                    <input
+                      className={`checkbox checkbox-primary `}
+                      id={val[0]}
+                      name={val[0]}
+                      checked={val[1].checked}
+                      onChange={onCheck(val)}
+                      type="checkbox"
+                      disabled={isDisabled}
+                    />
+                    <span className="label-text pl-2">{val[1].label}</span>
                   </label>
-                  <br />
                 </div>
               );
             })}

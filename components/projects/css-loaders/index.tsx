@@ -24,7 +24,7 @@ const LoadersLoop = memo(({ onClick }: any) => {
         {LOADER.map((item) => (
           <section
             key={`loaders${item.id}`}
-            className="aspect-video w-full flex justify-center items-center card  shadow-base-200 hover:bg-base-200 border border-base-200"
+            className="aspect-video w-full flex justify-center items-center card  shadow-base-200 hover:bg-base-200 border border-base-300"
             onClick={click(item)}
             style={{
               boxShadow:
@@ -39,5 +39,7 @@ const LoadersLoop = memo(({ onClick }: any) => {
     </>
   );
 });
+
+LoadersLoop.displayName = "LoadersLoop"
 
 export default LoadersLoop;

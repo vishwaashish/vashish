@@ -19,7 +19,7 @@ export default function CSSLoaders() {
       <br />
       <br />
 
-      {/* <Loaders /> */}
+      <Loaders />
     </article>
   );
 }

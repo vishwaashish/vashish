@@ -1,180 +1,167 @@
-import { useCallback, useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { cn, getRandom } from '@/components/utils'
+import { copyText } from '@/components/utils/text'
+import { motion } from 'framer-motion'
+import _ from 'lodash'
+import { ChangeEvent, useCallback, useEffect, useState } from 'react'
 import {
-  passwordGeneratorInitialState,
-  passwordGeneratorCategory,
+  CategoriesMap,
+  InitialMap,
   MAX_CATEGORY_LENGTH,
   MIN_CATEGORY_LENGTH,
-} from "./data";
-import { copyText } from "@/components/utils/text";
-import { cn } from "@/components/utils";
+  charactersModal,
+  charactersUsed,
+  initialCategory,
+  CategoryModal,
+  initialState,
+  StateModel,
+} from './data'
 
 export default function GeneratePassword() {
-  const [password, setPassword] = useState("");
-  const [isCheck, setIsCheck] = useState(passwordGeneratorInitialState);
-  const [length, setLength] = useState(8);
-  const [categories, setCategories] = useState(passwordGeneratorCategory);
-
-  const getCategoryCheckedValue = Object.entries(categories).find(
-    (val) => !!val[1].checked
-  );
-  console.log(isCheck, categories, getCategoryCheckedValue);
+  const [password, setPassword] = useState<string>('')
+  const [isCheck, setIsCheck] = useState<StateModel>(
+    initialState,
+  )
+  const [length, setLength] = useState<number>(8)
+  const [categories, setCategories] = useState<CategoryModal>(
+    initialCategory,
+  )
 
   const disabled = useCallback(
-    (value: any) => {
-      return !Object.entries(isCheck).filter(
-        (val) => val[0] !== value && val[1].checked
-      ).length;
+    (name: string) => {
+      return (
+        !_.some(isCheck, (val, key) => val.checked && key !== name) ||
+        _.find(categories, val => val.checked)?.disabled.includes(name)
+      )
     },
-    [isCheck]
-  );
+    [isCheck],
+  )
 
-  const onSetLengthInputChange = useCallback((e) => {
-    setLength(e.target.value);
-  }, []);
+  const onSetLengthInputChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement> | any) => {
+      setLength(+e.target.value)
+    },
+    [setLength],
+  )
 
-  const onSetLength = useCallback((e) => {
-    setLength(+e.target.value);
-    generatePassword(isCheck, +e.target.value);
-  }, []);
+  const onSetLength = useCallback(
+    (e: ChangeEvent<HTMLInputElement> | any) => {
+      setLength(+e.target.value)
+    },
+    [setLength, setLength],
+  )
 
-  const onSetLengthInputBlur = useCallback((e) => {
-    const value = e.target.value;
+  const generateRandomPassword = useCallback(
+    (options: charactersModal<boolean>, max: number = length) => {
+      return new Promise<string>(resolve => {
+        let password = ''
+        let availableChars = ''
 
-    if (+value <= MIN_CATEGORY_LENGTH) {
-      setLength(MIN_CATEGORY_LENGTH);
-      generatePassword(isCheck, MIN_CATEGORY_LENGTH);
-      return;
-    }
+        _.forEach(charactersUsed, (pvalue, pname) => {
+          if (options[pname as keyof charactersModal<boolean>]) {
+            const randomChar = getRandom(pvalue).char
+            password += randomChar
+            availableChars += pvalue
+          }
+        })
 
-    if (+value > MAX_CATEGORY_LENGTH) {
-      setLength(MAX_CATEGORY_LENGTH);
-      generatePassword(isCheck, MAX_CATEGORY_LENGTH);
-      return;
-    }
-    generatePassword(isCheck, +value);
+        const remainingLength = max - password.length
 
-    // setLength(+value);
-  }, []);
+        for (let i = 0; i < remainingLength; i++) {
+          const randomIndex = getRandom(availableChars).index
+          password += availableChars[randomIndex]
+        }
+
+        const newPassword = _.shuffle(password.split('')).join('')
+
+        resolve(newPassword)
+      })
+    },
+    [],
+  )
+
+  const generatePassword = useCallback(
+    async (val: StateModel, len: number) => {
+      const options: any = _.mapValues(val, 'checked')
+      await generateRandomPassword(options, len).then(val => {
+        setPassword(val)
+      })
+    },
+    [setPassword, generateRandomPassword],
+  )
 
   const onCheck = useCallback(
-    (item) => (e) => {
-      setIsCheck((check) => {
-        const newObj = {
-          ...check,
-          [item[0]]: { ...item[1], checked: e.target.checked },
-        };
-        generatePassword(newObj, length);
-        return newObj;
-      });
+    ([pname, pvalue]: InitialMap) =>
+      (e: ChangeEvent<HTMLInputElement>) => {
+        const check = _.assign({}, isCheck, {
+          [pname]: _.assign({}, pvalue, { checked: e.target.checked }),
+        })
+        setIsCheck(check)
+      },
+    [length, isCheck, setIsCheck],
+  )
+
+  const onSetLengthInputBlur = useCallback(
+    (e: ChangeEvent<HTMLInputElement> | any) => {
+      const value = e.target.value
+
+      if (+value <= MIN_CATEGORY_LENGTH) {
+        return setLength(MIN_CATEGORY_LENGTH)
+      }
+
+      if (+value > MAX_CATEGORY_LENGTH) {
+        return setLength(MAX_CATEGORY_LENGTH)
+      }
     },
-    [length]
-  );
+    [setLength],
+  )
 
-  const generateRandomPassword = useCallback((isCheck, max = length) => {
-    let password = "";
-    const fullLetter = {
-      lowerCase: "abcdefghijklmnopqrstuvwxyz",
-      upperCase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-      specialChar: "!@#$%^&*()-_=+[]{}|;:',.<>?",
-      digits: "0123456789",
-    };
-
-    const fullLetterArray = Object.entries(fullLetter);
-    const isCheckArray = Object.entries(isCheck);
-    const fullLetterLength = Object.keys(fullLetter).length;
-    let i = 0;
-    let j = 0;
-
-    while (password.length < max) {
-      if (i % fullLetterLength === 0) {
-        j = 0;
-      } else {
-        j++;
-      }
-      i++;
-      const val = isCheckArray.find((val) => val[0] === fullLetterArray[j][0]);
-      if (val[1].checked) {
-        const randomIndex = Math.floor(
-          Math.random() * fullLetterArray[j][1].length
-        );
-
-        const pass = fullLetterArray[j][1][randomIndex];
-        if (!password.includes(pass)) {
-          password += pass;
-        }
-      }
-    }
-
-    const newPassword = password
-      .split("")
-      .sort(() => Math.random() - 0.5)
-      .join("");
-
-    return newPassword;
-  }, []);
-
-  const generatePassword = useCallback((val, len = length) => {
-    setPassword(generateRandomPassword(val, len));
-  }, []);
-
-  const handleChange = useCallback((e) => {
-    const value = e.target.value;
-    setPassword(value);
-  }, []);
+  const handleChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement> | any) => {
+      setPassword(e.target.value)
+    },
+    [setPassword],
+  )
 
   const onCategories = useCallback(
-    (val) => (e) => {
-      setCategories((category) => {
-        const mapObj = new Map(Object.entries(categories));
-
-        mapObj.forEach((value, key) => {
-          if (key === val[0]) {
-            mapObj.set(key, {
+    ([pname, pvalue]: CategoriesMap) =>
+      (e: ChangeEvent<HTMLInputElement>) => {
+        setCategories(cat => {
+          return _.chain(cat)
+            .mapValues((value, key) => ({
               ...value,
-              checked: true,
-            });
-          } else {
-            mapObj.set(key, {
-              ...value,
-              checked: false,
-            });
-          }
-        });
+              checked: key === pname,
+            }))
+            .value()
+        })
 
-        return Object.fromEntries(mapObj);
-      });
-      setIsCheck((check) => {
-        const mapObj = new Map(Object.entries(check));
-        mapObj.forEach((check, key) => {
-          const found = val[1].enabled?.find((name) => key === name);
-          if (found) {
-            mapObj.set(key, { ...check, checked: true });
-          } else {
-            mapObj.set(key, { ...check, checked: false });
-          }
-        });
-        const newObj = Object.fromEntries(mapObj);
-        generatePassword(newObj, length);
-        return newObj;
-      });
-    },
-    [length]
-  );
+        const check = _.chain(isCheck)
+          .mapValues((value, key) => {
+            const found = _.includes(pvalue.enabled, key)
+            return {
+              ...value,
+              checked: found,
+            }
+          })
+          .value()
+
+        setIsCheck(check)
+      },
+    [setCategories, setIsCheck, length, isCheck],
+  )
 
   useEffect(() => {
-    generatePassword(isCheck, length);
-  }, []);
+    generatePassword(isCheck, length)
+  }, [isCheck, length])
 
   const onCopy = async () => {
-    await copyText(password);
-  };
+    await copyText(password)
+  }
   return (
     <div className="max-w-[600px] m-auto">
       <div className="flex items-center relative">
         <input
           className={cn(
-            "input input-bordered w-full text-xl md:text-2xl input-lg pl-4 pr-[85px]"
+            'input input-bordered w-full text-xl md:text-2xl input-lg pl-4 pr-[85px]',
           )}
           value={password}
           onChange={handleChange}
@@ -217,7 +204,7 @@ export default function GeneratePassword() {
             // className="text-offwhite"
             title="Regenerate Password"
             onClick={() => {
-              generatePassword(isCheck);
+              generatePassword(isCheck, length)
             }}
           >
             <svg
@@ -242,13 +229,11 @@ export default function GeneratePassword() {
       <div
         className="transition-all card input input-bordered h-full  bg-base-100 shadow-xl  p-4 sm:p-8 rounded-lg items-start  flex flex-col gap-5"
         style={{
-          borderColor: "hsl(var(--bc) / var(--tw-border-opacity))",
+          borderColor: 'hsl(var(--bc) / var(--tw-border-opacity))',
         }}
       >
         <div className="w-full text-left">
-          <p htmlFor="passwordLength" className="my-1">
-            Password Length
-          </p>
+          <p className="my-1">Password Length</p>
           <div className="flex gap-5 mt-2">
             <input
               id="passwordLength"
@@ -275,23 +260,23 @@ export default function GeneratePassword() {
         <div className="w-full text-left">
           <p className="my-1">Password Type:</p>
           <div className="flex flex-wrap  gap-x-7 gap-y-2 mt-2">
-            {Object.entries(categories).map((val) => {
+            {_.map(Object.entries(categories), ([pname, pvalue]) => {
               return (
-                <div className="form-control" key={val[0]}>
-                  <label className="cursor-pointer label " htmlFor={val[0]}>
+                <div className="form-control" key={pname}>
+                  <label className="cursor-pointer label " htmlFor={pname}>
                     <input
                       className="radio radio-primary"
                       name="category"
-                      id={val[0]}
-                      value={val[0]}
-                      checked={!!val[1].checked}
-                      onChange={onCategories(val)}
+                      id={pname}
+                      value={pname}
+                      checked={!!pvalue.checked}
+                      onChange={onCategories([pname, pvalue])}
                       type="radio"
                     />
-                    <span className="label-text pl-2">{val[1].label}</span>
+                    <span className="label-text pl-2">{pvalue.label}</span>
                   </label>
                 </div>
-              );
+              )
             })}
           </div>
         </div>
@@ -299,41 +284,28 @@ export default function GeneratePassword() {
         <div className="w-full text-left">
           <p className="my-1">Characters used:</p>
           <div className="flex flex-wrap    gap-x-7 gap-y-2">
-            {Object.entries(isCheck).map((val) => {
-              const isDisabled =
-                disabled(val[0]) ||
-                getCategoryCheckedValue[1].disabled.includes(val[0]);
-
+            {_.map(Object.entries(isCheck), ([pname, pvalue]) => {
+              const isDisabled = disabled(pname)
               return (
-                <div className="form-control" key={val[0]}>
-                  <label className="label cursor-pointer" htmlFor={val[0]}>
+                <div className="form-control" key={pname}>
+                  <label className="label cursor-pointer" htmlFor={pname}>
                     <input
                       className={`checkbox checkbox-primary `}
-                      id={val[0]}
-                      name={val[0]}
-                      checked={val[1].checked}
-                      onChange={onCheck(val)}
+                      id={pname}
+                      name={pname}
+                      checked={pvalue.checked}
+                      onChange={onCheck([pname, pvalue])}
                       type="checkbox"
                       disabled={isDisabled}
                     />
-                    <span className="label-text pl-2">{val[1].label}</span>
+                    <span className="label-text pl-2">{pvalue.label}</span>
                   </label>
                 </div>
-              );
+              )
             })}
           </div>
         </div>
-
-        {/* {password} */}
-        {/* <br /> */}
-        {/* <button
-          onClick={() => {
-            generatePassword(isCheck);
-          }}
-        >
-          GeneratePassword
-        </button> */}
       </div>
     </div>
-  );
+  )
 }

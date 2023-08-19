@@ -1,10 +1,18 @@
-import { LOADER } from "@/common/constants";
-import dynamic from "next/dynamic";
-const Loaders = dynamic(() => import("@/components/projects/css-loaders"), {
+import { LOADER } from '@/common/constants'
+import LoaderModel from '@/components/projects/css-loaders/LoaderModel'
+import dynamic from 'next/dynamic'
+import { useRouter } from 'next/router'
+const Loaders = dynamic(() => import('@/components/projects/css-loaders'), {
   ssr: false,
-});
-export default function CSSLoaders() {
-  console.log(LOADER);
+})
+export default function CSSLoaders({ loaders }: any) {
+  const router = useRouter()
+  const { loaderId } = router.query
+  console.log(loaderId, loaders)
+
+  const onClose = () => {
+    console.log('close')
+  }
   return (
     <article className="prose lg:prose-md  prose-h1:leading-none  prose-h1:mb-0  text-center   px-4 py-5 my-7  max-w-full">
       <div className="max-w-[900px] mx-auto w-full ">
@@ -19,7 +27,17 @@ export default function CSSLoaders() {
       <br />
       <br />
 
+      {loaderId && <LoaderModel loaders={loaders} onClose={onClose} />}
+
       <Loaders />
     </article>
-  );
+  )
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      loaders: LOADER,
+    },
+  }
 }

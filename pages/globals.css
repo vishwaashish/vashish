@@ -32,6 +32,15 @@
 }
 
 :root {
+  --loader-modal-bg: #263038;
+  --card-header: #4f5254;
+  --loader-text: #f4f4f4;
+  --loader-primary: hsl(var(--p));
+  --loader-secondary: hsl(var(--nc));
+  --loader-border: 5px;
+  --loader-width: 48px;
+}
+:root {
   --primary: #0ea5e9;
   --maindark: #171717;
   --dark: #212121;

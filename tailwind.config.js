@@ -16,7 +16,6 @@ module.exports = {
       "light",
       "dark",
       "cupcake",
-      "synthwave",
       "wireframe",
       "dracula",
       {

@@ -19,9 +19,8 @@ export default function Home() {
           </filter>
           <rect width="100%" height="100%" filter="url(#noise)"></rect>
         </svg>
-        <main className="flex flex-col max-w-[1200px] mx-auto  w-full   grid-rows-[1fr_repeat(3,auto)_1fr] z-[100] ">
+        <main className="flex flex-col max-w-[1200px] mx-auto  w-full   grid-rows-[1fr_repeat(3,auto)_1fr] z-[100] px-4">
           <h1>My Self,</h1>
-
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -30,7 +29,7 @@ export default function Home() {
               duration: 0.95,
               ease: [0.165, 0.84, 0.44, 1],
             }}
-            className="relative md:ml-[-10px] md:mb-[37px] font-extrabold text-[16vw] md:text-[130px] font-inter text-offwhite leading-[0.9] tracking-[-2px] z-[100]"
+            className="relative md:ml-[-10px] md:mb-[37px] font-extrabold text-[16vw] md:text-[130px] font-inter  leading-[0.9] tracking-[-2px] z-[100]"
           >
             Ashishkumar <br />
             <span className="text-primary">Vishwakarma</span>
@@ -47,14 +46,14 @@ export default function Home() {
             className="text-left  z-20  mt-1 md:mb-[35px] "
           >
             <div className="">
-              <p className="text-base text-offwhite font-normal">
+              <p className="text-base  font-normal">
                 Full access to our platform, including all questions and
                 solutions.
               </p>
             </div>
           </motion.div>
 
-          <div className="flex gap-[15px] mt-8 md:mt-0">
+          <div className="flex flex-wrap gap-[15px] mt-8 md:mt-0">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
@@ -128,14 +127,14 @@ export default function Home() {
               }}
             >
               <Link
-                href="/validate-password"
+                href="/css-loaders"
                 className="group rounded-full pl-[8px] min-w-[180px] pr-4 py-2 text-[13px] font-semibold transition-all flex items-center justify-center bg-[#1E2B3A] text-white hover:[linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), #0D2247] no-underline flex gap-x-2  active:scale-95 scale-100 duration-75"
                 style={{
                   boxShadow:
                     "0px 1px 4px rgba(13, 34, 71, 0.17), inset 0px 0px 0px 1px #061530, inset 0px 0px 0px 2px rgba(255, 255, 255, 0.1)",
                 }}
               >
-                CSS
+                CSS-Loaders
               </Link>
             </motion.div>
           </div>

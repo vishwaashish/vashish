@@ -1,30 +1,30 @@
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import { cn } from "../utils";
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
+import { cn } from '../utils'
 
 export default function Header() {
   const themeOptions = [
-    "light",
-    "dark",
-    "cupcake",
-    "dracula",
-    "night",
-    "wireframe",
-  ];
-  const [currentTheme, setCurrentTheme] = useState("light");
+    'light',
+    'dark',
+    'cupcake',
+    'dracula',
+    'night',
+    'wireframe',
+  ]
+  const [currentTheme, setCurrentTheme] = useState('light')
 
   useEffect(() => {
-    const data = document.getElementsByTagName("html")[0];
-    const theme = data.getAttribute("data-theme") || "dark";
-    setCurrentTheme(theme);
-  }, []);
+    const data = document.getElementsByTagName('html')[0]
+    const theme = data.getAttribute('data-theme') || 'dark'
+    setCurrentTheme(theme)
+  }, [])
 
   const onThemeChange = (value: string) => () => {
-    console.log(value);
-    const data = document.getElementsByTagName("html")[0];
-    data.setAttribute("data-theme", value);
-    setCurrentTheme(value);
-  };
+    console.log(value)
+    const data = document.getElementsByTagName('html')[0]
+    data.setAttribute('data-theme', value)
+    setCurrentTheme(value)
+  }
 
   return (
     <div className="navbar bg-base-100 z-[100] ">
@@ -51,8 +51,8 @@ export default function Header() {
                   strokeWidth="2"
                   d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
                 ></path>
-              </svg>{" "}
-              <span className="hidden font-normal md:inline">Theme</span>{" "}
+              </svg>{' '}
+              <span className="hidden font-normal md:inline">Theme</span>{' '}
               <svg
                 width="12px"
                 height="12px"
@@ -68,7 +68,7 @@ export default function Header() {
               className="dropdown-content bg-base-200 text-base-content rounded-box top-px  w-56 overflow-y-auto shadow mt-16 z-[100]"
             >
               <div className="grid grid-cols-1 gap-3 p-3" tabIndex="0">
-                {themeOptions.map((item) => (
+                {themeOptions.map(item => (
                   <button
                     key={item}
                     className="outline-base-content overflow-hidden rounded-lg text-left"
@@ -89,21 +89,21 @@ export default function Header() {
                             viewBox="0 0 24 24"
                             fill="currentColor"
                             className={cn(
-                              "invisible h-3 w-3 shrink-0",
-                              currentTheme === item && "visible"
+                              'invisible h-3 w-3 shrink-0',
+                              currentTheme === item && 'visible',
                             )}
                           >
                             <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"></path>
-                          </svg>{" "}
-                          <div className="flex-grow text-sm">{item}</div>{" "}
+                          </svg>{' '}
+                          <div className="flex-grow text-sm">{item}</div>{' '}
                           <div
                             className="flex h-full flex-shrink-0 flex-wrap gap-1"
                             data-svelte-h="svelte-izuv7l"
                           >
-                            <div className="bg-primary w-2 rounded"></div>{" "}
-                            <div className="bg-secondary w-2 rounded"></div>{" "}
-                            <div className="bg-accent w-2 rounded"></div>{" "}
-                            <div className="bg-neutral w-2 rounded"></div>{" "}
+                            <div className="bg-primary w-2 rounded"></div>{' '}
+                            <div className="bg-secondary w-2 rounded"></div>{' '}
+                            <div className="bg-accent w-2 rounded"></div>{' '}
+                            <div className="bg-neutral w-2 rounded"></div>{' '}
                           </div>
                         </div>
                       </div>
@@ -141,5 +141,5 @@ export default function Header() {
         </div>
       </div>
     </div>
-  );
+  )
 }

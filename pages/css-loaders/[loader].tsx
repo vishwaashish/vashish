@@ -7,7 +7,6 @@ export default function Loader({ loaderElement }: any) {
   const router = useRouter()
   const { loader } = router.query
   let index = Number(loader)
-  console.log(index, loaderElement, 'photoId')
   return (
     <>
       <main className="mx-auto max-w-[1960px] p-4">

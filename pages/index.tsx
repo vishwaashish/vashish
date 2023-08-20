@@ -1,11 +1,11 @@
-import { AnimatePresence, motion } from "framer-motion";
-import Link from "next/link";
+import { AnimatePresence, motion } from 'framer-motion'
+import Link from 'next/link'
 export default function Home() {
   return (
     <AnimatePresence>
       <div className=" flex flex-col justify-center  font-inter min-h-[89vh] overflow-hidden">
         <svg
-          style={{ filter: "contrast(125%) brightness(110%)" }}
+          style={{ filter: 'contrast(125%) brightness(110%)' }}
           className=" z-[1] w-full h-full top-0  absolute opacity-[35%]"
         >
           <filter id="noise">
@@ -69,7 +69,7 @@ export default function Home() {
                 className="group rounded-full pl-[8px] min-w-[180px] pr-4 py-2 text-[13px] font-semibold transition-all flex items-center justify-center bg-[#1E2B3A] text-white hover:[linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), #0D2247] no-underline flex gap-x-2  active:scale-95 scale-100 duration-75"
                 style={{
                   boxShadow:
-                    "0px 1px 4px rgba(13, 34, 71, 0.17), inset 0px 0px 0px 1px #061530, inset 0px 0px 0px 2px rgba(255, 255, 255, 0.1)",
+                    '0px 1px 4px rgba(13, 34, 71, 0.17), inset 0px 0px 0px 1px #061530, inset 0px 0px 0px 2px rgba(255, 255, 255, 0.1)',
                 }}
               >
                 Star on Github
@@ -90,7 +90,7 @@ export default function Home() {
                 className="group rounded-full pl-[8px] min-w-[180px] pr-4 py-2 text-[13px] font-semibold transition-all flex items-center justify-center bg-[#1E2B3A] text-white hover:[linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), #0D2247] no-underline flex gap-x-2  active:scale-95 scale-100 duration-75"
                 style={{
                   boxShadow:
-                    "0px 1px 4px rgba(13, 34, 71, 0.17), inset 0px 0px 0px 1px #061530, inset 0px 0px 0px 2px rgba(255, 255, 255, 0.1)",
+                    '0px 1px 4px rgba(13, 34, 71, 0.17), inset 0px 0px 0px 1px #061530, inset 0px 0px 0px 2px rgba(255, 255, 255, 0.1)',
                 }}
               >
                 Password Generator
@@ -111,7 +111,7 @@ export default function Home() {
                 className="group rounded-full pl-[8px] min-w-[180px] pr-4 py-2 text-[13px] font-semibold transition-all flex items-center justify-center bg-[#1E2B3A] text-white hover:[linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), #0D2247] no-underline flex gap-x-2  active:scale-95 scale-100 duration-75"
                 style={{
                   boxShadow:
-                    "0px 1px 4px rgba(13, 34, 71, 0.17), inset 0px 0px 0px 1px #061530, inset 0px 0px 0px 2px rgba(255, 255, 255, 0.1)",
+                    '0px 1px 4px rgba(13, 34, 71, 0.17), inset 0px 0px 0px 1px #061530, inset 0px 0px 0px 2px rgba(255, 255, 255, 0.1)',
                 }}
               >
                 Password Validator
@@ -131,7 +131,7 @@ export default function Home() {
                 className="group rounded-full pl-[8px] min-w-[180px] pr-4 py-2 text-[13px] font-semibold transition-all flex items-center justify-center bg-[#1E2B3A] text-white hover:[linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), #0D2247] no-underline flex gap-x-2  active:scale-95 scale-100 duration-75"
                 style={{
                   boxShadow:
-                    "0px 1px 4px rgba(13, 34, 71, 0.17), inset 0px 0px 0px 1px #061530, inset 0px 0px 0px 2px rgba(255, 255, 255, 0.1)",
+                    '0px 1px 4px rgba(13, 34, 71, 0.17), inset 0px 0px 0px 1px #061530, inset 0px 0px 0px 2px rgba(255, 255, 255, 0.1)',
                 }}
               >
                 CSS-Loaders
@@ -142,10 +142,10 @@ export default function Home() {
 
         <motion.canvas
           initial={{
-            filter: "blur(20px)",
+            filter: 'blur(20px)',
           }}
           animate={{
-            filter: "blur(0px)",
+            filter: 'blur(0px)',
           }}
           transition={{
             duration: 1,
@@ -153,7 +153,7 @@ export default function Home() {
           }}
           style={{
             clipPath:
-              "polygon(100px 0,100% 0,calc(100% + 225px) 100%, 480px 100%)",
+              'polygon(100px 0,100% 0,calc(100% + 225px) 100%, 480px 100%)',
           }}
           id="gradient-canvas"
           data-transition-in
@@ -161,5 +161,5 @@ export default function Home() {
         ></motion.canvas>
       </div>
     </AnimatePresence>
-  );
+  )
 }

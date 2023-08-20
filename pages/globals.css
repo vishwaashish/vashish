@@ -1,51 +1,22 @@
 @import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-
-@layer components {
-  /* input {
-    @apply accent-primary;
-  }
-  .form-control {
-    @apply bg-semidark text-offwhite py-2 px-4 border-2 border-neutral-700 outline-0 focus:border-primary  rounded-lg;
-  }
-
-  .form-check-input {
-    @apply w-5 h-5 rounded appearance-none bg-semidark disabled:bg-gray-500 accent-primary  border-2 border-neutral-700 checked:bg-primary;
-  }
-
- 
-
-  .form-check {
-    @apply flex items-center;
-  }
-
-  .form-check-label {
-    @apply pl-2 font-normal;
-  } */
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
 
 :root {
-  --loader-modal-bg: #263038;
-  --card-header: #4f5254;
-  --loader-text: #f4f4f4;
   --loader-primary: hsl(var(--p));
   --loader-secondary: hsl(var(--nc));
   --loader-border: 5px;
   --loader-width: 48px;
 }
 :root {
-  --primary: #0ea5e9;
-  --maindark: #171717;
+  /* --maindark: #171717;
   --dark: #212121;
   --darker: #111111;
   --semidark: #2c2c2c;
   --grey: #9c9c9c;
-  --offwhite: #f2f2f2;
+  --offwhite: #f2f2f2; */
+}
+
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer components {
 }

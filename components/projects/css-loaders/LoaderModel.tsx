@@ -47,28 +47,41 @@ const LoaderModel = ({
   return (
     <>
       <Dialog
-        static
+        // static
         open={true}
         onClose={handleClose}
         // initialFocus={overlayRef}
-        className="fixed inset-0 z-10 flex items-center justify-center"
+        // className="fixed inset-0 bg-red-500 z-10 flex items-center justify-center"
+        // className="fixed inset-0 bg-red-500 z-10 flex items-center justify-center"
       >
-        <Dialog.Overlay
+        {/* <Dialog.Overlay
           // ref={overlayRef}
           as={motion.div}
           key="backdrop"
-          className="fixed inset-0 z-30  backdrop-blur-2xl"
+          // className="fixed inset-0 z-30  backdrop-blur-2xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-        ></Dialog.Overlay>
-        <SharedModal
-          index={curIndex}
-          direction={direction}
-          loaders={loaders}
-          changePhotoId={changePhotoId}
-          closeModal={handleClose}
-          navigation={true}
+        ></Dialog.Overlay> */}
+
+        <motion.div
+          key="backdrop"
+          className="fixed inset-0 bg-black/30 backdrop-blur-lg"
+          aria-hidden="true"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
         />
+        <div className="fixed inset-0 flex items-center justify-center p-4">
+          <Dialog.Panel className="mx-auto rounded ">
+            <SharedModal
+              index={curIndex}
+              direction={direction}
+              loaders={loaders}
+              changePhotoId={changePhotoId}
+              closeModal={handleClose}
+              navigation={true}
+            />
+          </Dialog.Panel>
+        </div>
       </Dialog>
     </>
   )

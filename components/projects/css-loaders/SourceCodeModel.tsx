@@ -2,7 +2,7 @@ import { copyText } from '@/components/utils/text'
 import { Dialog } from '@headlessui/react'
 import { useEffect, useState } from 'react'
 import SyntaxHighlighter from 'react-syntax-highlighter'
-
+import { motion } from 'framer-motion'
 const SourceCodeModel = ({
   open,
   close,
@@ -29,9 +29,16 @@ const SourceCodeModel = ({
   }, [])
   return (
     <Dialog className="" open={open} onClose={close}>
-      <div
+      {/* <div
         className="z-50 fixed inset-0 bg-black/30 backdrop-blur-lg"
         aria-hidden="true"
+      /> */}
+      <motion.div
+        key="backdrop"
+        className="fixed inset-0 bg-black/30 backdrop-blur-lg"
+        aria-hidden="true"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
       />
       <div className="z-50 fixed inset-0 flex items-center justify-center">
         <Dialog.Panel className="prose w-full max-w-3xl max-h-screen overflow-auto bg-base-100 rounded p-5">

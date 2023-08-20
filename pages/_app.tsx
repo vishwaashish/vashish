@@ -1,8 +1,8 @@
-import type { AppProps } from "next/app";
-import "./globals.css";
-import { Toaster } from "react-hot-toast";
-import Headers from "@/components/header";
-import Footer from "@/components/footer";
+import type { AppProps } from 'next/app'
+import './globals.css'
+import { Toaster } from 'react-hot-toast'
+import Headers from '@/components/header'
+import Footer from '@/components/footer'
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
@@ -13,13 +13,13 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         toastOptions={{
           // className: "bg-primary text-offwhite",
           style: {
-            borderRadius: "10px",
-            background: "var(--semidark)",
-            color: "var(--offwhite)",
+            borderRadius: '10px',
+            background: 'hsl(var(--b1))',
+            color: '(var(--bc))',
           },
         }}
       />
       <Footer />
     </>
-  );
+  )
 }

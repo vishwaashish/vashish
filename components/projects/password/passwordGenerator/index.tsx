@@ -15,16 +15,13 @@ import {
   initialState,
   StateModel,
 } from './data'
+import PasswordLayout from '../PasswordLayout'
 
 export default function GeneratePassword() {
   const [password, setPassword] = useState<string>('')
-  const [isCheck, setIsCheck] = useState<StateModel>(
-    initialState,
-  )
+  const [isCheck, setIsCheck] = useState<StateModel>(initialState)
   const [length, setLength] = useState<number>(8)
-  const [categories, setCategories] = useState<CategoryModal>(
-    initialCategory,
-  )
+  const [categories, setCategories] = useState<CategoryModal>(initialCategory)
 
   const disabled = useCallback(
     (name: string) => {
@@ -153,159 +150,119 @@ export default function GeneratePassword() {
     generatePassword(isCheck, length)
   }, [isCheck, length])
 
-  const onCopy = async () => {
-    await copyText(password)
-  }
   return (
-    <div className="max-w-[600px] m-auto">
-      <div className="flex items-center relative">
-        <input
-          className={cn(
-            'input input-bordered w-full text-xl md:text-2xl input-lg pl-4 pr-[85px]',
-          )}
-          value={password}
-          onChange={handleChange}
-        />
-        <div className=" flex gap-2 absolute right-5 ">
-          <motion.a
-            whileHover={{
-              scale: 1.1,
-            }}
-            whileTap={{
-              scale: 0.95,
-            }}
-            title="Copy"
-            role="button"
-            onClick={onCopy}
+    // <div className="max-w-[600px] m-auto">
+    <PasswordLayout
+      password={password}
+      handleChange={handleChange}
+      subHeading="Customize your password"
+      inputBody={
+        <motion.a
+          whileHover={{
+            scale: 1.1,
+          }}
+          whileTap={{
+            scale: 0.95,
+          }}
+          role="button"
+          // className="text-offwhite"
+          title="Regenerate Password"
+          onClick={() => {
+            generatePassword(isCheck, length)
+          }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6 transition-all hover:animate-spin"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75"
-              />
-            </svg>
-          </motion.a>
-          <motion.a
-            whileHover={{
-              scale: 1.1,
-            }}
-            whileTap={{
-              scale: 0.95,
-            }}
-            role="button"
-            // className="text-offwhite"
-            title="Regenerate Password"
-            onClick={() => {
-              generatePassword(isCheck, length)
-            }}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6 transition-all hover:animate-spin"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
-              />
-            </svg>
-          </motion.a>
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
+            />
+          </svg>
+        </motion.a>
+      }
+    >
+      <div className="w-full text-left">
+        <p className="my-1">Password Length</p>
+        <div className="flex gap-5 mt-2">
+          <input
+            id="passwordLength"
+            type="number"
+            min="1"
+            max="50"
+            value={length}
+            onChange={onSetLengthInputChange}
+            onBlur={onSetLengthInputBlur}
+            className="input input-bordered  w-15 text-center pr-0"
+          />
+          <input
+            className="range range-primary my-auto flex-auto"
+            type="range"
+            min={MIN_CATEGORY_LENGTH}
+            max={MAX_CATEGORY_LENGTH}
+            step="1"
+            value={length}
+            onChange={onSetLength}
+          />
         </div>
       </div>
 
-      <h3 className="mb-2">Customize your password</h3>
-      <div
-        className="transition-all card input input-bordered h-full  bg-base-100 shadow-xl  p-4 sm:p-8 rounded-lg items-start  flex flex-col gap-5"
-        style={{
-          borderColor: 'hsl(var(--bc) / var(--tw-border-opacity))',
-        }}
-      >
-        <div className="w-full text-left">
-          <p className="my-1">Password Length</p>
-          <div className="flex gap-5 mt-2">
-            <input
-              id="passwordLength"
-              type="number"
-              min="1"
-              max="50"
-              value={length}
-              onChange={onSetLengthInputChange}
-              onBlur={onSetLengthInputBlur}
-              className="input input-bordered  w-15 text-center pr-0"
-            />
-            <input
-              className="range range-primary my-auto flex-auto"
-              type="range"
-              min={MIN_CATEGORY_LENGTH}
-              max={MAX_CATEGORY_LENGTH}
-              step="1"
-              value={length}
-              onChange={onSetLength}
-            />
-          </div>
-        </div>
-
-        <div className="w-full text-left">
-          <p className="my-1">Password Type:</p>
-          <div className="flex flex-wrap  gap-x-7 gap-y-2 mt-2">
-            {_.map(Object.entries(categories), ([pname, pvalue]) => {
-              return (
-                <div className="form-control" key={pname}>
-                  <label className="cursor-pointer label " htmlFor={pname}>
-                    <input
-                      className="radio radio-primary"
-                      name="category"
-                      id={pname}
-                      value={pname}
-                      checked={!!pvalue.checked}
-                      onChange={onCategories([pname, pvalue])}
-                      type="radio"
-                    />
-                    <span className="label-text pl-2">{pvalue.label}</span>
-                  </label>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-
-        <div className="w-full text-left">
-          <p className="my-1">Characters used:</p>
-          <div className="flex flex-wrap    gap-x-7 gap-y-2">
-            {_.map(Object.entries(isCheck), ([pname, pvalue]) => {
-              const isDisabled = disabled(pname)
-              return (
-                <div className="form-control" key={pname}>
-                  <label className="label cursor-pointer" htmlFor={pname}>
-                    <input
-                      className={`checkbox checkbox-primary `}
-                      id={pname}
-                      name={pname}
-                      checked={pvalue.checked}
-                      onChange={onCheck([pname, pvalue])}
-                      type="checkbox"
-                      disabled={isDisabled}
-                    />
-                    <span className="label-text pl-2">{pvalue.label}</span>
-                  </label>
-                </div>
-              )
-            })}
-          </div>
+      <div className="w-full text-left">
+        <p className="my-1">Password Type:</p>
+        <div className="flex flex-wrap  gap-x-7 gap-y-2 mt-2">
+          {_.map(Object.entries(categories), ([pname, pvalue]) => {
+            return (
+              <div className="form-control" key={pname}>
+                <label className="cursor-pointer label " htmlFor={pname}>
+                  <input
+                    className="radio radio-primary"
+                    name="category"
+                    id={pname}
+                    value={pname}
+                    checked={!!pvalue.checked}
+                    onChange={onCategories([pname, pvalue])}
+                    type="radio"
+                  />
+                  <span className="label-text pl-2">{pvalue.label}</span>
+                </label>
+              </div>
+            )
+          })}
         </div>
       </div>
-    </div>
+
+      <div className="w-full text-left">
+        <p className="my-1">Characters used:</p>
+        <div className="flex flex-wrap    gap-x-7 gap-y-2">
+          {_.map(Object.entries(isCheck), ([pname, pvalue]) => {
+            const isDisabled = disabled(pname)
+            return (
+              <div className="form-control" key={pname}>
+                <label className="label cursor-pointer" htmlFor={pname}>
+                  <input
+                    className={`checkbox checkbox-primary `}
+                    id={pname}
+                    name={pname}
+                    checked={pvalue.checked}
+                    onChange={onCheck([pname, pvalue])}
+                    type="checkbox"
+                    disabled={isDisabled}
+                  />
+                  <span className="label-text pl-2">{pvalue.label}</span>
+                </label>
+              </div>
+            )
+          })}
+        </div>
+      </div>
+      {/* </div> */}
+    </PasswordLayout>
+    // </div>
   )
 }

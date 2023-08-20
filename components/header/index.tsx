@@ -36,7 +36,7 @@ export default function Header() {
         </div>
         <div className="flex-none">
           <div className="dropdown dropdown-end">
-            <div tabIndex="0" className="btn normal-case btn-ghost">
+            <div tabIndex={0} className="btn normal-case btn-ghost">
               <svg
                 width="20"
                 height="20"
@@ -67,7 +67,7 @@ export default function Header() {
               tabIndex={0}
               className="dropdown-content bg-base-200 text-base-content rounded-box top-px  w-56 overflow-y-auto shadow mt-16 z-[100]"
             >
-              <div className="grid grid-cols-1 gap-3 p-3" tabIndex="0">
+              <div className="grid grid-cols-1 gap-3 p-3" tabIndex={0}>
                 {themeOptions.map(item => (
                   <button
                     key={item}

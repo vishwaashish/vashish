@@ -8,7 +8,6 @@ const Loaders = dynamic(() => import('@/components/projects/css-loaders'), {
 export default function CSSLoaders({ loaders }: any) {
   const router = useRouter()
   const { loaderId } = router.query
-  console.log(loaderId, loaders)
 
   const onClose = () => {
     console.log('close')

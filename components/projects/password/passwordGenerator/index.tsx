@@ -1,5 +1,4 @@
-import { cn, getRandom } from '@/components/utils'
-import { copyText } from '@/components/utils/text'
+import { getRandom } from '@/components/utils'
 import { motion } from 'framer-motion'
 import _ from 'lodash'
 import { ChangeEvent, useCallback, useEffect, useState } from 'react'
@@ -30,7 +29,7 @@ export default function GeneratePassword() {
         _.find(categories, val => val.checked)?.disabled.includes(name)
       )
     },
-    [isCheck],
+    [categories, isCheck],
   )
 
   const onSetLengthInputChange = useCallback(
@@ -40,12 +39,9 @@ export default function GeneratePassword() {
     [setLength],
   )
 
-  const onSetLength = useCallback(
-    (e: ChangeEvent<HTMLInputElement> | any) => {
-      setLength(+e.target.value)
-    },
-    [setLength, setLength],
-  )
+  const onSetLength = useCallback((e: ChangeEvent<HTMLInputElement> | any) => {
+    setLength(+e.target.value)
+  }, [])
 
   const generateRandomPassword = useCallback(
     (options: charactersModal<boolean>, max: number = length) => {
@@ -73,7 +69,7 @@ export default function GeneratePassword() {
         resolve(newPassword)
       })
     },
-    [],
+    [length],
   )
 
   const generatePassword = useCallback(
@@ -94,7 +90,7 @@ export default function GeneratePassword() {
         })
         setIsCheck(check)
       },
-    [length, isCheck, setIsCheck],
+    [isCheck],
   )
 
   const onSetLengthInputBlur = useCallback(
@@ -143,12 +139,12 @@ export default function GeneratePassword() {
 
         setIsCheck(check)
       },
-    [setCategories, setIsCheck, length, isCheck],
+    [isCheck],
   )
 
   useEffect(() => {
     generatePassword(isCheck, length)
-  }, [isCheck, length])
+  }, [generatePassword, isCheck, length])
 
   return (
     // <div className="max-w-[600px] m-auto">

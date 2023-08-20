@@ -4,7 +4,8 @@
         "es2021": true
     },
     "extends": [
-        "standard-with-typescript",
+        "next/core-web-vitals",
+        // "standard-with-typescript",
         "plugin:react/recommended"
     ],
     "parserOptions": {
@@ -15,5 +16,6 @@
         "react"
     ],
     "rules": {
+        "react/react-in-jsx-scope": "off"
     }
 }

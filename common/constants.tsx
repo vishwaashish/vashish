@@ -1,61 +1,61 @@
-export const LOADER_COUNT = 24;
+export const LOADER_COUNT = 24
 
 export const MODAL_BG = [
-  "#845EC2",
-  "#D65DB1",
-  "#FF6F91",
-  "#FF9671",
-  "#FFC75F",
-  "#00C9A7",
-  "#B39CD0",
-  "#845EC2",
-  "#4D8076",
-];
+  '#845EC2',
+  '#D65DB1',
+  '#FF6F91',
+  '#FF9671',
+  '#FFC75F',
+  '#00C9A7',
+  '#B39CD0',
+  '#845EC2',
+  '#4D8076',
+]
 
 export const LOADER_SIZES = [
   {
     size: 24,
-    label: "XS",
+    label: 'XS',
   },
   {
     size: 36,
-    label: "S",
+    label: 'S',
   },
   {
     size: 48,
-    label: "M",
+    label: 'M',
   },
   {
     size: 60,
-    label: "L",
+    label: 'L',
   },
   {
     size: 72,
-    label: "XL",
+    label: 'XL',
   },
-];
+]
 
 export const LOADER_BORDER_SIZES = [
   {
     size: 3,
-    label: "S",
+    label: 'S',
   },
   {
     size: 5,
-    label: "M",
+    label: 'M',
   },
   {
     size: 7,
-    label: "L",
+    label: 'L',
   },
-];
+]
 
 export const DEFAULT_SETTINGS = {
-  size: "48px",
-  primaryColor: "#ff0000",
-  secondaryColor: "#ffffff",
-  border: "5px",
-};
+  size: '48px',
+  primaryColor: '#ff0000',
+  secondaryColor: '#ffffff',
+  border: '5px',
+}
 
 export const containerStyle = {
   sidebar: {
@@ -98,7 +98,7 @@ export const containerStyle = {
     rest: { rotate: 0, transition: { duration: 0.4 } },
     hover: { rotate: -360, transition: { duration: 0.4 } },
   },
-};
+}
 
 export const modalStyle = {
   backdrop: {
@@ -119,14 +119,14 @@ export const modalStyle = {
     open: {
       y: 0,
       transition: {
-        type: "spring",
+        type: 'spring',
         damping: 25,
         stiffness: 250,
         duration: 0.3,
       },
     },
   },
-};
+}
 
 export const LOADER = [
   {
@@ -1022,89 +1022,89 @@ export const LOADER = [
       100% {
         box-shadow:
           0em -2.6em 0em 0em var(--loader-secondary),
-          1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
-          2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
-          1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
-          0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
-          -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
-          -2.6em 0em 0 0em rgba(255, 255, 255, 0.5),
-          -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7);
+          1.8em -1.8em 0 0em rgba(216, 221, 228, 0.2),
+          2.5em 0em 0 0em rgba(216, 221, 228, 0.2),
+          1.75em 1.75em 0 0em rgba(216, 221, 228, 0.2),
+          0em 2.5em 0 0em rgba(216, 221, 228, 0.2),
+          -1.8em 1.8em 0 0em rgba(216, 221, 228, 0.2),
+          -2.6em 0em 0 0em rgba(216, 221, 228, 0.5),
+          -1.8em -1.8em 0 0em rgba(216, 221, 228, 0.7);
       }
       12.5% {
         box-shadow:
-          0em -2.6em 0em 0em rgba(255, 255, 255, 0.7),
+          0em -2.6em 0em 0em rgba(216, 221, 228, 0.7),
           1.8em -1.8em 0 0em var(--loader-secondary),
-          2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
-          1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
-          0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
-          -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
-          -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
-          -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5);
+          2.5em 0em 0 0em rgba(216, 221, 228, 0.2),
+          1.75em 1.75em 0 0em rgba(216, 221, 228, 0.2),
+          0em 2.5em 0 0em rgba(216, 221, 228, 0.2),
+          -1.8em 1.8em 0 0em rgba(216, 221, 228, 0.2),
+          -2.6em 0em 0 0em rgba(216, 221, 228, 0.2),
+          -1.8em -1.8em 0 0em rgba(216, 221, 228, 0.5);
       }
       25% {
         box-shadow:
-          0em -2.6em 0em 0em rgba(255, 255, 255, 0.5),
-          1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7),
+          0em -2.6em 0em 0em rgba(216, 221, 228, 0.5),
+          1.8em -1.8em 0 0em rgba(216, 221, 228, 0.7),
           2.5em 0em 0 0em var(--loader-secondary),
-          1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
-          0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
-          -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
-          -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
-          -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+          1.75em 1.75em 0 0em rgba(216, 221, 228, 0.2),
+          0em 2.5em 0 0em rgba(216, 221, 228, 0.2),
+          -1.8em 1.8em 0 0em rgba(216, 221, 228, 0.2),
+          -2.6em 0em 0 0em rgba(216, 221, 228, 0.2),
+          -1.8em -1.8em 0 0em rgba(216, 221, 228, 0.2);
       }
       37.5% {
         box-shadow:
-          0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
-          1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5),
-          2.5em 0em 0 0em rgba(255, 255, 255, 0.7),
+          0em -2.6em 0em 0em rgba(216, 221, 228, 0.2),
+          1.8em -1.8em 0 0em rgba(216, 221, 228, 0.5),
+          2.5em 0em 0 0em rgba(216, 221, 228, 0.7),
           1.75em 1.75em 0 0em var(--loader-secondary),
-          0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
-          -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
-          -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
-          -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+          0em 2.5em 0 0em rgba(216, 221, 228, 0.2),
+          -1.8em 1.8em 0 0em rgba(216, 221, 228, 0.2),
+          -2.6em 0em 0 0em rgba(216, 221, 228, 0.2),
+          -1.8em -1.8em 0 0em rgba(216, 221, 228, 0.2);
       }
       50% {
         box-shadow:
-          0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
-          1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
-          2.5em 0em 0 0em rgba(255, 255, 255, 0.5),
-          1.75em 1.75em 0 0em rgba(255, 255, 255, 0.7),
+          0em -2.6em 0em 0em rgba(216, 221, 228, 0.2),
+          1.8em -1.8em 0 0em rgba(216, 221, 228, 0.2),
+          2.5em 0em 0 0em rgba(216, 221, 228, 0.5),
+          1.75em 1.75em 0 0em rgba(216, 221, 228, 0.7),
           0em 2.5em 0 0em var(--loader-secondary),
-          -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
-          -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
-          -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+          -1.8em 1.8em 0 0em rgba(216, 221, 228, 0.2),
+          -2.6em 0em 0 0em rgba(216, 221, 228, 0.2),
+          -1.8em -1.8em 0 0em rgba(216, 221, 228, 0.2);
       }
       62.5% {
         box-shadow:
-          0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
-          1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
-          2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
-          1.75em 1.75em 0 0em rgba(255, 255, 255, 0.5),
-          0em 2.5em 0 0em rgba(255, 255, 255, 0.7),
+          0em -2.6em 0em 0em rgba(216, 221, 228, 0.2),
+          1.8em -1.8em 0 0em rgba(216, 221, 228, 0.2),
+          2.5em 0em 0 0em rgba(216, 221, 228, 0.2),
+          1.75em 1.75em 0 0em rgba(216, 221, 228, 0.5),
+          0em 2.5em 0 0em rgba(216, 221, 228, 0.7),
           -1.8em 1.8em 0 0em var(--loader-secondary),
-          -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
-          -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+          -2.6em 0em 0 0em rgba(216, 221, 228, 0.2),
+          -1.8em -1.8em 0 0em rgba(216, 221, 228, 0.2);
       }
       75% {
         box-shadow:
-          0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
-          1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
-          2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
-          1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
-          0em 2.5em 0 0em rgba(255, 255, 255, 0.5),
-          -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.7),
+          0em -2.6em 0em 0em rgba(216, 221, 228, 0.2),
+          1.8em -1.8em 0 0em rgba(216, 221, 228, 0.2),
+          2.5em 0em 0 0em rgba(216, 221, 228, 0.2),
+          1.75em 1.75em 0 0em rgba(216, 221, 228, 0.2),
+          0em 2.5em 0 0em rgba(216, 221, 228, 0.5),
+          -1.8em 1.8em 0 0em rgba(216, 221, 228, 0.7),
           -2.6em 0em 0 0em var(--loader-secondary),
-          -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+          -1.8em -1.8em 0 0em rgba(216, 221, 228, 0.2);
       }
       87.5% {
         box-shadow:
-          0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
-          1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
-          2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
-          1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
-          0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
-          -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5),
-          -2.6em 0em 0 0em rgba(255, 255, 255, 0.7),
+          0em -2.6em 0em 0em rgba(216, 221, 228, 0.2),
+          1.8em -1.8em 0 0em rgba(216, 221, 228, 0.2),
+          2.5em 0em 0 0em rgba(216, 221, 228, 0.2),
+          1.75em 1.75em 0 0em rgba(216, 221, 228, 0.2),
+          0em 2.5em 0 0em rgba(216, 221, 228, 0.2),
+          -1.8em 1.8em 0 0em rgba(216, 221, 228, 0.5),
+          -2.6em 0em 0 0em rgba(216, 221, 228, 0.7),
           -1.8em -1.8em 0 0em var(--loader-secondary) fff;
       }
     }
@@ -1210,8 +1210,8 @@ export const LOADER = [
       display: inline-block;
       position: relative;
       border: calc(var(--loader-border) + 5px) solid;
-      border-color: rgba(255, 255, 255, 0.15) rgba(255, 255, 255, 0.25)
-        rgba(255, 255, 255, 0.35) rgba(255, 255, 255, 0.5);
+      border-color: rgba(216, 221, 228,0.15) rgba(216, 221, 228, 0.5)
+        rgba(216, 221, 228, 0.6)  rgba(216, 221, 228, 0.8);
       box-sizing: border-box;
       animation: rotation24 1s linear infinite;
     }
@@ -1226,4 +1226,4 @@ export const LOADER = [
     }     
     `,
   },
-];
+]

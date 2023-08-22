@@ -39,7 +39,7 @@ const LoaderModel = ({
       {
         query: { loaderId: newVal },
       },
-      `/css-loader/${newVal}`,
+      `/css-loaders/${newVal}`,
       { shallow: true },
     )
   }

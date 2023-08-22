@@ -2,6 +2,7 @@ import type { GetStaticProps, NextPage } from 'next'
 import { useRouter } from 'next/router'
 import Carousel from '@/components/projects/css-loaders/Carousel'
 import { LOADER } from '@/common/constants'
+import { redirect } from 'next/navigation'
 
 export default function Loader({ loaderElement }: any) {
   const router = useRouter()
@@ -20,10 +21,17 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
   const currentLoader = LOADER.find(
     item => item.id === Number(context.params.loader),
   )
+  
+  if (!currentLoader) {
+    return {
+      notFound: true, // Indicate that the page should return a 404
+    };
+  }
+ 
 
   return {
     props: {
-      loaderElement: currentLoader,
+      loaderElement: currentLoader ?? {} ,
     },
   }
 }

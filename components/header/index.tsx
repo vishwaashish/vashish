@@ -27,7 +27,7 @@ export default function Header() {
   }
 
   return (
-    <div className="navbar bg-base-100 z-[100] ">
+    <div className="navbar  z-[100] ">
       <div className="max-w-[1200px] mx-auto w-full">
         <div className="flex-1">
           <Link href="/" className="text-xl font-bold cursor-pointer">

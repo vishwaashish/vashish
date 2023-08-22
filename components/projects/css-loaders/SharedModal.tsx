@@ -10,6 +10,19 @@ const Loader = dynamic(() => import('./Loader'), {
   ssr: false,
 })
 
+export const range = (start: number, end: number) => {
+  let output = []
+  if (typeof end === 'undefined') {
+    end = start
+    start = 0
+  }
+  for (let i = start; i < end; i += 1) {
+    output.push(i)
+  }
+  return output
+}
+
+const visibeLoader = 3
 export default function SharedModal({
   index,
   loaders,
@@ -19,7 +32,16 @@ export default function SharedModal({
   currentPhoto,
   direction,
 }: any) {
-  let filteredImages = loaders
+  // let filteredImages = loaders
+  let filteredImages = loaders?.filter((img: any) =>
+    range(index - visibeLoader, index + visibeLoader).includes(img.id),
+  )
+
+  console.log(
+    loaders?.filter((img: any) =>
+      range(index - visibeLoader, index + visibeLoader).includes(img.id),
+    ),
+  )
 
   const [sourceCode, setSourceCode] = useState(false)
   const [copyed, setCopyed] = useState('')
@@ -186,7 +208,7 @@ export default function SharedModal({
                 </button>
               </div>
             )}
-            {index + 1 < loaders.length && (
+            {index < loaders.length && (
               <div
                 className="absolute right-3 top-[calc(50%-16px)] tooltip "
                 data-tip="Right"
@@ -217,44 +239,68 @@ export default function SharedModal({
 
         {!!loaders?.length && (
           <div
-            className="absolute  inset-x-0 bottom-0 z-40 overflow-hidden 
+            className="absolute inset-x-0 bottom-0 z-40 overflow-hidden 
         md:rounded-2xl bg-gradient-to-b from-black/0 to-black/30"
           >
             <motion.div
               initial={false}
               className="mx-auto mt-6 mb-6 flex aspect-[3/2] h-[70px] "
             >
-              <AnimatePresence initial={false}>
-                {filteredImages.map(({ id, html, css }: any) => (
-                  <motion.button
-                    initial={{
-                      width: '0%',
-                      x: `${Math.max((index - 1) * -100, 15 * -100)}%`,
-                    }}
-                    animate={{
-                      scale: id === index ? 1.2 : 1,
-                      width: '100%',
-                      x: `${Math.max(index * -100, 15 * -100)}%`,
-                    }}
-                    exit={{ width: '0%' }}
-                    onClick={() => changePhotoId(id)}
-                    key={id}
-                    className={cn(
-                      'aspect-[3/2]  flex justify-center items-center overflow-hidden focus:outline-none z-10',
-                      id === index && 'z-20 rounded-md shadow shadow-black/50',
-                      id === 0 && 'rounded-l-md',
-                    )}
-                  >
-                    <div
+              <AnimatePresence initial={true}>
+                {filteredImages.map(({ id, html, css }: any) => {
+                  const initialLeft = (index - 1) * -100
+                  const initialRight = visibeLoader * -100
+
+                  const aLeft = index * -100
+                  const aRight = visibeLoader * -100
+
+                  const initialX = Math.max(initialLeft, initialRight)
+                  const animateX = Math.max(aLeft, aRight)
+
+                  if (index === id) {
+                    console.log({
+                      initialX,
+                      initialXP: [initialLeft, initialRight],
+                      animateX,
+                      animateXp: [aLeft, aRight],
+                      valid: index === id,
+                    })
+                  }
+
+                  return (
+                    <motion.button
+                      initial={{
+                        width: '0%',
+                        // x: `${Math.max((index - 1) * -100, 10 * -100)}%`,
+                        x: `${initialX}%`,
+                      }}
+                      animate={{
+                        scale: id === index ? 1.2 : 1,
+                        width: '100%',
+                        // x: `${Math.max(index * -100, 10 * -100)}%`,
+                        x: `${animateX}%`,
+                      }}
+                      exit={{ width: '0%' }}
+                      onClick={() => changePhotoId(id)}
+                      key={id}
                       className={cn(
-                        'scale-50 transition-all brightness-50 contrast-125  ',
-                        index === id && 'scale-75 ',
+                        'aspect-[3/2]  flex justify-center items-center overflow-hidden focus:outline-none z-10',
+                        id === index &&
+                          'z-20 rounded-md shadow shadow-black/50',
+                        id === 0 && 'rounded-l-md',
                       )}
                     >
-                      <Loader html={html} css={css} />
-                    </div>
-                  </motion.button>
-                ))}
+                      <div
+                        className={cn(
+                          'scale-50 transition-all brightness-50 contrast-125  ',
+                          index === id && 'scale-75 ',
+                        )}
+                      >
+                        <Loader html={html} css={css} />
+                      </div>
+                    </motion.button>
+                  )
+                })}
               </AnimatePresence>
             </motion.div>
           </div>

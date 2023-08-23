@@ -1,17 +1,13 @@
-import { LOADER } from '@/common/constants'
+import { LOADER } from '@/common/loaders-constants'
 import LoaderModel from '@/components/projects/css-loaders/LoaderModel'
-import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
-const Loaders = dynamic(() => import('@/components/projects/css-loaders'), {
-  ssr: false,
-})
+import { lazy, Suspense } from 'react'
+const LoaderLoop = lazy(() => import('@/components/projects/css-loaders'))
 export default function CSSLoaders({ loaders }: any) {
   const router = useRouter()
   const { loaderId } = router.query
 
-  const onClose = () => {
-    console.log('close')
-  }
+  const onClose = () => {}
   return (
     <article className="prose lg:prose-md  prose-h1:leading-none  prose-h1:mb-0  text-center   px-4 py-5 my-7  max-w-full">
       <div className="max-w-[900px] mx-auto w-full ">
@@ -28,7 +24,18 @@ export default function CSSLoaders({ loaders }: any) {
 
       {loaderId && <LoaderModel loaders={loaders} onClose={onClose} />}
 
-      <Loaders />
+      <div className="transition-all grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full  mx-auto">
+        <Suspense fallback="Loader...">
+          {LOADER.map(item => (
+            <LoaderLoop
+              key={item.id}
+              html={item.html}
+              id={item.id}
+              css={item.css}
+            />
+          ))}
+        </Suspense>
+      </div>
     </article>
   )
 }

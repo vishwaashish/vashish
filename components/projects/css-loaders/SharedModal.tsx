@@ -6,9 +6,12 @@ import { useEffect, useState } from 'react'
 import { useSwipeable } from 'react-swipeable'
 import SourceCodeModel from './SourceCodeModel'
 
-const Loader = dynamic(() => import('./Loader'), {
-  ssr: false,
-})
+const InnerHTML = dynamic(
+  () => import('@/components/shared/element/InnerHtml'),
+  {
+    ssr: false,
+  },
+)
 
 export const range = (start: number, end: number) => {
   let output = []
@@ -22,7 +25,8 @@ export const range = (start: number, end: number) => {
   return output
 }
 
-const visibeLoader = 3
+const visibeLoader = 15
+
 export default function SharedModal({
   index,
   loaders,
@@ -60,8 +64,6 @@ export default function SharedModal({
     trackMouse: true,
   })
 
-  // const buttonClass =
-  //   'rounded-full backdrop-blur-lg text-neutral-content shadow-lg bg-neutral p-2 border hover:bg-black/75 hover:text-white'
   const buttonClass = 'btn btn-circle btn-md'
 
   let currentLoader = loaders
@@ -120,7 +122,7 @@ export default function SharedModal({
             animate="center"
             exit="exit"
           >
-            <Loader html={currentLoader.html} css={currentLoader.css} />
+            <InnerHTML html={currentLoader.html} css={currentLoader.css} />
           </motion.div>
         </div>
 
@@ -244,7 +246,10 @@ export default function SharedModal({
           >
             <motion.div
               initial={false}
-              className="mx-auto mt-6 mb-6 flex aspect-[3/2] h-[70px] "
+              className=" transition-all translate-x-1/3 mx-auto mt-6 mb-6 flex aspect-[3/2] h-[70px] "
+              // style={{
+              //   transform: 'translateX(30%)',
+              // }}
             >
               <AnimatePresence initial={true}>
                 {filteredImages.map(({ id, html, css }: any) => {
@@ -270,15 +275,15 @@ export default function SharedModal({
                   return (
                     <motion.button
                       initial={{
-                        width: '0%',
-                        // x: `${Math.max((index - 1) * -100, 10 * -100)}%`,
-                        x: `${initialX}%`,
+                        // width: '0%',
+                        x: `${Math.max((index - 1) * -100, 10 * -100)}%`,
+                        // x: `${initialX}%`,
                       }}
                       animate={{
                         scale: id === index ? 1.2 : 1,
-                        width: '100%',
-                        // x: `${Math.max(index * -100, 10 * -100)}%`,
-                        x: `${animateX}%`,
+                        // width: '100%',
+                        x: `${Math.max(index * -100, 10 * -100)}%`,
+                        // x: `${animateX}%`,
                       }}
                       exit={{ width: '0%' }}
                       onClick={() => changePhotoId(id)}
@@ -296,7 +301,7 @@ export default function SharedModal({
                           index === id && 'scale-75 ',
                         )}
                       >
-                        <Loader html={html} css={css} />
+                        <InnerHTML html={html} css={css} />
                       </div>
                     </motion.button>
                   )

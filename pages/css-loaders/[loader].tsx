@@ -1,8 +1,7 @@
 import type { GetStaticProps, NextPage } from 'next'
 import { useRouter } from 'next/router'
 import Carousel from '@/components/projects/css-loaders/Carousel'
-import { LOADER } from '@/common/constants'
-import { redirect } from 'next/navigation'
+import { LOADER } from '@/common/loaders-constants'
 
 export default function Loader({ loaderElement }: any) {
   const router = useRouter()

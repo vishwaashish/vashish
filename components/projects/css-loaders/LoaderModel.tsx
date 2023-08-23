@@ -1,10 +1,10 @@
 import React, { useRef, useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { useRouter } from 'next/router'
-import Loader from './Loader'
-import { LOADER } from '@/common/constants'
+import { LOADER } from '@/common/loaders-constants'
 import _ from 'lodash'
 import { motion } from 'framer-motion'
+
 import SharedModal from './SharedModal'
 const LoaderModel = ({
   loaders,
@@ -50,7 +50,7 @@ const LoaderModel = ({
         // static
         open={true}
         onClose={handleClose}
-        // initialFocus={overlayRef}
+        initialFocus={overlayRef}
         // className="fixed inset-0 bg-red-500 z-10 flex items-center justify-center"
         // className="fixed inset-0 bg-red-500 z-10 flex items-center justify-center"
       >
@@ -63,8 +63,10 @@ const LoaderModel = ({
           animate={{ opacity: 1 }}
         ></Dialog.Overlay> */}
 
-        <motion.div
+        <Dialog.Overlay
           key="backdrop"
+          as={motion.div}
+          ref={overlayRef}
           className="fixed inset-0 bg-black/30 backdrop-blur-lg"
           aria-hidden="true"
           initial={{ opacity: 0 }}

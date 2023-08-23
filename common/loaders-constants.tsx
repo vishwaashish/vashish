@@ -1,3 +1,9 @@
+import {
+  LoaderSizeType,
+  DefaultLoaderType,
+  LoaderType,
+} from '@/types/css-loaders.model'
+
 export const LOADER_COUNT = 24
 
 export const MODAL_BG = [
@@ -12,7 +18,7 @@ export const MODAL_BG = [
   '#4D8076',
 ]
 
-export const LOADER_SIZES = [
+export const LOADER_SIZES: LoaderSizeType[] = [
   {
     size: 24,
     label: 'XS',
@@ -35,7 +41,7 @@ export const LOADER_SIZES = [
   },
 ]
 
-export const LOADER_BORDER_SIZES = [
+export const LOADER_BORDER_SIZES: LoaderSizeType[] = [
   {
     size: 3,
     label: 'S',
@@ -50,7 +56,7 @@ export const LOADER_BORDER_SIZES = [
   },
 ]
 
-export const DEFAULT_SETTINGS = {
+export const DEFAULT_SETTINGS: DefaultLoaderType = {
   size: '48px',
   primaryColor: '#ff0000',
   secondaryColor: '#ffffff',
@@ -128,7 +134,7 @@ export const modalStyle = {
   },
 }
 
-export const LOADER = [
+export const LOADER: LoaderType[] = [
   {
     id: 1,
     html: `<div class="loader1"></div>`,

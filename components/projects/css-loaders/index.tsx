@@ -1,3 +1,4 @@
+import { LoaderType } from '@/types/css-loaders.model'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { forwardRef, memo } from 'react'
@@ -10,7 +11,7 @@ const InnerHTML = dynamic(
 )
 export type Ref = HTMLAnchorElement
 
-const LoadersLoop = forwardRef<Ref, any>(({ id, html, css }, ref) => {
+const LoadersLoop = forwardRef<Ref, LoaderType>(({ id, html, css }, ref) => {
   return (
     <Link
       ref={ref}

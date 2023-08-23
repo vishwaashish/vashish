@@ -5,6 +5,9 @@ import dynamic from 'next/dynamic'
 import { useEffect, useState } from 'react'
 import { useSwipeable } from 'react-swipeable'
 import SourceCodeModel from './SourceCodeModel'
+import { LoaderType } from '@/types/css-loaders.model'
+import { LoaderIcon } from 'react-hot-toast'
+import { LOADER } from '@/common/loaders-constants'
 
 const InnerHTML = dynamic(
   () => import('@/components/shared/element/InnerHtml'),
@@ -27,15 +30,28 @@ export const range = (start: number, end: number) => {
 
 const visibeLoader = 15
 
+interface SharedModal {
+  index: number,
+  changeLoaderId: (arg: number) => void,
+  closeModal: () => void,
+  navigation: boolean,
+  currentPhoto?: LoaderType,
+  // loaders?: LoaderType[],
+  direction?: number,
+  loaders?: LoaderType[]
+}
+
 export default function SharedModal({
   index,
-  loaders,
-  changePhotoId,
+  loaders = [],
+  changeLoaderId,
   closeModal,
   navigation,
   currentPhoto,
-  direction,
-}: any) {
+  direction = 0,
+}: SharedModal) {
+
+  const [activeLoader, setActiveLoader] = useState<LoaderType>(LOADER[0])
   // let filteredImages = loaders
   let filteredImages = loaders?.filter((img: any) =>
     range(index - visibeLoader, index + visibeLoader).includes(img.id),
@@ -47,18 +63,18 @@ export default function SharedModal({
     ),
   )
 
-  const [sourceCode, setSourceCode] = useState(false)
-  const [copyed, setCopyed] = useState('')
+  const [sourceCode, setSourceCode] = useState<boolean>(false)
+  const [copyed, setCopyed] = useState<string>('')
 
   const handlers = useSwipeable({
     onSwipedLeft: () => {
       if (index < loaders?.length - 1) {
-        changePhotoId(index + 1)
+        changeLoaderId(index + 1)
       }
     },
     onSwipedRight: () => {
       if (index > 1) {
-        changePhotoId(index - 1)
+        changeLoaderId(index - 1)
       }
     },
     trackMouse: true,
@@ -66,9 +82,6 @@ export default function SharedModal({
 
   const buttonClass = 'btn btn-circle btn-md'
 
-  let currentLoader = loaders
-    ? _.find(loaders, val => val.id === index)
-    : currentPhoto
 
   const onSourceCode = () => {
     setSourceCode(val => !val)
@@ -81,6 +94,15 @@ export default function SharedModal({
       }, 3000)
     }
   }, [copyed])
+
+  useEffect(() => {
+    if (loaders.length) {
+      const loader = _.find(loaders, val => val.id === index)
+      loader && setActiveLoader(loader)
+    } else if (currentPhoto) {
+      currentPhoto && setActiveLoader(currentPhoto)
+    }
+  }, [])
 
   return (
     <MotionConfig
@@ -122,7 +144,7 @@ export default function SharedModal({
             animate="center"
             exit="exit"
           >
-            <InnerHTML html={currentLoader.html} css={currentLoader.css} />
+            <InnerHTML html={activeLoader.html} css={activeLoader?.css} />
           </motion.div>
         </div>
 
@@ -191,7 +213,7 @@ export default function SharedModal({
               >
                 <button
                   className={cn(buttonClass)}
-                  onClick={() => changePhotoId(index - 1)}
+                  onClick={() => changeLoaderId(index - 1)}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -217,7 +239,7 @@ export default function SharedModal({
               >
                 <button
                   className={cn(buttonClass)}
-                  onClick={() => changePhotoId(index + 1)}
+                  onClick={() => changeLoaderId(index + 1)}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -247,30 +269,28 @@ export default function SharedModal({
             <motion.div
               initial={false}
               className=" transition-all translate-x-1/3 mx-auto mt-6 mb-6 flex aspect-[3/2] h-[70px] "
-              // style={{
-              //   transform: 'translateX(30%)',
-              // }}
+
             >
               <AnimatePresence initial={true}>
                 {filteredImages.map(({ id, html, css }: any) => {
-                  const initialLeft = (index - 1) * -100
-                  const initialRight = visibeLoader * -100
+                  // const initialLeft = (index - 1) * -100
+                  // const initialRight = visibeLoader * -100
 
-                  const aLeft = index * -100
-                  const aRight = visibeLoader * -100
+                  // const aLeft = index * -100
+                  // const aRight = visibeLoader * -100
 
-                  const initialX = Math.max(initialLeft, initialRight)
-                  const animateX = Math.max(aLeft, aRight)
+                  // const initialX = Math.max(initialLeft, initialRight)
+                  // const animateX = Math.max(aLeft, aRight)
 
-                  if (index === id) {
-                    console.log({
-                      initialX,
-                      initialXP: [initialLeft, initialRight],
-                      animateX,
-                      animateXp: [aLeft, aRight],
-                      valid: index === id,
-                    })
-                  }
+                  // if (index === id) {
+                  //   console.log({
+                  //     initialX,
+                  //     initialXP: [initialLeft, initialRight],
+                  //     animateX,
+                  //     animateXp: [aLeft, aRight],
+                  //     valid: index === id,
+                  //   })
+                  // }
 
                   return (
                     <motion.button
@@ -286,12 +306,12 @@ export default function SharedModal({
                         // x: `${animateX}%`,
                       }}
                       exit={{ width: '0%' }}
-                      onClick={() => changePhotoId(id)}
+                      onClick={() => changeLoaderId(id)}
                       key={id}
                       className={cn(
                         'aspect-[3/2]  flex justify-center items-center overflow-hidden focus:outline-none z-10',
                         id === index &&
-                          'z-20 rounded-md shadow shadow-black/50',
+                        'z-20 rounded-md shadow shadow-black/50',
                         id === 0 && 'rounded-l-md',
                       )}
                     >
@@ -316,7 +336,7 @@ export default function SharedModal({
         <SourceCodeModel
           open={sourceCode}
           close={onSourceCode}
-          loader={currentLoader}
+          loader={activeLoader}
         />
       )}
     </MotionConfig>

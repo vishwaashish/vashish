@@ -1,4 +1,5 @@
 import { LOADER } from '@/common/loaders-constants'
+import CustomizeLoader from '@/components/projects/css-loaders/CustomizeLoader'
 import LoaderModel from '@/components/projects/css-loaders/LoaderModel'
 import { useRouter } from 'next/router'
 import { lazy, Suspense } from 'react'
@@ -21,6 +22,8 @@ export default function CSSLoaders({ loaders }: any) {
       <br />
       <br />
       <br />
+
+      <CustomizeLoader />
 
       {loaderId && <LoaderModel loaders={loaders} onClose={onClose} />}
 

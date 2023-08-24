@@ -22,22 +22,27 @@ export const LOADER_SIZES: LoaderSizeType[] = [
   {
     size: 24,
     label: 'XS',
+    title: 'Extra Small',
   },
   {
     size: 36,
     label: 'S',
+    title: 'Small',
   },
   {
     size: 48,
     label: 'M',
+    title: 'Medium',
   },
   {
     size: 60,
     label: 'L',
+    title: 'Large',
   },
   {
     size: 72,
     label: 'XL',
+    title: 'Extra Large',
   },
 ]
 
@@ -45,28 +50,34 @@ export const LOADER_BORDER_SIZES: LoaderSizeType[] = [
   {
     size: 3,
     label: 'S',
+    title: 'Small',
   },
   {
     size: 5,
     label: 'M',
+    title: 'Medium',
   },
   {
     size: 7,
     label: 'L',
+    title: 'Large',
   },
 ]
 export const LOADER_SPEED: LoaderSizeType[] = [
   {
     size: 1.5,
     label: 'S',
+    title: 'Small',
   },
   {
     size: 1,
     label: 'M',
+    title: 'Medium',
   },
   {
     size: 0.5,
-    label: 'L',
+    label: 'F',
+    title: 'Fast',
   },
 ]
 
@@ -1034,8 +1045,8 @@ export const LOADER: LoaderType[] = [
       border-radius: 50%;
       position: relative;
       text-indent: -9999em;
-      animation: mulShdSpin20 1.var(--loader-speed) infinite ease;
-      animation: mulShdSpin20 1.var(--loader-speed) infinite ease;
+      animation: mulShdSpin20 var(--loader-speed) infinite ease;
+      animation: mulShdSpin20 var(--loader-speed) infinite ease;
       transform: translateZ(0);
     }
     @keyframes mulShdSpin20 {

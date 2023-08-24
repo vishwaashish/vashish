@@ -1,6 +1,7 @@
 export interface LoaderSizeType {
   size: number
   label: string
+  title: string
 }
 
 export interface DefaultLoaderType {

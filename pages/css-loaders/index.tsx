@@ -1,14 +1,30 @@
 import { LOADER } from '@/common/loaders-constants'
 import CustomizeLoader from '@/components/projects/css-loaders/CustomizeLoader'
 import LoaderModel from '@/components/projects/css-loaders/LoaderModel'
+import { LoaderType } from '@/types/css-loaders.model'
 import { useRouter } from 'next/router'
-import { lazy, Suspense } from 'react'
-const LoaderLoop = lazy(() => import('@/components/projects/css-loaders'))
-export default function CSSLoaders({ loaders }: any) {
+import { lazy, Suspense, useState } from 'react'
+import LoaderLoop from '@/components/projects/css-loaders'
+import SourceCodeModel from '@/components/projects/css-loaders/SourceCodeModel'
+export default function CSSLoaders({ loaders }: { loaders: LoaderType[] }) {
   const router = useRouter()
   const { loaderId } = router.query
+  const [sourceCode, setSourceCode] = useState<boolean>([false])
+  console.log(sourceCode, 'sourceCode')
 
   const onClose = () => {}
+  const onSourceCode = element => {
+    setSourceCode(val => {
+      if (val[0] === false) {
+        return [true, element]
+      }
+      return [false]
+    })
+  }
+
+  const onSourceClose = () => {
+    setSourceCode([false])
+  }
   return (
     <article className="prose lg:prose-md  prose-h1:leading-none  prose-h1:mb-0  text-center   px-4 py-5 mt-7  max-w-full">
       <div className="max-w-[900px] mx-auto w-full ">
@@ -22,29 +38,39 @@ export default function CSSLoaders({ loaders }: any) {
       <CustomizeLoader />
 
       <br />
-
+      <br />
+      {sourceCode[0] && (
+        <SourceCodeModel
+          open={sourceCode[0]}
+          close={onSourceClose}
+          loader={sourceCode[1]}
+        />
+      )}
+      
       {loaderId && <LoaderModel loaders={loaders} onClose={onClose} />}
 
       <div className="transition-all grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full  mx-auto">
-        <Suspense fallback="Loader...">
-          {LOADER.map(item => (
+        {loaders.map(item => (
+          <Suspense fallback="Loading..." key={item.id}>
             <LoaderLoop
               key={item.id}
               html={item.html}
               id={item.id}
               css={item.css}
+              onCode={onSourceCode}
             />
-          ))}
-        </Suspense>
+          </Suspense>
+        ))}
       </div>
     </article>
   )
 }
 
 export async function getStaticProps() {
+  const response = LOADER
   return {
     props: {
-      loaders: LOADER,
+      loaders: response,
     },
   }
 }

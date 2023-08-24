@@ -30,7 +30,7 @@ interface CustomizeLoader {
 
 const CustomizeLoader: FC<CustomizeLoader> = () => {
   const [state, setState] = useState<DefaultLoaderType>(DEFAULT_SETTINGS)
-console.log(state,'state')
+  console.log(state, 'state')
   useEffect(() => {
     var style = getComputedStyle(document.body)
     setState(
@@ -113,99 +113,310 @@ console.log(state,'state')
     )
   }
 
-  const formControl = 'flex flex-col text-left grow '
-  const buttonGroup = 'btn-group drop-shadow'
+  const formControl = 'flex flex-col text-left grow sm:grow-0 '
+  const buttonGroup = 'btn-group1 join drop-shadow'
+
+  const wrapper =
+    'flex flex-wrap gap-x-3 gap-y-3 md:gap-x-5 md:gap-y-5 justify-center mx-auto w-full'
+
   return (
-    <div className="flex gap-x-10 gap-y-5 justify-center z-50 py-4 flex-wrap mx-auto max-w-[900px] ">
-      <div className={formControl}>
-        <label htmlFor="size">Size</label>
+    <>
+      <div className="mx-auto max-w-[1000px] flex gap-3">
+        <div className={wrapper}>
+          <div className={formControl}>
+            <label htmlFor="size">Size</label>
 
-        <div className={buttonGroup}>
-          {LOADER_SIZES.map(item => {
-            return (
-              <ButtonSize
-                id={'size-' + item}
-                active={state.size === item.size + 'px'}
-                onClick={() => handleRange(item.size)}
-                key={item.label}
-                label={item.label}
-              />
-            )
-          })}
-        </div>
-      </div>
-      <div className={formControl}>
-        <label htmlFor="border-size">Border size</label>
+            <div className={buttonGroup}>
+              {LOADER_SIZES.map(item => {
+                return (
+                  <ButtonSize
+                    id={'size-' + item}
+                    active={state.size === item.size + 'px'}
+                    onClick={() => handleRange(item.size)}
+                    key={item.label}
+                    label={item.label}
+                    title={item.title}
+                  />
+                )
+              })}
+            </div>
+          </div>
+          <div className={formControl}>
+            <label htmlFor="border-size">Border size</label>
 
-        <div className={buttonGroup}>
-          {LOADER_BORDER_SIZES.map(item => {
-            return (
-              <ButtonSize
-                id={'border-size-' + item}
-                active={state.border === item.size + 'px'}
-                onClick={() => handleBorder(item.size)}
-                key={item.label}
-                label={item.label}
-              />
-            )
-          })}
-        </div>
-      </div>
-      <div className={formControl}>
-        <label htmlFor="border-size">Loader speed</label>
+            <div className={buttonGroup}>
+              {LOADER_BORDER_SIZES.map(item => {
+                return (
+                  <ButtonSize
+                    id={'border-size-' + item}
+                    active={state.border === item.size + 'px'}
+                    onClick={() => handleBorder(item.size)}
+                    key={item.label}
+                    label={item.label}
+                    title={item.title}
+                  />
+                )
+              })}
+            </div>
+          </div>
+          <div className={formControl}>
+            <label htmlFor="border-size">Loader speed</label>
 
-        <div className={buttonGroup}>
-          {LOADER_SPEED.map(item => {
-            return (
-              <ButtonSize
-                id={'loader-size-' + item}
-                active={state.speed === item.size + 's'}
-                onClick={() => handleSpeed(item.size)}
-                key={item.label}
-                label={item.label}
-              />
-            )
-          })}
-        </div>
-      </div>
-      <div className={formControl}>
-        <label htmlFor="primaryColor">Primary Color</label>
+            <div className={buttonGroup}>
+              {LOADER_SPEED.map(item => {
+                return (
+                  <ButtonSize
+                    id={'loader-size-' + item}
+                    active={state.speed === item.size + 's'}
+                    onClick={() => handleSpeed(item.size)}
+                    key={item.label}
+                    label={item.label}
+                    title={item.title}
+                  />
+                )
+              })}
+            </div>
+          </div>
+          <div className={formControl}>
+            <label htmlFor="primaryColor">Primary Color</label>
 
-        <ColorPickerButton
-          value={state.primaryColor}
-          onChange={handlePrimayColor}
-        />
-      </div>
-      <div className={formControl}>
-        <label htmlFor="secodaryColor">Secodary Color</label>
-
-        <ColorPickerButton
-          value={state.secondaryColor}
-          onChange={handleSecondaryColor}
-        />
-      </div>
-
-      <div className={formControl}>
-        <label htmlFor="secodaryColor">Reset</label>
-
-        <button className="btn" onClick={onResetForm}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
+            <ColorPickerButton
+              value={state.primaryColor}
+              onChange={handlePrimayColor}
             />
-          </svg>
-        </button>
+          </div>
+          <div className={formControl}>
+            <label htmlFor="secodaryColor">Secodary Color</label>
+
+            <ColorPickerButton
+              value={state.secondaryColor}
+              onChange={handleSecondaryColor}
+            />
+          </div>
+          <div className={formControl}>
+            <label htmlFor="secodaryColor">Reset</label>
+
+            <div className="tooltip mr-auto" data-tip="Reset">
+              <button
+                className="btn btn-primary text-white"
+                onClick={onResetForm}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        {/* <div className={wrapper}>
+        
+        </div> */}
       </div>
-    </div>
+      {/* <div className="mx-auto max-w-[1250px] flex gap-5">
+        <div className={wrapper}>
+          <div className={formControl}>
+            <label htmlFor="size">Size</label>
+
+            <div className={buttonGroup}>
+              {LOADER_SIZES.map(item => {
+                return (
+                  <ButtonSize
+                    id={'size-' + item}
+                    active={state.size === item.size + 'px'}
+                    onClick={() => handleRange(item.size)}
+                    key={item.label}
+                    label={item.label}
+                    title={item.title}
+                  />
+                )
+              })}
+            </div>
+          </div>
+          <div className={formControl}>
+            <label htmlFor="border-size">Border size</label>
+
+            <div className={buttonGroup}>
+              {LOADER_BORDER_SIZES.map(item => {
+                return (
+                  <ButtonSize
+                    id={'border-size-' + item}
+                    active={state.border === item.size + 'px'}
+                    onClick={() => handleBorder(item.size)}
+                    key={item.label}
+                    label={item.label}
+                    title={item.title}
+                  />
+                )
+              })}
+            </div>
+          </div>
+          <div className={formControl}>
+            <label htmlFor="border-size">Loader speed</label>
+
+            <div className={buttonGroup}>
+              {LOADER_SPEED.map(item => {
+                return (
+                  <ButtonSize
+                    id={'loader-size-' + item}
+                    active={state.speed === item.size + 's'}
+                    onClick={() => handleSpeed(item.size)}
+                    key={item.label}
+                    label={item.label}
+                    title={item.title}
+                  />
+                )
+              })}
+            </div>
+          </div>
+        </div>
+        <div className={wrapper}>
+          <div className={formControl}>
+            <label htmlFor="primaryColor">Primary Color</label>
+
+            <ColorPickerButton
+              value={state.primaryColor}
+              onChange={handlePrimayColor}
+            />
+          </div>
+          <div className={formControl}>
+            <label htmlFor="secodaryColor">Secodary Color</label>
+
+            <ColorPickerButton
+              value={state.secondaryColor}
+              onChange={handleSecondaryColor}
+            />
+          </div>
+          <div className={formControl}>
+            <label htmlFor="secodaryColor">Reset</label>
+
+            <div className="tooltip" data-tip="Reset">
+              <button
+                className="btn btn-primary text-white"
+                onClick={onResetForm}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div> */}
+
+      {/* ssd */}
+      {/* <div className="flex gap-x-10 gap-y-5 justify-center z-50 py-4 flex-wrap mx-auto max-w-[900px] ">
+        <div className={formControl}>
+          <label htmlFor="size">Size</label>
+
+          <div className={buttonGroup}>
+            {LOADER_SIZES.map(item => {
+              return (
+                <ButtonSize
+                  id={'size-' + item}
+                  active={state.size === item.size + 'px'}
+                  onClick={() => handleRange(item.size)}
+                  key={item.label}
+                  label={item.label}
+                />
+              )
+            })}
+          </div>
+        </div>
+        <div className={formControl}>
+          <label htmlFor="border-size">Border size</label>
+
+          <div className={buttonGroup}>
+            {LOADER_BORDER_SIZES.map(item => {
+              return (
+                <ButtonSize
+                  id={'border-size-' + item}
+                  active={state.border === item.size + 'px'}
+                  onClick={() => handleBorder(item.size)}
+                  key={item.label}
+                  label={item.label}
+                />
+              )
+            })}
+          </div>
+        </div>
+        <div className={formControl}>
+          <label htmlFor="border-size">Loader speed</label>
+
+          <div className={buttonGroup}>
+            {LOADER_SPEED.map(item => {
+              return (
+                <ButtonSize
+                  id={'loader-size-' + item}
+                  active={state.speed === item.size + 's'}
+                  onClick={() => handleSpeed(item.size)}
+                  key={item.label}
+                  label={item.label}
+                />
+              )
+            })}
+          </div>
+        </div>
+        <div className={formControl}>
+          <label htmlFor="primaryColor">Primary Color</label>
+
+          <ColorPickerButton
+            value={state.primaryColor}
+            onChange={handlePrimayColor}
+          />
+        </div>
+        <div className={formControl}>
+          <label htmlFor="secodaryColor">Secodary Color</label>
+
+          <ColorPickerButton
+            value={state.secondaryColor}
+            onChange={handleSecondaryColor}
+          />
+        </div>
+
+        <div className={formControl}>
+          <label htmlFor="secodaryColor">Reset</label>
+
+          <button className="btn" onClick={onResetForm}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
+              />
+            </svg>
+          </button>
+        </div>
+      </div> */}
+    </>
   )
 }
 export default CustomizeLoader
@@ -215,19 +426,26 @@ const ButtonSize = ({
   onClick,
   label,
   active,
+  title,
 }: {
   id: string
   active: boolean
   onClick: () => void
   label: string
+  title: string
 }) => {
   return (
-    <button
-      id={id}
-      className={cn(active && 'btn-active', 'btn aspect-square')}
-      onClick={onClick}
-    >
-      {label}
-    </button>
+    <div className="grow tooltip" data-tip={title}>
+      <button
+        id={id}
+        className={cn(
+          active && 'btn-active btn-primary text-white',
+          'btn join-item aspect-square w-full',
+        )}
+        onClick={onClick}
+      >
+        {label}
+      </button>
+    </div>
   )
 }

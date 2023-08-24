@@ -8,6 +8,7 @@ export interface DefaultLoaderType {
   primaryColor: string
   secondaryColor: string
   border: string
+  speed: string
 }
 
 export interface LoaderType {

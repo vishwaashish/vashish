@@ -55,12 +55,27 @@ export const LOADER_BORDER_SIZES: LoaderSizeType[] = [
     label: 'L',
   },
 ]
+export const LOADER_SPEED: LoaderSizeType[] = [
+  {
+    size: 1.5,
+    label: 'S',
+  },
+  {
+    size: 1,
+    label: 'M',
+  },
+  {
+    size: 0.5,
+    label: 'L',
+  },
+]
 
 export const DEFAULT_SETTINGS: DefaultLoaderType = {
   size: '48px',
-  primaryColor: '#ff0000',
-  secondaryColor: '#ffffff',
+  primaryColor: '--p',
+  secondaryColor: '--nc',
   border: '5px',
+  speed: '1s',
 }
 
 export const containerStyle = {
@@ -146,7 +161,7 @@ export const LOADER: LoaderType[] = [
       border-radius: 50%;
       display: inline-block;
       box-sizing: border-box;
-      animation: rotation 1s linear infinite;
+      animation: rotation var(--loader-speed) linear infinite;
     }
     
     @keyframes rotation {
@@ -170,7 +185,7 @@ export const LOADER: LoaderType[] = [
       border-radius: 50%;
       display: inline-block;
       box-sizing: border-box;
-      animation: rotation2 1s linear infinite;
+      animation: rotation2 var(--loader-speed) linear infinite;
   }
   
   @keyframes rotation2 {
@@ -191,7 +206,7 @@ export const LOADER: LoaderType[] = [
       height: var(--loader-width);
       border-radius: 50%;
       position: relative;
-      animation: rotate3 1s linear infinite;
+      animation: rotate3 var(--loader-speed) linear infinite;
    }
 
 
@@ -239,7 +254,7 @@ export const LOADER: LoaderType[] = [
       height: var(--loader-width);
       border-radius: 50%;
       position: relative;
-      animation: rotate4 1s linear infinite;
+      animation: rotate4 var(--loader-speed) linear infinite;
    }
     .loader4::before {
       content: '';
@@ -282,7 +297,7 @@ export const LOADER: LoaderType[] = [
       height: var(--loader-width);
       border-radius: 50%;
       position: relative;
-      animation: rotate5 1s linear infinite;
+      animation: rotate5 var(--loader-speed) linear infinite;
    }
     .loader5::before, .loader5::after {
       content: '';
@@ -327,7 +342,7 @@ export const LOADER: LoaderType[] = [
       height: var(--loader-width);
       border-radius: 50%;
       position: relative;
-      animation: rotate6 1s linear infinite;
+      animation: rotate6 var(--loader-speed) linear infinite;
    }
     .loader6::before, .loader6::after {
       content: "";
@@ -381,7 +396,7 @@ export const LOADER: LoaderType[] = [
       display: inline-block;
       position: relative;
       box-sizing: border-box;
-      animation: rotation7 1s linear infinite;
+      animation: rotation7 var(--loader-speed) linear infinite;
    }
     .loader7::after {
       content: '';
@@ -417,7 +432,7 @@ export const LOADER: LoaderType[] = [
       border-top: var(--loader-border) solid var(--loader-secondary);
       border-right: var(--loader-border) solid transparent;
       box-sizing: border-box;
-      animation: rotation8 1s linear infinite;
+      animation: rotation8 var(--loader-speed) linear infinite;
     }
     
     @keyframes rotation8 {
@@ -441,7 +456,7 @@ export const LOADER: LoaderType[] = [
       display: inline-block;
       position: relative;
       box-sizing: border-box;
-      animation: rotation9 1s linear infinite;
+      animation: rotation9 var(--loader-speed) linear infinite;
     }
     .loader9::after {
       content: '';
@@ -478,7 +493,7 @@ export const LOADER: LoaderType[] = [
       display: inline-block;
       position: relative;
       box-sizing: border-box;
-      animation: rotation10 1s linear infinite;
+      animation: rotation10 var(--loader-speed) linear infinite;
     }
     .loader10::after {
       content: '';
@@ -515,7 +530,7 @@ export const LOADER: LoaderType[] = [
       display: inline-block;
       position: relative;
       box-sizing: border-box;
-      animation: rotation11 1s linear infinite;
+      animation: rotation11 var(--loader-speed) linear infinite;
     }
     .loader11::after,
     .loader11::before {
@@ -559,7 +574,7 @@ export const LOADER: LoaderType[] = [
       display: inline-block;
       position: relative;
       box-sizing: border-box;
-      animation: rotation12 1s linear infinite;
+      animation: rotation12 var(--loader-speed) linear infinite;
     }
     .loader12::after,
     .loader12::before {
@@ -601,7 +616,7 @@ export const LOADER: LoaderType[] = [
       display: inline-block;
       position: relative;
       box-sizing: border-box;
-      animation: rotation13 1s linear infinite;
+      animation: rotation13 var(--loader-speed) linear infinite;
     }
     .loader13::after {
       content: '';
@@ -638,7 +653,7 @@ export const LOADER: LoaderType[] = [
       border: var(--loader-border) solid;
       border-color: var(--loader-secondary) var(--loader-secondary) transparent;
       box-sizing: border-box;
-      animation: rotation14 1s linear infinite;
+      animation: rotation14 var(--loader-speed) linear infinite;
     }
     .loader14::after {
       content: '';
@@ -689,7 +704,7 @@ export const LOADER: LoaderType[] = [
       border: var(--loader-border) solid;
       border-color: var(--loader-secondary) var(--loader-secondary) transparent transparent;
       box-sizing: border-box;
-      animation: rotation15 1s linear infinite;
+      animation: rotation15 var(--loader-speed) linear infinite;
     }
     .loader15::after,
     .loader15::before {
@@ -763,7 +778,7 @@ export const LOADER: LoaderType[] = [
       width: calc(var(--loader-width) - 15px);
       height: calc(var(--loader-width) - 15px);
       border-radius: 50%;
-      animation: rotationBack16 1s linear infinite;
+      animation: rotationBack16 var(--loader-speed) linear infinite;
       transform-origin: center center;
     }
     
@@ -796,7 +811,7 @@ export const LOADER: LoaderType[] = [
       display: inline-block;
       position: relative;
       box-sizing: border-box;
-      animation: rotation17 1s linear infinite;
+      animation: rotation17 var(--loader-speed) linear infinite;
     }
     .loader17::after {
       content: '';  
@@ -1019,8 +1034,8 @@ export const LOADER: LoaderType[] = [
       border-radius: 50%;
       position: relative;
       text-indent: -9999em;
-      animation: mulShdSpin20 1.1s infinite ease;
-      animation: mulShdSpin20 1.1s infinite ease;
+      animation: mulShdSpin20 1.var(--loader-speed) infinite ease;
+      animation: mulShdSpin20 1.var(--loader-speed) infinite ease;
       transform: translateZ(0);
     }
     @keyframes mulShdSpin20 {
@@ -1127,7 +1142,7 @@ export const LOADER: LoaderType[] = [
       position: relative;
       background: linear-gradient(0deg, rgba(255, 61, 0, 0.2) 33%, var(--loader-primary) 100%);
       box-sizing: border-box;
-      animation: rotation21 1s linear infinite;
+      animation: rotation21 var(--loader-speed) linear infinite;
     }
     .loader21::after {
       content: '';  
@@ -1157,7 +1172,7 @@ export const LOADER: LoaderType[] = [
       border-top: var(--loader-border) solid var(--loader-secondary);
       border-right: var(--loader-border) solid transparent;
       box-sizing: border-box;
-      animation: rotation22 1s linear infinite;
+      animation: rotation22 var(--loader-speed) linear infinite;
     }
     .loader22::after {
       content: '';
@@ -1193,7 +1208,7 @@ export const LOADER: LoaderType[] = [
       border-radius: 50%;
       display: inline-block;
       box-sizing: border-box;
-      animation: rotation23 1s linear infinite;
+      animation: rotation23 var(--loader-speed) linear infinite;
     }
     
     @keyframes rotation23 {
@@ -1219,7 +1234,7 @@ export const LOADER: LoaderType[] = [
       border-color: rgba(216, 221, 228,0.15) rgba(216, 221, 228, 0.5)
         rgba(216, 221, 228, 0.6)  rgba(216, 221, 228, 0.8);
       box-sizing: border-box;
-      animation: rotation24 1s linear infinite;
+      animation: rotation24 var(--loader-speed) linear infinite;
     }
     
     @keyframes rotation24 {

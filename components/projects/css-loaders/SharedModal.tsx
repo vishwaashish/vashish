@@ -1,13 +1,12 @@
+import { LOADER } from '@/common/loaders-constants'
 import { cn } from '@/components/utils'
+import { LoaderType } from '@/types/css-loaders.model'
 import { AnimatePresence, motion, MotionConfig } from 'framer-motion'
 import _ from 'lodash'
 import dynamic from 'next/dynamic'
 import { useEffect, useState } from 'react'
 import { useSwipeable } from 'react-swipeable'
 import SourceCodeModel from './SourceCodeModel'
-import { LoaderType } from '@/types/css-loaders.model'
-import { LoaderIcon } from 'react-hot-toast'
-import { LOADER } from '@/common/loaders-constants'
 
 const InnerHTML = dynamic(
   () => import('@/components/shared/element/InnerHtml'),
@@ -31,13 +30,13 @@ export const range = (start: number, end: number) => {
 const visibeLoader = 15
 
 interface SharedModal {
-  index: number,
-  changeLoaderId: (arg: number) => void,
-  closeModal: () => void,
-  navigation: boolean,
-  currentPhoto?: LoaderType,
+  index: number
+  changeLoaderId: (arg: number) => void
+  closeModal: () => void
+  navigation: boolean
+  currentPhoto?: LoaderType
   // loaders?: LoaderType[],
-  direction?: number,
+  direction?: number
   loaders?: LoaderType[]
 }
 
@@ -50,7 +49,6 @@ export default function SharedModal({
   currentPhoto,
   direction = 0,
 }: SharedModal) {
-
   const [activeLoader, setActiveLoader] = useState<LoaderType>(LOADER[0])
   // let filteredImages = loaders
   let filteredImages = loaders?.filter((img: any) =>
@@ -82,7 +80,6 @@ export default function SharedModal({
 
   const buttonClass = 'btn btn-circle btn-md'
 
-
   const onSourceCode = () => {
     setSourceCode(val => !val)
   }
@@ -102,7 +99,7 @@ export default function SharedModal({
     } else if (currentPhoto) {
       currentPhoto && setActiveLoader(currentPhoto)
     }
-  }, [])
+  }, [currentPhoto, loaders, index])
 
   return (
     <MotionConfig
@@ -269,7 +266,6 @@ export default function SharedModal({
             <motion.div
               initial={false}
               className=" transition-all translate-x-1/3 mx-auto mt-6 mb-6 flex aspect-[3/2] h-[70px] "
-
             >
               <AnimatePresence initial={true}>
                 {filteredImages.map(({ id, html, css }: any) => {
@@ -311,7 +307,7 @@ export default function SharedModal({
                       className={cn(
                         'aspect-[3/2]  flex justify-center items-center overflow-hidden focus:outline-none z-10',
                         id === index &&
-                        'z-20 rounded-md shadow shadow-black/50',
+                          'z-20 rounded-md shadow shadow-black/50',
                         id === 0 && 'rounded-l-md',
                       )}
                     >

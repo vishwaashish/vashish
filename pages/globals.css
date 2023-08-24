@@ -5,6 +5,7 @@
   --loader-secondary: hsl(var(--nc));
   --loader-border: 5px;
   --loader-width: 48px;
+  --loader-speed: 1s;
 }
 :root {
   /* --maindark: #171717;

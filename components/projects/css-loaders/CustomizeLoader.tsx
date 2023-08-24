@@ -2,72 +2,26 @@ import {
   DEFAULT_SETTINGS,
   LOADER_BORDER_SIZES,
   LOADER_SIZES,
+  LOADER_SPEED,
 } from '@/common/loaders-constants'
 import { cn } from '@/components/utils'
+import { hslStringToHex } from '@/components/utils/text'
 import { DefaultLoaderType } from '@/types/css-loaders.model'
-import { calcLength } from 'framer-motion'
+import dynamic from 'next/dynamic'
 import { FC, FormEvent, useEffect, useState } from 'react'
-function hslToHex(h: number, s: number, l: number) {
-  h = ((h % 360) + 360) % 360 // Ensure h is within [0, 360)
-  s = Math.min(100, Math.max(0, s)) // Clamp s within [0, 100]
-  l = Math.min(100, Math.max(0, l)) // Clamp l within [0, 100]
+const ColorPickerButton = dynamic(
+  () => import('@/components/shared/element/ColorPickerButton'),
+  { ssr: false },
+)
 
-  const c = ((1 - Math.abs((2 * l) / 100 - 1)) * s) / 100
-  const x = c * (1 - Math.abs(((h / 60) % 2) - 1))
-  const m = l / 100 - c / 2
-
-  let r, g, b
-
-  if (h >= 0 && h < 60) {
-    r = c
-    g = x
-    b = 0
-  } else if (h >= 60 && h < 120) {
-    r = x
-    g = c
-    b = 0
-  } else if (h >= 120 && h < 180) {
-    r = 0
-    g = c
-    b = x
-  } else if (h >= 180 && h < 240) {
-    r = 0
-    g = x
-    b = c
-  } else if (h >= 240 && h < 300) {
-    r = x
-    g = 0
-    b = c
-  } else {
-    r = c
-    g = 0
-    b = x
+const getColor = (obj: DefaultLoaderType) => {
+  return {
+    primaryColor: hslStringToHex(obj.primaryColor),
+    secondaryColor: hslStringToHex(obj.secondaryColor),
+    size: obj.size,
+    border: obj.border,
+    speed: obj.speed,
   }
-
-  const intR = Math.round((r + m) * 255)
-  const intG = Math.round((g + m) * 255)
-  const intB = Math.round((b + m) * 255)
-
-  const hexR = intR.toString(16).padStart(2, '0')
-  const hexG = intG.toString(16).padStart(2, '0')
-  const hexB = intB.toString(16).padStart(2, '0')
-
-  return `#${hexR}${hexG}${hexB}`
-}
-function hslStringToHex(value: string) {
-  const hslRegex = /hsl\(\s*(\d+)\s+(\d+)\%\s+(\d+)\%\s*\)/
-  const match = value.match(hslRegex)
-
-  if (!match) {
-    return value
-  }
-
-  const hue = parseInt(match[1])
-  const saturation = parseInt(match[2])
-  const lightness = parseInt(match[3])
-
-  const hexColor = hslToHex(hue, saturation, lightness)
-  return hexColor
 }
 
 interface CustomizeLoader {
@@ -76,17 +30,18 @@ interface CustomizeLoader {
 
 const CustomizeLoader: FC<CustomizeLoader> = () => {
   const [state, setState] = useState<DefaultLoaderType>(DEFAULT_SETTINGS)
-  console.log(state)
+console.log(state,'state')
   useEffect(() => {
     var style = getComputedStyle(document.body)
-    setState({
-      primaryColor: hslStringToHex(style.getPropertyValue('--loader-primary')),
-      secondaryColor: hslStringToHex(
-        style.getPropertyValue('--loader-secondary'),
-      ),
-      size: style.getPropertyValue('--loader-width'),
-      border: style.getPropertyValue('--loader-border'),
-    })
+    setState(
+      getColor({
+        primaryColor: style.getPropertyValue('--loader-primary'),
+        secondaryColor: style.getPropertyValue('--loader-secondary'),
+        size: style.getPropertyValue('--loader-width'),
+        border: style.getPropertyValue('--loader-border'),
+        speed: style.getPropertyValue('--loader-speed'),
+      }),
+    )
   }, [setState])
 
   const handleRange = (value: number) => {
@@ -98,54 +53,70 @@ const CustomizeLoader: FC<CustomizeLoader> = () => {
     document.documentElement.style.setProperty('--loader-border', value + 'px')
     setState((val: any) => ({ ...val, border: value + 'px' }))
   }
+  const handleSpeed = (value: number) => {
+    document.documentElement.style.setProperty('--loader-speed', value + 's')
+    setState((val: any) => ({ ...val, speed: value + 's' }))
+  }
 
   const handlePrimayColor = (e: FormEvent<HTMLInputElement>) => {
-    console.log(e.currentTarget.value, e.currentTarget.value)
-
-    document.documentElement.style.setProperty(
-      '--loader-primary',
-      e.currentTarget.value,
-    )
-    // setState((val: any) => ({ ...val, primaryColor: e.currentTarget.value }))
-  }
-  const handlePrimayChange = (e: FormEvent<HTMLInputElement>) => {
-    document.documentElement.style.setProperty(
-      '--loader-primary',
-      e.currentTarget.value,
-    )
-    setState((val: any) => ({ ...val, primaryColor: e.currentTarget.value }))
+    const value = e.currentTarget.value
+    document.documentElement.style.setProperty('--loader-primary', value)
+    setState(val => ({
+      ...val,
+      primaryColor: String(value),
+    }))
   }
   const handleSecondaryColor = (e: FormEvent<HTMLInputElement>) => {
-    document.documentElement.style.setProperty(
-      '--loader-secondary',
-      e.currentTarget.value,
-    )
-    setState((val: any) => ({ ...val, secondaryColor: e.currentTarget.value }))
+    const value = e.currentTarget.value
+    document.documentElement.style.setProperty('--loader-secondary', value)
+    setState((val: any) => ({ ...val, secondaryColor: value }))
   }
 
-  const onSubmit = (e: FormEvent<HTMLInputElement>) => {
-    e.preventDefault()
-  }
   const onResetForm = () => {
-    setState(DEFAULT_SETTINGS)
+    var style = getComputedStyle(document.body)
+
+    const primaryColor = `hsl(${style.getPropertyValue(
+      DEFAULT_SETTINGS.primaryColor,
+    )})`
+
+    const secondaryColor = `hsl(${style.getPropertyValue(
+      DEFAULT_SETTINGS.secondaryColor,
+    )})`
+
+    const setting = getColor({
+      primaryColor: primaryColor,
+      secondaryColor: secondaryColor,
+      size: DEFAULT_SETTINGS.size,
+      border: DEFAULT_SETTINGS.border,
+      speed: DEFAULT_SETTINGS.speed,
+    })
+
+    setState({
+      primaryColor: setting.primaryColor,
+      secondaryColor: setting.secondaryColor,
+      size: setting.size,
+      border: setting.border,
+      speed: setting.speed,
+    })
     document.documentElement.style.setProperty(
-      '--loader-width',
-      DEFAULT_SETTINGS.size,
+      '--loader-border',
+      setting.border,
     )
+    document.documentElement.style.setProperty('--loader-width', setting.size)
     document.documentElement.style.setProperty(
       '--loader-primary',
-      DEFAULT_SETTINGS.primaryColor,
+      setting.primaryColor,
     )
     document.documentElement.style.setProperty(
       '--loader-secondary',
-      DEFAULT_SETTINGS.secondaryColor,
+      setting.secondaryColor,
     )
   }
 
-  const formControl = 'text-left'
-  const buttonGroup = 'btn-group '
+  const formControl = 'flex flex-col text-left grow '
+  const buttonGroup = 'btn-group drop-shadow'
   return (
-    <div className="flex gap-2 justify-center">
+    <div className="flex gap-x-10 gap-y-5 justify-center z-50 py-4 flex-wrap mx-auto max-w-[900px] ">
       <div className={formControl}>
         <label htmlFor="size">Size</label>
 
@@ -181,85 +152,63 @@ const CustomizeLoader: FC<CustomizeLoader> = () => {
         </div>
       </div>
       <div className={formControl}>
+        <label htmlFor="border-size">Loader speed</label>
+
+        <div className={buttonGroup}>
+          {LOADER_SPEED.map(item => {
+            return (
+              <ButtonSize
+                id={'loader-size-' + item}
+                active={state.speed === item.size + 's'}
+                onClick={() => handleSpeed(item.size)}
+                key={item.label}
+                label={item.label}
+              />
+            )
+          })}
+        </div>
+      </div>
+      <div className={formControl}>
         <label htmlFor="primaryColor">Primary Color</label>
 
-        <div className="join">
-          <div>
-            <div>
-              <input
-                className="input input-bordered join-item p-0 m-0 appearance-none "
-                placeholder="Search"
-                type="color"
-              />
-              <style>
-                {`
-          input[type="color"]::-webkit-color-swatch-wrapper {
-            border-radius: 50px;
-            padding: 0;
-          
-          input[type="color"]::-webkit-color-swatch {
-            border: none;
-            border-radius: 50px;
-          }
-        `}
-              </style>
-            </div>
-          </div>
-          <div className="">
-            <button className="btn join-item">Search</button>
-          </div>
-        </div>
-        {/* <label
-          htmlFor="primaryColor"
-          className="relative w-fullflex btn p-0 pr-5"
-          // value={state?.primaryColor}
-          // onChange={handlePrimayChange}
-        >
-          <input
-            id="primaryColor"
-            type="color"
-            className="btn p-0 absolute  invisible w-full"
-            // value={state?.primaryColor}
-            value={'#fff0'}
-            onChange={handlePrimayColor}
-          />
-
-          <div
-            className={cn('w-16 h-full rounded', `bg-[${state.primaryColor}]`)}
-            // style={{
-            //   background: state?.primaryColor,
-            // }}
-          ></div>
-
-          <label htmlFor="primaryColor" className=" transition-none ">
-            {state?.primaryColor}
-          </label>
-        </label> */}
+        <ColorPickerButton
+          value={state.primaryColor}
+          onChange={handlePrimayColor}
+        />
       </div>
       <div className={formControl}>
         <label htmlFor="secodaryColor">Secodary Color</label>
-        <div className="form-group">
-          <input
-            id="secodaryColor"
-            type="color"
-            value={state?.secondaryColor}
-            onChange={handleSecondaryColor}
-          />
-          <input
-            type="text"
-            value={state?.secondaryColor}
-            onChange={handleSecondaryColor}
-          />
-        </div>
+
+        <ColorPickerButton
+          value={state.secondaryColor}
+          onChange={handleSecondaryColor}
+        />
+      </div>
+
+      <div className={formControl}>
+        <label htmlFor="secodaryColor">Reset</label>
+
+        <button className="btn" onClick={onResetForm}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
+            />
+          </svg>
+        </button>
       </div>
     </div>
   )
 }
 export default CustomizeLoader
-
-const Select = () => {
-  return <></>
-}
 
 const ButtonSize = ({
   id,
@@ -275,7 +224,7 @@ const ButtonSize = ({
   return (
     <button
       id={id}
-      className={cn(active && 'btn-active', 'btn')}
+      className={cn(active && 'btn-active', 'btn aspect-square')}
       onClick={onClick}
     >
       {label}

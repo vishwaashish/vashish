@@ -9,20 +9,26 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   plugins: [require('@tailwindcss/typography'), require('daisyui')],
-  // darkMode: "class",
-
   daisyui: {
     themes: [
       'light',
-      'dark',
-      'cupcake',
-      'wireframe',
-      'dracula',
+      // {
+      //   dark: {
+      //     ...require('daisyui/src/theming/themes')['[data-theme=dark]'],
+      //   },
+      // },
+      // 'cupcake',
+      // 'wireframe',
+      // 'dracula',
       {
-        night: {
-          ...require('daisyui/src/theming/themes')['[data-theme=night]'],
+        dracula: {
+          ...require('daisyui/src/theming/themes')['[data-theme=dracula]'],
+          primary: 'hsl(259 94% 51%)',
         },
       },
+      // 'night',
+      // 'black',
+      // 'business',
     ], // true: all themes | false: only light + dark | array: specific themes like this ["light", "dark", "cupcake"]
     darkTheme: 'light', // name of one of the included themes for dark mode
     base: true, // applies background color and foreground color for root element by default
@@ -32,17 +38,5 @@ module.exports = {
     prefix: '', // prefix for daisyUI classnames (components, modifiers and responsive class names. Not colors)
     logs: true, // Shows info about daisyUI version and used config in the console when building your CSS
   },
-  theme: {
-    // extend: {
-    //   colors: {
-    //     // primary: 'var(--primary)',
-    //     maindark: 'var(--maindark)',
-    //     dark: 'var(--dark)',
-    //     darker: 'var(--darker)',
-    //     semidark: 'var(--semidark)',
-    //     grey: 'var(--grey)',
-    //     offwhite: 'var(--offwhite)',
-    //   },
-    // },
-  },
+  theme: {},
 }

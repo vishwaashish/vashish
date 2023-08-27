@@ -6,9 +6,10 @@ import {
 } from '@/common/loaders-constants'
 import { cn } from '@/components/utils'
 import { hslStringToHex } from '@/components/utils/text'
-import { DefaultLoaderType } from '@/types/css-loaders.model'
+import { DefaultLoaderType, InputSizeType } from '@/types/css-loaders.model'
 import dynamic from 'next/dynamic'
-import { FC, FormEvent, useEffect, useState } from 'react'
+import { FC, FormEvent, memo, useEffect, useState } from 'react'
+import { InputType } from 'zlib'
 const ColorPickerButton = dynamic(
   () => import('@/components/shared/element/ColorPickerButton'),
   { ssr: false },
@@ -26,9 +27,10 @@ const getColor = (obj: DefaultLoaderType) => {
 
 interface CustomizeLoader {
   // Add your interface properties here
+  size?: InputSizeType
 }
 
-const CustomizeLoader: FC<CustomizeLoader> = () => {
+const CustomizeLoader: FC<CustomizeLoader> = ({ size = 'btn-md' }) => {
   const [state, setState] = useState<DefaultLoaderType>(DEFAULT_SETTINGS)
   console.log(state, 'state')
   useEffect(() => {
@@ -136,6 +138,7 @@ const CustomizeLoader: FC<CustomizeLoader> = () => {
                     key={item.label}
                     label={item.label}
                     title={item.title}
+                    size={size}
                   />
                 )
               })}
@@ -154,6 +157,7 @@ const CustomizeLoader: FC<CustomizeLoader> = () => {
                     key={item.label}
                     label={item.label}
                     title={item.title}
+                    size={size}
                   />
                 )
               })}
@@ -172,6 +176,7 @@ const CustomizeLoader: FC<CustomizeLoader> = () => {
                     key={item.label}
                     label={item.label}
                     title={item.title}
+                    size={size}
                   />
                 )
               })}
@@ -183,6 +188,7 @@ const CustomizeLoader: FC<CustomizeLoader> = () => {
             <ColorPickerButton
               value={state.primaryColor}
               onChange={handlePrimayColor}
+              size={size}
             />
           </div>
           <div className={formControl}>
@@ -191,6 +197,7 @@ const CustomizeLoader: FC<CustomizeLoader> = () => {
             <ColorPickerButton
               value={state.secondaryColor}
               onChange={handleSecondaryColor}
+              size={size}
             />
           </div>
           <div className={formControl}>
@@ -198,7 +205,7 @@ const CustomizeLoader: FC<CustomizeLoader> = () => {
 
             <div className="tooltip mr-auto" data-tip="Reset">
               <button
-                className="btn btn-primary text-white"
+                className={cn('btn btn-primary group  text-white', size)}
                 onClick={onResetForm}
               >
                 <svg
@@ -207,7 +214,7 @@ const CustomizeLoader: FC<CustomizeLoader> = () => {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-6 h-6"
+                  className="w-6 h-6 group-hover:animate-spin"
                 >
                   <path
                     strokeLinecap="round"
@@ -419,7 +426,7 @@ const CustomizeLoader: FC<CustomizeLoader> = () => {
     </>
   )
 }
-export default CustomizeLoader
+export default memo(CustomizeLoader)
 
 const ButtonSize = ({
   id,
@@ -427,12 +434,14 @@ const ButtonSize = ({
   label,
   active,
   title,
+  size = 'btn-md',
 }: {
   id: string
   active: boolean
   onClick: () => void
   label: string
   title: string
+  size: InputSizeType
 }) => {
   return (
     <div className="grow tooltip" data-tip={title}>
@@ -441,6 +450,7 @@ const ButtonSize = ({
         className={cn(
           active && 'btn-active btn-primary text-white',
           'btn join-item aspect-square w-full',
+          size,
         )}
         onClick={onClick}
       >

@@ -6,15 +6,15 @@ import { useRouter } from 'next/router'
 import { lazy, Suspense, useState } from 'react'
 import LoaderLoop from '@/components/projects/css-loaders'
 import SourceCodeModel from '@/components/projects/css-loaders/SourceCodeModel'
+
 export default function CSSLoaders({ loaders }: { loaders: LoaderType[] }) {
   const router = useRouter()
   const { loaderId } = router.query
-  const [sourceCode, setSourceCode] = useState<boolean>([false])
-  console.log(sourceCode, 'sourceCode')
+  const [sourceCode, setSourceCode] = useState<any>([false])
 
   const onClose = () => {}
-  const onSourceCode = element => {
-    setSourceCode(val => {
+  const onSourceCode = (element: LoaderType) => {
+    setSourceCode((val: any) => {
       if (val[0] === false) {
         return [true, element]
       }
@@ -23,7 +23,7 @@ export default function CSSLoaders({ loaders }: { loaders: LoaderType[] }) {
   }
 
   const onSourceClose = () => {
-    setSourceCode([false])
+    setSourceCode([false, {}])
   }
   return (
     <article className="prose lg:prose-md  prose-h1:leading-none  prose-h1:mb-0  text-center   px-4 py-5 mt-7  max-w-full">
@@ -46,22 +46,24 @@ export default function CSSLoaders({ loaders }: { loaders: LoaderType[] }) {
           loader={sourceCode[1]}
         />
       )}
-      
+
       {loaderId && <LoaderModel loaders={loaders} onClose={onClose} />}
 
-      <div className="transition-all grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full  mx-auto">
-        {loaders.map(item => (
-          <Suspense fallback="Loading..." key={item.id}>
-            <LoaderLoop
-              key={item.id}
-              html={item.html}
-              id={item.id}
-              css={item.css}
-              onCode={onSourceCode}
-            />
-          </Suspense>
-        ))}
-      </div>
+      <Suspense fallback="Loading...">
+        <div className="transition-all grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full  mx-auto">
+          {loaders.map(item => (
+            <Suspense fallback="Loading..." key={item.id}>
+              <LoaderLoop
+                key={item.id}
+                html={item.html}
+                id={item.id}
+                css={item.css}
+                onCode={onSourceCode}
+              />
+            </Suspense>
+          ))}
+        </div>
+      </Suspense>
     </article>
   )
 }

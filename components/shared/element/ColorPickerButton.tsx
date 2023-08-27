@@ -1,13 +1,16 @@
 import { cn } from '@/components/utils'
 import { copyText } from '@/components/utils/text'
+import { InputSizeType } from '@/types/css-loaders.model'
 import { useEffect, useState } from 'react'
 
 const ColorPickerButton = ({
   onChange,
   value,
+  size = 'btn-md',
 }: {
   value: string
   onChange: any
+  size: InputSizeType
 }) => {
   const [copied, setCopied] = useState(false)
 
@@ -28,7 +31,10 @@ const ColorPickerButton = ({
     <div className="join shadow border-primary">
       <input
         type="color"
-        className="p-0 no-animation border-0 btn join-item appearance-none"
+        className={cn(
+          'p-0 no-animation border-0 btn join-item appearance-none',
+          size,
+        )}
         value={value}
         onChange={onChange}
       />
@@ -52,8 +58,9 @@ const ColorPickerButton = ({
 
       <button
         className={cn(
-          'btn join-item swap swap-flip min-w-[100px] border-0 border-l-2 border-neutral-content grow',
+          'btn  join-item swap swap-flip min-w-[100px] border-0 border-l-2 border-neutral-content grow',
           copied && 'swap-active',
+          size,
         )}
         onClick={onCopy}
       >

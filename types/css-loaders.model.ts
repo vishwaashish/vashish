@@ -17,3 +17,5 @@ export interface LoaderType {
   html: string
   css: string
 }
+
+export type InputSizeType = 'btn-sm' | 'btn-md' | 'btn-lg'

@@ -1,7 +1,7 @@
 import { copyText } from '@/components/utils/text'
+import SyntaxHighlighter from 'react-syntax-highlighter'
 import { Dialog } from '@headlessui/react'
 import { FC, useEffect, useState } from 'react'
-import SyntaxHighlighter from 'react-syntax-highlighter'
 import { motion } from 'framer-motion'
 import { LoaderType } from '@/types/css-loaders.model'
 
@@ -10,11 +10,7 @@ interface SourceCodeModel {
   close: () => void
   loader: LoaderType
 }
-const SourceCodeModel: FC<SourceCodeModel> = ({
-  open,
-  close,
-  loader,
-}) => {
+const SourceCodeModel: FC<SourceCodeModel> = ({ open, close, loader }) => {
   const [rootString, setRootString] = useState('')
 
   useEffect(() => {

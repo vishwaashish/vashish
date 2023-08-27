@@ -1,7 +1,7 @@
 import { LoaderType } from '@/types/css-loaders.model'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import { FC, memo } from 'react'
+import { FC, FormEvent, memo } from 'react'
 
 const InnerHTML = dynamic(
   () => import('@/components/shared/element/InnerHtml'),
@@ -15,7 +15,7 @@ interface LoaderLoop extends LoaderType {
 }
 
 const LoadersLoop: FC<LoaderLoop> = ({ id, html, css, onCode }) => {
-  const handleChange = (e: Event<HTMLButtonElement>) => {
+  const handleChange = (e: FormEvent<HTMLButtonElement>) => {
     e.stopPropagation()
     e.preventDefault()
     onCode({
@@ -30,13 +30,7 @@ const LoadersLoop: FC<LoaderLoop> = ({ id, html, css, onCode }) => {
       href={`/css-loaders/?loaderId=${id}`}
       as={`/css-loaders/${id}`}
       key={String(id)}
-      // className="aspect-video w-full flex justify-center items-center card  shadow-base-200 hover:bg-base-200 border border-base-300"
-      // style={{
-      //   boxShadow:
-      //     'inset rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px',
-      // }}
-
-      className="group/item relative aspect-video w-full flex justify-center items-center btn btn-square rounded-lg bg-base-200 h-full shadow-inner"
+      className=" group/item transition-all relative aspect-video w-full flex justify-center items-center  rounded-lg bg-base-200 h-full shadow-inner  hover:shadow-[0_0_2px_4px_#570df8]"
     >
       <button
         className="group/edit invisible btn-outline btn-primary group-hover/item:visible btn btn-md btn-circle absolute right-2 top-2  "

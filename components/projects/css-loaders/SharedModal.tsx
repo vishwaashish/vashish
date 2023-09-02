@@ -1,13 +1,12 @@
 import { LOADER } from '@/common/loaders-constants'
 import { cn } from '@/components/utils'
+import { copyText } from '@/components/utils/text'
 import { LoaderType } from '@/types/css-loaders.model'
-import { AnimatePresence, motion, MotionConfig } from 'framer-motion'
+import { motion, MotionConfig } from 'framer-motion'
 import _ from 'lodash'
 import dynamic from 'next/dynamic'
 import { Suspense, useCallback, useEffect, useState } from 'react'
 import { useSwipeable } from 'react-swipeable'
-import SourceCodeModel from './SourceCodeModel'
-import { copyText } from '@/components/utils/text'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import CustomizeLoader from './CustomizeLoader'
 const InnerHTML = dynamic(
@@ -314,6 +313,7 @@ export default function SharedModal({
               <InnerHTML html={activeLoader.html} css={activeLoader?.css} />
             </motion.div>
           </div>
+
           <div className="divider   lg:divider-horizontal lg:m-0 lg:w-0"></div>
 
           <motion.div
@@ -330,7 +330,40 @@ export default function SharedModal({
               <div className="divider my-2 "></div>
               <div>
                 {/* {loading && 'Loading...'} */}
-                <CustomizeLoader size="btn-sm" />
+
+                {loading ? (
+                  <div className="mx-auto max-w-[1000px] flex gap-3">
+                    <div className="flex animate-pulse flex-wrap gap-x-3 gap-y-3 md:gap-x-5 md:gap-y-5 justify-center mx-auto w-full">
+                      <div className="flex flex-col text-left grow sm:grow-0  gap-1  min-w-[156px] ">
+                        <div className="h-[25px] bg-base-300 rounded-lg"></div>
+                        <div className="h-[32px] bg-base-300 rounded-lg"></div>
+                      </div>
+                      <div className="flex flex-col text-left grow sm:grow-0  gap-1  min-w-[94px] ">
+                        <div className="h-[25px] bg-base-300 rounded-lg"></div>
+                        <div className="h-[32px] bg-base-300 rounded-lg"></div>
+                      </div>
+                      <div className="flex flex-col text-left grow sm:grow-0  gap-1  min-w-[94px] ">
+                        <div className="h-[25px] bg-base-300 rounded-lg"></div>
+                        <div className="h-[32px] bg-base-300 rounded-lg"></div>
+                      </div>
+                      <div className="flex flex-col text-left grow sm:grow-0  gap-1  min-w-[149px] ">
+                        <div className="h-[25px] bg-base-300 rounded-lg"></div>
+                        <div className="h-[32px] bg-base-300 rounded-lg"></div>
+                      </div>
+                      <div className="flex flex-col text-left grow sm:grow-0  gap-1  min-w-[149px] ">
+                        <div className="h-[25px] bg-base-300 rounded-lg"></div>
+                        <div className="h-[32px] bg-base-300 rounded-lg"></div>
+                      </div>
+                      <div className="flex flex-col text-left grow sm:grow-0  gap-1  min-w-[49.6px] ">
+                        <div className="h-[25px] bg-base-300 rounded-lg"></div>
+                        <div className="h-[32px] bg-base-300 rounded-lg"></div>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <CustomizeLoader size="btn-sm" />
+                )}
+
                 <div className="divider "></div>
                 <div className="">
                   <CopyCard
@@ -377,131 +410,7 @@ export default function SharedModal({
             </Suspense>
           </motion.div>
         </motion.div>
-
-        <div className="absolute top-0 right-0 flex items-center gap-2 p-3 ">
-          {/* <span className="tooltip tooltip-bottom" data-tip="Source Code">
-            <button onClick={onSourceCode} className={cn(buttonClass, '')}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
-                />
-              </svg>
-            </button>
-          </span> */}
-          {/* <span className="tooltip tooltip-bottom" data-tip="Close">
-            <button onClick={() => closeModal()} className={cn(buttonClass)}>
-              {navigation ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"
-                  />
-                </svg>
-              )}
-            </button>
-          </span> */}
-        </div>
-
-        {/* {!!loaders?.length && (
-          <div
-            className="absolute inset-x-0 bottom-0 z-40 overflow-hidden 
-        md:rounded-2xl "
-            //     className="absolute inset-x-0 bottom-0 z-40 overflow-hidden
-            // md:rounded-2xl bg-gradient-to-b from-black/0 to-black/30"
-          >
-            <motion.div
-              initial={false}
-              className="mx-auto mt-6 mb-6 flex gap-3 aspect-[3/2] h-14 "
-            >
-              <AnimatePresence initial={true}>
-                {filteredImages.map(({ id, html, css }: any) => {
-                  const left = index * -100
-                  const right = 12 * -100
-                  id === index &&
-                    console.log(left, right, Math.max(left, right))
-                  return (
-                    <motion.button
-                      initial={{
-                        width: '0%',
-                        // x: `${Math.max((index - 1) * -100)}%`,
-                        x: `${Math.max((index - 1) * -100, 12 * -100)}%`,
-                      }}
-                      animate={{
-                        scale: id === index ? 1.1 : 1,
-                        width: '100%',
-                        // x: `${Math.max(index * -100, 10 * -100)}%`,
-                        x: `${Math.max(left, right)}%`,
-                      }}
-                      exit={{ width: '0%' }}
-                      onClick={() => changeLoaderId(id)}
-                      key={id}
-                      // className={cn(
-                      //   'aspect-[3/2]  flex justify-center items-center overflow-hidden focus:outline-none z-10',
-                      //   id === index &&
-                      //     'z-20 rounded-md shadow shadow-black/50',
-                      //   id === 0 && 'rounded-l-md',
-                      // )}
-                      className={cn(
-                        'transform-gpu transition-all relative aspect-video w-full flex justify-center items-center  rounded-lg bg-base-200 h-full shadow-inner  hover:shadow-[0_0_0_2px_#570df850]',
-                        indexProps === id && 'shadow-[0_0_0_2px_#570df8]',
-                      )}
-                    >
-                      <div
-                        className={cn(
-                          'scale-50 transition-all brightness-50 contrast-125  ',
-                          // index === id && 'scale-50 ',
-                        )}
-                      >
-                        <InnerHTML html={html} css={css} />
-                      </div>
-                    </motion.button>
-                  )
-                })}
-              </AnimatePresence>
-            </motion.div>
-          </div>
-        )} */}
       </div>
-
-      {/* {sourceCode && (
-        <SourceCodeModel
-          open={sourceCode}
-          close={onSourceCode}
-          loader={activeLoader}
-        />
-      )} */}
     </MotionConfig>
   )
 }
@@ -544,5 +453,38 @@ export const CopyButton = ({ onClick, className }: any) => {
         />
       </svg>
     </button>
+  )
+}
+
+export const SkeletonCustomize = () => {
+  return (
+    <div className="mx-auto max-w-[1000px] flex gap-3">
+      <div className="flex animate-pulse flex-wrap gap-x-3 gap-y-3 md:gap-x-5 md:gap-y-5 justify-center mx-auto w-full">
+        <div className="flex flex-col text-left grow sm:grow-0  gap-1  min-w-[156px] ">
+          <div className="h-[25px] bg-base-300 rounded-lg"></div>
+          <div className="h-[32px] bg-base-300 rounded-lg"></div>
+        </div>
+        <div className="flex flex-col text-left grow sm:grow-0  gap-1  min-w-[94px] ">
+          <div className="h-[25px] bg-base-300 rounded-lg"></div>
+          <div className="h-[32px] bg-base-300 rounded-lg"></div>
+        </div>
+        <div className="flex flex-col text-left grow sm:grow-0  gap-1  min-w-[94px] ">
+          <div className="h-[25px] bg-base-300 rounded-lg"></div>
+          <div className="h-[32px] bg-base-300 rounded-lg"></div>
+        </div>
+        <div className="flex flex-col text-left grow sm:grow-0  gap-1  min-w-[149px] ">
+          <div className="h-[25px] bg-base-300 rounded-lg"></div>
+          <div className="h-[32px] bg-base-300 rounded-lg"></div>
+        </div>
+        <div className="flex flex-col text-left grow sm:grow-0  gap-1  min-w-[149px] ">
+          <div className="h-[25px] bg-base-300 rounded-lg"></div>
+          <div className="h-[32px] bg-base-300 rounded-lg"></div>
+        </div>
+        <div className="flex flex-col text-left grow sm:grow-0  gap-1  min-w-[49.6px] ">
+          <div className="h-[25px] bg-base-300 rounded-lg"></div>
+          <div className="h-[32px] bg-base-300 rounded-lg"></div>
+        </div>
+      </div>
+    </div>
   )
 }

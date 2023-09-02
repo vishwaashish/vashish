@@ -1,7 +1,7 @@
 import { LoaderType } from '@/types/css-loaders.model'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import { FC, FormEvent, memo } from 'react'
+import { FC, memo } from 'react'
 
 const InnerHTML = dynamic(
   () => import('@/components/shared/element/InnerHtml'),
@@ -11,19 +11,24 @@ const InnerHTML = dynamic(
 )
 
 interface LoaderLoop extends LoaderType {
-  onCode: (str: LoaderType) => void
+  // onCode: (str: LoaderType) => void
 }
 
-const LoadersLoop: FC<LoaderLoop> = ({ id, html, css, onCode }) => {
-  const handleChange = (e: FormEvent<HTMLButtonElement>) => {
-    e.stopPropagation()
-    e.preventDefault()
-    onCode({
-      id,
-      html,
-      css,
-    })
-  }
+const LoadersLoop: FC<LoaderLoop> = ({
+  id,
+  html,
+  css,
+  //  onCode
+}) => {
+  // const handleChange = (e: FormEvent<HTMLButtonElement>) => {
+  //   e.stopPropagation()
+  //   e.preventDefault()
+  //   onCode({
+  //     id,
+  //     html,
+  //     css,
+  //   })
+  // }
   return (
     <Link
       shallow
@@ -32,7 +37,7 @@ const LoadersLoop: FC<LoaderLoop> = ({ id, html, css, onCode }) => {
       key={String(id)}
       className=" group/item transition-all relative aspect-video w-full flex justify-center items-center  rounded-lg bg-base-200 h-full shadow-inner  hover:shadow-[0_0_2px_4px_#570df8]"
     >
-      <button
+      {/* <button
         className="group/edit invisible btn-outline btn-primary group-hover/item:visible btn btn-md btn-circle absolute right-2 top-2  "
         onClick={handleChange}
       >
@@ -50,7 +55,7 @@ const LoadersLoop: FC<LoaderLoop> = ({ id, html, css, onCode }) => {
             d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
           />
         </svg>
-      </button>
+      </button> */}
       <InnerHTML html={html} css={css} />
     </Link>
   )

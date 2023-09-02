@@ -58,7 +58,7 @@ const ColorPickerButton = ({
 
       <button
         className={cn(
-          'btn  join-item swap swap-flip min-w-[100px] border-0 border-l-2 border-neutral-content grow',
+          'btn  join-item swap swap-flip min-w-[100px] border-0 border-l-2 border-neutral-content grow ',
           copied && 'swap-active',
           size,
         )}

@@ -9,13 +9,13 @@ import { hslStringToHex } from '@/components/utils/text'
 import { DefaultLoaderType, InputSizeType } from '@/types/css-loaders.model'
 import dynamic from 'next/dynamic'
 import { FC, FormEvent, memo, useEffect, useState } from 'react'
-import { InputType } from 'zlib'
+
 const ColorPickerButton = dynamic(
   () => import('@/components/shared/element/ColorPickerButton'),
   { ssr: false },
 )
 
-const getColor = (obj: DefaultLoaderType) => {
+export const getColor = (obj: DefaultLoaderType) => {
   return {
     primaryColor: hslStringToHex(obj.primaryColor),
     secondaryColor: hslStringToHex(obj.secondaryColor),
@@ -28,24 +28,15 @@ const getColor = (obj: DefaultLoaderType) => {
 interface CustomizeLoader {
   // Add your interface properties here
   size?: InputSizeType
+  state: DefaultLoaderType
+  setState: React.Dispatch<React.SetStateAction<DefaultLoaderType>>
 }
 
-const CustomizeLoader: FC<CustomizeLoader> = ({ size = 'btn-md' }) => {
-  const [state, setState] = useState<DefaultLoaderType>(DEFAULT_SETTINGS)
-  console.log(state, 'state')
-  useEffect(() => {
-    var style = getComputedStyle(document.body)
-    setState(
-      getColor({
-        primaryColor: style.getPropertyValue('--loader-primary'),
-        secondaryColor: style.getPropertyValue('--loader-secondary'),
-        size: style.getPropertyValue('--loader-width'),
-        border: style.getPropertyValue('--loader-border'),
-        speed: style.getPropertyValue('--loader-speed'),
-      }),
-    )
-  }, [setState])
-
+const CustomizeLoader: FC<CustomizeLoader> = ({
+  state,
+  setState,
+  size = 'btn-md',
+}) => {
   const handleRange = (value: number) => {
     document.documentElement.style.setProperty('--loader-width', value + 'px')
     setState((val: any) => ({ ...val, size: value + 'px' }))
@@ -205,7 +196,7 @@ const CustomizeLoader: FC<CustomizeLoader> = ({ size = 'btn-md' }) => {
 
             <div className="tooltip mr-auto" data-tip="Reset">
               <button
-                className={cn('btn btn-primary group  text-white', size)}
+                className={cn('btn btn-primary group   text-white', size)}
                 onClick={onResetForm}
               >
                 <svg
@@ -226,203 +217,7 @@ const CustomizeLoader: FC<CustomizeLoader> = ({ size = 'btn-md' }) => {
             </div>
           </div>
         </div>
-        {/* <div className={wrapper}>
-        
-        </div> */}
       </div>
-      {/* <div className="mx-auto max-w-[1250px] flex gap-5">
-        <div className={wrapper}>
-          <div className={formControl}>
-            <label htmlFor="size">Size</label>
-
-            <div className={buttonGroup}>
-              {LOADER_SIZES.map(item => {
-                return (
-                  <ButtonSize
-                    id={'size-' + item}
-                    active={state.size === item.size + 'px'}
-                    onClick={() => handleRange(item.size)}
-                    key={item.label}
-                    label={item.label}
-                    title={item.title}
-                  />
-                )
-              })}
-            </div>
-          </div>
-          <div className={formControl}>
-            <label htmlFor="border-size">Border size</label>
-
-            <div className={buttonGroup}>
-              {LOADER_BORDER_SIZES.map(item => {
-                return (
-                  <ButtonSize
-                    id={'border-size-' + item}
-                    active={state.border === item.size + 'px'}
-                    onClick={() => handleBorder(item.size)}
-                    key={item.label}
-                    label={item.label}
-                    title={item.title}
-                  />
-                )
-              })}
-            </div>
-          </div>
-          <div className={formControl}>
-            <label htmlFor="border-size">Loader speed</label>
-
-            <div className={buttonGroup}>
-              {LOADER_SPEED.map(item => {
-                return (
-                  <ButtonSize
-                    id={'loader-size-' + item}
-                    active={state.speed === item.size + 's'}
-                    onClick={() => handleSpeed(item.size)}
-                    key={item.label}
-                    label={item.label}
-                    title={item.title}
-                  />
-                )
-              })}
-            </div>
-          </div>
-        </div>
-        <div className={wrapper}>
-          <div className={formControl}>
-            <label htmlFor="primaryColor">Primary Color</label>
-
-            <ColorPickerButton
-              value={state.primaryColor}
-              onChange={handlePrimayColor}
-            />
-          </div>
-          <div className={formControl}>
-            <label htmlFor="secodaryColor">Secodary Color</label>
-
-            <ColorPickerButton
-              value={state.secondaryColor}
-              onChange={handleSecondaryColor}
-            />
-          </div>
-          <div className={formControl}>
-            <label htmlFor="secodaryColor">Reset</label>
-
-            <div className="tooltip" data-tip="Reset">
-              <button
-                className="btn btn-primary text-white"
-                onClick={onResetForm}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div> */}
-
-      {/* ssd */}
-      {/* <div className="flex gap-x-10 gap-y-5 justify-center z-50 py-4 flex-wrap mx-auto max-w-[900px] ">
-        <div className={formControl}>
-          <label htmlFor="size">Size</label>
-
-          <div className={buttonGroup}>
-            {LOADER_SIZES.map(item => {
-              return (
-                <ButtonSize
-                  id={'size-' + item}
-                  active={state.size === item.size + 'px'}
-                  onClick={() => handleRange(item.size)}
-                  key={item.label}
-                  label={item.label}
-                />
-              )
-            })}
-          </div>
-        </div>
-        <div className={formControl}>
-          <label htmlFor="border-size">Border size</label>
-
-          <div className={buttonGroup}>
-            {LOADER_BORDER_SIZES.map(item => {
-              return (
-                <ButtonSize
-                  id={'border-size-' + item}
-                  active={state.border === item.size + 'px'}
-                  onClick={() => handleBorder(item.size)}
-                  key={item.label}
-                  label={item.label}
-                />
-              )
-            })}
-          </div>
-        </div>
-        <div className={formControl}>
-          <label htmlFor="border-size">Loader speed</label>
-
-          <div className={buttonGroup}>
-            {LOADER_SPEED.map(item => {
-              return (
-                <ButtonSize
-                  id={'loader-size-' + item}
-                  active={state.speed === item.size + 's'}
-                  onClick={() => handleSpeed(item.size)}
-                  key={item.label}
-                  label={item.label}
-                />
-              )
-            })}
-          </div>
-        </div>
-        <div className={formControl}>
-          <label htmlFor="primaryColor">Primary Color</label>
-
-          <ColorPickerButton
-            value={state.primaryColor}
-            onChange={handlePrimayColor}
-          />
-        </div>
-        <div className={formControl}>
-          <label htmlFor="secodaryColor">Secodary Color</label>
-
-          <ColorPickerButton
-            value={state.secondaryColor}
-            onChange={handleSecondaryColor}
-          />
-        </div>
-
-        <div className={formControl}>
-          <label htmlFor="secodaryColor">Reset</label>
-
-          <button className="btn" onClick={onResetForm}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
-              />
-            </svg>
-          </button>
-        </div>
-      </div> */}
     </>
   )
 }
@@ -449,7 +244,7 @@ const ButtonSize = ({
         id={id}
         className={cn(
           active && 'btn-active btn-primary text-white',
-          'btn join-item aspect-square w-full',
+          'btn join-item aspect-square w-full ',
           size,
         )}
         onClick={onClick}

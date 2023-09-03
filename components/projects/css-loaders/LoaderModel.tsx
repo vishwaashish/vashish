@@ -1,45 +1,52 @@
-import React, { useRef, useState } from 'react'
+import React, { FC, useRef, useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { useRouter } from 'next/router'
-import Loader from './Loader'
-import { LOADER } from '@/common/constants'
+import { LOADER } from '@/common/loaders-constants'
 import _ from 'lodash'
 import { motion } from 'framer-motion'
 import SharedModal from './SharedModal'
-const LoaderModel = ({
+import { LoaderType } from '@/types/css-loaders.model'
+
+interface LoaderModel {
+  loaders: LoaderType[]
+  onClose: () => void
+}
+
+const LoaderModel: FC<LoaderModel> = ({
   loaders,
   onClose,
-}: {
-  loaders: any
-  onClose: () => void
 }) => {
   const router = useRouter()
-  let overlayRef = useRef()
+
+  let overlayRef = useRef<HTMLDivElement | null>(null)
+
   const { loaderId } = router.query
+
   let index = Number(loaderId)
 
-  const element = _.find(LOADER, 'id')
-
-  const [direction, setDirection] = useState(0)
-  const [curIndex, setCurIndex] = useState(index)
+  const [direction, setDirection] = useState<number>(0)
+  const [curIndex, setCurIndex] = useState<number>(index)
 
   function handleClose() {
     router.push('/css-loaders', undefined, { shallow: true })
     onClose()
   }
 
-  function changePhotoId(newVal: number) {
+  function changeLoaderId(newVal: number): void {
+
     if (newVal > index) {
       setDirection(1)
     } else {
       setDirection(-1)
     }
+
     setCurIndex(newVal)
+
     router.push(
       {
         query: { loaderId: newVal },
       },
-      `/css-loader/${newVal}`,
+      `/css-loaders/${newVal}`,
       { shallow: true },
     )
   }
@@ -47,25 +54,16 @@ const LoaderModel = ({
   return (
     <>
       <Dialog
-        // static
+        static
         open={true}
         onClose={handleClose}
-        // initialFocus={overlayRef}
-        // className="fixed inset-0 bg-red-500 z-10 flex items-center justify-center"
-        // className="fixed inset-0 bg-red-500 z-10 flex items-center justify-center"
+        initialFocus={overlayRef}
       >
-        {/* <Dialog.Overlay
-          // ref={overlayRef}
+        <Dialog.Overlay
+          key="backdrop"
           as={motion.div}
-          key="backdrop"
-          // className="fixed inset-0 z-30  backdrop-blur-2xl"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-        ></Dialog.Overlay> */}
-
-        <motion.div
-          key="backdrop"
-          className="fixed inset-0 bg-black/30 backdrop-blur-lg"
+          ref={overlayRef}
+          className="fixed inset-0 bg-black/20 backdrop-blur"
           aria-hidden="true"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -76,7 +74,7 @@ const LoaderModel = ({
               index={curIndex}
               direction={direction}
               loaders={loaders}
-              changePhotoId={changePhotoId}
+              changeLoaderId={changeLoaderId}
               closeModal={handleClose}
               navigation={true}
             />

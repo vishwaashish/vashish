@@ -1,17 +1,16 @@
 import { copyText } from '@/components/utils/text'
-import { Dialog } from '@headlessui/react'
-import { useEffect, useState } from 'react'
 import SyntaxHighlighter from 'react-syntax-highlighter'
+import { Dialog } from '@headlessui/react'
+import { FC, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-const SourceCodeModel = ({
-  open,
-  close,
-  loader,
-}: {
+import { LoaderType } from '@/types/css-loaders.model'
+
+interface SourceCodeModel {
   open: boolean
   close: () => void
-  loader: any
-}) => {
+  loader: LoaderType
+}
+const SourceCodeModel: FC<SourceCodeModel> = ({ open, close, loader }) => {
   const [rootString, setRootString] = useState('')
 
   useEffect(() => {
@@ -29,10 +28,6 @@ const SourceCodeModel = ({
   }, [])
   return (
     <Dialog className="" open={open} onClose={close}>
-      {/* <div
-        className="z-50 fixed inset-0 bg-black/30 backdrop-blur-lg"
-        aria-hidden="true"
-      /> */}
       <motion.div
         key="backdrop"
         className="fixed inset-0 bg-black/30 backdrop-blur-lg"
@@ -115,7 +110,7 @@ export const CopyCard = ({
   children,
 }: {
   title: string
-  children?: any
+  children?: React.ReactNode
   titleProps?: any
   isCopy?: boolean
 }) => {

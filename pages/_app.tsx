@@ -11,7 +11,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       <Toaster
         position="top-right"
         toastOptions={{
-          // className: "bg-primary text-offwhite",
           style: {
             borderRadius: '10px',
             background: 'hsl(var(--b1))',

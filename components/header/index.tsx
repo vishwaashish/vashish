@@ -79,7 +79,7 @@ function Header() {
                 fill="#570DF8"
               />
             </svg>
-            <span> Vishwakarma</span>
+            <span> AVishwakarma</span>
           </Link>
         </div>
         <div className="flex">
@@ -102,7 +102,7 @@ function Header() {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-6 h-6"
+                  className="w-full h-6"
                 >
                   <path
                     strokeLinecap="round"
@@ -117,7 +117,7 @@ function Header() {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-5 h-5"
+                  className="w-full  h-5"
                   fill="white"
                 >
                   <path

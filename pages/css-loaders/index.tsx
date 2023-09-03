@@ -1,4 +1,6 @@
+import { projectMeta } from '@/common/constants'
 import { DEFAULT_SETTINGS, LOADER } from '@/common/loaders-constants'
+import ProjectLayout from '@/components/projects/ProjectLayout'
 import LoaderLoop from '@/components/projects/css-loaders'
 import CustomizeLoader, {
   getColor,
@@ -42,25 +44,49 @@ export default function CSSLoaders({ loaders }: { loaders: LoaderType[] }) {
   //   setSourceCode([false, {}])
   // }
   return (
-    <article className="prose lg:prose-md  prose-h1:leading-none  prose-h1:mb-0  text-center   px-4 py-5 mt-7  max-w-full">
-      <div className="max-w-[900px] mx-auto w-full  ">
-        <div className="flex justify-center gap-1 items-center">
-         
+    <ProjectLayout
+      title={projectMeta.CSSLoaders.title}
+      description={projectMeta.CSSLoaders.description}
+    >
+      {/* <Head> */}
+      {/* <title>{projectMeta.CSSLoaders.title}</title>
+        <meta name="description" content={projectMeta.CSSLoaders.description} /> */}
+      {/* <link rel="icon" href="/favicon.ico" />
+          <meta
+            name="description"
+            content="See pictures from Next.js Conf and the After Party."
+          />
+          <meta property="og:site_name" content="nextjsconf-pics.vercel.app" />
+          <meta
+            property="og:description"
+            content="See pictures from Next.js Conf and the After Party."
+          />
+          <meta property="og:title" content="Next.js Conf 2022 Pictures" />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="Next.js Conf 2022 Pictures" />
+          <meta
+            name="twitter:description"
+            content="See pictures from Next.js Conf and the After Party."
+          /> */}
+      {/* </Head> */}
+      <section>
+        <article className="prose lg:prose-md  prose-h1:leading-none  prose-h1:mb-0  text-center   px-4 py-5 mt-7  max-w-full">
+          <div className="max-w-[900px] mx-auto w-full  ">
+            <div className="flex justify-center gap-1 items-center">
+              <h1 className="antialiased ">CSS Loaders Gallery</h1>
+            </div>
 
-          <h1 className="antialiased ">CSS Loaders Gallery</h1>
-        </div>
+            <p>
+              Enhance User Experience and Aesthetics with Our Range of Creative
+              CSS Loaders for Seamless Loading Animations
+            </p>
+          </div>
 
-        <p>
-          Enhance User Experience and Aesthetics with Our Range of Creative CSS
-          Loaders for Seamless Loading Animations
-        </p>
-      </div>
+          <CustomizeLoader state={state} setState={setState} />
 
-      <CustomizeLoader state={state} setState={setState} />
-
-      <br />
-      <br />
-      {/* {sourceCode[0] && (
+          <br />
+          <br />
+          {/* {sourceCode[0] && (
         <SourceCodeModel
           open={sourceCode[0]}
           close={onSourceClose}
@@ -68,24 +94,28 @@ export default function CSSLoaders({ loaders }: { loaders: LoaderType[] }) {
         />
       )} */}
 
-      {loaderId && <LoaderModel loaders={loaders} onClose={onClose} />}
+          {loaderId && <LoaderModel loaders={loaders} onClose={onClose} />}
 
-      <Suspense fallback="Loading...">
-        <div className="transition-all grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full  mx-auto">
-          {loaders.map(item => (
-            <Suspense fallback="Loading..." key={item.id}>
-              <LoaderLoop
-                key={item.id}
-                html={item.html}
-                id={item.id}
-                css={item.css}
-                // onCode={onSourceCode}
-              />
-            </Suspense>
-          ))}
-        </div>
-      </Suspense>
-    </article>
+          <Suspense fallback="Loading...">
+            <div className="transition-all grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full  mx-auto">
+              {loaders.map(item => (
+                <Suspense fallback="Loading..." key={item.id}>
+                  <LoaderLoop
+                    key={item.id}
+                    html={item.html}
+                    id={item.id}
+                    css={item.css}
+                    // onCode={onSourceCode}
+                  />
+                </Suspense>
+              ))}
+            </div>
+          </Suspense>
+        </article>
+      </section>
+      <br />
+      <br />
+    </ProjectLayout>
   )
 }
 

@@ -8,6 +8,7 @@ import CustomizeLoader, {
 import LoaderModel from '@/components/projects/css-loaders/LoaderModel'
 import { DefaultLoaderType, LoaderType } from '@/types/css-loaders.model'
 import { useRouter } from 'next/router'
+import { useSearchParams } from 'next/navigation'
 import { Suspense, useEffect, useState } from 'react'
 
 export default function CSSLoaders({ loaders }: { loaders: LoaderType[] }) {

@@ -45,7 +45,7 @@ function Header() {
 
   const btnClass = 'btn btn-ghost btn-circle btn-sm h-auto p-2 w-auto'
   return (
-    <div className="navbar  z-[100] ">
+    <div className="navbar relative  z-10 ">
       <div className="max-w-[1200px] mx-auto w-full">
         <div className="flex-1">
           <Link

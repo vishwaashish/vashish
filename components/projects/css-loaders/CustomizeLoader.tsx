@@ -8,6 +8,8 @@ import { cn } from '@/components/utils'
 import { hslStringToHex } from '@/components/utils/text'
 import { DefaultLoaderType, InputSizeType } from '@/types/css-loaders.model'
 import dynamic from 'next/dynamic'
+import { useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/router'
 import { FC, FormEvent, memo, useEffect, useState } from 'react'
 
 const ColorPickerButton = dynamic(
@@ -37,6 +39,34 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
   setState,
   size = 'btn-md',
 }) => {
+  const searchParam = useSearchParams()
+  const loader_width = searchParam.get('loader-width') || state.size
+  const loader_border = searchParam.get('loader-border') || state.border
+  const loader_speed = searchParam.get('loader-speed') || state.speed
+  const loader_primary = searchParam.get('loader-primary')
+  const loader_secondary = searchParam.get('loader-secondary')
+
+  console.log('searchParam', searchParam, {
+    loader_width,
+    loader_border,
+    loader_speed,
+    loader_primary,
+    loader_secondary,
+  })
+  const router = useRouter()
+
+  const handleRoute = ({
+    loader_border,
+    loader_width,
+    loader_speed,
+    loader_primary,
+    loader_secondary,
+  }: any) => {
+    router.push(
+      `?loader-width=${loader_width}&loader-border=${loader_border}&loader-speed=${loader_speed}&loader-primary=${loader_primary}&loader-secondary=${loader_secondary}`,
+    )
+  }
+
   const handleRange = (value: number) => {
     document.documentElement.style.setProperty('--loader-width', value + 'px')
     setState((val: any) => ({ ...val, size: value + 'px' }))
@@ -112,6 +142,7 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
   const wrapper =
     'flex flex-wrap gap-x-3 gap-y-3 md:gap-x-5 md:gap-y-5 justify-center mx-auto w-full'
 
+  const colorSlice = (value: string) => value.split('').slice(1).join('')
   return (
     <>
       <div className="mx-auto max-w-[1000px] flex gap-3">
@@ -124,8 +155,18 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
                 return (
                   <ButtonSize
                     id={'size-' + item}
-                    active={state.size === item.size + 'px'}
-                    onClick={() => handleRange(item.size)}
+                    // active={state.size === item.size + 'px'}
+                    active={loader_width === item.size + 'px'}
+                    // onClick={() => handleRange(item.size)}
+                    onClick={() => {
+                      handleRoute({
+                        loader_width: item.size + 'px',
+                        loader_border,
+                        loader_speed,
+                        loader_primary,
+                        loader_secondary,
+                      })
+                    }}
                     key={item.label}
                     label={item.label}
                     title={item.title}
@@ -143,8 +184,18 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
                 return (
                   <ButtonSize
                     id={'border-size-' + item}
-                    active={state.border === item.size + 'px'}
-                    onClick={() => handleBorder(item.size)}
+                    active={loader_border === item.size + 'px'}
+                    // active={state.border === item.size + 'px'}
+                    // onClick={() => handleBorder(item.size)}
+                    onClick={() => {
+                      handleRoute({
+                        loader_border: item.size + 'px',
+                        loader_width,
+                        loader_speed,
+                        loader_primary,
+                        loader_secondary,
+                      })
+                    }}
                     key={item.label}
                     label={item.label}
                     title={item.title}
@@ -162,8 +213,18 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
                 return (
                   <ButtonSize
                     id={'loader-size-' + item}
-                    active={state.speed === item.size + 's'}
-                    onClick={() => handleSpeed(item.size)}
+                    active={loader_speed === item.size + 's'}
+                    // active={state.speed === item.size + 's'}
+                    // onClick={() => handleSpeed(item.size)}
+                    onClick={() => {
+                      handleRoute({
+                        loader_speed: item.size + 's',
+                        loader_width,
+                        loader_border,
+                        loader_primary,
+                        loader_secondary,
+                      })
+                    }}
                     key={item.label}
                     label={item.label}
                     title={item.title}
@@ -177,8 +238,18 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
             <label htmlFor="primaryColor">Primary Color</label>
 
             <ColorPickerButton
-              value={state.primaryColor}
-              onChange={handlePrimayColor}
+              value={'#' + loader_primary}
+              // value={state.primaryColor}
+              // onChange={handlePrimayColor}
+              onChange={(e: any) => {
+                handleRoute({
+                  loader_speed,
+                  loader_width,
+                  loader_border,
+                  loader_primary: colorSlice(e.target.value),
+                  loader_secondary,
+                })
+              }}
               size={size}
             />
           </div>
@@ -186,8 +257,18 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
             <label htmlFor="secodaryColor">Secodary Color</label>
 
             <ColorPickerButton
-              value={state.secondaryColor}
-              onChange={handleSecondaryColor}
+              value={'#' + loader_secondary}
+              // value={state.secondaryColor}
+              // onChange={handleSecondaryColor}
+              onChange={(e: any) => {
+                handleRoute({
+                  loader_speed,
+                  loader_width,
+                  loader_border,
+                  loader_primary,
+                  loader_secondary: colorSlice(e.target.value),
+                })
+              }}
               size={size}
             />
           </div>

@@ -3,33 +3,26 @@ import { useRouter } from 'next/router'
 import { FC } from 'react'
 import SharedModal from './SharedModal'
 
-
 interface Carousel {
   index: number
   element: LoaderType
 }
 
-const Carousel: FC<Carousel> = ({
-  index,
-  element,
-}) => {
+const Carousel: FC<Carousel> = ({ index, element }) => {
   const router = useRouter()
 
   function closeModal() {
     router.push('/css-loaders', undefined, { shallow: true })
   }
 
-  function changeLoaderId(newVal: number): void {
-  }
+  function changeLoaderId(newVal: number): void {}
 
   return (
-    <div
-    >
+    <div className="relative z-50">
       <button
-        className="absolute inset-0 z-30 cursor-default  backdrop-blur-2xl "
+        className="absolute inset-0 z-50 cursor-default  backdrop-blur-2xl "
         onClick={closeModal}
-      >
-      </button>
+      ></button>
       <SharedModal
         index={index}
         changeLoaderId={changeLoaderId}
@@ -40,6 +33,5 @@ const Carousel: FC<Carousel> = ({
     </div>
   )
 }
-
 
 export default Carousel

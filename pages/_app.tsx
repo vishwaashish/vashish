@@ -6,7 +6,7 @@ import Footer from '@/components/footer'
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Headers />
+      {/* <Headers /> */}
       <Component className="relative" {...pageProps} />
       <Toaster
         position="top-right"

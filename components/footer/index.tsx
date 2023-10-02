@@ -95,7 +95,7 @@ const socialIcon: { icon: React.ReactElement; href: string; label: string }[] =
 
 export default function Footer() {
   return (
-    <footer className="bg-base-200 border-2 border-base-300">
+    <footer className="bg-base-200 border-2 border-base-300 z-10 relative">
       <div className="mx-auto w-full max-w-[1200px]">
         <div className="px-4 py-2  md:flex md:items-center md:justify-between">
           <span className="text-sm sm:text-center">

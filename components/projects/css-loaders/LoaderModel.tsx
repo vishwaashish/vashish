@@ -1,21 +1,18 @@
-import React, { FC, useRef, useState } from 'react'
-import { Dialog } from '@headlessui/react'
-import { useRouter } from 'next/router'
-import { LOADER } from '@/common/loaders-constants'
-import _ from 'lodash'
-import { motion } from 'framer-motion'
-import SharedModal from './SharedModal'
 import { LoaderType } from '@/types/css-loaders.model'
+import { Dialog } from '@headlessui/react'
+import { motion } from 'framer-motion'
+import { useRouter } from 'next/router'
+import { FC, Suspense, lazy, useRef, useState } from 'react'
+// import SharedModal from './SharedModal'
+
+const SharedModal = lazy(() => import('./SharedModal'))
 
 interface LoaderModel {
   loaders: LoaderType[]
   onClose: () => void
 }
 
-const LoaderModel: FC<LoaderModel> = ({
-  loaders,
-  onClose,
-}) => {
+const LoaderModel: FC<LoaderModel> = ({ loaders, onClose }) => {
   const router = useRouter()
 
   let overlayRef = useRef<HTMLDivElement | null>(null)
@@ -33,7 +30,6 @@ const LoaderModel: FC<LoaderModel> = ({
   }
 
   function changeLoaderId(newVal: number): void {
-
     if (newVal > index) {
       setDirection(1)
     } else {
@@ -53,33 +49,41 @@ const LoaderModel: FC<LoaderModel> = ({
 
   return (
     <>
-      <Dialog
-        static
-        open={true}
-        onClose={handleClose}
-        initialFocus={overlayRef}
-      >
+      <Dialog open={true} onClose={handleClose} initialFocus={overlayRef}>
         <Dialog.Overlay
           key="backdrop"
           as={motion.div}
           ref={overlayRef}
-          className="fixed inset-0 bg-black/20 backdrop-blur"
+          className="fixed z-50 inset-0 bg-black/20 backdrop-blur"
           aria-hidden="true"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         />
-        <div className="fixed inset-0 flex items-center justify-center p-4">
-          <Dialog.Panel className="mx-auto rounded ">
-            <SharedModal
-              index={curIndex}
-              direction={direction}
-              loaders={loaders}
-              changeLoaderId={changeLoaderId}
-              closeModal={handleClose}
-              navigation={true}
-            />
-          </Dialog.Panel>
-        </div>
+        {/* <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          exit={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.3,
+          }}
+          className="fixed z-50 inset-0 flex items-center justify-center p-4"
+        > */}
+        {/* <Suspense fallback="loading..."> */}
+        <Dialog.Panel
+          // className="mx-auto rounded "
+          className="fixed z-50 inset-0 flex items-center justify-center p-4"
+        >
+          <SharedModal
+            index={curIndex}
+            direction={direction}
+            loaders={loaders}
+            changeLoaderId={changeLoaderId}
+            closeModal={handleClose}
+            navigation={true}
+          />
+        </Dialog.Panel>
+        {/* </Suspense> */}
+        {/* </motion.div> */}
       </Dialog>
     </>
   )

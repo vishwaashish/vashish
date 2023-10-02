@@ -1,6 +1,6 @@
 import {
+  ILoaderParams,
   LoaderSizeType,
-  DefaultLoaderType,
   LoaderType,
 } from '@/types/css-loaders.model'
 
@@ -17,6 +17,16 @@ export const MODAL_BG = [
   '#845EC2',
   '#4D8076',
 ]
+
+export const LOADER_PARAMS = ({
+  size,
+  border,
+  speed,
+  primaryColor,
+  secondaryColor,
+  sourceCode,
+}: ILoaderParams) =>
+  `size=${size}&border=${border}&speed=${speed}&primaryColor=${primaryColor}&secondaryColor=${secondaryColor}&sourceCode=${sourceCode}`
 
 export const LOADER_SIZES: LoaderSizeType[] = [
   {
@@ -81,12 +91,13 @@ export const LOADER_SPEED: LoaderSizeType[] = [
   },
 ]
 
-export const DEFAULT_SETTINGS: DefaultLoaderType = {
+export const DEFAULT_SETTINGS: ILoaderParams = {
   size: '48px',
   primaryColor: '--p',
   secondaryColor: '--nc',
   border: '5px',
   speed: '1s',
+  sourceCode: 'false',
 }
 
 export const containerStyle = {

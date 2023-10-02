@@ -75,7 +75,10 @@ const SharedModalLeftSide: FC<SharedModalLeftSide> = ({
         </span>
       </div>
 
-      <span className="absolute animate-bounce bottom-0 tooltip flex items-center gap-2 p-3 block lg:hidden" data-tip='Scroll Down'>
+      <span
+        className="absolute animate-bounce bottom-0 tooltip flex items-center gap-2 p-3 block lg:hidden"
+        data-tip="Scroll Down"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -95,14 +98,14 @@ const SharedModalLeftSide: FC<SharedModalLeftSide> = ({
       <div className="absolute top-0 right-0 flex items-center gap-2 p-3 hidden lg:block">
         <span
           className="tooltip tooltip-bottom"
-          data-tip={!sourceCode ? 'Close Menu' : 'Code'}
+          data-tip={sourceCode ? 'Close Menu' : 'Code'}
         >
           <button
             onClick={onSourceCode}
             className={cn(
               buttonClass,
               'swap swap-rotate',
-              sourceCode && 'swap-active',
+              !sourceCode && 'swap-active',
             )}
           >
             <svg

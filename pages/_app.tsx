@@ -18,7 +18,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           },
         }}
       />
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
 }

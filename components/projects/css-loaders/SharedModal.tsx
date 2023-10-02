@@ -1,13 +1,18 @@
-import { DEFAULT_SETTINGS, LOADER } from '@/common/loaders-constants'
+import {
+  DEFAULT_SETTINGS,
+  LOADER,
+  LOADER_PARAMS,
+} from '@/common/loaders-constants'
 import { cn } from '@/components/utils'
-import { DefaultLoaderType, LoaderType } from '@/types/css-loaders.model'
-import { MotionConfig, motion } from 'framer-motion'
+import { LoaderType } from '@/types/css-loaders.model'
+import { AnimatePresence, MotionConfig, motion } from 'framer-motion'
 import _ from 'lodash'
-import { useCallback, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSwipeable } from 'react-swipeable'
-import { getColor } from './CustomizeLoader'
+// import { getColor } from './CustomizeLoader'
 import SharedModalLeftSide from './SharedModal-leftSide'
 import SharedModalRightSide from './SharedModal-rightSide'
+import { useRouter } from 'next/router'
 
 //  const range = (start: number, end: number) => {
 //   let output = []
@@ -41,24 +46,61 @@ export default function SharedModal({
   currentPhoto,
   direction = 0,
 }: SharedModal) {
-  const index = indexProps - 1
-  const [activeLoader, setActiveLoader] = useState<LoaderType>(LOADER[0])
-  const [sourceCode, setSourceCode] = useState<boolean>(false)
-  const [loading, setLoading] = useState<boolean>(false)
-  const [setting, setSetting] = useState<DefaultLoaderType>(DEFAULT_SETTINGS)
+  const router = useRouter()
 
-  useEffect(() => {
-    var style = getComputedStyle(document.body)
-    setSetting(
-      getColor({
-        primaryColor: style.getPropertyValue('--loader-primary'),
-        secondaryColor: style.getPropertyValue('--loader-secondary'),
-        size: style.getPropertyValue('--loader-width'),
-        border: style.getPropertyValue('--loader-border'),
-        speed: style.getPropertyValue('--loader-speed'),
-      }),
-    )
-  }, [])
+  const {
+    size = DEFAULT_SETTINGS.size,
+    border = DEFAULT_SETTINGS.border,
+    speed = DEFAULT_SETTINGS.speed,
+    primaryColor = '570df8',
+    secondaryColor = 'd8dde4',
+    sourceCode = 'false',
+  }: any = router.query
+
+  const openSidebar: boolean = JSON.parse(sourceCode)
+
+  console.log('openSidebar', openSidebar, sourceCode)
+
+  // const searchParam = useSearchParams()
+  // const router = useRouter()
+
+  // const size = searchParam.get('size') || DEFAULT_SETTINGS.size
+  // const border = searchParam.get('border') || DEFAULT_SETTINGS.border
+  // const speed = searchParam.get('speed') || DEFAULT_SETTINGS.speed
+  // const primaryColor = searchParam.get('primaryColor') || '570df8'
+  // const secondaryColor = searchParam.get('secondaryColor') || 'd8dde4'
+  // // const sourceCode = JSON.parse(searchParam.get('sourceCode') || 'false')
+
+  const setting = {
+    size,
+    speed,
+    border,
+    primaryColor,
+    secondaryColor,
+    sourceCode,
+  }
+
+  const index = indexProps - 1
+
+  const [activeLoader, setActiveLoader] = useState<LoaderType>(LOADER[0])
+
+  // const [sourceCode, setSourceCode] = useState<boolean>(true)
+  const [loading, setLoading] = useState<boolean>(false)
+
+  // const [setting, setSetting] = useState<DefaultLoaderType>(DEFAULT_SETTINGS)
+
+  // useEffect(() => {
+  //   var style = getComputedStyle(document.body)
+  //   setSetting(
+  //     getColor({
+  //       primaryColor: style.getPropertyValue('--loader-primary'),
+  //       secondaryColor: style.getPropertyValue('--loader-secondary'),
+  //       size: style.getPropertyValue('--loader-width'),
+  //       border: style.getPropertyValue('--loader-border'),
+  //       speed: style.getPropertyValue('--loader-speed'),
+  //     }),
+  //   )
+  // }, [])
 
   // useEffect(() => {
   //   loading &&
@@ -83,19 +125,43 @@ export default function SharedModal({
     trackMouse: true,
   })
 
-  const onSourceCode = useCallback(() => {
-    setSourceCode(val => !val)
-  }, [])
+  const onSourceCode = () => {
+    // setSourceCode(val => !val)
+    // router.push('?' + LOADER_PARAMS(state))
 
-  const onLeft = useCallback(() => {
+    router.push(
+      {
+        query: {
+          loaderId: indexProps,
+          size,
+          border,
+          speed,
+          primaryColor,
+          secondaryColor,
+          sourceCode: String(!openSidebar),
+        },
+      },
+      `/css-loaders/${indexProps}?${LOADER_PARAMS({
+        size,
+        border,
+        speed,
+        primaryColor,
+        secondaryColor,
+        sourceCode: String(!openSidebar),
+      })}`,
+      { shallow: false },
+    )
+  }
+
+  const onLeft = () => {
     changeLoaderId(indexProps - 1)
     setLoading(true)
-  }, [changeLoaderId, indexProps])
+  }
 
-  const onRight = useCallback(() => {
+  const onRight = () => {
     changeLoaderId(indexProps + 1)
     setLoading(true)
-  }, [changeLoaderId, indexProps])
+  }
 
   useEffect(() => {
     if (loaders.length) {
@@ -124,7 +190,7 @@ export default function SharedModal({
                 closeModal,
                 navigation,
                 onSourceCode,
-                sourceCode,
+                sourceCode: openSidebar,
                 index,
                 onLeft,
                 loaders,
@@ -137,23 +203,21 @@ export default function SharedModal({
 
           <div className="divider   lg:divider-horizontal lg:m-0 lg:w-0"></div>
 
-          <motion.div
+          <div
             className={cn(
               'prose transition-all max-w-full duration-300  p-0 overflow-y-auto overflow-x-hidden ',
-              sourceCode ? 'lg:max-w-0' : 'lg:max-w-md',
+              !openSidebar ? 'lg:max-w-0' : 'lg:max-w-md',
             )}
-            key={index + '1'}
           >
             <SharedModalRightSide
               {...{
                 indexProps,
                 activeLoader,
+                sourceCode: openSidebar,
                 setting,
-                setSetting,
-                sourceCode,
               }}
             />
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </MotionConfig>

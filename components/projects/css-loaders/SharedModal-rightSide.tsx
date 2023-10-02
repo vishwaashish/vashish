@@ -1,5 +1,5 @@
 import { copyText } from '@/components/utils/text'
-import { DefaultLoaderType, LoaderType } from '@/types/css-loaders.model'
+import { ILoaderParams, LoaderType } from '@/types/css-loaders.model'
 import React from 'react'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { CopyButton } from '../../shared/button/CopyButton'
@@ -9,13 +9,11 @@ const SharedModalRightSide = ({
   indexProps,
   activeLoader,
   setting,
-  setSetting,
   sourceCode,
 }: {
   indexProps: number
   activeLoader: LoaderType
-  setting: DefaultLoaderType
-  setSetting: React.Dispatch<React.SetStateAction<DefaultLoaderType>>
+  setting: ILoaderParams
   sourceCode: boolean
 }) => {
   const rootString = `:root {
@@ -26,6 +24,7 @@ const SharedModalRightSide = ({
     --loader-speed: ${setting.speed};
   }
 `
+
   return (
     <>
       <h1 className="flex justify-between items-center mb-3 mt-5 px-3">
@@ -65,55 +64,59 @@ const SharedModalRightSide = ({
         ) : ( */}
         {/* )} */}
 
-        {!sourceCode && (
-          <CustomizeLoader
-            size="btn-sm"
-            state={setting}
-            setState={setSetting}
-          />
-        )}
-        <div className="divider "></div>
-        <div className="">
-          <Card
-            title="HTML"
-            titleProps={
-              <CopyButton
-                className="btn btn-sm btn-circle "
-                onClick={() => copyText(activeLoader.html)}
-              />
-            }
-          >
-            <SyntaxHighlighter
-              language="html"
-              showLineNumbers
-              customStyle={{
-                margin: 0,
-                borderRadius: 0,
-              }}
-            >
-              {activeLoader.html}
-            </SyntaxHighlighter>
-          </Card>
-          <br />
-          <Card
-            title="CSS"
-            titleProps={
-              <CopyButton
-                className="btn btn-sm btn-circle "
-                onClick={() => copyText(rootString + activeLoader.css)}
-              />
-            }
-          >
-            <SyntaxHighlighter
-              language="css"
-              showLineNumbers
-              wrapLines
-              customStyle={{ margin: 0, borderRadius: 0 }}
-            >
-              {rootString + activeLoader.css}
-            </SyntaxHighlighter>
-          </Card>
+        <div className="hidden lg:block">
+          {sourceCode && (
+            <CustomizeLoader
+              size="btn-sm"
+              index={indexProps}
+              // setState={setSetting}
+            />
+          )}
+          <div className="divider "></div>
         </div>
+        {
+          <div className="">
+            <Card
+              title="HTML"
+              titleProps={
+                <CopyButton
+                  className="btn btn-sm btn-circle "
+                  onClick={() => copyText(activeLoader.html)}
+                />
+              }
+            >
+              <SyntaxHighlighter
+                language="html"
+                showLineNumbers
+                customStyle={{
+                  margin: 0,
+                  borderRadius: 0,
+                }}
+              >
+                {activeLoader.html}
+              </SyntaxHighlighter>
+            </Card>
+            <br />
+            <Card
+              title="CSS"
+              titleProps={
+                <CopyButton
+                  className="btn btn-sm btn-circle "
+                  onClick={() => copyText(rootString + activeLoader.css)}
+                />
+              }
+            >
+              <SyntaxHighlighter
+                language="css"
+                showLineNumbers
+                wrapLines
+                customStyle={{ margin: 0, borderRadius: 0 }}
+              >
+                {rootString + activeLoader.css}
+              </SyntaxHighlighter>
+            </Card>
+          </div>
+        }
       </div>
     </>
   )

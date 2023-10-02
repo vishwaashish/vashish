@@ -12,12 +12,17 @@ const InnerHTML = dynamic(
 
 interface LoaderLoop extends LoaderType {
   // onCode: (str: LoaderType) => void
+
+  href?: string
+  as?: string
 }
 
 const LoadersLoop: FC<LoaderLoop> = ({
   id,
   html,
   css,
+  href = '',
+  as = '',
   //  onCode
 }) => {
   // const handleChange = (e: FormEvent<HTMLButtonElement>) => {
@@ -32,8 +37,8 @@ const LoadersLoop: FC<LoaderLoop> = ({
   return (
     <Link
       shallow
-      href={`/css-loaders/?loaderId=${id}`}
-      as={`/css-loaders/${id}`}
+      href={href || `/css-loaders/?loaderId=${id}`}
+      as={as || `/css-loaders/${id}`}
       key={String(id)}
       className=" group/item transition-all relative aspect-video w-full flex justify-center items-center  rounded-lg bg-base-200 h-full shadow-inner  hover:shadow-[0_0_2px_4px_#570df8]"
     >

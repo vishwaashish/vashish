@@ -4,12 +4,13 @@ export interface LoaderSizeType {
   title: string
 }
 
-export interface DefaultLoaderType {
+export interface ILoaderParams {
   size: string
   primaryColor: string
   secondaryColor: string
   border: string
   speed: string
+  sourceCode: string
 }
 
 export interface LoaderType {

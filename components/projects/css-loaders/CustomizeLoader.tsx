@@ -1,139 +1,237 @@
 import {
   DEFAULT_SETTINGS,
   LOADER_BORDER_SIZES,
+  LOADER_PARAMS,
   LOADER_SIZES,
   LOADER_SPEED,
 } from '@/common/loaders-constants'
 import { cn } from '@/components/utils'
-import { hslStringToHex } from '@/components/utils/text'
-import { DefaultLoaderType, InputSizeType } from '@/types/css-loaders.model'
+import { ILoaderParams, InputSizeType } from '@/types/css-loaders.model'
 import dynamic from 'next/dynamic'
-import { useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/router'
-import { FC, FormEvent, memo, useEffect, useState } from 'react'
+import { FC, useEffect } from 'react'
 
 const ColorPickerButton = dynamic(
   () => import('@/components/shared/element/ColorPickerButton'),
   { ssr: false },
 )
 
-export const getColor = (obj: DefaultLoaderType) => {
-  return {
-    primaryColor: hslStringToHex(obj.primaryColor),
-    secondaryColor: hslStringToHex(obj.secondaryColor),
-    size: obj.size,
-    border: obj.border,
-    speed: obj.speed,
-  }
-}
+// export const getColor = (obj: DefaultLoaderType) => {
+//   return {
+//     primaryColor: hslStringToHex(obj.primaryColor),
+//     secondaryColor: hslStringToHex(obj.secondaryColor),
+//     size: obj.size,
+//     border: obj.border,
+//     speed: obj.speed,
+//   }
+// }
 
 interface CustomizeLoader {
   // Add your interface properties here
   size?: InputSizeType
-  state: DefaultLoaderType
-  setState: React.Dispatch<React.SetStateAction<DefaultLoaderType>>
+  index?: number | null
+  // setState: React.Dispatch<React.SetStateAction<DefaultLoaderType>>
 }
 
 const CustomizeLoader: FC<CustomizeLoader> = ({
-  state,
-  setState,
-  size = 'btn-md',
+  // setState,
+  index,
+  size: btnSize = 'btn-md',
 }) => {
-  const searchParam = useSearchParams()
-  const loader_width = searchParam.get('loader-width') || state.size
-  const loader_border = searchParam.get('loader-border') || state.border
-  const loader_speed = searchParam.get('loader-speed') || state.speed
-  const loader_primary = searchParam.get('loader-primary')
-  const loader_secondary = searchParam.get('loader-secondary')
-
-  console.log('searchParam', searchParam, {
-    loader_width,
-    loader_border,
-    loader_speed,
-    loader_primary,
-    loader_secondary,
-  })
   const router = useRouter()
 
-  const handleRoute = ({
-    loader_border,
-    loader_width,
-    loader_speed,
-    loader_primary,
-    loader_secondary,
-  }: any) => {
-    router.push(
-      `?loader-width=${loader_width}&loader-border=${loader_border}&loader-speed=${loader_speed}&loader-primary=${loader_primary}&loader-secondary=${loader_secondary}`,
-    )
-  }
+  const {
+    size = DEFAULT_SETTINGS.size,
+    border = DEFAULT_SETTINGS.border,
+    speed = DEFAULT_SETTINGS.speed,
+    primaryColor = '570df8',
+    secondaryColor = 'd8dde4',
+    sourceCode = 'false',
+  }: any = router.query
 
-  const handleRange = (value: number) => {
-    document.documentElement.style.setProperty('--loader-width', value + 'px')
-    setState((val: any) => ({ ...val, size: value + 'px' }))
-  }
+  // const state = {
+  //   size,
+  //   speed,
+  //   border,
+  //   primaryColor,
+  //   secondaryColor,
+  // }
 
-  const handleBorder = (value: number) => {
-    document.documentElement.style.setProperty('--loader-border', value + 'px')
-    setState((val: any) => ({ ...val, border: value + 'px' }))
-  }
-  const handleSpeed = (value: number) => {
-    document.documentElement.style.setProperty('--loader-speed', value + 's')
-    setState((val: any) => ({ ...val, speed: value + 's' }))
-  }
+  // const { size, border, speed, primaryColor, secondaryColor } = state
 
-  const handlePrimayColor = (e: FormEvent<HTMLInputElement>) => {
-    const value = e.currentTarget.value
-    document.documentElement.style.setProperty('--loader-primary', value)
-    setState(val => ({
-      ...val,
-      primaryColor: String(value),
-    }))
-  }
-  const handleSecondaryColor = (e: FormEvent<HTMLInputElement>) => {
-    const value = e.currentTarget.value
-    document.documentElement.style.setProperty('--loader-secondary', value)
-    setState((val: any) => ({ ...val, secondaryColor: value }))
-  }
+  // const searchParam = useSearchParams()
 
-  const onResetForm = () => {
-    var style = getComputedStyle(document.body)
+  // const size = searchParam.get('size') || DEFAULT_SETTINGS.size
+  // const border = searchParam.get('border') || DEFAULT_SETTINGS.border
+  // const speed = searchParam.get('speed') || DEFAULT_SETTINGS.speed
+  // const primaryColor = searchParam.get('primaryColor') || '570df8'
+  // const secondaryColor = searchParam.get('secondaryColor') || 'd8dde4'
 
-    const primaryColor = `hsl(${style.getPropertyValue(
-      DEFAULT_SETTINGS.primaryColor,
-    )})`
-
-    const secondaryColor = `hsl(${style.getPropertyValue(
-      DEFAULT_SETTINGS.secondaryColor,
-    )})`
-
-    const setting = getColor({
-      primaryColor: primaryColor,
-      secondaryColor: secondaryColor,
-      size: DEFAULT_SETTINGS.size,
-      border: DEFAULT_SETTINGS.border,
-      speed: DEFAULT_SETTINGS.speed,
-    })
-
-    setState({
-      primaryColor: setting.primaryColor,
-      secondaryColor: setting.secondaryColor,
-      size: setting.size,
-      border: setting.border,
-      speed: setting.speed,
-    })
-    document.documentElement.style.setProperty(
-      '--loader-border',
-      setting.border,
-    )
-    document.documentElement.style.setProperty('--loader-width', setting.size)
+  useEffect(() => {
+    document.documentElement.style.setProperty('--loader-width', size)
+    document.documentElement.style.setProperty('--loader-border', border)
+    document.documentElement.style.setProperty('--loader-speed', speed)
     document.documentElement.style.setProperty(
       '--loader-primary',
-      setting.primaryColor,
+      '#' + primaryColor,
     )
     document.documentElement.style.setProperty(
       '--loader-secondary',
-      setting.secondaryColor,
+      '#' + secondaryColor,
     )
+  }, [border, primaryColor, secondaryColor, size, speed])
+
+  const handleRoute = ({
+    border,
+    size,
+    speed,
+    primaryColor,
+    secondaryColor,
+    sourceCode,
+  }: ILoaderParams) => {
+    // document.documentElement.style.setProperty('--loader-width', size)
+    // document.documentElement.style.setProperty('--loader-border', border)
+    // document.documentElement.style.setProperty('--loader-speed', speed)
+    // document.documentElement.style.setProperty(
+    //   '--loader-primary',
+    //   '#' + primaryColor,
+    // )
+    // document.documentElement.style.setProperty(
+    //   '--loader-secondary',
+    //   '#' + secondaryColor,
+    // )
+
+    if (index) {
+      router.push(
+        {
+          query: {
+            loaderId: index,
+            border,
+            size,
+            speed,
+            primaryColor,
+            secondaryColor,
+          },
+        },
+        `/css-loaders/${index}?${LOADER_PARAMS({
+          border,
+          size,
+          speed,
+          primaryColor,
+          secondaryColor,
+          sourceCode,
+        })}`,
+        { shallow: true },
+      )
+    } else {
+      router.push(
+        '?' +
+          LOADER_PARAMS({
+            border,
+            size,
+            speed,
+            primaryColor,
+            secondaryColor,
+            sourceCode,
+          }),
+        undefined,
+        {
+          shallow: true,
+        },
+      )
+    }
+  }
+
+  // useEffect(() => {
+  //   if (!searchParam.has('size')) {
+  //     router.push(
+  //       LOADER_PARAMS({
+  //         border: DEFAULT_SETTINGS.border,
+  //         size: DEFAULT_SETTINGS.size,
+  //         speed: DEFAULT_SETTINGS.speed,
+  //         primaryColor: '570df8',
+  //         secondaryColor: 'd8dde4',
+  //       }),
+  //     )
+  //   }
+  // }, [router, searchParam])
+
+  // const handleRange = (value: number) => {
+  //   document.documentElement.style.setProperty('--loader-width', value + 'px')
+  //   setState((val: any) => ({ ...val, size: value + 'px' }))
+  // }
+
+  // const handleBorder = (value: number) => {
+  //   document.documentElement.style.setProperty('--loader-border', value + 'px')
+  //   setState((val: any) => ({ ...val, border: value + 'px' }))
+  // }
+  // const handleSpeed = (value: number) => {
+  //   document.documentElement.style.setProperty('--loader-speed', value + 's')
+  //   setState((val: any) => ({ ...val, speed: value + 's' }))
+  // }
+
+  // const handlePrimayColor = (e: FormEvent<HTMLInputElement>) => {
+  //   const value = e.currentTarget.value
+  //   document.documentElement.style.setProperty('--loader-primary', value)
+  //   setState(val => ({
+  //     ...val,
+  //     primaryColor: String(value),
+  //   }))
+  // }
+  // const handleSecondaryColor = (e: FormEvent<HTMLInputElement>) => {
+  //   const value = e.currentTarget.value
+  //   document.documentElement.style.setProperty('--loader-secondary', value)
+  //   setState((val: any) => ({ ...val, secondaryColor: value }))
+  // }
+
+  const onResetForm = () => {
+    // var style = getComputedStyle(document.body)
+
+    // const primaryColor = `hsl(${style.getPropertyValue(
+    //   DEFAULT_SETTINGS.primaryColor,
+    // )})`
+
+    // const secondaryColor = `hsl(${style.getPropertyValue(
+    //   DEFAULT_SETTINGS.secondaryColor,
+    // )})`
+
+    // const setting = getColor({
+    //   primaryColor: primaryColor,
+    //   secondaryColor: secondaryColor,
+    //   size: DEFAULT_SETTINGS.size,
+    //   border: DEFAULT_SETTINGS.border,
+    //   speed: DEFAULT_SETTINGS.speed,
+    // })
+
+    handleRoute({
+      border: DEFAULT_SETTINGS.border,
+      size: DEFAULT_SETTINGS.size,
+      speed: DEFAULT_SETTINGS.speed,
+      primaryColor: '570df8',
+      secondaryColor: 'd8dde4',
+      sourceCode: 'false',
+    })
+
+    // setState({
+    //   primaryColor: setting.primaryColor,
+    //   secondaryColor: setting.secondaryColor,
+    //   size: setting.size,
+    //   border: setting.border,
+    //   speed: setting.speed,
+    // })
+    // document.documentElement.style.setProperty(
+    //   '--loader-border',
+    //   setting.border,
+    // )
+    // document.documentElement.style.setProperty('--loader-width', setting.size)
+    // document.documentElement.style.setProperty(
+    //   '--loader-primary',
+    //   setting.primaryColor,
+    // )
+    // document.documentElement.style.setProperty(
+    //   '--loader-secondary',
+    //   setting.secondaryColor,
+    // )
   }
 
   const formControl = 'flex flex-col text-left grow sm:grow-0 '
@@ -143,6 +241,7 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
     'flex flex-wrap gap-x-3 gap-y-3 md:gap-x-5 md:gap-y-5 justify-center mx-auto w-full'
 
   const colorSlice = (value: string) => value.split('').slice(1).join('')
+
   return (
     <>
       <div className="mx-auto max-w-[1000px] flex gap-3">
@@ -156,21 +255,22 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
                   <ButtonSize
                     id={'size-' + item}
                     // active={state.size === item.size + 'px'}
-                    active={loader_width === item.size + 'px'}
+                    active={size === item.size + 'px'}
                     // onClick={() => handleRange(item.size)}
                     onClick={() => {
                       handleRoute({
-                        loader_width: item.size + 'px',
-                        loader_border,
-                        loader_speed,
-                        loader_primary,
-                        loader_secondary,
+                        size: item.size + 'px',
+                        border,
+                        speed,
+                        primaryColor,
+                        secondaryColor,
+                        sourceCode,
                       })
                     }}
                     key={item.label}
                     label={item.label}
                     title={item.title}
-                    size={size}
+                    size={btnSize}
                   />
                 )
               })}
@@ -184,22 +284,23 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
                 return (
                   <ButtonSize
                     id={'border-size-' + item}
-                    active={loader_border === item.size + 'px'}
+                    active={border === item.size + 'px'}
                     // active={state.border === item.size + 'px'}
                     // onClick={() => handleBorder(item.size)}
                     onClick={() => {
                       handleRoute({
-                        loader_border: item.size + 'px',
-                        loader_width,
-                        loader_speed,
-                        loader_primary,
-                        loader_secondary,
+                        border: item.size + 'px',
+                        size,
+                        speed,
+                        primaryColor,
+                        secondaryColor,
+                        sourceCode,
                       })
                     }}
                     key={item.label}
                     label={item.label}
                     title={item.title}
-                    size={size}
+                    size={btnSize}
                   />
                 )
               })}
@@ -213,22 +314,23 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
                 return (
                   <ButtonSize
                     id={'loader-size-' + item}
-                    active={loader_speed === item.size + 's'}
+                    active={speed === item.size + 's'}
                     // active={state.speed === item.size + 's'}
                     // onClick={() => handleSpeed(item.size)}
                     onClick={() => {
                       handleRoute({
-                        loader_speed: item.size + 's',
-                        loader_width,
-                        loader_border,
-                        loader_primary,
-                        loader_secondary,
+                        speed: item.size + 's',
+                        size,
+                        border,
+                        primaryColor,
+                        secondaryColor,
+                        sourceCode,
                       })
                     }}
                     key={item.label}
                     label={item.label}
                     title={item.title}
-                    size={size}
+                    size={btnSize}
                   />
                 )
               })}
@@ -238,38 +340,40 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
             <label htmlFor="primaryColor">Primary Color</label>
 
             <ColorPickerButton
-              value={'#' + loader_primary}
+              value={'#' + primaryColor}
               // value={state.primaryColor}
               // onChange={handlePrimayColor}
               onChange={(e: any) => {
                 handleRoute({
-                  loader_speed,
-                  loader_width,
-                  loader_border,
-                  loader_primary: colorSlice(e.target.value),
-                  loader_secondary,
+                  speed,
+                  size,
+                  border,
+                  primaryColor: colorSlice(e.target.value),
+                  secondaryColor,
+                  sourceCode,
                 })
               }}
-              size={size}
+              size={btnSize}
             />
           </div>
           <div className={formControl}>
             <label htmlFor="secodaryColor">Secodary Color</label>
 
             <ColorPickerButton
-              value={'#' + loader_secondary}
+              value={'#' + secondaryColor}
               // value={state.secondaryColor}
               // onChange={handleSecondaryColor}
               onChange={(e: any) => {
                 handleRoute({
-                  loader_speed,
-                  loader_width,
-                  loader_border,
-                  loader_primary,
-                  loader_secondary: colorSlice(e.target.value),
+                  speed,
+                  size,
+                  border,
+                  primaryColor,
+                  secondaryColor: colorSlice(e.target.value),
+                  sourceCode,
                 })
               }}
-              size={size}
+              size={btnSize}
             />
           </div>
           <div className={formControl}>
@@ -277,7 +381,7 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
 
             <div className="tooltip mr-auto" data-tip="Reset">
               <button
-                className={cn('btn btn-primary group   text-white', size)}
+                className={cn('btn btn-primary group   text-white', btnSize)}
                 onClick={onResetForm}
               >
                 <svg
@@ -302,7 +406,7 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
     </>
   )
 }
-export default memo(CustomizeLoader)
+export default CustomizeLoader
 
 const ButtonSize = ({
   id,

@@ -17,6 +17,10 @@ export default function PasswordGenerator() {
             online protection against unauthorized access. Stay one step ahead
             of potential threats with ease.
           </p>
+          📌 To bookmark this page, simply press{' '}
+          <kbd className="kbd">Ctrl+D</kbd>.
+          <br />
+          <br />
           <GeneratePassword />
         </article>
       </section>

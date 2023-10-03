@@ -13,12 +13,14 @@ export default function Home() {
   return (
     <>
       <InsertHead
-        title="AVishwakarma"
+        title="Ashishkumar Vishwakarma"
         description="I'm a passionate frontend developer with a strong
                   foundation in engineering. With a deep love for clean and
                   user-friendly design, I transform ideas into beautifully
                   crafted, responsive web experiences."
       />
+
+     
       <AnimatePresence>
         <div className="relative font-inter ">
           <motion.canvas
@@ -57,7 +59,7 @@ export default function Home() {
                   duration: 0.95,
                   ease: [0.165, 0.84, 0.44, 1],
                 }}
-                className="relative md:ml-[-10px] md:mb-[37px] font-extrabold text-[16vw] md:text-[130px] font-inter  leading-[0.9] tracking-[-2px] z-[100]"
+                className="text-accent-content relative mb-[15px] md:ml-[-10px] md:mb-[37px] font-extrabold text-[14vw] md:text-[100px] lg:text-[130px]  font-inter  leading-[0.9] tracking-[-2px] z-[100]"
               >
                 Ashishkumar <br />
                 <span className="text-primary">Vishwakarma</span>
@@ -71,10 +73,10 @@ export default function Home() {
                   duration: 0.95,
                   ease: [0.165, 0.84, 0.44, 1],
                 }}
-                className="text-left  z-20  mt-1 md:mb-[35px] "
+                className="text-left  z-20  mt-1  md:mb-[35px] "
               >
                 <div className="">
-                  <p className=" font-normal max-w-[900px] text-lg  ">
+                  <p className="font-normal max-w-[900px] md:text-lg text-accent-content  ">
                     I&apos;m a passionate frontend developer with a strong
                     foundation in engineering. With a deep love for clean and
                     user-friendly design, I transform ideas into beautifully
@@ -92,6 +94,7 @@ export default function Home() {
                     duration: 0.55,
                     ease: [0.075, 0.82, 0.965, 1],
                   }}
+                  className="grow sm:grow-0"
                 >
                   <Link
                     href="https://github.com/vishwaashish/vashish"
@@ -114,6 +117,7 @@ export default function Home() {
                     duration: 0.55,
                     ease: [0.075, 0.82, 0.965, 1],
                   }}
+                  className="grow sm:grow-0"
                 >
                   <Link
                     href="/generate-password"
@@ -135,6 +139,7 @@ export default function Home() {
                     duration: 0.55,
                     ease: [0.075, 0.82, 0.965, 1],
                   }}
+                  className="grow sm:grow-0"
                 >
                   <Link
                     href="/validate-password"
@@ -155,6 +160,7 @@ export default function Home() {
                     duration: 0.55,
                     ease: [0.075, 0.82, 0.965, 1],
                   }}
+                  className="grow sm:grow-0"
                 >
                   <Link
                     href="/css-loaders"

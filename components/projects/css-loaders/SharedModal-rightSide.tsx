@@ -16,6 +16,7 @@ const SharedModalRightSide = ({
   setting: ILoaderParams
   sourceCode: boolean
 }) => {
+  console.log('activeLoader', activeLoader)
   const rootString = `:root {
     --loader-primary: #${setting.primaryColor};
     --loader-secondary: #${setting.secondaryColor};

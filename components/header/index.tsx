@@ -14,24 +14,24 @@ const themeOptions = [
 ]
 
 function Header() {
-  const [currentTheme, setCurrentTheme] = useState('light')
-  const [theme, setTheme] = useState(false)
+  // const [currentTheme, setCurrentTheme] = useState('dracula')
+  const [theme, setTheme] = useState(true)
 
   useEffect(() => {
     const data = document.getElementsByTagName('html')[0]
-    const theme = data.getAttribute('data-theme') || 'dark'
-    setCurrentTheme(theme)
-    setTheme(theme === 'dark' ? true : false)
+    const theme = data.getAttribute('data-theme') || 'dracula'
+    // setCurrentTheme(theme)
+    setTheme(theme === 'dracula' ? true : false)
   }, [])
 
-  const onThemeChange = useCallback(
-    (value: string) => () => {
-      const data = document.getElementsByTagName('html')[0]
-      data.setAttribute('data-theme', value)
-      setCurrentTheme(value)
-    },
-    [],
-  )
+  // const onThemeChange = useCallback(
+  //   (value: string) => () => {
+  //     const data = document.getElementsByTagName('html')[0]
+  //     data.setAttribute('data-theme', value)
+  //     setCurrentTheme(value)
+  //   },
+  //   [],
+  // )
 
   const onChange = useCallback(() => {
     const data = document.getElementsByTagName('html')[0]

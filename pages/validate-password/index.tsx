@@ -17,6 +17,10 @@ export default function PasswordGenerator() {
           characters. Strengthen your online security by crafting passwords that
           pass the test and keep your accounts safe.
         </p>
+        📌 To bookmark this page, simply press <kbd className="kbd">Ctrl+D</kbd>
+        .
+        <br />
+        <br />
         <ValidatePassword />
       </article>
       <br />

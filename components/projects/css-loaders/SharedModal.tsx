@@ -6,11 +6,12 @@ import {
 import { cn } from '@/components/utils'
 import { LoaderType } from '@/types/css-loaders.model'
 import { MotionConfig, motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useSwipeable } from 'react-swipeable'
 import { useRouter } from 'next/router'
 import SharedModalLeftSide from './SharedModal-leftSide'
 import SharedModalRightSide from './SharedModal-rightSide'
+import _ from 'lodash'
 
 interface SharedModal {
   index: number
@@ -31,7 +32,6 @@ export default function SharedModal({
   direction = 0,
 }: SharedModal) {
   const router = useRouter()
-
   const {
     size = DEFAULT_SETTINGS.size,
     border = DEFAULT_SETTINGS.border,
@@ -99,20 +99,17 @@ export default function SharedModal({
 
   const onLeft = () => {
     changeLoaderId(indexProps - 1)
-    // setLoading(true)
   }
 
   const onRight = () => {
     changeLoaderId(indexProps + 1)
-    // setLoading(true)
   }
 
   useEffect(() => {
-    // if (loaders.length) {
-    //   const loader = _.find(loaders, val => val.id === indexProps)
-    //   loader && setActiveLoader(loader)
-    // } else
-    if (currentPhoto) {
+    if (LOADER.length) {
+      const loader = _.find(LOADER, val => val.id === indexProps)
+      loader && setActiveLoader(loader)
+    } else if (currentPhoto) {
       currentPhoto && setActiveLoader(currentPhoto)
     }
   }, [currentPhoto, indexProps])

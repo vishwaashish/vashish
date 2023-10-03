@@ -9,12 +9,12 @@ import SharedModal from './SharedModal'
 // const SharedModal = lazy(() => import('./SharedModal'))
 
 interface LoaderModel {
-  loaders: LoaderType[]
+  // loaders: LoaderType[]
   onClose: () => void
   state: ILoaderParams
 }
 
-const LoaderModel: FC<LoaderModel> = ({ state, loaders, onClose }) => {
+const LoaderModel: FC<LoaderModel> = ({ state, onClose }) => {
   const router = useRouter()
 
   let overlayRef = useRef<HTMLDivElement | null>(null)
@@ -69,31 +69,20 @@ const LoaderModel: FC<LoaderModel> = ({ state, loaders, onClose }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         />
-        {/* <motion.div
-          initial={{ opacity: 0, y: 100 }}
-          exit={{ opacity: 0, y: 100 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.3,
-          }}
-          className="fixed z-50 inset-0 flex items-center justify-center p-4"
-        > */}
-        {/* <Suspense fallback="loading..."> */}
         <Dialog.Panel
-          // className="mx-auto rounded "
+          as={motion.div}
           className="fixed z-50 inset-0 flex items-center justify-center p-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
         >
           <SharedModal
             index={curIndex}
             direction={direction}
-            loaders={loaders}
             changeLoaderId={changeLoaderId}
             closeModal={handleClose}
             navigation={true}
           />
         </Dialog.Panel>
-        {/* </Suspense> */}
-        {/* </motion.div> */}
       </Dialog>
     </>
   )

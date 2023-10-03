@@ -17,8 +17,8 @@ const SharedModalRightSide = ({
   sourceCode: boolean
 }) => {
   const rootString = `:root {
-    --loader-primary: ${setting.primaryColor};
-    --loader-secondary: ${setting.secondaryColor};
+    --loader-primary: #${setting.primaryColor};
+    --loader-secondary: #${setting.secondaryColor};
     --loader-border: ${setting.border};
     --loader-width: ${setting.size};
     --loader-speed: ${setting.speed};

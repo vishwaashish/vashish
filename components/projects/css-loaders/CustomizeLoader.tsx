@@ -9,32 +9,19 @@ import { cn } from '@/components/utils'
 import { ILoaderParams, InputSizeType } from '@/types/css-loaders.model'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
-import { FC, useEffect } from 'react'
+import { FC, memo, useEffect } from 'react'
 
 const ColorPickerButton = dynamic(
   () => import('@/components/shared/element/ColorPickerButton'),
   { ssr: false },
 )
 
-// export const getColor = (obj: DefaultLoaderType) => {
-//   return {
-//     primaryColor: hslStringToHex(obj.primaryColor),
-//     secondaryColor: hslStringToHex(obj.secondaryColor),
-//     size: obj.size,
-//     border: obj.border,
-//     speed: obj.speed,
-//   }
-// }
-
 interface CustomizeLoader {
-  // Add your interface properties here
   size?: InputSizeType
   index?: number | null
-  // setState: React.Dispatch<React.SetStateAction<DefaultLoaderType>>
 }
 
 const CustomizeLoader: FC<CustomizeLoader> = ({
-  // setState,
   index,
   size: btnSize = 'btn-md',
 }) => {
@@ -48,24 +35,6 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
     secondaryColor = 'd8dde4',
     sourceCode = 'false',
   }: any = router.query
-
-  // const state = {
-  //   size,
-  //   speed,
-  //   border,
-  //   primaryColor,
-  //   secondaryColor,
-  // }
-
-  // const { size, border, speed, primaryColor, secondaryColor } = state
-
-  // const searchParam = useSearchParams()
-
-  // const size = searchParam.get('size') || DEFAULT_SETTINGS.size
-  // const border = searchParam.get('border') || DEFAULT_SETTINGS.border
-  // const speed = searchParam.get('speed') || DEFAULT_SETTINGS.speed
-  // const primaryColor = searchParam.get('primaryColor') || '570df8'
-  // const secondaryColor = searchParam.get('secondaryColor') || 'd8dde4'
 
   useEffect(() => {
     document.documentElement.style.setProperty('--loader-width', size)
@@ -89,18 +58,6 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
     secondaryColor,
     sourceCode,
   }: ILoaderParams) => {
-    // document.documentElement.style.setProperty('--loader-width', size)
-    // document.documentElement.style.setProperty('--loader-border', border)
-    // document.documentElement.style.setProperty('--loader-speed', speed)
-    // document.documentElement.style.setProperty(
-    //   '--loader-primary',
-    //   '#' + primaryColor,
-    // )
-    // document.documentElement.style.setProperty(
-    //   '--loader-secondary',
-    //   '#' + secondaryColor,
-    // )
-
     if (index) {
       router.push(
         {
@@ -111,6 +68,7 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
             speed,
             primaryColor,
             secondaryColor,
+            sourceCode,
           },
         },
         `/css-loaders/${index}?${LOADER_PARAMS({
@@ -142,96 +100,15 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
     }
   }
 
-  // useEffect(() => {
-  //   if (!searchParam.has('size')) {
-  //     router.push(
-  //       LOADER_PARAMS({
-  //         border: DEFAULT_SETTINGS.border,
-  //         size: DEFAULT_SETTINGS.size,
-  //         speed: DEFAULT_SETTINGS.speed,
-  //         primaryColor: '570df8',
-  //         secondaryColor: 'd8dde4',
-  //       }),
-  //     )
-  //   }
-  // }, [router, searchParam])
-
-  // const handleRange = (value: number) => {
-  //   document.documentElement.style.setProperty('--loader-width', value + 'px')
-  //   setState((val: any) => ({ ...val, size: value + 'px' }))
-  // }
-
-  // const handleBorder = (value: number) => {
-  //   document.documentElement.style.setProperty('--loader-border', value + 'px')
-  //   setState((val: any) => ({ ...val, border: value + 'px' }))
-  // }
-  // const handleSpeed = (value: number) => {
-  //   document.documentElement.style.setProperty('--loader-speed', value + 's')
-  //   setState((val: any) => ({ ...val, speed: value + 's' }))
-  // }
-
-  // const handlePrimayColor = (e: FormEvent<HTMLInputElement>) => {
-  //   const value = e.currentTarget.value
-  //   document.documentElement.style.setProperty('--loader-primary', value)
-  //   setState(val => ({
-  //     ...val,
-  //     primaryColor: String(value),
-  //   }))
-  // }
-  // const handleSecondaryColor = (e: FormEvent<HTMLInputElement>) => {
-  //   const value = e.currentTarget.value
-  //   document.documentElement.style.setProperty('--loader-secondary', value)
-  //   setState((val: any) => ({ ...val, secondaryColor: value }))
-  // }
-
   const onResetForm = () => {
-    // var style = getComputedStyle(document.body)
-
-    // const primaryColor = `hsl(${style.getPropertyValue(
-    //   DEFAULT_SETTINGS.primaryColor,
-    // )})`
-
-    // const secondaryColor = `hsl(${style.getPropertyValue(
-    //   DEFAULT_SETTINGS.secondaryColor,
-    // )})`
-
-    // const setting = getColor({
-    //   primaryColor: primaryColor,
-    //   secondaryColor: secondaryColor,
-    //   size: DEFAULT_SETTINGS.size,
-    //   border: DEFAULT_SETTINGS.border,
-    //   speed: DEFAULT_SETTINGS.speed,
-    // })
-
     handleRoute({
       border: DEFAULT_SETTINGS.border,
       size: DEFAULT_SETTINGS.size,
       speed: DEFAULT_SETTINGS.speed,
       primaryColor: '570df8',
       secondaryColor: 'd8dde4',
-      sourceCode: 'false',
+      sourceCode: sourceCode,
     })
-
-    // setState({
-    //   primaryColor: setting.primaryColor,
-    //   secondaryColor: setting.secondaryColor,
-    //   size: setting.size,
-    //   border: setting.border,
-    //   speed: setting.speed,
-    // })
-    // document.documentElement.style.setProperty(
-    //   '--loader-border',
-    //   setting.border,
-    // )
-    // document.documentElement.style.setProperty('--loader-width', setting.size)
-    // document.documentElement.style.setProperty(
-    //   '--loader-primary',
-    //   setting.primaryColor,
-    // )
-    // document.documentElement.style.setProperty(
-    //   '--loader-secondary',
-    //   setting.secondaryColor,
-    // )
   }
 
   const formControl = 'flex flex-col text-left grow sm:grow-0 '
@@ -285,8 +162,6 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
                   <ButtonSize
                     id={'border-size-' + item}
                     active={border === item.size + 'px'}
-                    // active={state.border === item.size + 'px'}
-                    // onClick={() => handleBorder(item.size)}
                     onClick={() => {
                       handleRoute({
                         border: item.size + 'px',
@@ -315,8 +190,6 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
                   <ButtonSize
                     id={'loader-size-' + item}
                     active={speed === item.size + 's'}
-                    // active={state.speed === item.size + 's'}
-                    // onClick={() => handleSpeed(item.size)}
                     onClick={() => {
                       handleRoute({
                         speed: item.size + 's',
@@ -341,8 +214,6 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
 
             <ColorPickerButton
               value={'#' + primaryColor}
-              // value={state.primaryColor}
-              // onChange={handlePrimayColor}
               onChange={(e: any) => {
                 handleRoute({
                   speed,
@@ -361,8 +232,6 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
 
             <ColorPickerButton
               value={'#' + secondaryColor}
-              // value={state.secondaryColor}
-              // onChange={handleSecondaryColor}
               onChange={(e: any) => {
                 handleRoute({
                   speed,
@@ -406,7 +275,7 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
     </>
   )
 }
-export default CustomizeLoader
+export default memo(CustomizeLoader)
 
 const ButtonSize = ({
   id,
@@ -424,7 +293,7 @@ const ButtonSize = ({
   size: InputSizeType
 }) => {
   return (
-    <div className="grow tooltip" data-tip={title}>
+    <div className="grow tooltip" data-tip={title} >
       <button
         id={id}
         className={cn(

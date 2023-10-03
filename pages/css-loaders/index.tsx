@@ -9,7 +9,6 @@ import LoaderLoop from '@/components/projects/css-loaders'
 import CustomizeLoader from '@/components/projects/css-loaders/CustomizeLoader'
 import LoaderModel from '@/components/projects/css-loaders/LoaderModel'
 import { LoaderType } from '@/types/css-loaders.model'
-import { useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/router'
 
 // const CustomizeLoader = lazy(
@@ -38,9 +37,6 @@ export default function CSSLoaders({ loaders }: { loaders: LoaderType[] }) {
 
   const { loaderId } = router.query
 
-  console.log(state, 'state')
-  console.log('loaderId', loaderId)
-
   const onClose = () => {}
 
   return (
@@ -60,17 +56,18 @@ export default function CSSLoaders({ loaders }: { loaders: LoaderType[] }) {
               CSS Loaders for Seamless Loading Animations
             </p>
           </div>
-
+          📌 To bookmark this page, simply press{' '}
+          <kbd className="kbd">Ctrl+D</kbd>.
+          <br />
+          <br />
           {/* <Suspense fallback="Loadiing"> */}
           <CustomizeLoader />
           {/* </Suspense> */}
           <br />
           <br />
-
-          {loaderId && (
-            <LoaderModel state={state} loaders={loaders} onClose={onClose} />
-          )}
-
+          {/* <AnimatePresence> */}
+          {loaderId && <LoaderModel state={state} onClose={onClose} />}
+          {/* </AnimatePresence> */}
           <div className="transition-all grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full  mx-auto">
             {loaders.map(item => (
               <LoaderLoop

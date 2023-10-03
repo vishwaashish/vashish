@@ -15,12 +15,12 @@ interface SharedModalLeftSide {
   closeModal: () => void
   direction: number
   index: number
-  loaders: LoaderType[]
   navigation: boolean
   onLeft: () => void
   onRight: () => void
   onSourceCode: () => void
   sourceCode: boolean
+  loadersLength: number
 }
 const SharedModalLeftSide: FC<SharedModalLeftSide> = ({
   closeModal,
@@ -29,10 +29,10 @@ const SharedModalLeftSide: FC<SharedModalLeftSide> = ({
   sourceCode,
   index,
   onLeft,
-  loaders,
   onRight,
   direction,
   activeLoader,
+  loadersLength,
 }) => {
   const buttonClass = 'btn btn-circle btn-md shadow'
   return (
@@ -166,7 +166,7 @@ const SharedModalLeftSide: FC<SharedModalLeftSide> = ({
               </button>
             </div>
           )}
-          {index + 1 < loaders.length && (
+          {index + 1 < loadersLength && (
             <div
               className="absolute right-3 top-[calc(50%-16px)] tooltip "
               data-tip="Right"

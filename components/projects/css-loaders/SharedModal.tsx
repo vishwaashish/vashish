@@ -5,26 +5,12 @@ import {
 } from '@/common/loaders-constants'
 import { cn } from '@/components/utils'
 import { LoaderType } from '@/types/css-loaders.model'
-import { AnimatePresence, MotionConfig, motion } from 'framer-motion'
-import _ from 'lodash'
+import { MotionConfig, motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { useSwipeable } from 'react-swipeable'
-// import { getColor } from './CustomizeLoader'
+import { useRouter } from 'next/router'
 import SharedModalLeftSide from './SharedModal-leftSide'
 import SharedModalRightSide from './SharedModal-rightSide'
-import { useRouter } from 'next/router'
-
-//  const range = (start: number, end: number) => {
-//   let output = []
-//   if (typeof end === 'undefined') {
-//     end = start
-//     start = 0
-//   }
-//   for (let i = start; i < end; i += 1) {
-//     output.push(i)
-//   }
-//   return output
-// }
 
 interface SharedModal {
   index: number
@@ -32,14 +18,12 @@ interface SharedModal {
   closeModal: () => void
   navigation: boolean
   currentPhoto?: LoaderType
-  // loaders?: LoaderType[],
   direction?: number
-  loaders?: LoaderType[]
 }
 
 export default function SharedModal({
   index: indexProps,
-  loaders = [],
+  // loaders = [],
   changeLoaderId,
   closeModal,
   navigation,
@@ -59,18 +43,6 @@ export default function SharedModal({
 
   const openSidebar: boolean = JSON.parse(sourceCode)
 
-  console.log('openSidebar', openSidebar, sourceCode)
-
-  // const searchParam = useSearchParams()
-  // const router = useRouter()
-
-  // const size = searchParam.get('size') || DEFAULT_SETTINGS.size
-  // const border = searchParam.get('border') || DEFAULT_SETTINGS.border
-  // const speed = searchParam.get('speed') || DEFAULT_SETTINGS.speed
-  // const primaryColor = searchParam.get('primaryColor') || '570df8'
-  // const secondaryColor = searchParam.get('secondaryColor') || 'd8dde4'
-  // // const sourceCode = JSON.parse(searchParam.get('sourceCode') || 'false')
-
   const setting = {
     size,
     speed,
@@ -84,51 +56,23 @@ export default function SharedModal({
 
   const [activeLoader, setActiveLoader] = useState<LoaderType>(LOADER[0])
 
-  // const [sourceCode, setSourceCode] = useState<boolean>(true)
-  const [loading, setLoading] = useState<boolean>(false)
-
-  // const [setting, setSetting] = useState<DefaultLoaderType>(DEFAULT_SETTINGS)
-
-  // useEffect(() => {
-  //   var style = getComputedStyle(document.body)
-  //   setSetting(
-  //     getColor({
-  //       primaryColor: style.getPropertyValue('--loader-primary'),
-  //       secondaryColor: style.getPropertyValue('--loader-secondary'),
-  //       size: style.getPropertyValue('--loader-width'),
-  //       border: style.getPropertyValue('--loader-border'),
-  //       speed: style.getPropertyValue('--loader-speed'),
-  //     }),
-  //   )
-  // }, [])
-
-  // useEffect(() => {
-  //   loading &&
-  //     setTimeout(() => {
-  //       setLoading(false)
-  //     }, 500)
-  // }, [loading])
+  // const [loading, setLoading] = useState<boolean>(false)
 
   const handlers = useSwipeable({
     onSwipedLeft: () => {
-      if (index < loaders?.length - 1) {
+      if (index < LOADER?.length - 1) {
         changeLoaderId(indexProps + 1)
-        // setLoading(true)
       }
     },
     onSwipedRight: () => {
       if (index > 0) {
         changeLoaderId(indexProps - 1)
-        // setLoading(true)
       }
     },
     trackMouse: true,
   })
 
   const onSourceCode = () => {
-    // setSourceCode(val => !val)
-    // router.push('?' + LOADER_PARAMS(state))
-
     router.push(
       {
         query: {
@@ -155,22 +99,23 @@ export default function SharedModal({
 
   const onLeft = () => {
     changeLoaderId(indexProps - 1)
-    setLoading(true)
+    // setLoading(true)
   }
 
   const onRight = () => {
     changeLoaderId(indexProps + 1)
-    setLoading(true)
+    // setLoading(true)
   }
 
   useEffect(() => {
-    if (loaders.length) {
-      const loader = _.find(loaders, val => val.id === indexProps)
-      loader && setActiveLoader(loader)
-    } else if (currentPhoto) {
+    // if (loaders.length) {
+    //   const loader = _.find(loaders, val => val.id === indexProps)
+    //   loader && setActiveLoader(loader)
+    // } else
+    if (currentPhoto) {
       currentPhoto && setActiveLoader(currentPhoto)
     }
-  }, [currentPhoto, loaders, indexProps])
+  }, [currentPhoto, indexProps])
 
   return (
     <MotionConfig
@@ -193,7 +138,7 @@ export default function SharedModal({
                 sourceCode: openSidebar,
                 index,
                 onLeft,
-                loaders,
+                loadersLength: LOADER?.length,
                 onRight,
                 direction,
                 activeLoader,
@@ -201,7 +146,7 @@ export default function SharedModal({
             />
           </div>
 
-          <div className="divider   lg:divider-horizontal lg:m-0 lg:w-0"></div>
+          <div className="divider lg:divider-horizontal lg:m-0 lg:w-0"></div>
 
           <div
             className={cn(

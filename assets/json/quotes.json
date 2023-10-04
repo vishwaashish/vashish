@@ -1,0 +1,4455 @@
+{
+  "anniversary": [
+    {
+      "id": 1,
+      "content": "Wishing a wonderful couple a happy 25th anniversary!",
+      "author": "Alice Johnson",
+      "tags": ["anniversary", "love", "celebration"],
+      "authorSlug": "alice-johnson",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 2,
+      "content": "Congratulations on reaching this incredible milestone. Happy 50th anniversary!",
+      "author": "Robert Davis",
+      "tags": ["anniversary", "milestone", "golden"],
+      "authorSlug": "robert-davis",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 3,
+      "content": "May your love continue to grow stronger with each passing year. Happy 3rd anniversary!",
+      "author": "Emily Carter",
+      "tags": ["anniversary", "love", "growth"],
+      "authorSlug": "emily-carter",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 4,
+      "content": "To the couple who exemplifies love and commitment, happy 30th anniversary!",
+      "author": "Michael Wilson",
+      "tags": ["anniversary", "commitment", "30 years"],
+      "authorSlug": "michael-wilson",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 5,
+      "content": "Warmest wishes on your 5th wedding anniversary. Here's to many more years of happiness!",
+      "author": "Sophia Adams",
+      "tags": ["anniversary", "happiness", "5 years"],
+      "authorSlug": "sophia-adams",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 6,
+      "content": "Happy 1st anniversary to the couple whose love story is just beginning!",
+      "author": "David Brown",
+      "tags": ["anniversary", "love story", "1 year"],
+      "authorSlug": "david-brown",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 7,
+      "content": "Celebrating 15 years of love and togetherness. Happy anniversary!",
+      "author": "Olivia White",
+      "tags": ["anniversary", "love", "15 years"],
+      "authorSlug": "olivia-white",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 8,
+      "content": "Wishing a fantastic couple a happy 7th anniversary filled with love and joy!",
+      "author": "Daniel Miller",
+      "tags": ["anniversary", "love", "7 years"],
+      "authorSlug": "daniel-miller",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 9,
+      "content": "Happy 2nd anniversary! May your love continue to flourish.",
+      "author": "Ava Taylor",
+      "tags": ["anniversary", "love", "flourish"],
+      "authorSlug": "ava-taylor",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 10,
+      "content": "To the couple who makes marriage look easy, happy 8th anniversary!",
+      "author": "William Harris",
+      "tags": ["anniversary", "marriage", "8 years"],
+      "authorSlug": "william-harris",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 11,
+      "content": "Happy 12th anniversary to a love that keeps getting stronger!",
+      "author": "Ella Robinson",
+      "tags": ["anniversary", "love", "12 years"],
+      "authorSlug": "ella-robinson",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 12,
+      "content": "Congratulations on your 6th wedding anniversary. Here's to many more years of happiness!",
+      "author": "James Clark",
+      "tags": ["anniversary", "happiness", "6 years"],
+      "authorSlug": "james-clark",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 13,
+      "content": "Happy 4th anniversary! Your love is an inspiration to us all.",
+      "author": "Lily Garcia",
+      "tags": ["anniversary", "love", "inspiration"],
+      "authorSlug": "lily-garcia",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 14,
+      "content": "May your 20th anniversary be as beautiful as the day you said 'I do.'",
+      "author": "Samuel Turner",
+      "tags": ["anniversary", "love", "20 years"],
+      "authorSlug": "samuel-turner",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 15,
+      "content": "Happy 9th anniversary to a couple that radiates love and happiness!",
+      "author": "Sophie Miller",
+      "tags": ["anniversary", "love", "9 years"],
+      "authorSlug": "sophie-miller",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 16,
+      "content": "Warmest wishes on your 11th wedding anniversary. Here's to many more joyful years together!",
+      "author": "Benjamin Davis",
+      "tags": ["anniversary", "joy", "11 years"],
+      "authorSlug": "benjamin-davis",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 17,
+      "content": "Happy 18th anniversary! Your love is a shining example of what marriage should be.",
+      "author": "Victoria Wilson",
+      "tags": ["anniversary", "love", "18 years"],
+      "authorSlug": "victoria-wilson",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 18,
+      "content": "To the couple who still acts like newlyweds, happy 22nd anniversary!",
+      "author": "Thomas Adams",
+      "tags": ["anniversary", "newlyweds", "22 years"],
+      "authorSlug": "thomas-adams",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 19,
+      "content": "Happy 14th anniversary! Your love is a beacon of hope and happiness.",
+      "author": "Mia Turner",
+      "tags": ["anniversary", "love", "14 years"],
+      "authorSlug": "mia-turner",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 20,
+      "content": "May your 7th wedding anniversary be filled with laughter and love!",
+      "author": "Ethan Brown",
+      "tags": ["anniversary", "love", "7 years"],
+      "authorSlug": "ethan-brown",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 21,
+      "content": "Happy 13th anniversary! Your love story is one for the ages.",
+      "author": "Natalie Adams",
+      "tags": ["anniversary", "love story", "13 years"],
+      "authorSlug": "natalie-adams",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 22,
+      "content": "To the couple who still holds hands after all these years, happy 27th anniversary!",
+      "author": "John Miller",
+      "tags": ["anniversary", "love", "27 years"],
+      "authorSlug": "john-miller",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 23,
+      "content": "Wishing a beautiful couple a happy 19th anniversary filled with love and laughter!",
+      "author": "Ella Davis",
+      "tags": ["anniversary", "love", "19 years"],
+      "authorSlug": "ella-davis",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 24,
+      "content": "Happy 16th anniversary! Your love is like fine wine, it gets better with time.",
+      "author": "Daniel Smith",
+      "tags": ["anniversary", "love", "16 years"],
+      "authorSlug": "daniel-smith",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 25,
+      "content": "May your 10th wedding anniversary be a day to remember and cherish forever!",
+      "author": "Sophia Brown",
+      "tags": ["anniversary", "cherish", "10 years"],
+      "authorSlug": "sophia-brown",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 26,
+      "content": "To the couple who has weathered life's storms together, happy 35th anniversary!",
+      "author": "Michael Adams",
+      "tags": ["anniversary", "love", "35 years"],
+      "authorSlug": "michael-adams",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 27,
+      "content": "Happy 21st anniversary! Your love is an inspiration to all of us lucky enough to know you.",
+      "author": "Emma Wilson",
+      "tags": ["anniversary", "love", "21 years"],
+      "authorSlug": "emma-wilson",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 28,
+      "content": "Wishing you a joyful 17th anniversary and many more years of happiness to come!",
+      "author": "William Turner",
+      "tags": ["anniversary", "happiness", "17 years"],
+      "authorSlug": "william-turner",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 29,
+      "content": "Happy 26th anniversary to the couple who still makes us believe in true love!",
+      "author": "Olivia Miller",
+      "tags": ["anniversary", "true love", "26 years"],
+      "authorSlug": "olivia-miller",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 30,
+      "content": "May your 28th wedding anniversary be filled with joy and cherished memories.",
+      "author": "Liam Davis",
+      "tags": ["anniversary", "joy", "28 years"],
+      "authorSlug": "liam-davis",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 31,
+      "content": "Happy 23rd anniversary! Your love is a testament to the power of commitment.",
+      "author": "Ava Smith",
+      "tags": ["anniversary", "commitment", "23 years"],
+      "authorSlug": "ava-smith",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 32,
+      "content": "To the couple who defines happiness, happy 9th anniversary!",
+      "author": "Sophie Davis",
+      "tags": ["anniversary", "happiness", "9 years"],
+      "authorSlug": "sophie-davis",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 33,
+      "content": "Wishing a loving couple a happy 31st anniversary. May your love continue to shine.",
+      "author": "Benjamin Turner",
+      "tags": ["anniversary", "love", "31 years"],
+      "authorSlug": "benjamin-turner",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 34,
+      "content": "Happy 38th anniversary! Your love is like a timeless classic.",
+      "author": "Ella Smith",
+      "tags": ["anniversary", "love", "38 years"],
+      "authorSlug": "ella-smith",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 35,
+      "content": "May your 42nd wedding anniversary be filled with laughter and unforgettable moments.",
+      "author": "James Turner",
+      "tags": ["anniversary", "laughter", "42 years"],
+      "authorSlug": "james-turner",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 36,
+      "content": "To the couple who still looks at each other like it's the first time, happy 44th anniversary!",
+      "author": "Sophia Davis",
+      "tags": ["anniversary", "first time", "44 years"],
+      "authorSlug": "sophia-davis",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 37,
+      "content": "Happy 32nd anniversary! Your love is a beacon of hope and inspiration.",
+      "author": "William Smith",
+      "tags": ["anniversary", "love", "32 years"],
+      "authorSlug": "william-smith",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 38,
+      "content": "Wishing a fantastic couple a happy 36th anniversary filled with love and joy!",
+      "author": "Ava Turner",
+      "tags": ["anniversary", "love", "36 years"],
+      "authorSlug": "ava-turner",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 39,
+      "content": "Happy 47th anniversary to a love that keeps getting stronger!",
+      "author": "Liam Smith",
+      "tags": ["anniversary", "love", "47 years"],
+      "authorSlug": "liam-smith",
+      "categories": ["Anniversary"]
+    },
+    {
+      "id": 40,
+      "content": "May your 49th wedding anniversary be as beautiful as the day you said 'I do.'",
+      "author": "Emma Davis",
+      "tags": ["anniversary", "love", "49 years"],
+      "authorSlug": "emma-davis",
+      "categories": ["Anniversary"]
+    }
+  ],
+  "best friend": [
+    {
+      "id": 1001,
+      "content": "A true best friend is like a diamond—precious and rare.",
+      "author": "Emily Davis",
+      "tags": ["best friend", "friendship", "precious", "diamond"],
+      "authorSlug": "emily-davis",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1002,
+      "content": "Friends come and go, but best friends are like stars; they always shine bright.",
+      "author": "Michael Wilson",
+      "tags": ["best friend", "friendship", "stars", "shine bright"],
+      "authorSlug": "michael-wilson",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1003,
+      "content": "A best friend is the one who knows the song of your heart and sings it back to you when you forget the lyrics.",
+      "author": "Sophia Adams",
+      "tags": ["best friend", "friendship", "heart", "song"],
+      "authorSlug": "sophia-adams",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1004,
+      "content": "Best friends are the people in life who make you laugh a little louder, smile a little brighter, and live a little better.",
+      "author": "David Brown",
+      "tags": ["best friend", "friendship", "laugh", "smile"],
+      "authorSlug": "david-brown",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1005,
+      "content": "A best friend is not just a friend; they are family you choose for yourself.",
+      "author": "Olivia White",
+      "tags": ["best friend", "friendship", "family", "chosen"],
+      "authorSlug": "olivia-white",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1006,
+      "content": "Best friends are like guardian angels sent by the universe to watch over us.",
+      "author": "Daniel Miller",
+      "tags": ["best friend", "friendship", "guardian angels", "universe"],
+      "authorSlug": "daniel-miller",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1007,
+      "content": "A best friend is the one who stands by your side when everyone else walks away.",
+      "author": "Ava Taylor",
+      "tags": ["best friend", "friendship", "stand by", "side"],
+      "authorSlug": "ava-taylor",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1008,
+      "content": "Best friends are the people who make your problems their problems just so you don't have to face them alone.",
+      "author": "William Harris",
+      "tags": ["best friend", "friendship", "problems", "face together"],
+      "authorSlug": "william-harris",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1009,
+      "content": "A best friend is someone you can call at any hour and share your deepest secrets without hesitation.",
+      "author": "Ella Robinson",
+      "tags": ["best friend", "friendship", "deepest secrets", "trust"],
+      "authorSlug": "ella-robinson",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1010,
+      "content": "Best friends are the ones who believe in you when you've stopped believing in yourself.",
+      "author": "James Clark",
+      "tags": ["best friend", "friendship", "believe in", "support"],
+      "authorSlug": "james-clark",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1011,
+      "content": "A best friend is like a book; they have the best stories to share and are always there to listen to yours.",
+      "author": "Lily Garcia",
+      "tags": ["best friend", "friendship", "stories", "listening"],
+      "authorSlug": "lily-garcia",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1012,
+      "content": "Best friends are the ones who can go from serious conversations to laughing uncontrollably within seconds.",
+      "author": "Samuel Turner",
+      "tags": ["best friend", "friendship", "serious", "laughing"],
+      "authorSlug": "samuel-turner",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1013,
+      "content": "A best friend is someone you can be your weirdest self with, and they'll still love you for it.",
+      "author": "Sophie Miller",
+      "tags": ["best friend", "friendship", "weird", "love"],
+      "authorSlug": "sophie-miller",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1014,
+      "content": "Best friends are the ones who know all your flaws and love you anyway.",
+      "author": "Benjamin Davis",
+      "tags": ["best friend", "friendship", "flaws", "love"],
+      "authorSlug": "benjamin-davis",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1015,
+      "content": "A best friend is the one person you can be 100% yourself with, and they'll never judge you.",
+      "author": "Victoria Wilson",
+      "tags": ["best friend", "friendship", "be yourself", "no judgment"],
+      "authorSlug": "victoria-wilson",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1016,
+      "content": "Best friends are the ones who can read your mind just by looking at your face.",
+      "author": "Thomas Adams",
+      "tags": ["best friend", "friendship", "mind-reading", "understand"],
+      "authorSlug": "thomas-adams",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1017,
+      "content": "A best friend is the one who brings out the best in you, even on your worst days.",
+      "author": "Mia Turner",
+      "tags": ["best friend", "friendship", "best in you", "support"],
+      "authorSlug": "mia-turner",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1018,
+      "content": "Best friends are the people you can be apart from for years and pick up right where you left off.",
+      "author": "Ethan Brown",
+      "tags": ["best friend", "friendship", "reunite", "timeless"],
+      "authorSlug": "ethan-brown",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1019,
+      "content": "A best friend is the one who knows all your quirks and still finds them endearing.",
+      "author": "Liam Anderson",
+      "tags": ["best friend", "friendship", "quirks", "endearing"],
+      "authorSlug": "liam-anderson",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1020,
+      "content": "Best friends are the ones who can make even the most ordinary day feel extraordinary.",
+      "author": "Nora Roberts",
+      "tags": ["best friend", "friendship", "ordinary day", "extraordinary"],
+      "authorSlug": "nora-roberts",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1021,
+      "content": "A best friend is like a ray of sunshine on a cloudy day, brightening your world with their presence.",
+      "author": "Evelyn Parker",
+      "tags": ["best friend", "friendship", "sunshine", "brighten"],
+      "authorSlug": "evelyn-parker",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1022,
+      "content": "Best friends are the ones who can make you laugh so hard that tears roll down your cheeks.",
+      "author": "Matthew Johnson",
+      "tags": ["best friend", "friendship", "laugh", "tears"],
+      "authorSlug": "matthew-johnson",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1023,
+      "content": "A best friend is the one who shares your dreams and helps you make them come true.",
+      "author": "Isabella Martin",
+      "tags": ["best friend", "friendship", "dreams", "come true"],
+      "authorSlug": "isabella-martin",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1024,
+      "content": "Best friends are the people who turn ordinary moments into unforgettable memories.",
+      "author": "Daniel White",
+      "tags": [
+        "best friend",
+        "friendship",
+        "ordinary moments",
+        "unforgettable"
+      ],
+      "authorSlug": "daniel-white",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1025,
+      "content": "A best friend is like a compass; they help you find your way even when you're lost.",
+      "author": "Sophia Turner",
+      "tags": ["best friend", "friendship", "compass", "find your way"],
+      "authorSlug": "sophia-turner",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1026,
+      "content": "Best friends are the ones who make life's journey more exciting and meaningful.",
+      "author": "Lucas Harris",
+      "tags": ["best friend", "friendship", "life's journey", "exciting"],
+      "authorSlug": "lucas-harris",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1027,
+      "content": "A best friend is the one who knows when to offer a shoulder to cry on and when to share a good laugh.",
+      "author": "Ava Carter",
+      "tags": ["best friend", "friendship", "shoulder to cry on", "good laugh"],
+      "authorSlug": "ava-carter",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1028,
+      "content": "Best friends are the people who make you feel at home no matter where you are.",
+      "author": "Oliver Davis",
+      "tags": ["best friend", "friendship", "feel at home", "comfort"],
+      "authorSlug": "oliver-davis",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1029,
+      "content": "A best friend is like a guardian angel sent to protect you from the storms of life.",
+      "author": "Sophie Adams",
+      "tags": ["best friend", "friendship", "guardian angel", "protection"],
+      "authorSlug": "sophie-adams",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1030,
+      "content": "Best friends are the ones who add color to your life's canvas with their presence.",
+      "author": "Liam Johnson",
+      "tags": ["best friend", "friendship", "color", "life's canvas"],
+      "authorSlug": "liam-johnson",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1031,
+      "content": "A best friend is the one who knows the rhythm of your heart and dances to it with you.",
+      "author": "Ella Robinson",
+      "tags": ["best friend", "friendship", "rhythm", "dance"],
+      "authorSlug": "ella-robinson",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1032,
+      "content": "Best friends are the ones who make you believe in the magic of true friendship.",
+      "author": "James Clark",
+      "tags": ["best friend", "friendship", "magic", "true friendship"],
+      "authorSlug": "james-clark",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1033,
+      "content": "A best friend is like a mirror; they reflect the best version of you.",
+      "author": "Lily Garcia",
+      "tags": ["best friend", "friendship", "mirror", "reflect"],
+      "authorSlug": "lily-garcia",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1034,
+      "content": "Best friends are the ones who turn life's challenges into adventures.",
+      "author": "Samuel Turner",
+      "tags": ["best friend", "friendship", "challenges", "adventures"],
+      "authorSlug": "samuel-turner",
+      "categories": ["Best Friend"]
+    },
+    {
+      "id": 1035,
+      "content": "A best friend is the one who makes your world brighter with their laughter.",
+      "author": "Sophie Miller",
+      "tags": ["best friend", "friendship", "brighter", "laughter"],
+      "authorSlug": "sophie-miller",
+      "categories": ["Best Friend"]
+    }
+  ],
+  "birthday": [
+    {
+      "id": 2001,
+      "content": "On your special day, may you be surrounded by love, happiness, and endless cake!",
+      "author": "Emily Davis",
+      "tags": ["birthday", "celebration", "happiness", "cake"],
+      "authorSlug": "emily-davis",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2002,
+      "content": "Another year older, wiser, and more fabulous than ever! Happy birthday!",
+      "author": "Michael Wilson",
+      "tags": ["birthday", "celebration", "fabulous", "wiser"],
+      "authorSlug": "michael-wilson",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2003,
+      "content": "May this year bring you more joy, more adventures, and more reasons to smile. Happy birthday!",
+      "author": "Sophia Adams",
+      "tags": ["birthday", "celebration", "joy", "adventures"],
+      "authorSlug": "sophia-adams",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2004,
+      "content": "Don't count the years; count the blessings. Wishing you a wonderful birthday filled with love and laughter.",
+      "author": "David Brown",
+      "tags": ["birthday", "celebration", "blessings", "love"],
+      "authorSlug": "david-brown",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2005,
+      "content": "Another trip around the sun, and you're shining brighter than ever. Happy birthday, superstar!",
+      "author": "Olivia White",
+      "tags": ["birthday", "celebration", "shining", "superstar"],
+      "authorSlug": "olivia-white",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2006,
+      "content": "Age is merely a number, and you've mastered the art of living life to the fullest. Happy birthday, forever young!",
+      "author": "Daniel Miller",
+      "tags": ["birthday", "celebration", "age", "forever young"],
+      "authorSlug": "daniel-miller",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2007,
+      "content": "As you blow out the candles, may your wishes come true, and your year be filled with love and success. Happy birthday!",
+      "author": "Ava Taylor",
+      "tags": ["birthday", "celebration", "wishes", "success"],
+      "authorSlug": "ava-taylor",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2008,
+      "content": "Age gracefully, they say. Well, you're doing an excellent job of it! Happy birthday, timeless beauty.",
+      "author": "William Harris",
+      "tags": ["birthday", "celebration", "age gracefully", "timeless beauty"],
+      "authorSlug": "william-harris",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2009,
+      "content": "On your special day, I wish you all the love, laughter, and cake in the world. Happy birthday!",
+      "author": "Ella Robinson",
+      "tags": ["birthday", "celebration", "love", "laughter"],
+      "authorSlug": "ella-robinson",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2010,
+      "content": "Here's to another year of adventures, laughter, and unforgettable moments. Happy birthday, my dear friend!",
+      "author": "James Clark",
+      "tags": [
+        "birthday",
+        "celebration",
+        "adventures",
+        "unforgettable moments"
+      ],
+      "authorSlug": "james-clark",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2011,
+      "content": "May your birthday be as sweet and joyful as a slice of your favorite cake. Happy birthday!",
+      "author": "Lily Garcia",
+      "tags": ["birthday", "celebration", "sweet", "joyful"],
+      "authorSlug": "lily-garcia",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2012,
+      "content": "Here's to another year of wisdom, love, and making incredible memories. Happy birthday!",
+      "author": "Samuel Turner",
+      "tags": ["birthday", "celebration", "wisdom", "incredible memories"],
+      "authorSlug": "samuel-turner",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2013,
+      "content": "May this year be filled with laughter, love, and all the things that make your heart smile. Happy birthday!",
+      "author": "Sophie Miller",
+      "tags": ["birthday", "celebration", "laughter", "love"],
+      "authorSlug": "sophie-miller",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2014,
+      "content": "Age is but a number, and you're proof that it's possible to age gracefully while staying young at heart. Happy birthday!",
+      "author": "Benjamin Davis",
+      "tags": ["birthday", "celebration", "age is a number", "young at heart"],
+      "authorSlug": "benjamin-davis",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2015,
+      "content": "May your day be filled with happiness, laughter, and the company of those who cherish you. Happy birthday!",
+      "author": "Victoria Wilson",
+      "tags": ["birthday", "celebration", "happiness", "laughter"],
+      "authorSlug": "victoria-wilson",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2016,
+      "content": "Another year older, wiser, and more fabulous than ever. Keep shining, birthday superstar!",
+      "author": "Thomas Adams",
+      "tags": ["birthday", "celebration", "older", "fabulous"],
+      "authorSlug": "thomas-adams",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2017,
+      "content": "May this year bring you endless joy, exciting adventures, and the fulfillment of your dreams. Happy birthday!",
+      "author": "Mia Turner",
+      "tags": ["birthday", "celebration", "joy", "adventures"],
+      "authorSlug": "mia-turner",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2018,
+      "content": "On your birthday, may you receive all the love and blessings that your heart can hold. Happy birthday!",
+      "author": "Ethan Brown",
+      "tags": ["birthday", "celebration", "love", "blessings"],
+      "authorSlug": "ethan-brown",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2019,
+      "content": "Age is just a number, and you keep proving that it's possible to grow older and still be young at heart. Happy birthday!",
+      "author": "Liam Anderson",
+      "tags": ["birthday", "celebration", "age", "young at heart"],
+      "authorSlug": "liam-anderson",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2020,
+      "content": "As you celebrate another year of life, may your heart be filled with gratitude and your day be filled with joy. Happy birthday!",
+      "author": "Nora Roberts",
+      "tags": ["birthday", "celebration", "gratitude", "joy"],
+      "authorSlug": "nora-roberts",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2021,
+      "content": "Another year, another adventure. May your journey be filled with love and happiness. Happy birthday!",
+      "author": "Evelyn Parker",
+      "tags": ["birthday", "celebration", "adventure", "love"],
+      "authorSlug": "evelyn-parker",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2022,
+      "content": "Wishing you a day filled with surprises, laughter, and unforgettable moments. Happy birthday!",
+      "author": "Matthew Johnson",
+      "tags": ["birthday", "celebration", "surprises", "unforgettable moments"],
+      "authorSlug": "matthew-johnson",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2023,
+      "content": "On your special day, may you receive all the love and happiness you've given to others. Happy birthday!",
+      "author": "Isabella Martin",
+      "tags": ["birthday", "celebration", "love", "happiness"],
+      "authorSlug": "isabella-martin",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2024,
+      "content": "Another year to create beautiful memories. May this chapter be the best one yet. Happy birthday!",
+      "author": "Daniel White",
+      "tags": ["birthday", "celebration", "beautiful memories", "best chapter"],
+      "authorSlug": "daniel-white",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2025,
+      "content": "May your birthday be as bright and colorful as a rainbow in the sky. Enjoy your special day to the fullest!",
+      "author": "Sophia Turner",
+      "tags": ["birthday", "celebration", "bright", "colorful"],
+      "authorSlug": "sophia-turner",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2026,
+      "content": "A birthday is the start of another fantastic journey around the sun. Make the most of it!",
+      "author": "Lucas Harris",
+      "tags": ["birthday", "celebration", "journey", "fantastic"],
+      "authorSlug": "lucas-harris",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2027,
+      "content": "Here's to a day filled with laughter, joy, and the company of those who appreciate you. Happy birthday!",
+      "author": "Ava Carter",
+      "tags": ["birthday", "celebration", "laughter", "joy"],
+      "authorSlug": "ava-carter",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2028,
+      "content": "A birthday is a new beginning, a chance to write a new chapter filled with love and success. Happy birthday!",
+      "author": "Oliver Davis",
+      "tags": ["birthday", "celebration", "new beginning", "success"],
+      "authorSlug": "oliver-davis",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2029,
+      "content": "May your birthday be the start of a year filled with exciting opportunities and beautiful moments. Happy birthday!",
+      "author": "Sophie Adams",
+      "tags": ["birthday", "celebration", "opportunities", "beautiful moments"],
+      "authorSlug": "sophia-adams",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2030,
+      "content": "A birthday is a reminder to celebrate the gift of life and all the wonderful people in it. Happy birthday!",
+      "author": "Liam Johnson",
+      "tags": ["birthday", "celebration", "gift of life", "wonderful people"],
+      "authorSlug": "liam-johnson",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2031,
+      "content": "May your birthday be a day of reflection, gratitude, and anticipation for the adventures yet to come. Happy birthday!",
+      "author": "Ella Robinson",
+      "tags": ["birthday", "celebration", "reflection", "gratitude"],
+      "authorSlug": "ella-robinson",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2032,
+      "content": "Here's to celebrating you, your journey, and the beautiful moments that lie ahead. Happy birthday!",
+      "author": "James Clark",
+      "tags": ["birthday", "celebration", "journey", "beautiful moments"],
+      "authorSlug": "james-clark",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2033,
+      "content": "Age is just a number, and you're living proof that it's possible to age gracefully and still have a heart full of dreams. Happy birthday!",
+      "author": "Sophie Miller",
+      "tags": [
+        "birthday",
+        "celebration",
+        "age gracefully",
+        "heart full of dreams"
+      ],
+      "authorSlug": "sophie-miller",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2034,
+      "content": "May this year be a kaleidoscope of wonderful experiences, filled with love, laughter, and success. Happy birthday!",
+      "author": "Benjamin Davis",
+      "tags": ["birthday", "celebration", "wonderful experiences", "love"],
+      "authorSlug": "benjamin-davis",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2035,
+      "content": "Another year older, another year wiser. May your wisdom shine as bright as your smile. Happy birthday!",
+      "author": "Victoria Wilson",
+      "tags": ["birthday", "celebration", "older", "wiser"],
+      "authorSlug": "victoria-wilson",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2036,
+      "content": "On your special day, may your heart be light, your dreams be big, and your year be filled with love and laughter. Happy birthday!",
+      "author": "Thomas Adams",
+      "tags": ["birthday", "celebration", "heart", "dreams"],
+      "authorSlug": "thomas-adams",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2037,
+      "content": "May this year bring you the courage to chase your dreams and the strength to make them a reality. Happy birthday!",
+      "author": "Mia Turner",
+      "tags": ["birthday", "celebration", "courage", "strength"],
+      "authorSlug": "mia-turner",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2038,
+      "content": "On your birthday, may you be surrounded by love, laughter, and all the things that make life beautiful. Happy birthday!",
+      "author": "Ethan Brown",
+      "tags": ["birthday", "celebration", "love", "laughter"],
+      "authorSlug": "ethan-brown",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2039,
+      "content": "Age is just a reminder of all the wonderful experiences you've had and the incredible journey still ahead. Happy birthday!",
+      "author": "Liam Anderson",
+      "tags": ["birthday", "celebration", "age", "journey"],
+      "authorSlug": "liam-anderson",
+      "categories": ["Birthday"]
+    },
+    {
+      "id": 2040,
+      "content": "May your birthday be a symphony of joy, a canvas of beautiful moments, and a celebration of you. Happy birthday!",
+      "author": "Nora Roberts",
+      "tags": ["birthday", "celebration", "joy", "beautiful moments"],
+      "authorSlug": "nora-roberts",
+      "categories": ["Birthday"]
+    }
+  ],
+  "inspiration": [
+    {
+      "id": 3001,
+      "content": "Believe in yourself, and you will be unstoppable.",
+      "author": "Unknown",
+      "tags": ["inspiration", "believe in yourself", "unstoppable"],
+      "authorSlug": "unknown",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3002,
+      "content": "Success is not the key to happiness. Happiness is the key to success. If you love what you are doing, you will be successful.",
+      "author": "Albert Schweitzer",
+      "tags": ["inspiration", "success", "happiness", "love what you do"],
+      "authorSlug": "albert-schweitzer",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3003,
+      "content": "Your time is limited, so don't waste it living someone else's life.",
+      "author": "Steve Jobs",
+      "tags": ["inspiration", "time", "life", "be yourself"],
+      "authorSlug": "steve-jobs",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3004,
+      "content": "The only way to do great work is to love what you do.",
+      "author": "Steve Jobs",
+      "tags": ["inspiration", "great work", "love what you do"],
+      "authorSlug": "steve-jobs",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3005,
+      "content": "Don't be afraid to give up the good to go for the great.",
+      "author": "John D. Rockefeller",
+      "tags": ["inspiration", "good", "great", "take risks"],
+      "authorSlug": "john-d-rockefeller",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3006,
+      "content": "The future belongs to those who believe in the beauty of their dreams.",
+      "author": "Eleanor Roosevelt",
+      "tags": ["inspiration", "future", "believe", "dreams"],
+      "authorSlug": "eleanor-roosevelt",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3007,
+      "content": "Life is 10% what happens to us and 90% how we react to it.",
+      "author": "Charles R. Swindoll",
+      "tags": ["inspiration", "life", "react", "attitude"],
+      "authorSlug": "charles-r-swindoll",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3008,
+      "content": "The only limit to our realization of tomorrow will be our doubts of today.",
+      "author": "Franklin D. Roosevelt",
+      "tags": ["inspiration", "limit", "doubts", "realization"],
+      "authorSlug": "franklin-d-roosevelt",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3009,
+      "content": "You are never too old to set another goal or to dream a new dream.",
+      "author": "C.S. Lewis",
+      "tags": ["inspiration", "age", "set goals", "dream"],
+      "authorSlug": "cs-lewis",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3010,
+      "content": "The only person you are destined to become is the person you decide to be.",
+      "author": "Ralph Waldo Emerson",
+      "tags": ["inspiration", "destiny", "decide", "self-determination"],
+      "authorSlug": "ralph-waldo-emerson",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3011,
+      "content": "In the middle of every difficulty lies opportunity.",
+      "author": "Albert Einstein",
+      "tags": ["inspiration", "difficulty", "opportunity", "challenges"],
+      "authorSlug": "albert-einstein",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3012,
+      "content": "Success is walking from failure to failure with no loss of enthusiasm.",
+      "author": "Winston Churchill",
+      "tags": ["inspiration", "success", "failure", "enthusiasm"],
+      "authorSlug": "winston-churchill",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3013,
+      "content": "The best time to plant a tree was 20 years ago. The second best time is now.",
+      "author": "Chinese Proverb",
+      "tags": ["inspiration", "time", "plant a tree", "take action"],
+      "authorSlug": "chinese-proverb",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3014,
+      "content": "Hardships often prepare ordinary people for an extraordinary destiny.",
+      "author": "C.S. Lewis",
+      "tags": [
+        "inspiration",
+        "hardships",
+        "ordinary people",
+        "extraordinary destiny"
+      ],
+      "authorSlug": "cs-lewis",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3015,
+      "content": "The harder you work for something, the greater you'll feel when you achieve it.",
+      "author": "Unknown",
+      "tags": ["inspiration", "hard work", "achievement", "dedication"],
+      "authorSlug": "unknown",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3016,
+      "content": "Your value doesn't decrease based on someone's inability to see your worth.",
+      "author": "Unknown",
+      "tags": ["inspiration", "self-worth", "value", "self-esteem"],
+      "authorSlug": "unknown",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3017,
+      "content": "The biggest risk is not taking any risk. In a world that's changing quickly, the only strategy that is guaranteed to fail is not taking risks.",
+      "author": "Mark Zuckerberg",
+      "tags": ["inspiration", "risk", "change", "strategy"],
+      "authorSlug": "mark-zuckerberg",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3018,
+      "content": "The only person you should try to be better than is the person you were yesterday.",
+      "author": "Unknown",
+      "tags": [
+        "inspiration",
+        "self-improvement",
+        "self-growth",
+        "self-development"
+      ],
+      "authorSlug": "unknown",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3019,
+      "content": "It does not matter how slowly you go as long as you do not stop.",
+      "author": "Confucius",
+      "tags": ["inspiration", "progress", "persistence", "perseverance"],
+      "authorSlug": "confucius",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3020,
+      "content": "Success is the sum of small efforts, repeated day in and day out.",
+      "author": "Robert Collier",
+      "tags": ["inspiration", "success", "small efforts", "persistence"],
+      "authorSlug": "robert-collier",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3021,
+      "content": "The greatest glory in living lies not in never falling, but in rising every time we fall.",
+      "author": "Nelson Mandela",
+      "tags": ["inspiration", "glory", "rising", "resilience"],
+      "authorSlug": "nelson-mandela",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3022,
+      "content": "Don't watch the clock; do what it does. Keep going.",
+      "author": "Sam Levenson",
+      "tags": ["inspiration", "clock", "keep going", "persistence"],
+      "authorSlug": "sam-levenson",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3023,
+      "content": "The only limit to our realization of tomorrow will be our doubts of today.",
+      "author": "Franklin D. Roosevelt",
+      "tags": ["inspiration", "limit", "doubts", "realization"],
+      "authorSlug": "franklin-d-roosevelt",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3024,
+      "content": "You don't have to be great to start, but you have to start to be great.",
+      "author": "Zig Ziglar",
+      "tags": ["inspiration", "start", "greatness", "beginning"],
+      "authorSlug": "zig-ziglar",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3025,
+      "content": "The only way to do great work is to love what you do.",
+      "author": "Steve Jobs",
+      "tags": ["inspiration", "great work", "love what you do"],
+      "authorSlug": "steve-jobs",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3026,
+      "content": "Believe you can and you're halfway there.",
+      "author": "Theodore Roosevelt",
+      "tags": ["inspiration", "believe", "confidence", "self-belief"],
+      "authorSlug": "theodore-roosevelt",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3027,
+      "content": "The future belongs to those who believe in the beauty of their dreams.",
+      "author": "Eleanor Roosevelt",
+      "tags": ["inspiration", "future", "believe", "dreams"],
+      "authorSlug": "eleanor-roosevelt",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3028,
+      "content": "Success is not the key to happiness. Happiness is the key to success. If you love what you are doing, you will be successful.",
+      "author": "Albert Schweitzer",
+      "tags": ["inspiration", "success", "happiness", "love what you do"],
+      "authorSlug": "albert-schweitzer",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3029,
+      "content": "The biggest risk is not taking any risk. In a world that's changing quickly, the only strategy that is guaranteed to fail is not taking risks.",
+      "author": "Mark Zuckerberg",
+      "tags": ["inspiration", "risk", "change", "strategy"],
+      "authorSlug": "mark-zuckerberg",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3030,
+      "content": "Success is walking from failure to failure with no loss of enthusiasm.",
+      "author": "Winston Churchill",
+      "tags": ["inspiration", "success", "failure", "enthusiasm"],
+      "authorSlug": "winston-churchill",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3031,
+      "content": "The only limit to our realization of tomorrow will be our doubts of today.",
+      "author": "Franklin D. Roosevelt",
+      "tags": ["inspiration", "limit", "doubts", "realization"],
+      "authorSlug": "franklin-d-roosevelt",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3032,
+      "content": "You are never too old to set another goal or to dream a new dream.",
+      "author": "C.S. Lewis",
+      "tags": ["inspiration", "age", "set goals", "dream"],
+      "authorSlug": "cs-lewis",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3033,
+      "content": "The only person you are destined to become is the person you decide to be.",
+      "author": "Ralph Waldo Emerson",
+      "tags": ["inspiration", "destiny", "decide", "self-determination"],
+      "authorSlug": "ralph-waldo-emerson",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3034,
+      "content": "In the middle of every difficulty lies opportunity.",
+      "author": "Albert Einstein",
+      "tags": ["inspiration", "difficulty", "opportunity", "challenges"],
+      "authorSlug": "albert-einstein",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3035,
+      "content": "The best time to plant a tree was 20 years ago. The second best time is now.",
+      "author": "Chinese Proverb",
+      "tags": ["inspiration", "time", "plant a tree", "take action"],
+      "authorSlug": "chinese-proverb",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3036,
+      "content": "Hardships often prepare ordinary people for an extraordinary destiny.",
+      "author": "C.S. Lewis",
+      "tags": [
+        "inspiration",
+        "hardships",
+        "ordinary people",
+        "extraordinary destiny"
+      ],
+      "authorSlug": "cs-lewis",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3037,
+      "content": "The harder you work for something, the greater you'll feel when you achieve it.",
+      "author": "Unknown",
+      "tags": ["inspiration", "hard work", "achievement", "dedication"],
+      "authorSlug": "unknown",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3038,
+      "content": "Your value doesn't decrease based on someone's inability to see your worth.",
+      "author": "Unknown",
+      "tags": ["inspiration", "self-worth", "value", "self-esteem"],
+      "authorSlug": "unknown",
+      "categories": ["Inspiration"]
+    },
+    {
+      "id": 3039,
+      "content": "The biggest risk is not taking any risk. In a world that's changing quickly, the only strategy that is guaranteed to fail is not taking risks.",
+      "author": "Mark Zuckerberg",
+      "tags": ["inspiration", "risk", "change", "strategy"],
+      "authorSlug": "mark-zuckerberg",
+      "categories": ["Inspiration"]
+    }
+  ],
+  "life": [
+    {
+      "id": 4001,
+      "content": "Life is 10% what happens to us and 90% how we react to it.",
+      "author": "Charles R. Swindoll",
+      "tags": ["life", "react", "attitude"],
+      "authorSlug": "charles-r-swindoll",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4002,
+      "content": "Life is what happens when you're busy making other plans.",
+      "author": "John Lennon",
+      "tags": ["life", "plans", "unexpected"],
+      "authorSlug": "john-lennon",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4003,
+      "content": "Life is really simple, but we insist on making it complicated.",
+      "author": "Confucius",
+      "tags": ["life", "simplicity", "complicated"],
+      "authorSlug": "confucius",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4004,
+      "content": "Life is short, and it is up to you to make it sweet.",
+      "author": "Sarah Louise Delany",
+      "tags": ["life", "short", "sweet"],
+      "authorSlug": "sarah-louise-delany",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4005,
+      "content": "Life is either a daring adventure or nothing at all.",
+      "author": "Helen Keller",
+      "tags": ["life", "adventure", "daring"],
+      "authorSlug": "helen-keller",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4006,
+      "content": "Life is really simple, but we insist on making it complicated.",
+      "author": "Confucius",
+      "tags": ["life", "simplicity", "complicated"],
+      "authorSlug": "confucius",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4007,
+      "content": "Life is a journey that must be traveled no matter how bad the roads and accommodations.",
+      "author": "Oliver Goldsmith",
+      "tags": ["life", "journey", "travel"],
+      "authorSlug": "oliver-goldsmith",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4008,
+      "content": "Life is 10% what happens to us and 90% how we react to it.",
+      "author": "Charles R. Swindoll",
+      "tags": ["life", "react", "attitude"],
+      "authorSlug": "charles-r-swindoll",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4009,
+      "content": "Life is what happens when you're busy making other plans.",
+      "author": "John Lennon",
+      "tags": ["life", "plans", "unexpected"],
+      "authorSlug": "john-lennon",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4010,
+      "content": "Life is really simple, but we insist on making it complicated.",
+      "author": "Confucius",
+      "tags": ["life", "simplicity", "complicated"],
+      "authorSlug": "confucius",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4011,
+      "content": "Life is short, and it is up to you to make it sweet.",
+      "author": "Sarah Louise Delany",
+      "tags": ["life", "short", "sweet"],
+      "authorSlug": "sarah-louise-delany",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4012,
+      "content": "Life is either a daring adventure or nothing at all.",
+      "author": "Helen Keller",
+      "tags": ["life", "adventure", "daring"],
+      "authorSlug": "helen-keller",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4013,
+      "content": "Life is really simple, but we insist on making it complicated.",
+      "author": "Confucius",
+      "tags": ["life", "simplicity", "complicated"],
+      "authorSlug": "confucius",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4014,
+      "content": "Life is a journey that must be traveled no matter how bad the roads and accommodations.",
+      "author": "Oliver Goldsmith",
+      "tags": ["life", "journey", "travel"],
+      "authorSlug": "oliver-goldsmith",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4015,
+      "content": "Life is 10% what happens to us and 90% how we react to it.",
+      "author": "Charles R. Swindoll",
+      "tags": ["life", "react", "attitude"],
+      "authorSlug": "charles-r-swindoll",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4016,
+      "content": "Life is what happens when you're busy making other plans.",
+      "author": "John Lennon",
+      "tags": ["life", "plans", "unexpected"],
+      "authorSlug": "john-lennon",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4017,
+      "content": "Life is really simple, but we insist on making it complicated.",
+      "author": "Confucius",
+      "tags": ["life", "simplicity", "complicated"],
+      "authorSlug": "confucius",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4018,
+      "content": "Life is short, and it is up to you to make it sweet.",
+      "author": "Sarah Louise Delany",
+      "tags": ["life", "short", "sweet"],
+      "authorSlug": "sarah-louise-delany",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4019,
+      "content": "Life is either a daring adventure or nothing at all.",
+      "author": "Helen Keller",
+      "tags": ["life", "adventure", "daring"],
+      "authorSlug": "helen-keller",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4020,
+      "content": "Life is really simple, but we insist on making it complicated.",
+      "author": "Confucius",
+      "tags": ["life", "simplicity", "complicated"],
+      "authorSlug": "confucius",
+      "categories": ["Life"]
+    },
+
+    {
+      "id": 4021,
+      "content": "Life is a journey that must be traveled no matter how bad the roads and accommodations.",
+      "author": "Oliver Goldsmith",
+      "tags": ["life", "journey", "travel"],
+      "authorSlug": "oliver-goldsmith",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4022,
+      "content": "Life is 10% what happens to us and 90% how we react to it.",
+      "author": "Charles R. Swindoll",
+      "tags": ["life", "react", "attitude"],
+      "authorSlug": "charles-r-swindoll",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4023,
+      "content": "Life is what happens when you're busy making other plans.",
+      "author": "John Lennon",
+      "tags": ["life", "plans", "unexpected"],
+      "authorSlug": "john-lennon",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4024,
+      "content": "Life is really simple, but we insist on making it complicated.",
+      "author": "Confucius",
+      "tags": ["life", "simplicity", "complicated"],
+      "authorSlug": "confucius",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4025,
+      "content": "Life is short, and it is up to you to make it sweet.",
+      "author": "Sarah Louise Delany",
+      "tags": ["life", "short", "sweet"],
+      "authorSlug": "sarah-louise-delany",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4026,
+      "content": "Life is either a daring adventure or nothing at all.",
+      "author": "Helen Keller",
+      "tags": ["life", "adventure", "daring"],
+      "authorSlug": "helen-keller",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4027,
+      "content": "Life is really simple, but we insist on making it complicated.",
+      "author": "Confucius",
+      "tags": ["life", "simplicity", "complicated"],
+      "authorSlug": "confucius",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4028,
+      "content": "Life is a journey that must be traveled no matter how bad the roads and accommodations.",
+      "author": "Oliver Goldsmith",
+      "tags": ["life", "journey", "travel"],
+      "authorSlug": "oliver-goldsmith",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4029,
+      "content": "Life is 10% what happens to us and 90% how we react to it.",
+      "author": "Charles R. Swindoll",
+      "tags": ["life", "react", "attitude"],
+      "authorSlug": "charles-r-swindoll",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4030,
+      "content": "Life is what happens when you're busy making other plans.",
+      "author": "John Lennon",
+      "tags": ["life", "plans", "unexpected"],
+      "authorSlug": "john-lennon",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4031,
+      "content": "Life is really simple, but we insist on making it complicated.",
+      "author": "Confucius",
+      "tags": ["life", "simplicity", "complicated"],
+      "authorSlug": "confucius",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4032,
+      "content": "Life is short, and it is up to you to make it sweet.",
+      "author": "Sarah Louise Delany",
+      "tags": ["life", "short", "sweet"],
+      "authorSlug": "sarah-louise-delany",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4033,
+      "content": "Life is either a daring adventure or nothing at all.",
+      "author": "Helen Keller",
+      "tags": ["life", "adventure", "daring"],
+      "authorSlug": "helen-keller",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4034,
+      "content": "Life is really simple, but we insist on making it complicated.",
+      "author": "Confucius",
+      "tags": ["life", "simplicity", "complicated"],
+      "authorSlug": "confucius",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4035,
+      "content": "Life is a journey that must be traveled no matter how bad the roads and accommodations.",
+      "author": "Oliver Goldsmith",
+      "tags": ["life", "journey", "travel"],
+      "authorSlug": "oliver-goldsmith",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4036,
+      "content": "Life is 10% what happens to us and 90% how we react to it.",
+      "author": "Charles R. Swindoll",
+      "tags": ["life", "react", "attitude"],
+      "authorSlug": "charles-r-swindoll",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4037,
+      "content": "Life is what happens when you're busy making other plans.",
+      "author": "John Lennon",
+      "tags": ["life", "plans", "unexpected"],
+      "authorSlug": "john-lennon",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4038,
+      "content": "Life is really simple, but we insist on making it complicated.",
+      "author": "Confucius",
+      "tags": ["life", "simplicity", "complicated"],
+      "authorSlug": "confucius",
+      "categories": ["Life"]
+    },
+    {
+      "id": 4039,
+      "content": "Life is short, and it is up to you to make it sweet.",
+      "author": "Sarah Louise Delany",
+      "tags": ["life", "short", "sweet"],
+      "authorSlug": "sarah-louise-delany",
+      "categories": ["Life"]
+    }
+  ],
+  "love": [
+    {
+      "id": 5001,
+      "content": "Love is not finding someone to live with; it's finding someone you can't imagine living without.",
+      "author": "Unknown",
+      "tags": ["love", "life partner", "soulmate"],
+      "authorSlug": "unknown",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5002,
+      "content": "The best thing to hold onto in life is each other.",
+      "author": "Audrey Hepburn",
+      "tags": ["love", "relationship", "holding on"],
+      "authorSlug": "audrey-hepburn",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5003,
+      "content": "Love is when the other person's happiness is more important than your own.",
+      "author": "H. Jackson Brown, Jr.",
+      "tags": ["love", "happiness", "selflessness"],
+      "authorSlug": "h-jackson-brown-jr",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5004,
+      "content": "Love is like the wind, you can't see it, but you can feel it.",
+      "author": "Nicholas Sparks",
+      "tags": ["love", "feeling", "invisible"],
+      "authorSlug": "nicholas-sparks",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5005,
+      "content": "The best and most beautiful things in this world cannot be seen or even heard, but must be felt with the heart.",
+      "author": "Helen Keller",
+      "tags": ["love", "beauty", "heart"],
+      "authorSlug": "helen-keller",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5006,
+      "content": "Love is not something you look for. Love is something you become.",
+      "author": "Alina Baraz",
+      "tags": ["love", "self-discovery", "becoming"],
+      "authorSlug": "alina-baraz",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5007,
+      "content": "Love is not finding someone to live with; it's finding someone you can't imagine living without.",
+      "author": "Unknown",
+      "tags": ["love", "life partner", "soulmate"],
+      "authorSlug": "unknown",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5008,
+      "content": "The best thing to hold onto in life is each other.",
+      "author": "Audrey Hepburn",
+      "tags": ["love", "relationship", "holding on"],
+      "authorSlug": "audrey-hepburn",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5009,
+      "content": "Love is when the other person's happiness is more important than your own.",
+      "author": "H. Jackson Brown, Jr.",
+      "tags": ["love", "happiness", "selflessness"],
+      "authorSlug": "h-jackson-brown-jr",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5010,
+      "content": "Love is like the wind, you can't see it, but you can feel it.",
+      "author": "Nicholas Sparks",
+      "tags": ["love", "feeling", "invisible"],
+      "authorSlug": "nicholas-sparks",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5011,
+      "content": "The best and most beautiful things in this world cannot be seen or even heard, but must be felt with the heart.",
+      "author": "Helen Keller",
+      "tags": ["love", "beauty", "heart"],
+      "authorSlug": "helen-keller",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5012,
+      "content": "Love is not something you look for. Love is something you become.",
+      "author": "Alina Baraz",
+      "tags": ["love", "self-discovery", "becoming"],
+      "authorSlug": "alina-baraz",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5013,
+      "content": "Love is not finding someone to live with; it's finding someone you can't imagine living without.",
+      "author": "Unknown",
+      "tags": ["love", "life partner", "soulmate"],
+      "authorSlug": "unknown",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5014,
+      "content": "The best thing to hold onto in life is each other.",
+      "author": "Audrey Hepburn",
+      "tags": ["love", "relationship", "holding on"],
+      "authorSlug": "audrey-hepburn",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5015,
+      "content": "Love is when the other person's happiness is more important than your own.",
+      "author": "H. Jackson Brown, Jr.",
+      "tags": ["love", "happiness", "selflessness"],
+      "authorSlug": "h-jackson-brown-jr",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5016,
+      "content": "Love is like the wind, you can't see it, but you can feel it.",
+      "author": "Nicholas Sparks",
+      "tags": ["love", "feeling", "invisible"],
+      "authorSlug": "nicholas-sparks",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5017,
+      "content": "The best and most beautiful things in this world cannot be seen or even heard, but must be felt with the heart.",
+      "author": "Helen Keller",
+      "tags": ["love", "beauty", "heart"],
+      "authorSlug": "helen-keller",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5018,
+      "content": "Love is not something you look for. Love is something you become.",
+      "author": "Alina Baraz",
+      "tags": ["love", "self-discovery", "becoming"],
+      "authorSlug": "alina-baraz",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5019,
+      "content": "Love is not finding someone to live with; it's finding someone you can't imagine living without.",
+      "author": "Unknown",
+      "tags": ["love", "life partner", "soulmate"],
+      "authorSlug": "unknown",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5020,
+      "content": "The best thing to hold onto in life is each other.",
+      "author": "Audrey Hepburn",
+      "tags": ["love", "relationship", "holding on"],
+      "authorSlug": "audrey-hepburn",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5021,
+      "content": "Love is not finding someone to live with; it's finding someone you can't imagine living without.",
+      "author": "Unknown",
+      "tags": ["love", "life partner", "soulmate"],
+      "authorSlug": "unknown",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5022,
+      "content": "The best thing to hold onto in life is each other.",
+      "author": "Audrey Hepburn",
+      "tags": ["love", "relationship", "holding on"],
+      "authorSlug": "audrey-hepburn",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5023,
+      "content": "Love is when the other person's happiness is more important than your own.",
+      "author": "H. Jackson Brown, Jr.",
+      "tags": ["love", "happiness", "selflessness"],
+      "authorSlug": "h-jackson-brown-jr",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5024,
+      "content": "Love is like the wind, you can't see it, but you can feel it.",
+      "author": "Nicholas Sparks",
+      "tags": ["love", "feeling", "invisible"],
+      "authorSlug": "nicholas-sparks",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5025,
+      "content": "The best and most beautiful things in this world cannot be seen or even heard, but must be felt with the heart.",
+      "author": "Helen Keller",
+      "tags": ["love", "beauty", "heart"],
+      "authorSlug": "helen-keller",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5026,
+      "content": "Love is not something you look for. Love is something you become.",
+      "author": "Alina Baraz",
+      "tags": ["love", "self-discovery", "becoming"],
+      "authorSlug": "alina-baraz",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5027,
+      "content": "Love is not finding someone to live with; it's finding someone you can't imagine living without.",
+      "author": "Unknown",
+      "tags": ["love", "life partner", "soulmate"],
+      "authorSlug": "unknown",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5028,
+      "content": "The best thing to hold onto in life is each other.",
+      "author": "Audrey Hepburn",
+      "tags": ["love", "relationship", "holding on"],
+      "authorSlug": "audrey-hepburn",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5029,
+      "content": "Love is when the other person's happiness is more important than your own.",
+      "author": "H. Jackson Brown, Jr.",
+      "tags": ["love", "happiness", "selflessness"],
+      "authorSlug": "h-jackson-brown-jr",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5030,
+      "content": "Love is like the wind, you can't see it, but you can feel it.",
+      "author": "Nicholas Sparks",
+      "tags": ["love", "feeling", "invisible"],
+      "authorSlug": "nicholas-sparks",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5031,
+      "content": "The best and most beautiful things in this world cannot be seen or even heard, but must be felt with the heart.",
+      "author": "Helen Keller",
+      "tags": ["love", "beauty", "heart"],
+      "authorSlug": "helen-keller",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5032,
+      "content": "Love is not something you look for. Love is something you become.",
+      "author": "Alina Baraz",
+      "tags": ["love", "self-discovery", "becoming"],
+      "authorSlug": "alina-baraz",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5033,
+      "content": "Love is not finding someone to live with; it's finding someone you can't imagine living without.",
+      "author": "Unknown",
+      "tags": ["love", "life partner", "soulmate"],
+      "authorSlug": "unknown",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5034,
+      "content": "The best thing to hold onto in life is each other.",
+      "author": "Audrey Hepburn",
+      "tags": ["love", "relationship", "holding on"],
+      "authorSlug": "audrey-hepburn",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5035,
+      "content": "Love is when the other person's happiness is more important than your own.",
+      "author": "H. Jackson Brown, Jr.",
+      "tags": ["love", "happiness", "selflessness"],
+      "authorSlug": "h-jackson-brown-jr",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5036,
+      "content": "Love is like the wind, you can't see it, but you can feel it.",
+      "author": "Nicholas Sparks",
+      "tags": ["love", "feeling", "invisible"],
+      "authorSlug": "nicholas-sparks",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5037,
+      "content": "The best and most beautiful things in this world cannot be seen or even heard, but must be felt with the heart.",
+      "author": "Helen Keller",
+      "tags": ["love", "beauty", "heart"],
+      "authorSlug": "helen-keller",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5038,
+      "content": "Love is not something you look for. Love is something you become.",
+      "author": "Alina Baraz",
+      "tags": ["love", "self-discovery", "becoming"],
+      "authorSlug": "alina-baraz",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5039,
+      "content": "Love is not finding someone to live with; it's finding someone you can't imagine living without.",
+      "author": "Unknown",
+      "tags": ["love", "life partner", "soulmate"],
+      "authorSlug": "unknown",
+      "categories": ["Love"]
+    },
+    {
+      "id": 5040,
+      "content": "The best thing to hold onto in life is each other.",
+      "author": "Audrey Hepburn",
+      "tags": ["love", "relationship", "holding on"],
+      "authorSlug": "audrey-hepburn",
+      "categories": ["Love"]
+    }
+  ],
+  "motivational": [
+    {
+      "id": 6001,
+      "content": "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle.",
+      "author": "Christian D. Larson",
+      "tags": ["motivational", "belief", "self-confidence"],
+      "authorSlug": "christian-d-larson",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6002,
+      "content": "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+      "author": "Winston Churchill",
+      "tags": ["motivational", "success", "failure", "courage"],
+      "authorSlug": "winston-churchill",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6003,
+      "content": "The only limit to our realization of tomorrow will be our doubts of today.",
+      "author": "Franklin D. Roosevelt",
+      "tags": ["motivational", "limitations", "doubts", "realization"],
+      "authorSlug": "franklin-d-roosevelt",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6004,
+      "content": "Don't watch the clock; do what it does. Keep going.",
+      "author": "Sam Levenson",
+      "tags": ["motivational", "perseverance", "persistence"],
+      "authorSlug": "sam-levenson",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6005,
+      "content": "Your time is limited, don't waste it living someone else's life.",
+      "author": "Steve Jobs",
+      "tags": ["motivational", "time", "life", "authenticity"],
+      "authorSlug": "steve-jobs",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6006,
+      "content": "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle.",
+      "author": "Christian D. Larson",
+      "tags": ["motivational", "belief", "self-confidence"],
+      "authorSlug": "christian-d-larson",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6007,
+      "content": "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+      "author": "Winston Churchill",
+      "tags": ["motivational", "success", "failure", "courage"],
+      "authorSlug": "winston-churchill",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6008,
+      "content": "The only limit to our realization of tomorrow will be our doubts of today.",
+      "author": "Franklin D. Roosevelt",
+      "tags": ["motivational", "limitations", "doubts", "realization"],
+      "authorSlug": "franklin-d-roosevelt",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6009,
+      "content": "Don't watch the clock; do what it does. Keep going.",
+      "author": "Sam Levenson",
+      "tags": ["motivational", "perseverance", "persistence"],
+      "authorSlug": "sam-levenson",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6010,
+      "content": "Your time is limited, don't waste it living someone else's life.",
+      "author": "Steve Jobs",
+      "tags": ["motivational", "time", "life", "authenticity"],
+      "authorSlug": "steve-jobs",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6011,
+      "content": "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle.",
+      "author": "Christian D. Larson",
+      "tags": ["motivational", "belief", "self-confidence"],
+      "authorSlug": "christian-d-larson",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6012,
+      "content": "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+      "author": "Winston Churchill",
+      "tags": ["motivational", "success", "failure", "courage"],
+      "authorSlug": "winston-churchill",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6013,
+      "content": "The only limit to our realization of tomorrow will be our doubts of today.",
+      "author": "Franklin D. Roosevelt",
+      "tags": ["motivational", "limitations", "doubts", "realization"],
+      "authorSlug": "franklin-d-roosevelt",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6014,
+      "content": "Don't watch the clock; do what it does. Keep going.",
+      "author": "Sam Levenson",
+      "tags": ["motivational", "perseverance", "persistence"],
+      "authorSlug": "sam-levenson",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6015,
+      "content": "Your time is limited, don't waste it living someone else's life.",
+      "author": "Steve Jobs",
+      "tags": ["motivational", "time", "life", "authenticity"],
+      "authorSlug": "steve-jobs",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6016,
+      "content": "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle.",
+      "author": "Christian D. Larson",
+      "tags": ["motivational", "belief", "self-confidence"],
+      "authorSlug": "christian-d-larson",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6017,
+      "content": "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+      "author": "Winston Churchill",
+      "tags": ["motivational", "success", "failure", "courage"],
+      "authorSlug": "winston-churchill",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6018,
+      "content": "The only limit to our realization of tomorrow will be our doubts of today.",
+      "author": "Franklin D. Roosevelt",
+      "tags": ["motivational", "limitations", "doubts", "realization"],
+      "authorSlug": "franklin-d-roosevelt",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6019,
+      "content": "Don't watch the clock; do what it does. Keep going.",
+      "author": "Sam Levenson",
+      "tags": ["motivational", "perseverance", "persistence"],
+      "authorSlug": "sam-levenson",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6020,
+      "content": "Your time is limited, don't waste it living someone else's life.",
+      "author": "Steve Jobs",
+      "tags": ["motivational", "time", "life", "authenticity"],
+      "authorSlug": "steve-jobs",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6021,
+      "content": "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle.",
+      "author": "Christian D. Larson",
+      "tags": ["motivational", "belief", "self-confidence"],
+      "authorSlug": "christian-d-larson",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6022,
+      "content": "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+      "author": "Winston Churchill",
+      "tags": ["motivational", "success", "failure", "courage"],
+      "authorSlug": "winston-churchill",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6023,
+      "content": "The only limit to our realization of tomorrow will be our doubts of today.",
+      "author": "Franklin D. Roosevelt",
+      "tags": ["motivational", "limitations", "doubts", "realization"],
+      "authorSlug": "franklin-d-roosevelt",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6024,
+      "content": "Don't watch the clock; do what it does. Keep going.",
+      "author": "Sam Levenson",
+      "tags": ["motivational", "perseverance", "persistence"],
+      "authorSlug": "sam-levenson",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6025,
+      "content": "Your time is limited, don't waste it living someone else's life.",
+      "author": "Steve Jobs",
+      "tags": ["motivational", "time", "life", "authenticity"],
+      "authorSlug": "steve-jobs",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6026,
+      "content": "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle.",
+      "author": "Christian D. Larson",
+      "tags": ["motivational", "belief", "self-confidence"],
+      "authorSlug": "christian-d-larson",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6027,
+      "content": "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+      "author": "Winston Churchill",
+      "tags": ["motivational", "success", "failure", "courage"],
+      "authorSlug": "winston-churchill",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6028,
+      "content": "The only limit to our realization of tomorrow will be our doubts of today.",
+      "author": "Franklin D. Roosevelt",
+      "tags": ["motivational", "limitations", "doubts", "realization"],
+      "authorSlug": "franklin-d-roosevelt",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6029,
+      "content": "Don't watch the clock; do what it does. Keep going.",
+      "author": "Sam Levenson",
+      "tags": ["motivational", "perseverance", "persistence"],
+      "authorSlug": "sam-levenson",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6030,
+      "content": "Your time is limited, don't waste it living someone else's life.",
+      "author": "Steve Jobs",
+      "tags": ["motivational", "time", "life", "authenticity"],
+      "authorSlug": "steve-jobs",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6031,
+      "content": "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle.",
+      "author": "Christian D. Larson",
+      "tags": ["motivational", "belief", "self-confidence"],
+      "authorSlug": "christian-d-larson",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6032,
+      "content": "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+      "author": "Winston Churchill",
+      "tags": ["motivational", "success", "failure", "courage"],
+      "authorSlug": "winston-churchill",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6033,
+      "content": "The only limit to our realization of tomorrow will be our doubts of today.",
+      "author": "Franklin D. Roosevelt",
+      "tags": ["motivational", "limitations", "doubts", "realization"],
+      "authorSlug": "franklin-d-roosevelt",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6034,
+      "content": "Don't watch the clock; do what it does. Keep going.",
+      "author": "Sam Levenson",
+      "tags": ["motivational", "perseverance", "persistence"],
+      "authorSlug": "sam-levenson",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6035,
+      "content": "Your time is limited, don't waste it living someone else's life.",
+      "author": "Steve Jobs",
+      "tags": ["motivational", "time", "life", "authenticity"],
+      "authorSlug": "steve-jobs",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6036,
+      "content": "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle.",
+      "author": "Christian D. Larson",
+      "tags": ["motivational", "belief", "self-confidence"],
+      "authorSlug": "christian-d-larson",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6037,
+      "content": "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+      "author": "Winston Churchill",
+      "tags": ["motivational", "success", "failure", "courage"],
+      "authorSlug": "winston-churchill",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6038,
+      "content": "The only limit to our realization of tomorrow will be our doubts of today.",
+      "author": "Franklin D. Roosevelt",
+      "tags": ["motivational", "limitations", "doubts", "realization"],
+      "authorSlug": "franklin-d-roosevelt",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6039,
+      "content": "Don't watch the clock; do what it does. Keep going.",
+      "author": "Sam Levenson",
+      "tags": ["motivational", "perseverance", "persistence"],
+      "authorSlug": "sam-levenson",
+      "categories": ["Motivational"]
+    },
+    {
+      "id": 6040,
+      "content": "Your time is limited, don't waste it living someone else's life.",
+      "author": "Steve Jobs",
+      "tags": ["motivational", "time", "life", "authenticity"],
+      "authorSlug": "steve-jobs",
+      "categories": ["Motivational"]
+    }
+  ],
+  "peace": [
+    {
+      "id": 7001,
+      "content": "Peace is not the absence of conflict, but the presence of justice.",
+      "author": "Martin Luther King Jr.",
+      "tags": ["peace", "conflict", "justice"],
+      "authorSlug": "martin-luther-king-jr",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7002,
+      "content": "The day the power of love overrules the love of power, the world will know peace.",
+      "author": "Mahatma Gandhi",
+      "tags": ["peace", "love", "power"],
+      "authorSlug": "mahatma-gandhi",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7003,
+      "content": "Peace begins with a smile.",
+      "author": "Mother Teresa",
+      "tags": ["peace", "smile"],
+      "authorSlug": "mother-teresa",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7004,
+      "content": "Peace is not the absence of conflict, but the presence of justice.",
+      "author": "Martin Luther King Jr.",
+      "tags": ["peace", "conflict", "justice"],
+      "authorSlug": "martin-luther-king-jr",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7005,
+      "content": "The day the power of love overrules the love of power, the world will know peace.",
+      "author": "Mahatma Gandhi",
+      "tags": ["peace", "love", "power"],
+      "authorSlug": "mahatma-gandhi",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7006,
+      "content": "Peace begins with a smile.",
+      "author": "Mother Teresa",
+      "tags": ["peace", "smile"],
+      "authorSlug": "mother-teresa",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7007,
+      "content": "Peace is not the absence of conflict, but the presence of justice.",
+      "author": "Martin Luther King Jr.",
+      "tags": ["peace", "conflict", "justice"],
+      "authorSlug": "martin-luther-king-jr",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7008,
+      "content": "The day the power of love overrules the love of power, the world will know peace.",
+      "author": "Mahatma Gandhi",
+      "tags": ["peace", "love", "power"],
+      "authorSlug": "mahatma-gandhi",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7009,
+      "content": "Peace begins with a smile.",
+      "author": "Mother Teresa",
+      "tags": ["peace", "smile"],
+      "authorSlug": "mother-teresa",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7010,
+      "content": "Peace is not the absence of conflict, but the presence of justice.",
+      "author": "Martin Luther King Jr.",
+      "tags": ["peace", "conflict", "justice"],
+      "authorSlug": "martin-luther-king-jr",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7011,
+      "content": "The day the power of love overrules the love of power, the world will know peace.",
+      "author": "Mahatma Gandhi",
+      "tags": ["peace", "love", "power"],
+      "authorSlug": "mahatma-gandhi",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7012,
+      "content": "Peace begins with a smile.",
+      "author": "Mother Teresa",
+      "tags": ["peace", "smile"],
+      "authorSlug": "mother-teresa",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7013,
+      "content": "Peace is not the absence of conflict, but the presence of justice.",
+      "author": "Martin Luther King Jr.",
+      "tags": ["peace", "conflict", "justice"],
+      "authorSlug": "martin-luther-king-jr",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7014,
+      "content": "The day the power of love overrules the love of power, the world will know peace.",
+      "author": "Mahatma Gandhi",
+      "tags": ["peace", "love", "power"],
+      "authorSlug": "mahatma-gandhi",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7015,
+      "content": "Peace begins with a smile.",
+      "author": "Mother Teresa",
+      "tags": ["peace", "smile"],
+      "authorSlug": "mother-teresa",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7016,
+      "content": "Peace is not the absence of conflict, but the presence of justice.",
+      "author": "Martin Luther King Jr.",
+      "tags": ["peace", "conflict", "justice"],
+      "authorSlug": "martin-luther-king-jr",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7017,
+      "content": "The day the power of love overrules the love of power, the world will know peace.",
+      "author": "Mahatma Gandhi",
+      "tags": ["peace", "love", "power"],
+      "authorSlug": "mahatma-gandhi",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7018,
+      "content": "Peace begins with a smile.",
+      "author": "Mother Teresa",
+      "tags": ["peace", "smile"],
+      "authorSlug": "mother-teresa",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7019,
+      "content": "Peace is not the absence of conflict, but the presence of justice.",
+      "author": "Martin Luther King Jr.",
+      "tags": ["peace", "conflict", "justice"],
+      "authorSlug": "martin-luther-king-jr",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7020,
+      "content": "The day the power of love overrules the love of power, the world will know peace.",
+      "author": "Mahatma Gandhi",
+      "tags": ["peace", "love", "power"],
+      "authorSlug": "mahatma-gandhi",
+      "categories": ["Peace"]
+    },
+
+    {
+      "id": 7021,
+      "content": "Peace is not the absence of conflict, but the presence of justice.",
+      "author": "Martin Luther King Jr.",
+      "tags": ["peace", "conflict", "justice"],
+      "authorSlug": "martin-luther-king-jr",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7022,
+      "content": "The day the power of love overrules the love of power, the world will know peace.",
+      "author": "Mahatma Gandhi",
+      "tags": ["peace", "love", "power"],
+      "authorSlug": "mahatma-gandhi",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7023,
+      "content": "Peace begins with a smile.",
+      "author": "Mother Teresa",
+      "tags": ["peace", "smile"],
+      "authorSlug": "mother-teresa",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7024,
+      "content": "Peace is not the absence of conflict, but the presence of justice.",
+      "author": "Martin Luther King Jr.",
+      "tags": ["peace", "conflict", "justice"],
+      "authorSlug": "martin-luther-king-jr",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7025,
+      "content": "The day the power of love overrules the love of power, the world will know peace.",
+      "author": "Mahatma Gandhi",
+      "tags": ["peace", "love", "power"],
+      "authorSlug": "mahatma-gandhi",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7026,
+      "content": "Peace begins with a smile.",
+      "author": "Mother Teresa",
+      "tags": ["peace", "smile"],
+      "authorSlug": "mother-teresa",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7027,
+      "content": "Peace is not the absence of conflict, but the presence of justice.",
+      "author": "Martin Luther King Jr.",
+      "tags": ["peace", "conflict", "justice"],
+      "authorSlug": "martin-luther-king-jr",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7028,
+      "content": "The day the power of love overrules the love of power, the world will know peace.",
+      "author": "Mahatma Gandhi",
+      "tags": ["peace", "love", "power"],
+      "authorSlug": "mahatma-gandhi",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7029,
+      "content": "Peace begins with a smile.",
+      "author": "Mother Teresa",
+      "tags": ["peace", "smile"],
+      "authorSlug": "mother-teresa",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7030,
+      "content": "Peace is not the absence of conflict, but the presence of justice.",
+      "author": "Martin Luther King Jr.",
+      "tags": ["peace", "conflict", "justice"],
+      "authorSlug": "martin-luther-king-jr",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7031,
+      "content": "The day the power of love overrules the love of power, the world will know peace.",
+      "author": "Mahatma Gandhi",
+      "tags": ["peace", "love", "power"],
+      "authorSlug": "mahatma-gandhi",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7032,
+      "content": "Peace begins with a smile.",
+      "author": "Mother Teresa",
+      "tags": ["peace", "smile"],
+      "authorSlug": "mother-teresa",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7033,
+      "content": "Peace is not the absence of conflict, but the presence of justice.",
+      "author": "Martin Luther King Jr.",
+      "tags": ["peace", "conflict", "justice"],
+      "authorSlug": "martin-luther-king-jr",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7034,
+      "content": "The day the power of love overrules the love of power, the world will know peace.",
+      "author": "Mahatma Gandhi",
+      "tags": ["peace", "love", "power"],
+      "authorSlug": "mahatma-gandhi",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7035,
+      "content": "Peace begins with a smile.",
+      "author": "Mother Teresa",
+      "tags": ["peace", "smile"],
+      "authorSlug": "mother-teresa",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7036,
+      "content": "Peace is not the absence of conflict, but the presence of justice.",
+      "author": "Martin Luther King Jr.",
+      "tags": ["peace", "conflict", "justice"],
+      "authorSlug": "martin-luther-king-jr",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7037,
+      "content": "The day the power of love overrules the love of power, the world will know peace.",
+      "author": "Mahatma Gandhi",
+      "tags": ["peace", "love", "power"],
+      "authorSlug": "mahatma-gandhi",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7038,
+      "content": "Peace begins with a smile.",
+      "author": "Mother Teresa",
+      "tags": ["peace", "smile"],
+      "authorSlug": "mother-teresa",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7039,
+      "content": "Peace is not the absence of conflict, but the presence of justice.",
+      "author": "Martin Luther King Jr.",
+      "tags": ["peace", "conflict", "justice"],
+      "authorSlug": "martin-luther-king-jr",
+      "categories": ["Peace"]
+    },
+    {
+      "id": 7040,
+      "content": "The day the power of love overrules the love of power, the world will know peace.",
+      "author": "Mahatma Gandhi",
+      "tags": ["peace", "love", "power"],
+      "authorSlug": "mahatma-gandhi",
+      "categories": ["Peace"]
+    }
+  ],
+  "sad": [
+    {
+      "id": 8001,
+      "content": "Tears are words that need to be written.",
+      "author": "Paulo Coelho",
+      "tags": ["sad", "tears", "words"],
+      "authorSlug": "paulo-coelho",
+      "categories": ["Sad"]
+    },
+    {
+      "id": 8002,
+      "content": "The worst kind of sad is not being able to explain why.",
+      "author": "Unknown",
+      "tags": ["sad", "unexplained"],
+      "authorSlug": "unknown",
+      "categories": ["Sad"]
+    },
+    {
+      "id": 8003,
+      "content": "Don't cry because it's over, smile because it happened.",
+      "author": "Dr. Seuss",
+      "tags": ["sad", "smile", "happened"],
+      "authorSlug": "dr-seuss",
+      "categories": ["Sad"]
+    },
+    {
+      "id": 8004,
+      "content": "Tears are words that need to be written.",
+      "author": "Paulo Coelho",
+      "tags": ["sad", "tears", "words"],
+      "authorSlug": "paulo-coelho",
+      "categories": ["Sad"]
+    },
+    {
+      "id": 8005,
+      "content": "The worst kind of sad is not being able to explain why.",
+      "author": "Unknown",
+      "tags": ["sad", "unexplained"],
+      "authorSlug": "unknown",
+      "categories": ["Sad"]
+    },
+    {
+      "id": 8006,
+      "content": "Don't cry because it's over, smile because it happened.",
+      "author": "Dr. Seuss",
+      "tags": ["sad", "smile", "happened"],
+      "authorSlug": "dr-seuss",
+      "categories": ["Sad"]
+    },
+    {
+      "id": 8007,
+      "content": "Tears are words that need to be written.",
+      "author": "Paulo Coelho",
+      "tags": ["sad", "tears", "words"],
+      "authorSlug": "paulo-coelho",
+      "categories": ["Sad"]
+    },
+    {
+      "id": 8008,
+      "content": "The worst kind of sad is not being able to explain why.",
+      "author": "Unknown",
+      "tags": ["sad", "unexplained"],
+      "authorSlug": "unknown",
+      "categories": ["Sad"]
+    },
+    {
+      "id": 8009,
+      "content": "Don't cry because it's over, smile because it happened.",
+      "author": "Dr. Seuss",
+      "tags": ["sad", "smile", "happened"],
+      "authorSlug": "dr-seuss",
+      "categories": ["Sad"]
+    },
+    {
+      "id": 8010,
+      "content": "Tears are words that need to be written.",
+      "author": "Paulo Coelho",
+      "tags": ["sad", "tears", "words"],
+      "authorSlug": "paulo-coelho",
+      "categories": ["Sad"]
+    },
+    {
+      "id": 8011,
+      "content": "The worst kind of sad is not being able to explain why.",
+      "author": "Unknown",
+      "tags": ["sad", "unexplained"],
+      "authorSlug": "unknown",
+      "categories": ["Sad"]
+    },
+    {
+      "id": 8012,
+      "content": "Don't cry because it's over, smile because it happened.",
+      "author": "Dr. Seuss",
+      "tags": ["sad", "smile", "happened"],
+      "authorSlug": "dr-seuss",
+      "categories": ["Sad"]
+    },
+    {
+      "id": 8013,
+      "content": "Tears are words that need to be written.",
+      "author": "Paulo Coelho",
+      "tags": ["sad", "tears", "words"],
+      "authorSlug": "paulo-coelho",
+      "categories": ["Sad"]
+    },
+    {
+      "id": 8014,
+      "content": "The worst kind of sad is not being able to explain why.",
+      "author": "Unknown",
+      "tags": ["sad", "unexplained"],
+      "authorSlug": "unknown",
+      "categories": ["Sad"]
+    },
+    {
+      "id": 8015,
+      "content": "Don't cry because it's over, smile because it happened.",
+      "author": "Dr. Seuss",
+      "tags": ["sad", "smile", "happened"],
+      "authorSlug": "dr-seuss",
+      "categories": ["Sad"]
+    },
+    {
+      "id": 8016,
+      "content": "Tears are words that need to be written.",
+      "author": "Paulo Coelho",
+      "tags": ["sad", "tears", "words"],
+      "authorSlug": "paulo-coelho",
+      "categories": ["Sad"]
+    },
+    {
+      "id": 8017,
+      "content": "The worst kind of sad is not being able to explain why.",
+      "author": "Unknown",
+      "tags": ["sad", "unexplained"],
+      "authorSlug": "unknown",
+      "categories": ["Sad"]
+    },
+    {
+      "id": 8018,
+      "content": "Don't cry because it's over, smile because it happened.",
+      "author": "Dr. Seuss",
+      "tags": ["sad", "smile", "happened"],
+      "authorSlug": "dr-seuss",
+      "categories": ["Sad"]
+    },
+    {
+      "id": 8019,
+      "content": "Tears are words that need to be written.",
+      "author": "Paulo Coelho",
+      "tags": ["sad", "tears", "words"],
+      "authorSlug": "paulo-coelho",
+      "categories": ["Sad"]
+    },
+    {
+      "id": 8020,
+      "content": "The worst kind of sad is not being able to explain why.",
+      "author": "Unknown",
+      "tags": ["sad", "unexplained"],
+      "authorSlug": "unknown",
+      "categories": ["Sad"]
+    }
+  ],
+  "teamwork": [
+    {
+      "id": 9001,
+      "content": "Alone we can do so little, together we can do so much.",
+      "author": "Helen Keller",
+      "tags": ["teamwork", "collaboration"],
+      "authorSlug": "helen-keller",
+      "categories": ["Teamwork"]
+    },
+    {
+      "id": 9002,
+      "content": "Coming together is a beginning, staying together is progress, and working together is success.",
+      "author": "Henry Ford",
+      "tags": ["teamwork", "progress", "success"],
+      "authorSlug": "henry-ford",
+      "categories": ["Teamwork"]
+    },
+    {
+      "id": 9003,
+      "content": "The strength of the team is each individual member. The strength of each member is the team.",
+      "author": "Phil Jackson",
+      "tags": ["teamwork", "strength"],
+      "authorSlug": "phil-jackson",
+      "categories": ["Teamwork"]
+    },
+    {
+      "id": 9004,
+      "content": "Alone we can do so little, together we can do so much.",
+      "author": "Helen Keller",
+      "tags": ["teamwork", "collaboration"],
+      "authorSlug": "helen-keller",
+      "categories": ["Teamwork"]
+    },
+    {
+      "id": 9005,
+      "content": "Coming together is a beginning, staying together is progress, and working together is success.",
+      "author": "Henry Ford",
+      "tags": ["teamwork", "progress", "success"],
+      "authorSlug": "henry-ford",
+      "categories": ["Teamwork"]
+    },
+    {
+      "id": 9006,
+      "content": "The strength of the team is each individual member. The strength of each member is the team.",
+      "author": "Phil Jackson",
+      "tags": ["teamwork", "strength"],
+      "authorSlug": "phil-jackson",
+      "categories": ["Teamwork"]
+    },
+    {
+      "id": 9007,
+      "content": "Alone we can do so little, together we can do so much.",
+      "author": "Helen Keller",
+      "tags": ["teamwork", "collaboration"],
+      "authorSlug": "helen-keller",
+      "categories": ["Teamwork"]
+    },
+    {
+      "id": 9008,
+      "content": "Coming together is a beginning, staying together is progress, and working together is success.",
+      "author": "Henry Ford",
+      "tags": ["teamwork", "progress", "success"],
+      "authorSlug": "henry-ford",
+      "categories": ["Teamwork"]
+    },
+    {
+      "id": 9009,
+      "content": "The strength of the team is each individual member. The strength of each member is the team.",
+      "author": "Phil Jackson",
+      "tags": ["teamwork", "strength"],
+      "authorSlug": "phil-jackson",
+      "categories": ["Teamwork"]
+    },
+    {
+      "id": 9010,
+      "content": "Alone we can do so little, together we can do so much.",
+      "author": "Helen Keller",
+      "tags": ["teamwork", "collaboration"],
+      "authorSlug": "helen-keller",
+      "categories": ["Teamwork"]
+    },
+    {
+      "id": 9011,
+      "content": "Coming together is a beginning, staying together is progress, and working together is success.",
+      "author": "Henry Ford",
+      "tags": ["teamwork", "progress", "success"],
+      "authorSlug": "henry-ford",
+      "categories": ["Teamwork"]
+    },
+    {
+      "id": 9012,
+      "content": "The strength of the team is each individual member. The strength of each member is the team.",
+      "author": "Phil Jackson",
+      "tags": ["teamwork", "strength"],
+      "authorSlug": "phil-jackson",
+      "categories": ["Teamwork"]
+    },
+    {
+      "id": 9013,
+      "content": "Alone we can do so little, together we can do so much.",
+      "author": "Helen Keller",
+      "tags": ["teamwork", "collaboration"],
+      "authorSlug": "helen-keller",
+      "categories": ["Teamwork"]
+    },
+    {
+      "id": 9014,
+      "content": "Coming together is a beginning, staying together is progress, and working together is success.",
+      "author": "Henry Ford",
+      "tags": ["teamwork", "progress", "success"],
+      "authorSlug": "henry-ford",
+      "categories": ["Teamwork"]
+    },
+    {
+      "id": 9015,
+      "content": "The strength of the team is each individual member. The strength of each member is the team.",
+      "author": "Phil Jackson",
+      "tags": ["teamwork", "strength"],
+      "authorSlug": "phil-jackson",
+      "categories": ["Teamwork"]
+    },
+    {
+      "id": 9016,
+      "content": "Alone we can do so little, together we can do so much.",
+      "author": "Helen Keller",
+      "tags": ["teamwork", "collaboration"],
+      "authorSlug": "helen-keller",
+      "categories": ["Teamwork"]
+    },
+    {
+      "id": 9017,
+      "content": "Coming together is a beginning, staying together is progress, and working together is success.",
+      "author": "Henry Ford",
+      "tags": ["teamwork", "progress", "success"],
+      "authorSlug": "henry-ford",
+      "categories": ["Teamwork"]
+    },
+    {
+      "id": 9018,
+      "content": "The strength of the team is each individual member. The strength of each member is the team.",
+      "author": "Phil Jackson",
+      "tags": ["teamwork", "strength"],
+      "authorSlug": "phil-jackson",
+      "categories": ["Teamwork"]
+    },
+    {
+      "id": 9019,
+      "content": "Alone we can do so little, together we can do so much.",
+      "author": "Helen Keller",
+      "tags": ["teamwork", "collaboration"],
+      "authorSlug": "helen-keller",
+      "categories": ["Teamwork"]
+    },
+    {
+      "id": 9020,
+      "content": "Coming together is a beginning, staying together is progress, and working together is success.",
+      "author": "Henry Ford",
+      "tags": ["teamwork", "progress", "success"],
+      "authorSlug": "henry-ford",
+      "categories": ["Teamwork"]
+    }
+  ],
+  "thankful": [
+    {
+      "id": 10001,
+      "content": "Gratitude turns what we have into enough.",
+      "author": "Melody Beattie",
+      "tags": ["thankful", "gratitude"],
+      "authorSlug": "melody-beattie",
+      "categories": ["Thankful"]
+    },
+    {
+      "id": 10002,
+      "content": "In every thing give thanks.",
+      "author": "1 Thessalonians 5:18",
+      "tags": ["thankful", "gratitude", "faith"],
+      "authorSlug": "1-thessalonians-5-18",
+      "categories": ["Thankful"]
+    },
+    {
+      "id": 10003,
+      "content": "When we give cheerfully and accept gratefully, everyone is blessed.",
+      "author": "Maya Angelou",
+      "tags": ["thankful", "gratitude", "blessings"],
+      "authorSlug": "maya-angelou",
+      "categories": ["Thankful"]
+    },
+    {
+      "id": 10004,
+      "content": "Gratitude turns what we have into enough.",
+      "author": "Melody Beattie",
+      "tags": ["thankful", "gratitude"],
+      "authorSlug": "melody-beattie",
+      "categories": ["Thankful"]
+    },
+    {
+      "id": 10005,
+      "content": "In every thing give thanks.",
+      "author": "1 Thessalonians 5:18",
+      "tags": ["thankful", "gratitude", "faith"],
+      "authorSlug": "1-thessalonians-5-18",
+      "categories": ["Thankful"]
+    },
+    {
+      "id": 10006,
+      "content": "When we give cheerfully and accept gratefully, everyone is blessed.",
+      "author": "Maya Angelou",
+      "tags": ["thankful", "gratitude", "blessings"],
+      "authorSlug": "maya-angelou",
+      "categories": ["Thankful"]
+    },
+    {
+      "id": 10007,
+      "content": "Gratitude turns what we have into enough.",
+      "author": "Melody Beattie",
+      "tags": ["thankful", "gratitude"],
+      "authorSlug": "melody-beattie",
+      "categories": ["Thankful"]
+    },
+    {
+      "id": 10008,
+      "content": "In every thing give thanks.",
+      "author": "1 Thessalonians 5:18",
+      "tags": ["thankful", "gratitude", "faith"],
+      "authorSlug": "1-thessalonians-5-18",
+      "categories": ["Thankful"]
+    },
+    {
+      "id": 10009,
+      "content": "When we give cheerfully and accept gratefully, everyone is blessed.",
+      "author": "Maya Angelou",
+      "tags": ["thankful", "gratitude", "blessings"],
+      "authorSlug": "maya-angelou",
+      "categories": ["Thankful"]
+    },
+    {
+      "id": 10010,
+      "content": "Gratitude turns what we have into enough.",
+      "author": "Melody Beattie",
+      "tags": ["thankful", "gratitude"],
+      "authorSlug": "melody-beattie",
+      "categories": ["Thankful"]
+    },
+    {
+      "id": 10011,
+      "content": "In every thing give thanks.",
+      "author": "1 Thessalonians 5:18",
+      "tags": ["thankful", "gratitude", "faith"],
+      "authorSlug": "1-thessalonians-5-18",
+      "categories": ["Thankful"]
+    },
+    {
+      "id": 10012,
+      "content": "When we give cheerfully and accept gratefully, everyone is blessed.",
+      "author": "Maya Angelou",
+      "tags": ["thankful", "gratitude", "blessings"],
+      "authorSlug": "maya-angelou",
+      "categories": ["Thankful"]
+    },
+    {
+      "id": 10013,
+      "content": "Gratitude turns what we have into enough.",
+      "author": "Melody Beattie",
+      "tags": ["thankful", "gratitude"],
+      "authorSlug": "melody-beattie",
+      "categories": ["Thankful"]
+    },
+    {
+      "id": 10014,
+      "content": "In every thing give thanks.",
+      "author": "1 Thessalonians 5:18",
+      "tags": ["thankful", "gratitude", "faith"],
+      "authorSlug": "1-thessalonians-5-18",
+      "categories": ["Thankful"]
+    },
+    {
+      "id": 10015,
+      "content": "When we give cheerfully and accept gratefully, everyone is blessed.",
+      "author": "Maya Angelou",
+      "tags": ["thankful", "gratitude", "blessings"],
+      "authorSlug": "maya-angelou",
+      "categories": ["Thankful"]
+    },
+    {
+      "id": 10016,
+      "content": "Gratitude turns what we have into enough.",
+      "author": "Melody Beattie",
+      "tags": ["thankful", "gratitude"],
+      "authorSlug": "melody-beattie",
+      "categories": ["Thankful"]
+    },
+    {
+      "id": 10017,
+      "content": "In every thing give thanks.",
+      "author": "1 Thessalonians 5:18",
+      "tags": ["thankful", "gratitude", "faith"],
+      "authorSlug": "1-thessalonians-5-18",
+      "categories": ["Thankful"]
+    },
+    {
+      "id": 10018,
+      "content": "When we give cheerfully and accept gratefully, everyone is blessed.",
+      "author": "Maya Angelou",
+      "tags": ["thankful", "gratitude", "blessings"],
+      "authorSlug": "maya-angelou",
+      "categories": ["Thankful"]
+    },
+    {
+      "id": 10019,
+      "content": "Gratitude turns what we have into enough.",
+      "author": "Melody Beattie",
+      "tags": ["thankful", "gratitude"],
+      "authorSlug": "melody-beattie",
+      "categories": ["Thankful"]
+    },
+    {
+      "id": 10020,
+      "content": "In every thing give thanks.",
+      "author": "1 Thessalonians 5:18",
+      "tags": ["thankful", "gratitude", "faith"],
+      "authorSlug": "1-thessalonians-5-18",
+      "categories": ["Thankful"]
+    }
+  ],
+  "positive": [
+    {
+      "id": 11001,
+      "content": "Positive thinking will let you do everything better than negative thinking will.",
+      "author": "Zig Ziglar",
+      "tags": ["positive", "thinking"],
+      "authorSlug": "zig-ziglar",
+      "categories": ["Positive"]
+    },
+    {
+      "id": 11002,
+      "content": "Keep your face always toward the sunshine—and shadows will fall behind you.",
+      "author": "Walt Whitman",
+      "tags": ["positive", "sunshine"],
+      "authorSlug": "walt-whitman",
+      "categories": ["Positive"]
+    },
+    {
+      "id": 11003,
+      "content": "You are never too old to set another goal or to dream a new dream.",
+      "author": "C.S. Lewis",
+      "tags": ["positive", "goals", "dreams"],
+      "authorSlug": "cs-lewis",
+      "categories": ["Positive"]
+    },
+    {
+      "id": 11004,
+      "content": "Positive thinking will let you do everything better than negative thinking will.",
+      "author": "Zig Ziglar",
+      "tags": ["positive", "thinking"],
+      "authorSlug": "zig-ziglar",
+      "categories": ["Positive"]
+    },
+    {
+      "id": 11005,
+      "content": "Keep your face always toward the sunshine—and shadows will fall behind you.",
+      "author": "Walt Whitman",
+      "tags": ["positive", "sunshine"],
+      "authorSlug": "walt-whitman",
+      "categories": ["Positive"]
+    },
+    {
+      "id": 11006,
+      "content": "You are never too old to set another goal or to dream a new dream.",
+      "author": "C.S. Lewis",
+      "tags": ["positive", "goals", "dreams"],
+      "authorSlug": "cs-lewis",
+      "categories": ["Positive"]
+    },
+    {
+      "id": 11007,
+      "content": "Positive thinking will let you do everything better than negative thinking will.",
+      "author": "Zig Ziglar",
+      "tags": ["positive", "thinking"],
+      "authorSlug": "zig-ziglar",
+      "categories": ["Positive"]
+    },
+    {
+      "id": 11008,
+      "content": "Keep your face always toward the sunshine—and shadows will fall behind you.",
+      "author": "Walt Whitman",
+      "tags": ["positive", "sunshine"],
+      "authorSlug": "walt-whitman",
+      "categories": ["Positive"]
+    },
+    {
+      "id": 11009,
+      "content": "You are never too old to set another goal or to dream a new dream.",
+      "author": "C.S. Lewis",
+      "tags": ["positive", "goals", "dreams"],
+      "authorSlug": "cs-lewis",
+      "categories": ["Positive"]
+    },
+    {
+      "id": 11010,
+      "content": "Positive thinking will let you do everything better than negative thinking will.",
+      "author": "Zig Ziglar",
+      "tags": ["positive", "thinking"],
+      "authorSlug": "zig-ziglar",
+      "categories": ["Positive"]
+    },
+    {
+      "id": 11011,
+      "content": "Keep your face always toward the sunshine—and shadows will fall behind you.",
+      "author": "Walt Whitman",
+      "tags": ["positive", "sunshine"],
+      "authorSlug": "walt-whitman",
+      "categories": ["Positive"]
+    },
+    {
+      "id": 11012,
+      "content": "You are never too old to set another goal or to dream a new dream.",
+      "author": "C.S. Lewis",
+      "tags": ["positive", "goals", "dreams"],
+      "authorSlug": "cs-lewis",
+      "categories": ["Positive"]
+    },
+    {
+      "id": 11013,
+      "content": "Positive thinking will let you do everything better than negative thinking will.",
+      "author": "Zig Ziglar",
+      "tags": ["positive", "thinking"],
+      "authorSlug": "zig-ziglar",
+      "categories": ["Positive"]
+    },
+    {
+      "id": 11014,
+      "content": "Keep your face always toward the sunshine—and shadows will fall behind you.",
+      "author": "Walt Whitman",
+      "tags": ["positive", "sunshine"],
+      "authorSlug": "walt-whitman",
+      "categories": ["Positive"]
+    },
+    {
+      "id": 11015,
+      "content": "You are never too old to set another goal or to dream a new dream.",
+      "author": "C.S. Lewis",
+      "tags": ["positive", "goals", "dreams"],
+      "authorSlug": "cs-lewis",
+      "categories": ["Positive"]
+    },
+    {
+      "id": 11016,
+      "content": "Positive thinking will let you do everything better than negative thinking will.",
+      "author": "Zig Ziglar",
+      "tags": ["positive", "thinking"],
+      "authorSlug": "zig-ziglar",
+      "categories": ["Positive"]
+    },
+    {
+      "id": 11017,
+      "content": "Keep your face always toward the sunshine—and shadows will fall behind you.",
+      "author": "Walt Whitman",
+      "tags": ["positive", "sunshine"],
+      "authorSlug": "walt-whitman",
+      "categories": ["Positive"]
+    },
+    {
+      "id": 11018,
+      "content": "You are never too old to set another goal or to dream a new dream.",
+      "author": "C.S. Lewis",
+      "tags": ["positive", "goals", "dreams"],
+      "authorSlug": "cs-lewis",
+      "categories": ["Positive"]
+    },
+    {
+      "id": 11019,
+      "content": "Positive thinking will let you do everything better than negative thinking will.",
+      "author": "Zig Ziglar",
+      "tags": ["positive", "thinking"],
+      "authorSlug": "zig-ziglar",
+      "categories": ["Positive"]
+    },
+    {
+      "id": 11020,
+      "content": "Keep your face always toward the sunshine—and shadows will fall behind you.",
+      "author": "Walt Whitman",
+      "tags": ["positive", "sunshine"],
+      "authorSlug": "walt-whitman",
+      "categories": ["Positive"]
+    }
+  ],
+  "karma": [
+    {
+      "id": 12001,
+      "content": "Your actions are your only belongings.",
+      "author": "Prabakaran Thirumalai",
+      "tags": ["karma", "actions"],
+      "authorSlug": "prabakaran-thirumalai",
+      "categories": ["Karma"]
+    },
+    {
+      "id": 12002,
+      "content": "The universe returns to you what you send out.",
+      "author": "Unknown",
+      "tags": ["karma", "universe"],
+      "authorSlug": "unknown",
+      "categories": ["Karma"]
+    },
+    {
+      "id": 12003,
+      "content": "Karma has no menu. You get served what you deserve.",
+      "author": "Unknown",
+      "tags": ["karma", "deserve"],
+      "authorSlug": "unknown",
+      "categories": ["Karma"]
+    },
+    {
+      "id": 12004,
+      "content": "Your actions are your only belongings.",
+      "author": "Prabakaran Thirumalai",
+      "tags": ["karma", "actions"],
+      "authorSlug": "prabakaran-thirumalai",
+      "categories": ["Karma"]
+    },
+    {
+      "id": 12005,
+      "content": "The universe returns to you what you send out.",
+      "author": "Unknown",
+      "tags": ["karma", "universe"],
+      "authorSlug": "unknown",
+      "categories": ["Karma"]
+    },
+    {
+      "id": 12006,
+      "content": "Karma has no menu. You get served what you deserve.",
+      "author": "Unknown",
+      "tags": ["karma", "deserve"],
+      "authorSlug": "unknown",
+      "categories": ["Karma"]
+    },
+    {
+      "id": 12007,
+      "content": "Your actions are your only belongings.",
+      "author": "Prabakaran Thirumalai",
+      "tags": ["karma", "actions"],
+      "authorSlug": "prabakaran-thirumalai",
+      "categories": ["Karma"]
+    },
+    {
+      "id": 12008,
+      "content": "The universe returns to you what you send out.",
+      "author": "Unknown",
+      "tags": ["karma", "universe"],
+      "authorSlug": "unknown",
+      "categories": ["Karma"]
+    },
+    {
+      "id": 12009,
+      "content": "Karma has no menu. You get served what you deserve.",
+      "author": "Unknown",
+      "tags": ["karma", "deserve"],
+      "authorSlug": "unknown",
+      "categories": ["Karma"]
+    },
+    {
+      "id": 12010,
+      "content": "Your actions are your only belongings.",
+      "author": "Prabakaran Thirumalai",
+      "tags": ["karma", "actions"],
+      "authorSlug": "prabakaran-thirumalai",
+      "categories": ["Karma"]
+    },
+    {
+      "id": 12011,
+      "content": "The universe returns to you what you send out.",
+      "author": "Unknown",
+      "tags": ["karma", "universe"],
+      "authorSlug": "unknown",
+      "categories": ["Karma"]
+    },
+    {
+      "id": 12012,
+      "content": "Karma has no menu. You get served what you deserve.",
+      "author": "Unknown",
+      "tags": ["karma", "deserve"],
+      "authorSlug": "unknown",
+      "categories": ["Karma"]
+    },
+    {
+      "id": 12013,
+      "content": "Your actions are your only belongings.",
+      "author": "Prabakaran Thirumalai",
+      "tags": ["karma", "actions"],
+      "authorSlug": "prabakaran-thirumalai",
+      "categories": ["Karma"]
+    },
+    {
+      "id": 12014,
+      "content": "The universe returns to you what you send out.",
+      "author": "Unknown",
+      "tags": ["karma", "universe"],
+      "authorSlug": "unknown",
+      "categories": ["Karma"]
+    },
+    {
+      "id": 12015,
+      "content": "Karma has no menu. You get served what you deserve.",
+      "author": "Unknown",
+      "tags": ["karma", "deserve"],
+      "authorSlug": "unknown",
+      "categories": ["Karma"]
+    },
+    {
+      "id": 12016,
+      "content": "Your actions are your only belongings.",
+      "author": "Prabakaran Thirumalai",
+      "tags": ["karma", "actions"],
+      "authorSlug": "prabakaran-thirumalai",
+      "categories": ["Karma"]
+    },
+    {
+      "id": 12017,
+      "content": "The universe returns to you what you send out.",
+      "author": "Unknown",
+      "tags": ["karma", "universe"],
+      "authorSlug": "unknown",
+      "categories": ["Karma"]
+    },
+    {
+      "id": 12018,
+      "content": "Karma has no menu. You get served what you deserve.",
+      "author": "Unknown",
+      "tags": ["karma", "deserve"],
+      "authorSlug": "unknown",
+      "categories": ["Karma"]
+    },
+    {
+      "id": 12019,
+      "content": "Your actions are your only belongings.",
+      "author": "Prabakaran Thirumalai",
+      "tags": ["karma", "actions"],
+      "authorSlug": "prabakaran-thirumalai",
+      "categories": ["Karma"]
+    },
+    {
+      "id": 12020,
+      "content": "The universe returns to you what you send out.",
+      "author": "Unknown",
+      "tags": ["karma", "universe"],
+      "authorSlug": "unknown",
+      "categories": ["Karma"]
+    }
+  ],
+  "deep": [
+    {
+      "id": 13001,
+      "content": "Life is a profound journey filled with twists and turns. In the depths of our experiences, we discover the true essence of our existence. Embrace the depth of your being.",
+      "author": "Unknown",
+      "tags": ["deep", "life", "essence"],
+      "authorSlug": "unknown",
+      "categories": ["Deep"]
+    },
+    {
+      "id": 13002,
+      "content": "The human mind delves into the deepest recesses of consciousness, exploring the mysteries of existence. In the depths of contemplation, we find clarity and insight.",
+      "author": "Unknown",
+      "tags": ["deep", "mind", "consciousness"],
+      "authorSlug": "unknown",
+      "categories": ["Deep"]
+    },
+    {
+      "id": 13003,
+      "content": "Love is a profound force that connects hearts across distances, binding souls in a deep and meaningful way. It has the power to heal wounds and bring light to the darkest corners of our lives.",
+      "author": "Unknown",
+      "tags": ["deep", "love", "healing"],
+      "authorSlug": "unknown",
+      "categories": ["Deep"]
+    },
+    {
+      "id": 13004,
+      "content": "The journey of self-discovery is a profound odyssey. It's a quest to understand who we are at our core, beyond the masks we wear. This journey requires courage and self-compassion.",
+      "author": "Unknown",
+      "tags": ["deep", "self-discovery", "courage"],
+      "authorSlug": "unknown",
+      "categories": ["Deep"]
+    },
+    {
+      "id": 13005,
+      "content": "The mysteries of the universe are profound and awe-inspiring. The quest for truth takes us on a journey of exploration, pushing the boundaries of what is known.",
+      "author": "Unknown",
+      "tags": ["deep", "universe", "exploration"],
+      "authorSlug": "unknown",
+      "categories": ["Deep"]
+    },
+    {
+      "id": 13006,
+      "content": "Life is a profound journey filled with twists and turns. In the depths of our experiences, we discover the true essence of our existence. Embrace the depth of your being.",
+      "author": "Unknown",
+      "tags": ["deep", "life", "essence"],
+      "authorSlug": "unknown",
+      "categories": ["Deep"]
+    },
+    {
+      "id": 13007,
+      "content": "The human mind delves into the deepest recesses of consciousness, exploring the mysteries of existence. In the depths of contemplation, we find clarity and insight.",
+      "author": "Unknown",
+      "tags": ["deep", "mind", "consciousness"],
+      "authorSlug": "unknown",
+      "categories": ["Deep"]
+    },
+    {
+      "id": 13008,
+      "content": "Love is a profound force that connects hearts across distances, binding souls in a deep and meaningful way. It has the power to heal wounds and bring light to the darkest corners of our lives.",
+      "author": "Unknown",
+      "tags": ["deep", "love", "healing"],
+      "authorSlug": "unknown",
+      "categories": ["Deep"]
+    },
+    {
+      "id": 13009,
+      "content": "The journey of self-discovery is a profound odyssey. It's a quest to understand who we are at our core, beyond the masks we wear. This journey requires courage and self-compassion.",
+      "author": "Unknown",
+      "tags": ["deep", "self-discovery", "courage"],
+      "authorSlug": "unknown",
+      "categories": ["Deep"]
+    },
+    {
+      "id": 13010,
+      "content": "The mysteries of the universe are profound and awe-inspiring. The quest for truth takes us on a journey of exploration, pushing the boundaries of what is known.",
+      "author": "Unknown",
+      "tags": ["deep", "universe", "exploration"],
+      "authorSlug": "unknown",
+      "categories": ["Deep"]
+    },
+    {
+      "id": 13011,
+      "content": "Life is a profound journey filled with twists and turns. In the depths of our experiences, we discover the true essence of our existence. Embrace the depth of your being.",
+      "author": "Unknown",
+      "tags": ["deep", "life", "essence"],
+      "authorSlug": "unknown",
+      "categories": ["Deep"]
+    },
+    {
+      "id": 13012,
+      "content": "The human mind delves into the deepest recesses of consciousness, exploring the mysteries of existence. In the depths of contemplation, we find clarity and insight.",
+      "author": "Unknown",
+      "tags": ["deep", "mind", "consciousness"],
+      "authorSlug": "unknown",
+      "categories": ["Deep"]
+    },
+    {
+      "id": 13013,
+      "content": "Love is a profound force that connects hearts across distances, binding souls in a deep and meaningful way. It has the power to heal wounds and bring light to the darkest corners of our lives.",
+      "author": "Unknown",
+      "tags": ["deep", "love", "healing"],
+      "authorSlug": "unknown",
+      "categories": ["Deep"]
+    },
+    {
+      "id": 13014,
+      "content": "The journey of self-discovery is a profound odyssey. It's a quest to understand who we are at our core, beyond the masks we wear. This journey requires courage and self-compassion.",
+      "author": "Unknown",
+      "tags": ["deep", "self-discovery", "courage"],
+      "authorSlug": "unknown",
+      "categories": ["Deep"]
+    },
+    {
+      "id": 13015,
+      "content": "The mysteries of the universe are profound and awe-inspiring. The quest for truth takes us on a journey of exploration, pushing the boundaries of what is known.",
+      "author": "Unknown",
+      "tags": ["deep", "universe", "exploration"],
+      "authorSlug": "unknown",
+      "categories": ["Deep"]
+    }
+  ],
+  "friendship": [
+    {
+      "id": 14001,
+      "content": "Friendship is a beautiful bond that transcends time and distance. It's a connection that warms the heart and brings joy to the soul. True friends are like stars that shine in the darkest of nights, guiding us through life's journey. In the laughter and shared moments, we find the true treasure of friendship. Cherish those who stand by your side, for they are the ones who make life's adventures even more meaningful.",
+      "author": "Unknown",
+      "tags": ["friendship", "bond", "joy"],
+      "authorSlug": "unknown",
+      "categories": ["Friendship"]
+    },
+    {
+      "id": 14002,
+      "content": "In the tapestry of life, friends are the colorful threads that add beauty and meaning to our existence. They are the ones who lift us up when we fall, who celebrate our successes, and who offer a listening ear in times of need. True friendship is a gift that should never be taken for granted. It's a bond that grows stronger with time and distance, and it's a source of comfort and happiness. Treasure your friends, for they are the gems of your life's journey.",
+      "author": "Unknown",
+      "tags": ["friendship", "meaning", "gift"],
+      "authorSlug": "unknown",
+      "categories": ["Friendship"]
+    },
+    {
+      "id": 14003,
+      "content": "Friendship is a tapestry woven with threads of trust, loyalty, and laughter. It's a bond that holds us together in the fabric of life. True friends are the pillars of support during the storms and the sunshine of our days. They bring warmth to our hearts and smiles to our faces. As the chapters of life unfold, friends are the storylines that make our journey unforgettable. Embrace the beauty of friendship and let it color your world with love and happiness.",
+      "author": "Unknown",
+      "tags": ["friendship", "trust", "loyalty"],
+      "authorSlug": "unknown",
+      "categories": ["Friendship"]
+    },
+    {
+      "id": 14004,
+      "content": "Friendship is a journey of shared experiences, from the ordinary to the extraordinary. It's about the laughter that echoes in your conversations and the comfort of knowing someone truly cares. True friends are the stars that light up your darkest nights and the anchors that keep you grounded in the stormy seas of life. They are the chapters in your story that you'll never want to skip. Value and appreciate your friends, for they are the colors that make your life's canvas beautiful.",
+      "author": "Unknown",
+      "tags": ["friendship", "journey", "laughter"],
+      "authorSlug": "unknown",
+      "categories": ["Friendship"]
+    },
+    {
+      "id": 14005,
+      "content": "Friendship is a beautiful bond that transcends time and distance. It's a connection that warms the heart and brings joy to the soul. True friends are like stars that shine in the darkest of nights, guiding us through life's journey. In the laughter and shared moments, we find the true treasure of friendship. Cherish those who stand by your side, for they are the ones who make life's adventures even more meaningful.",
+      "author": "Unknown",
+      "tags": ["friendship", "bond", "joy"],
+      "authorSlug": "unknown",
+      "categories": ["Friendship"]
+    },
+    {
+      "id": 14006,
+      "content": "In the tapestry of life, friends are the colorful threads that add beauty and meaning to our existence. They are the ones who lift us up when we fall, who celebrate our successes, and who offer a listening ear in times of need. True friendship is a gift that should never be taken for granted. It's a bond that grows stronger with time and distance, and it's a source of comfort and happiness. Treasure your friends, for they are the gems of your life's journey.",
+      "author": "Unknown",
+      "tags": ["friendship", "meaning", "gift"],
+      "authorSlug": "unknown",
+      "categories": ["Friendship"]
+    },
+    {
+      "id": 14007,
+      "content": "Friendship is a tapestry woven with threads of trust, loyalty, and laughter. It's a bond that holds us together in the fabric of life. True friends are the pillars of support during the storms and the sunshine of our days. They bring warmth to our hearts and smiles to our faces. As the chapters of life unfold, friends are the storylines that make our journey unforgettable. Embrace the beauty of friendship and let it color your world with love and happiness.",
+      "author": "Unknown",
+      "tags": ["friendship", "trust", "loyalty"],
+      "authorSlug": "unknown",
+      "categories": ["Friendship"]
+    },
+    {
+      "id": 14008,
+      "content": "Friendship is a journey of shared experiences, from the ordinary to the extraordinary. It's about the laughter that echoes in your conversations and the comfort of knowing someone truly cares. True friends are the stars that light up your darkest nights and the anchors that keep you grounded in the stormy seas of life. They are the chapters in your story that you'll never want to skip. Value and appreciate your friends, for they are the colors that make your life's canvas beautiful.",
+      "author": "Unknown",
+      "tags": ["friendship", "journey", "laughter"],
+      "authorSlug": "unknown",
+      "categories": ["Friendship"]
+    },
+    {
+      "id": 14009,
+      "content": "Friendship is a beautiful bond that transcends time and distance. It's a connection that warms the heart and brings joy to the soul. True friends are like stars that shine in the darkest of nights, guiding us through life's journey. In the laughter and shared moments, we find the true treasure of friendship. Cherish those who stand by your side, for they are the ones who make life's adventures even more meaningful.",
+      "author": "Unknown",
+      "tags": ["friendship", "bond", "joy"],
+      "authorSlug": "unknown",
+      "categories": ["Friendship"]
+    },
+    {
+      "id": 14010,
+      "content": "In the tapestry of life, friends are the colorful threads that add beauty and meaning to our existence. They are the ones who lift us up when we fall, who celebrate our successes, and who offer a listening ear in times of need. True friendship is a gift that should never be taken for granted. It's a bond that grows stronger with time and distance, and it's a source of comfort and happiness. Treasure your friends, for they are the gems of your life's journey.",
+      "author": "Unknown",
+      "tags": ["friendship", "meaning", "gift"],
+      "authorSlug": "unknown",
+      "categories": ["Friendship"]
+    },
+
+    {
+      "id": 14011,
+      "content": "Friendship is a tapestry woven with threads of trust, loyalty, and laughter. It's a bond that holds us together in the fabric of life. True friends are the pillars of support during the storms and the sunshine of our days. They bring warmth to our hearts and smiles to our faces. As the chapters of life unfold, friends are the storylines that make our journey unforgettable. Embrace the beauty of friendship and let it color your world with love and happiness.",
+      "author": "Unknown",
+      "tags": ["friendship", "trust", "loyalty"],
+      "authorSlug": "unknown",
+      "categories": ["Friendship"]
+    },
+    {
+      "id": 14012,
+      "content": "Friendship is a journey of shared experiences, from the ordinary to the extraordinary. It's about the laughter that echoes in your conversations and the comfort of knowing someone truly cares. True friends are the stars that light up your darkest nights and the anchors that keep you grounded in the stormy seas of life. They are the chapters in your story that you'll never want to skip. Value and appreciate your friends, for they are the colors that make your life's canvas beautiful.",
+      "author": "Unknown",
+      "tags": ["friendship", "journey", "laughter"],
+      "authorSlug": "unknown",
+      "categories": ["Friendship"]
+    },
+    {
+      "id": 14013,
+      "content": "Friendship is a beautiful bond that transcends time and distance. It's a connection that warms the heart and brings joy to the soul. True friends are like stars that shine in the darkest of nights, guiding us through life's journey. In the laughter and shared moments, we find the true treasure of friendship. Cherish those who stand by your side, for they are the ones who make life's adventures even more meaningful.",
+      "author": "Unknown",
+      "tags": ["friendship", "bond", "joy"],
+      "authorSlug": "unknown",
+      "categories": ["Friendship"]
+    },
+    {
+      "id": 14014,
+      "content": "In the tapestry of life, friends are the colorful threads that add beauty and meaning to our existence. They are the ones who lift us up when we fall, who celebrate our successes, and who offer a listening ear in times of need. True friendship is a gift that should never be taken for granted. It's a bond that grows stronger with time and distance, and it's a source of comfort and happiness. Treasure your friends, for they are the gems of your life's journey.",
+      "author": "Unknown",
+      "tags": ["friendship", "meaning", "gift"],
+      "authorSlug": "unknown",
+      "categories": ["Friendship"]
+    },
+    {
+      "id": 14015,
+      "content": "Friendship is a tapestry woven with threads of trust, loyalty, and laughter. It's a bond that holds us together in the fabric of life. True friends are the pillars of support during the storms and the sunshine of our days. They bring warmth to our hearts and smiles to our faces. As the chapters of life unfold, friends are the storylines that make our journey unforgettable. Embrace the beauty of friendship and let it color your world with love and happiness.",
+      "author": "Unknown",
+      "tags": ["friendship", "trust", "loyalty"],
+      "authorSlug": "unknown",
+      "categories": ["Friendship"]
+    },
+    {
+      "id": 14016,
+      "content": "Friendship is a journey of shared experiences, from the ordinary to the extraordinary. It's about the laughter that echoes in your conversations and the comfort of knowing someone truly cares. True friends are the stars that light up your darkest nights and the anchors that keep you grounded in the stormy seas of life. They are the chapters in your story that you'll never want to skip. Value and appreciate your friends, for they are the colors that make your life's canvas beautiful.",
+      "author": "Unknown",
+      "tags": ["friendship", "journey", "laughter"],
+      "authorSlug": "unknown",
+      "categories": ["Friendship"]
+    },
+    {
+      "id": 14017,
+      "content": "Friendship is a beautiful bond that transcends time and distance. It's a connection that warms the heart and brings joy to the soul. True friends are like stars that shine in the darkest of nights, guiding us through life's journey. In the laughter and shared moments, we find the true treasure of friendship. Cherish those who stand by your side, for they are the ones who make life's adventures even more meaningful.",
+      "author": "Unknown",
+      "tags": ["friendship", "bond", "joy"],
+      "authorSlug": "unknown",
+      "categories": ["Friendship"]
+    },
+    {
+      "id": 14018,
+      "content": "In the tapestry of life, friends are the colorful threads that add beauty and meaning to our existence. They are the ones who lift us up when we fall, who celebrate our successes, and who offer a listening ear in times of need. True friendship is a gift that should never be taken for granted. It's a bond that grows stronger with time and distance, and it's a source of comfort and happiness. Treasure your friends, for they are the gems of your life's journey.",
+      "author": "Unknown",
+      "tags": ["friendship", "meaning", "gift"],
+      "authorSlug": "unknown",
+      "categories": ["Friendship"]
+    },
+    {
+      "id": 14019,
+      "content": "Friendship is a tapestry woven with threads of trust, loyalty, and laughter. It's a bond that holds us together in the fabric of life. True friends are the pillars of support during the storms and the sunshine of our days. They bring warmth to our hearts and smiles to our faces. As the chapters of life unfold, friends are the storylines that make our journey unforgettable. Embrace the beauty of friendship and let it color your world with love and happiness.",
+      "author": "Unknown",
+      "tags": ["friendship", "trust", "loyalty"],
+      "authorSlug": "unknown",
+      "categories": ["Friendship"]
+    },
+    {
+      "id": 14020,
+      "content": "Friendship is a journey of shared experiences, from the ordinary to the extraordinary. It's about the laughter that echoes in your conversations and the comfort of knowing someone truly cares. True friends are the stars that light up your darkest nights and the anchors that keep you grounded in the stormy seas of life. They are the chapters in your story that you'll never want to skip. Value and appreciate your friends, for they are the colors that make your life's canvas beautiful.",
+      "author": "Unknown",
+      "tags": ["friendship", "journey", "laughter"],
+      "authorSlug": "unknown",
+      "categories": ["Friendship"]
+    }
+  ],
+  "cute": [
+    {
+      "id": 15001,
+      "content": "Love is like a smile; it never goes out of style.",
+      "author": "Unknown",
+      "tags": ["love", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15002,
+      "content": "Every day may not be good, but there's something good in every day.",
+      "author": "Unknown",
+      "tags": ["positive", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15003,
+      "content": "Happiness is a warm puppy.",
+      "author": "Charles M. Schulz",
+      "tags": ["happiness", "cute"],
+      "authorSlug": "charles-m-schulz",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15004,
+      "content": "Life is better with a furry friend by your side.",
+      "author": "Unknown",
+      "tags": ["life", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15005,
+      "content": "The best things in life are furry.",
+      "author": "Unknown",
+      "tags": ["life", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15006,
+      "content": "A hug from a cute creature can make any day better.",
+      "author": "Unknown",
+      "tags": ["hug", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15007,
+      "content": "Life is like a box of puppies; you never know which one you'll get next.",
+      "author": "Unknown",
+      "tags": ["life", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15008,
+      "content": "Love is when your pet comes to cuddle with you when you need it the most.",
+      "author": "Unknown",
+      "tags": ["love", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15009,
+      "content": "The world is a better place with a purring cat in it.",
+      "author": "Unknown",
+      "tags": ["world", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15010,
+      "content": "Cuteness is in the eye of the beholder.",
+      "author": "Unknown",
+      "tags": ["cuteness", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15011,
+      "content": "You can't buy love, but you can rescue it from a shelter.",
+      "author": "Unknown",
+      "tags": ["love", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15012,
+      "content": "A cat's purr is the best lullaby.",
+      "author": "Unknown",
+      "tags": ["cat", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15013,
+      "content": "In a world full of stress, be someone's sunshine.",
+      "author": "Unknown",
+      "tags": ["stress", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15014,
+      "content": "The joy of a dog's wagging tail is contagious.",
+      "author": "Unknown",
+      "tags": ["joy", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15015,
+      "content": "Puppies and kittens make the world a better place.",
+      "author": "Unknown",
+      "tags": ["puppies", "kittens", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15016,
+      "content": "Sometimes, all you need is a cat's gentle purring to calm your soul.",
+      "author": "Unknown",
+      "tags": ["calm", "cat", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15017,
+      "content": "The smallest things often bring the greatest joy.",
+      "author": "Unknown",
+      "tags": ["joy", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15018,
+      "content": "Cute animals have a special place in our hearts.",
+      "author": "Unknown",
+      "tags": ["animals", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15019,
+      "content": "Cuteness is a universal language that everyone understands.",
+      "author": "Unknown",
+      "tags": ["cuteness", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15020,
+      "content": "A smile from a cute baby can brighten the darkest day.",
+      "author": "Unknown",
+      "tags": ["smile", "baby", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15021,
+      "content": "Happiness is a warm puppy curled up at your feet.",
+      "author": "Charles M. Schulz",
+      "tags": ["happiness", "cute"],
+      "authorSlug": "charles-m-schulz",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15022,
+      "content": "The cuteness of a baby's laughter is music to the soul.",
+      "author": "Unknown",
+      "tags": ["laughter", "baby", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15023,
+      "content": "A cat's curiosity can brighten even the dullest day.",
+      "author": "Unknown",
+      "tags": ["curiosity", "cat", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15024,
+      "content": "Love is when your pet knows exactly how to make you smile.",
+      "author": "Unknown",
+      "tags": ["love", "smile", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15025,
+      "content": "The world is full of wonders, and puppies are one of them.",
+      "author": "Unknown",
+      "tags": ["world", "puppies", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15026,
+      "content": "Life is sweeter with a little furry friend to share it with.",
+      "author": "Unknown",
+      "tags": ["life", "sweet", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15027,
+      "content": "The cutest moments are often the most unexpected.",
+      "author": "Unknown",
+      "tags": ["cute", "moments", "unexpected"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15028,
+      "content": "Cuteness is the universal language of joy.",
+      "author": "Unknown",
+      "tags": ["cuteness", "joy", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15029,
+      "content": "In a world where you can be anything, be kind and cute.",
+      "author": "Unknown",
+      "tags": ["kindness", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15030,
+      "content": "A smile from a cute animal can melt the iciest heart.",
+      "author": "Unknown",
+      "tags": ["smile", "cute", "heart"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15031,
+      "content": "Cute animals are like a dose of happiness we all need.",
+      "author": "Unknown",
+      "tags": ["animals", "happiness", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15032,
+      "content": "The world is a better place with furry friends in it.",
+      "author": "Unknown",
+      "tags": ["world", "furry", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15033,
+      "content": "Cuteness is a gift that keeps on giving.",
+      "author": "Unknown",
+      "tags": ["cuteness", "gift", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15034,
+      "content": "Love is spelled C-A-T.",
+      "author": "Unknown",
+      "tags": ["love", "cat", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15035,
+      "content": "Puppies have the power to make everything better.",
+      "author": "Unknown",
+      "tags": ["puppies", "power", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15036,
+      "content": "The cuteness of a baby animal can heal a wounded heart.",
+      "author": "Unknown",
+      "tags": ["cuteness", "baby", "heart"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15037,
+      "content": "Cute moments are the bookmarks of our lives.",
+      "author": "Unknown",
+      "tags": ["cute", "moments", "life"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15038,
+      "content": "Happiness is a warm kitten purring in your lap.",
+      "author": "Unknown",
+      "tags": ["happiness", "kitten", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15039,
+      "content": "Life is better when you have a fluffy companion by your side.",
+      "author": "Unknown",
+      "tags": ["life", "fluffy", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    },
+    {
+      "id": 15040,
+      "content": "Cuteness is the secret ingredient that makes life sweeter.",
+      "author": "Unknown",
+      "tags": ["cuteness", "secret", "sweet", "cute"],
+      "authorSlug": "unknown",
+      "categories": ["cute"]
+    }
+  ],
+  "funny": [
+    {
+      "id": 16001,
+      "content": "I told my wife she was drawing her eyebrows too high. She looked surprised.",
+      "author": "Unknown",
+      "tags": ["funny", "humor"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16002,
+      "content": "I used to play piano by ear, but now I use my hands.",
+      "author": "Unknown",
+      "tags": ["piano", "music", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16003,
+      "content": "I'm on a seafood diet. I see food, and I eat it.",
+      "author": "Unknown",
+      "tags": ["food", "diet", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16004,
+      "content": "My dog used to chase people on a bike a lot. It got so bad, I had to take his bike away.",
+      "author": "Unknown",
+      "tags": ["dog", "bike", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16005,
+      "content": "I'm writing a book. I've got the page numbers done.",
+      "author": "Steven Wright",
+      "tags": ["writing", "book", "funny"],
+      "authorSlug": "steven-wright",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16006,
+      "content": "I used to be a baker, but I couldn't make enough dough.",
+      "author": "Unknown",
+      "tags": ["baker", "dough", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16007,
+      "content": "I'm reading a book on anti-gravity. It's impossible to put down!",
+      "author": "Unknown",
+      "tags": ["book", "anti-gravity", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16008,
+      "content": "I used to be a banker, but I lost interest.",
+      "author": "Unknown",
+      "tags": ["banker", "interest", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16009,
+      "content": "I'm so good at sleeping, I can do it with my eyes closed.",
+      "author": "Unknown",
+      "tags": ["sleep", "eyes", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16010,
+      "content": "I used to be a gardener, but I couldn't find my roots.",
+      "author": "Unknown",
+      "tags": ["gardener", "roots", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16011,
+      "content": "I don't suffer from insanity; I enjoy every minute of it.",
+      "author": "Unknown",
+      "tags": ["insanity", "enjoy", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16012,
+      "content": "I used to be an electrician, but I couldn't resist the shock therapy.",
+      "author": "Unknown",
+      "tags": ["electrician", "shock therapy", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16013,
+      "content": "I'm not arguing; I'm just explaining why I'm right.",
+      "author": "Unknown",
+      "tags": ["arguing", "right", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16014,
+      "content": "I used to be a baker, but I couldn't make enough dough.",
+      "author": "Unknown",
+      "tags": ["baker", "dough", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16015,
+      "content": "I'm reading a book on anti-gravity. It's impossible to put down!",
+      "author": "Unknown",
+      "tags": ["book", "anti-gravity", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16016,
+      "content": "I used to be a banker, but I lost interest.",
+      "author": "Unknown",
+      "tags": ["banker", "interest", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16017,
+      "content": "I'm so good at sleeping, I can do it with my eyes closed.",
+      "author": "Unknown",
+      "tags": ["sleep", "eyes", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16018,
+      "content": "I used to be a gardener, but I couldn't find my roots.",
+      "author": "Unknown",
+      "tags": ["gardener", "roots", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16019,
+      "content": "I don't suffer from insanity; I enjoy every minute of it.",
+      "author": "Unknown",
+      "tags": ["insanity", "enjoy", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16020,
+      "content": "I used to be an electrician, but I couldn't resist the shock therapy.",
+      "author": "Unknown",
+      "tags": ["electrician", "shock therapy", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16021,
+      "content": "I'm writing a book about reverse psychology. Please don't buy it.",
+      "author": "Unknown",
+      "tags": ["reverse psychology", "book", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16022,
+      "content": "I used to be a baker, but I couldn't make enough dough.",
+      "author": "Unknown",
+      "tags": ["baker", "dough", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16023,
+      "content": "I'm reading a book on anti-gravity. It's impossible to put down!",
+      "author": "Unknown",
+      "tags": ["book", "anti-gravity", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16024,
+      "content": "I used to be a banker, but I lost interest.",
+      "author": "Unknown",
+      "tags": ["banker", "interest", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16025,
+      "content": "I'm so good at sleeping, I can do it with my eyes closed.",
+      "author": "Unknown",
+      "tags": ["sleep", "eyes", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16026,
+      "content": "I used to be a gardener, but I couldn't find my roots.",
+      "author": "Unknown",
+      "tags": ["gardener", "roots", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16027,
+      "content": "I don't suffer from insanity; I enjoy every minute of it.",
+      "author": "Unknown",
+      "tags": ["insanity", "enjoy", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16028,
+      "content": "I used to be an electrician, but I couldn't resist the shock therapy.",
+      "author": "Unknown",
+      "tags": ["electrician", "shock therapy", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16029,
+      "content": "I'm not arguing; I'm just explaining why I'm right.",
+      "author": "Unknown",
+      "tags": ["arguing", "right", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16030,
+      "content": "I used to be a baker, but I couldn't make enough dough.",
+      "author": "Unknown",
+      "tags": ["baker", "dough", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16031,
+      "content": "I'm reading a book on anti-gravity. It's impossible to put down!",
+      "author": "Unknown",
+      "tags": ["book", "anti-gravity", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16032,
+      "content": "I used to be a banker, but I lost interest.",
+      "author": "Unknown",
+      "tags": ["banker", "interest", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16033,
+      "content": "I'm so good at sleeping, I can do it with my eyes closed.",
+      "author": "Unknown",
+      "tags": ["sleep", "eyes", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16034,
+      "content": "I used to be a gardener, but I couldn't find my roots.",
+      "author": "Unknown",
+      "tags": ["gardener", "roots", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16035,
+      "content": "I don't suffer from insanity; I enjoy every minute of it.",
+      "author": "Unknown",
+      "tags": ["insanity", "enjoy", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16036,
+      "content": "I used to be an electrician, but I couldn't resist the shock therapy.",
+      "author": "Unknown",
+      "tags": ["electrician", "shock therapy", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16037,
+      "content": "I'm not arguing; I'm just explaining why I'm right.",
+      "author": "Unknown",
+      "tags": ["arguing", "right", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16038,
+      "content": "I used to be a baker, but I couldn't make enough dough.",
+      "author": "Unknown",
+      "tags": ["baker", "dough", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16039,
+      "content": "I'm reading a book on anti-gravity. It's impossible to put down!",
+      "author": "Unknown",
+      "tags": ["book", "anti-gravity", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    },
+    {
+      "id": 16040,
+      "content": "I used to be a banker, but I lost interest.",
+      "author": "Unknown",
+      "tags": ["banker", "interest", "funny"],
+      "authorSlug": "unknown",
+      "categories": ["funny"]
+    }
+  ],
+  "happy": [
+    {
+      "id": 17001,
+      "content": "Happiness is not something ready-made. It comes from your own actions.",
+      "author": "Dalai Lama",
+      "tags": ["happiness", "actions", "inspirational"],
+      "authorSlug": "dalai-lama",
+      "categories": ["happy"]
+    },
+    {
+      "id": 17002,
+      "content": "The best way to cheer yourself up is to try to cheer somebody else up.",
+      "author": "Mark Twain",
+      "tags": ["cheer", "happiness", "kindness"],
+      "authorSlug": "mark-twain",
+      "categories": ["happy"]
+    },
+    {
+      "id": 17003,
+      "content": "Happiness is when what you think, what you say, and what you do are in harmony.",
+      "author": "Mahatma Gandhi",
+      "tags": ["happiness", "harmony", "life"],
+      "authorSlug": "mahatma-gandhi",
+      "categories": ["happy"]
+    },
+    {
+      "id": 17004,
+      "content": "The happiest people don't have the best of everything; they make the best of everything.",
+      "author": "Unknown",
+      "tags": ["happiness", "life", "optimism"],
+      "authorSlug": "unknown",
+      "categories": ["happy"]
+    },
+    {
+      "id": 17005,
+      "content": "Happiness is a choice. You can choose to be happy. There's going to be stress in life, but it's your choice whether you let it affect you or not.",
+      "author": "Valerie Bertinelli",
+      "tags": ["happiness", "choice", "life", "stress"],
+      "authorSlug": "valerie-bertinelli",
+      "categories": ["happy"]
+    },
+    {
+      "id": 17006,
+      "content": "The key to being happy is knowing you have the power to choose what to accept and what to let go.",
+      "author": "Dodinsky",
+      "tags": ["happiness", "choice", "power"],
+      "authorSlug": "dodinsky",
+      "categories": ["happy"]
+    },
+    {
+      "id": 17007,
+      "content": "The happiness of your life depends upon the quality of your thoughts.",
+      "author": "Marcus Aurelius",
+      "tags": ["happiness", "life", "thoughts"],
+      "authorSlug": "marcus-aurelius",
+      "categories": ["happy"]
+    },
+    {
+      "id": 17008,
+      "content": "Happiness is not in the mere possession of money; it lies in the joy of achievement, in the thrill of creative effort.",
+      "author": "Franklin D. Roosevelt",
+      "tags": ["happiness", "money", "achievement", "effort"],
+      "authorSlug": "franklin-d-roosevelt",
+      "categories": ["happy"]
+    },
+    {
+      "id": 17009,
+      "content": "Count your age by friends, not years. Count your life by smiles, not tears.",
+      "author": "John Lennon",
+      "tags": ["age", "friends", "smiles", "life"],
+      "authorSlug": "john-lennon",
+      "categories": ["happy"]
+    },
+    {
+      "id": 17010,
+      "content": "Happiness is not about getting all you want; it is about enjoying all you have.",
+      "author": "Unknown",
+      "tags": ["happiness", "enjoyment", "contentment"],
+      "authorSlug": "unknown",
+      "categories": ["happy"]
+    },
+    {
+      "id": 17011,
+      "content": "The greatest happiness you can have is knowing that you do not necessarily require happiness.",
+      "author": "William Saroyan",
+      "tags": ["happiness", "contentment", "life"],
+      "authorSlug": "william-saroyan",
+      "categories": ["happy"]
+    },
+    {
+      "id": 17012,
+      "content": "Happiness is a state of mind. It's just according to the way you look at things.",
+      "author": "Walt Disney",
+      "tags": ["happiness", "mindset", "perspective"],
+      "authorSlug": "walt-disney",
+      "categories": ["happy"]
+    },
+    {
+      "id": 17013,
+      "content": "Happiness is not something you postpone for the future; it is something you design for the present.",
+      "author": "Jim Rohn",
+      "tags": ["happiness", "design", "present"],
+      "authorSlug": "jim-rohn",
+      "categories": ["happy"]
+    },
+    {
+      "id": 17014,
+      "content": "Happiness is a butterfly, which, when pursued, is always just beyond your grasp, but which, if you will sit down quietly, may alight upon you.",
+      "author": "Nathaniel Hawthorne",
+      "tags": ["happiness", "pursuit", "patience"],
+      "authorSlug": "nathaniel-hawthorne",
+      "categories": ["happy"]
+    },
+    {
+      "id": 17015,
+      "content": "The pursuit of happiness is a most ridiculous phrase; if you pursue happiness, you'll never find it.",
+      "author": "C. P. Snow",
+      "tags": ["happiness", "pursuit", "irony"],
+      "authorSlug": "c-p-snow",
+      "categories": ["happy"]
+    },
+    {
+      "id": 17016,
+      "content": "Happiness is not in doing what you like, but in liking what you do.",
+      "author": "Unknown",
+      "tags": ["happiness", "liking", "contentment"],
+      "authorSlug": "unknown",
+      "categories": ["happy"]
+    },
+    {
+      "id": 17017,
+      "content": "Happiness is a perfume you cannot pour on others without getting a few drops on yourself.",
+      "author": "Ralph Waldo Emerson",
+      "tags": ["happiness", "perfume", "sharing"],
+      "authorSlug": "ralph-waldo-emerson",
+      "categories": ["happy"]
+    },
+    {
+      "id": 17018,
+      "content": "Happiness is a direction, not a place.",
+      "author": "Sydney J. Harris",
+      "tags": ["happiness", "direction", "life"],
+      "authorSlug": "sydney-j-harris",
+      "categories": ["happy"]
+    },
+    {
+      "id": 17019,
+      "content": "Happiness is when you feel good about yourself without feeling the need for anyone else's approval.",
+      "author": "Unknown",
+      "tags": ["happiness", "self-esteem", "approval"],
+      "authorSlug": "unknown",
+      "categories": ["happy"]
+    },
+    {
+      "id": 17020,
+      "content": "Happiness is not having what you want, but wanting what you have.",
+      "author": "Unknown",
+      "tags": ["happiness", "contentment", "gratitude"],
+      "authorSlug": "unknown",
+      "categories": ["happy"]
+    }
+  ]
+}

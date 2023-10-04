@@ -20,14 +20,15 @@ export default function Home() {
                   crafted, responsive web experiences."
       />
 
-     
       <AnimatePresence>
         <div className="relative font-inter ">
           <motion.canvas
             initial={{
-              filter: 'blur(20px)',
+              filter: 'blur(2px)',
+              // opacity:0
             }}
             animate={{
+              // opacity:1
               filter: 'blur(0px)',
             }}
             transition={{
@@ -46,7 +47,7 @@ export default function Home() {
             // className="z-50 absolute top-0 right-[-2px] w-[30%] md:w-1/2 h-screen x"
           ></motion.canvas>
           <div className=" ">
-            <Headers />
+            <Headers mode="dark" />
             <main
               className="flex justify-center flex-col max-w-[1200px] mx-auto  w-full px-4 "
               style={{ minHeight: 'calc(100dvh - 39px - 64px)' }}

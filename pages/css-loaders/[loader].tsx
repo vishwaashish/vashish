@@ -9,7 +9,6 @@ interface Loader {
   loaderElement: LoaderType
 }
 
-
 const Loader: FC<Loader> = ({ loaderElement }: any) => {
   const router = useRouter()
   const { loader } = router.query
@@ -33,9 +32,8 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
   if (!currentLoader) {
     return {
       notFound: true, // Indicate that the page should return a 404
-    };
+    }
   }
-
 
   return {
     props: {

@@ -11,5 +11,3 @@ export interface RelatedProjectsType {
   passwordValidator: RelatedProjectMetaType
   CSSLoaders: RelatedProjectMetaType
 }
-
-

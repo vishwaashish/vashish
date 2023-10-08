@@ -121,7 +121,7 @@ function Header({ mode = 'all' }: { mode?: 'dark' | 'all' }) {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   className={cn(
-                    'w-full  h-5 stroke-2',
+                    'w-full fill-current  h-5 stroke-2',
                     mode === 'dark' && 'fill-accent-content',
                   )}
                 >

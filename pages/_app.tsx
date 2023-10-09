@@ -1,8 +1,7 @@
-import type { AppProps } from 'next/app'
-import './globals.css'
-import { Toaster } from 'react-hot-toast'
-import Headers from '@/components/header'
 import Footer from '@/components/footer'
+import type { AppProps } from 'next/app'
+import { Toaster } from 'react-hot-toast'
+import './globals.css'
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>

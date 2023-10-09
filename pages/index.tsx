@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 import InsertHead from '@/components/shared/InsertHead'
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'

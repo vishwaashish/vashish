@@ -1,4 +1,4 @@
-import { use } from 'react'
+// import { use } from 'react'
 
 // const getPost = async () => {
 //   const res = await fetch('https://jsonplaceholder.typicode.com/todos')

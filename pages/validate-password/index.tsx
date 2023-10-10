@@ -8,7 +8,7 @@ export default function PasswordGenerator() {
       title={projectMeta.passwordValidator.title}
       description={projectMeta.passwordValidator.description}
     >
-      <article className="prose lg:prose-md prose-headings:text-offwhite prose-h1:leading-none  prose-h1:mb-0  text-center text-offwhite max-w-[900px] mx-auto px-3 py-5 mt-5">
+      <article className="prose lg:prose-md prose-headings:text-offwhite prose-h1:leading-none  prose-h1:mb-0  text-center text-offwhite max-w-[900px] mx-auto">
         <h1>Check Your Password Strength </h1>
         <p>
           Discover how strong your password is with our Password Strength

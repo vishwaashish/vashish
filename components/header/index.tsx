@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { FormEvent, memo, useCallback, useEffect, useState } from 'react'
 import { cn } from '../utils'
+import Container from '../shared/Container'
 
 const themeOptions = [
   'light',
@@ -45,8 +46,8 @@ function Header({ mode = 'all' }: { mode?: 'dark' | 'all' }) {
 
   const btnClass = 'btn btn-ghost btn-circle btn-sm h-auto p-2 w-auto'
   return (
-    <div className="navbar relative  z-10 ">
-      <div className="max-w-[1200px] mx-auto w-full">
+    <div className="">
+      <Container className="navbar relative z-10 py-0">
         <div className="flex-1">
           <Link
             href="/"
@@ -161,7 +162,7 @@ function Header({ mode = 'all' }: { mode?: 'dark' | 'all' }) {
             </a>
           </span>
         </div>
-      </div>
+      </Container>
     </div>
   )
 }

@@ -45,7 +45,7 @@ export default function CSSLoaders({ loaders }: { loaders: LoaderType[] }) {
       description={projectMeta.CSSLoaders.description}
     >
       <section>
-        <article className="prose lg:prose-md  prose-h1:leading-none  prose-h1:mb-0  text-center   px-4 py-5 mt-7  max-w-full">
+        <article className="prose lg:prose-md  prose-h1:leading-none  prose-h1:mb-0  text-center max-w-full">
           <div className="max-w-[900px] mx-auto w-full  ">
             <div className="flex justify-center gap-1 items-center">
               <h1 className="antialiased ">CSS Loaders Gallery</h1>

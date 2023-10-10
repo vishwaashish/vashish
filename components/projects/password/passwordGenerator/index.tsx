@@ -152,7 +152,7 @@ export default function GeneratePassword() {
       handleChange={handleChange}
       subHeading="Customize your password"
       inputBody={
-        <span className="tooltip tooltip-bottom" data-tip="Regenerate Password">
+        <span className="tooltip tooltip-bottom" data-tip="Regenerate">
           <motion.a
             whileHover={{
               scale: 1.1,

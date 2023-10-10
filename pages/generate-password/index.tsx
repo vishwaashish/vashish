@@ -9,7 +9,7 @@ export default function PasswordGenerator() {
       description={projectMeta.passwordGenerator.description}
     >
       <section>
-        <article className="prose lg:prose-md  prose-h1:leading-none  prose-h1:mb-0  text-center  max-w-[900px] mx-auto px-3 py-5 my-7">
+        <article className="prose lg:prose-md  prose-h1:leading-none  prose-h1:mb-0  text-center  max-w-[900px] mx-auto ">
           <h1>Generate Strong Random Passwords with Ease</h1>
           <p>
             Elevate your digital security with our Random Password Generator.

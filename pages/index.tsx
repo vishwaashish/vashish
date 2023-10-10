@@ -1,11 +1,9 @@
-// 'use server'
+import Headers from '@/components/header'
 import InsertHead from '@/components/shared/InsertHead'
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
 import { useEffect } from 'react'
 import { gradient } from '@/components/Gradient'
-import Headers from '@/components/header'
-
 export default function Home() {
   useEffect(() => {
     gradient.initGradient('#gradient-canvas')

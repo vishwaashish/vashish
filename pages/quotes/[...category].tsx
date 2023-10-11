@@ -1,67 +1,75 @@
 import ProjectLayout from '@/components/projects/ProjectLayout'
-import { getQuotesByCategories } from '@/services/quotes'
-import { IQuoteItem } from '@/types/quotes.model'
+import SingleQuote from '@/components/projects/quotes/SingleQuote'
+import {
+  getQuotesByCategories,
+  getQuotesByCategoriesContent,
+} from '@/services/quotes'
+import { IQuote, IQuoteItem } from '@/types/quotes.model'
+import { GetServerSideProps } from 'next'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import { FC } from 'react'
+import { motion } from 'framer-motion'
 
-const Category = () => {
-  const router = useRouter()
-  const { category: routeArray } = router.query as { category: string[] }
-  const [category = '', content = '', author = ''] = routeArray || []
+export interface ICategory {
+  className: string
+  quotes: IQuoteItem
+  item: IQuote | null
+  category: string
+}
 
-  const [quotes, setQuotes] = useState<IQuoteItem | null>(null)
+const Category: FC<ICategory> = ({ category, quotes, item }) => {
+  const btn =
+    'bg-gray-200 hover:bg-primary text-black hover:text-white font-semibold px-4 p-2 rounded-full mx-auto  max-w-screen-md text-center text-lg'
 
-  useEffect(() => {
-    ;(async function data() {
-      const response = await getQuotesByCategories(category)
-      setQuotes(response.quotes)
-    })()
-  }, [category])
+  const transition = (delay: number) => ({
+    initial: { opacity: 0, y: 40 },
+    animate: { opacity: 1, y: 0 },
+    transition: {
+      delay: delay,
+      duration: 0.95,
+      ease: [0.165, 0.84, 0.44, 1],
+    },
+  })
   return (
     <ProjectLayout title="" description="">
       <div className="px-4 lg:px-0 max-w-[1200px] mx-auto w-full">
-        {content && (
-          <div className="flex px-8 min-h-screen">
-            <div className="flex flex-col my-auto gap-y-4 w-full mx-auto">
-              <h1 className="text-center text-4xl md:text-7xl font-bold w-full">
-                {content}
-              </h1>
-              <p className="mx-auto text-2xl max-w-screen-md text-center ">
-                - {author}
-              </p>
-              <div className="text-center md:text-right ">
-                <Link
-                  href={`/quotes/${category}`}
-                  className="bg-gray-200 hover:bg-black text-black hover:text-white font-semibold px-4 p-2 rounded-full mx-auto  max-w-screen-md text-center text-lg"
-                >
-                  {category}
-                </Link>
-              </div>
-            </div>
-          </div>
-        )}
-        <div id="seo-hero" className="pt-12 px-8">
-          <h1 className="text-center text-4xl md:text-5xl font-bold mb-6 capitalize">
+        {item && <SingleQuote item={item} category={category} />}
+
+        <div id="seo-hero" className="pt-12 px-8 text-center">
+          <motion.h1
+            {...transition(0.19)}
+            className=" text-4xl md:text-5xl font-bold mb-6 capitalize"
+          >
             {quotes?.title}
-          </h1>
+          </motion.h1>
           {quotes?.description && (
-            <p className="mx-auto max-w-screen-md text-center text-lg">
+            <motion.p
+              {...transition(0.29)}
+              className="mx-auto max-w-screen-md  text-lg mb-6"
+            >
               {quotes?.description}
-            </p>
+            </motion.p>
           )}
+          <motion.div {...transition(0.39)} className="pt-5">
+            <Link href={`/quotes`} className={btn}>
+              Quotes
+            </Link>
+          </motion.div>
         </div>
         <br />
 
-        <div className="grid py-12 grid-cols-1 md:grid-cols-3 lg:grid-cols-3  gap-4  lg:gap-6  mx-auto">
+        <motion.div
+          {...transition(0.49)}
+          className="grid py-12 grid-cols-1 md:grid-cols-3 lg:grid-cols-3  gap-4  lg:gap-6  mx-auto"
+        >
           {!!quotes &&
-            quotes.content.map(quote => (
+            quotes.content.map((quote, index) => (
               <Link
                 className="no-underline"
                 href={`/quotes/${category}/${quote.content}/${quote.author}`}
-                key={quote.content}
+                key={`${quote.content} ${index}`}
               >
-                <article className="prose  flex flex-col  my-auto h-full rounded-xl bg-base-200 hover:shadow-[0_0_2px_4px_#570df8] p-6 ">
+                <article className=" prose  flex flex-col  my-auto h-full rounded-xl bg-base-200 hover:bg-primary hover:text-white  p-6 ">
                   <div className="self-center p-6 flex flex-col gap-y-4">
                     <div className=" font-semibold text-xl">
                       <q>{quote.content}</q>
@@ -72,12 +80,33 @@ const Category = () => {
                   </div>
                 </article>
               </Link>
-              // <div key={category}>{category}</div>
             ))}
-        </div>
+        </motion.div>
       </div>
     </ProjectLayout>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+  const { category: routeArray } = query as { category: string[] }
+  const [category = '', content = ''] = routeArray || []
+
+  var item = null
+
+  const response = await getQuotesByCategories(category)
+
+  if (content) {
+    const response = await getQuotesByCategoriesContent(content)
+    item = response?.quotes || null
+  }
+
+  return {
+    props: {
+      quotes: response.quotes,
+      item,
+      category,
+    },
+  }
 }
 
 export default Category

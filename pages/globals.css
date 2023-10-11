@@ -23,6 +23,10 @@
   .btn {
     @apply no-animation active:focus:scale-95;
   }
+
+  .min-h-screen-header {
+    min-height: calc(100vh - 63.99px) !important;
+  }
 }
 
 #gradient-canvas {

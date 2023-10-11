@@ -4165,22 +4165,6 @@
         "categories": ["funny"]
       },
       {
-        "id": 16009,
-        "content": "I'm so good at sleeping, I can do it with my eyes closed.",
-        "author": "Unknown",
-        "tags": ["sleep", "eyes", "funny"],
-        "authorSlug": "unknown",
-        "categories": ["funny"]
-      },
-      {
-        "id": 16010,
-        "content": "I used to be a gardener, but I couldn't find my roots.",
-        "author": "Unknown",
-        "tags": ["gardener", "roots", "funny"],
-        "authorSlug": "unknown",
-        "categories": ["funny"]
-      },
-      {
         "id": 16011,
         "content": "I don't suffer from insanity; I enjoy every minute of it.",
         "author": "Unknown",
@@ -4205,58 +4189,10 @@
         "categories": ["funny"]
       },
       {
-        "id": 16014,
-        "content": "I used to be a baker, but I couldn't make enough dough.",
-        "author": "Unknown",
-        "tags": ["baker", "dough", "funny"],
-        "authorSlug": "unknown",
-        "categories": ["funny"]
-      },
-      {
-        "id": 16015,
-        "content": "I'm reading a book on anti-gravity. It's impossible to put down!",
-        "author": "Unknown",
-        "tags": ["book", "anti-gravity", "funny"],
-        "authorSlug": "unknown",
-        "categories": ["funny"]
-      },
-      {
-        "id": 16016,
-        "content": "I used to be a banker, but I lost interest.",
-        "author": "Unknown",
-        "tags": ["banker", "interest", "funny"],
-        "authorSlug": "unknown",
-        "categories": ["funny"]
-      },
-      {
-        "id": 16017,
-        "content": "I'm so good at sleeping, I can do it with my eyes closed.",
-        "author": "Unknown",
-        "tags": ["sleep", "eyes", "funny"],
-        "authorSlug": "unknown",
-        "categories": ["funny"]
-      },
-      {
         "id": 16018,
         "content": "I used to be a gardener, but I couldn't find my roots.",
         "author": "Unknown",
         "tags": ["gardener", "roots", "funny"],
-        "authorSlug": "unknown",
-        "categories": ["funny"]
-      },
-      {
-        "id": 16019,
-        "content": "I don't suffer from insanity; I enjoy every minute of it.",
-        "author": "Unknown",
-        "tags": ["insanity", "enjoy", "funny"],
-        "authorSlug": "unknown",
-        "categories": ["funny"]
-      },
-      {
-        "id": 16020,
-        "content": "I used to be an electrician, but I couldn't resist the shock therapy.",
-        "author": "Unknown",
-        "tags": ["electrician", "shock therapy", "funny"],
         "authorSlug": "unknown",
         "categories": ["funny"]
       },
@@ -4268,155 +4204,12 @@
         "authorSlug": "unknown",
         "categories": ["funny"]
       },
-      {
-        "id": 16022,
-        "content": "I used to be a baker, but I couldn't make enough dough.",
-        "author": "Unknown",
-        "tags": ["baker", "dough", "funny"],
-        "authorSlug": "unknown",
-        "categories": ["funny"]
-      },
-      {
-        "id": 16023,
-        "content": "I'm reading a book on anti-gravity. It's impossible to put down!",
-        "author": "Unknown",
-        "tags": ["book", "anti-gravity", "funny"],
-        "authorSlug": "unknown",
-        "categories": ["funny"]
-      },
-      {
-        "id": 16024,
-        "content": "I used to be a banker, but I lost interest.",
-        "author": "Unknown",
-        "tags": ["banker", "interest", "funny"],
-        "authorSlug": "unknown",
-        "categories": ["funny"]
-      },
+
       {
         "id": 16025,
         "content": "I'm so good at sleeping, I can do it with my eyes closed.",
         "author": "Unknown",
         "tags": ["sleep", "eyes", "funny"],
-        "authorSlug": "unknown",
-        "categories": ["funny"]
-      },
-      {
-        "id": 16026,
-        "content": "I used to be a gardener, but I couldn't find my roots.",
-        "author": "Unknown",
-        "tags": ["gardener", "roots", "funny"],
-        "authorSlug": "unknown",
-        "categories": ["funny"]
-      },
-      {
-        "id": 16027,
-        "content": "I don't suffer from insanity; I enjoy every minute of it.",
-        "author": "Unknown",
-        "tags": ["insanity", "enjoy", "funny"],
-        "authorSlug": "unknown",
-        "categories": ["funny"]
-      },
-      {
-        "id": 16028,
-        "content": "I used to be an electrician, but I couldn't resist the shock therapy.",
-        "author": "Unknown",
-        "tags": ["electrician", "shock therapy", "funny"],
-        "authorSlug": "unknown",
-        "categories": ["funny"]
-      },
-      {
-        "id": 16029,
-        "content": "I'm not arguing; I'm just explaining why I'm right.",
-        "author": "Unknown",
-        "tags": ["arguing", "right", "funny"],
-        "authorSlug": "unknown",
-        "categories": ["funny"]
-      },
-      {
-        "id": 16030,
-        "content": "I used to be a baker, but I couldn't make enough dough.",
-        "author": "Unknown",
-        "tags": ["baker", "dough", "funny"],
-        "authorSlug": "unknown",
-        "categories": ["funny"]
-      },
-      {
-        "id": 16031,
-        "content": "I'm reading a book on anti-gravity. It's impossible to put down!",
-        "author": "Unknown",
-        "tags": ["book", "anti-gravity", "funny"],
-        "authorSlug": "unknown",
-        "categories": ["funny"]
-      },
-      {
-        "id": 16032,
-        "content": "I used to be a banker, but I lost interest.",
-        "author": "Unknown",
-        "tags": ["banker", "interest", "funny"],
-        "authorSlug": "unknown",
-        "categories": ["funny"]
-      },
-      {
-        "id": 16033,
-        "content": "I'm so good at sleeping, I can do it with my eyes closed.",
-        "author": "Unknown",
-        "tags": ["sleep", "eyes", "funny"],
-        "authorSlug": "unknown",
-        "categories": ["funny"]
-      },
-      {
-        "id": 16034,
-        "content": "I used to be a gardener, but I couldn't find my roots.",
-        "author": "Unknown",
-        "tags": ["gardener", "roots", "funny"],
-        "authorSlug": "unknown",
-        "categories": ["funny"]
-      },
-      {
-        "id": 16035,
-        "content": "I don't suffer from insanity; I enjoy every minute of it.",
-        "author": "Unknown",
-        "tags": ["insanity", "enjoy", "funny"],
-        "authorSlug": "unknown",
-        "categories": ["funny"]
-      },
-      {
-        "id": 16036,
-        "content": "I used to be an electrician, but I couldn't resist the shock therapy.",
-        "author": "Unknown",
-        "tags": ["electrician", "shock therapy", "funny"],
-        "authorSlug": "unknown",
-        "categories": ["funny"]
-      },
-      {
-        "id": 16037,
-        "content": "I'm not arguing; I'm just explaining why I'm right.",
-        "author": "Unknown",
-        "tags": ["arguing", "right", "funny"],
-        "authorSlug": "unknown",
-        "categories": ["funny"]
-      },
-      {
-        "id": 16038,
-        "content": "I used to be a baker, but I couldn't make enough dough.",
-        "author": "Unknown",
-        "tags": ["baker", "dough", "funny"],
-        "authorSlug": "unknown",
-        "categories": ["funny"]
-      },
-      {
-        "id": 16039,
-        "content": "I'm reading a book on anti-gravity. It's impossible to put down!",
-        "author": "Unknown",
-        "tags": ["book", "anti-gravity", "funny"],
-        "authorSlug": "unknown",
-        "categories": ["funny"]
-      },
-      {
-        "id": 16040,
-        "content": "I used to be a banker, but I lost interest.",
-        "author": "Unknown",
-        "tags": ["banker", "interest", "funny"],
         "authorSlug": "unknown",
         "categories": ["funny"]
       }

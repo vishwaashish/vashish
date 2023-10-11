@@ -5,6 +5,7 @@ import {
   IQuoteResponse,
   IQuotesCollection,
   IQuoteCategory,
+  IQuote,
 } from '@/types/quotes.model'
 import quotes from './../assets/json/quotes.json'
 
@@ -41,19 +42,12 @@ export async function getQuotesByCategories(
 }
 export async function getQuotesByCategoriesContent(
   category: string,
-): Promise<IQuoteResponse<IQuoteItem>> {
-  const quotes = quotesCollection.reduce((prev:any, next) => {
+): Promise<IQuoteResponse<IQuote | null>> {
+  const allQuotes: IQuote[] = quotesCollection.reduce((prev: any, next) => {
     return prev.concat(next.content)
   }, [])
-  console.log('quotes', quotes)
-
-  return Promise.reject('Category does not exist')
-
-  // if (quotes) {
-  //   return { quotes }
-  // } else {
-  //   return Promise.reject('Category does not exist')
-  // }
+  const quotes = allQuotes.find(val => val.content === category)
+  return { quotes: quotes || null }
 }
 
 export async function randomQuotes(

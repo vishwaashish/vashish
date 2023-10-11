@@ -82,4 +82,27 @@ export const projectMeta: RelatedProjectsType = {
     ),
     className: '',
   },
+  quotes: {
+    title: 'Quotes',
+    // description:
+    //   'Create Strong Passwords Easily - Generate secure, random passwords effortlessly.',
+    description:
+      'Elevate your spirit with our vast collection of inspirational quotes. Explore timeless wisdom from renowned authors and thought leaders or craft your unique insights effortlessly. Share these words of wisdom on social media or adorn your website with thought-provoking insights in just a few clicks.',
+    path: 'quotes',
+    icon: className => (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        className={cn('w-5 h-5', className)}
+      >
+        <path
+          fill="hsl(var(--p))"
+          fillRule="evenodd"
+          d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"
+        />
+      </svg>
+    ),
+    className: '',
+  },
 }

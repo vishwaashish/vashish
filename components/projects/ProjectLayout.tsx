@@ -1,3 +1,4 @@
+'use client'
 import React, { FC, memo } from 'react'
 import RelatedStyle1 from './related/RelatedStyle1'
 import InsertHead from '../shared/InsertHead'
@@ -8,13 +9,19 @@ interface ProjectLayout {
   children: React.ReactNode
   title: string
   description: string
+  className?: string
 }
-const ProjectLayout: FC<ProjectLayout> = ({ title, description, children }) => {
+const ProjectLayout: FC<ProjectLayout> = ({
+  title,
+  description,
+  className,
+  children,
+}) => {
   return (
     <>
       <InsertHead title={title} description={description} />
       <Header />
-      <Container>{children}</Container>
+      <Container className={className}>{children}</Container>
       <RelatedStyle1 />
     </>
   )

@@ -1,3 +1,4 @@
+'use client'
 import { getRandom } from '@/components/utils'
 import { motion } from 'framer-motion'
 import _ from 'lodash'

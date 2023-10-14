@@ -1,18 +1,15 @@
 import { projectMeta } from '@/common/constants'
-import { cn } from '@/components/utils'
 import { RelatedProjectMetaType } from '@/types/common.model'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
-import React from 'react'
+import { usePathname } from 'next/navigation'
 
 const RelatedStyle1 = () => {
-  const router = useRouter()
+  const pathname = usePathname()
+
   const relatedArray: RelatedProjectMetaType[] = Object.values(
     projectMeta,
-  ).filter(val => !router.pathname.includes(val.path))
-  const click = (item: string) => () => {
-    router.push('/' + item)
-  }
+  ).filter(val => !pathname.includes(val.path))
+
   return (
     <section className="bg-base-200">
       <div className=" prose prose-headings:m-0 py-12 max-w-[900px] mx-auto w-full ">
@@ -21,10 +18,11 @@ const RelatedStyle1 = () => {
         <br />
         <div className=" relative mx-auto flex lg:gap-4 flex-wrap  ">
           {relatedArray.map(item => (
-            <section
+            <Link
+              href={'/' + item.path}
               className="transition-all group/item group/edit flex flex-col md:flex-row gap-5 flex-[1_1_350px] px-4 py-4 md:rounded hover:bg-base-100 hover:cursor-pointer no-underline"
               key={item.title}
-              onClick={click(item.path)}
+              // onClick={click(item.path)}
             >
               <div className="">
                 {item.icon(
@@ -39,7 +37,7 @@ const RelatedStyle1 = () => {
                   {item.description}
                 </p>
               </div>
-            </section>
+            </Link>
           ))}
         </div>
       </div>

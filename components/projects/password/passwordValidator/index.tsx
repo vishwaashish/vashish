@@ -1,17 +1,16 @@
+'use client'
+import { cn } from '@/components/utils'
+import _ from 'lodash'
 import { ChangeEvent, useCallback, useState } from 'react'
+import PasswordLayout from './../PasswordLayout'
 import {
-  ValidResult,
-  initialState,
-  regrex,
   MAX_CATEGORY_LENGTH,
   MIN_CATEGORY_LENGTH,
-  emogi,
-  InitialState,
   MutateInitialState,
+  ValidResult,
+  initialState,
+  regrex
 } from './data'
-import _ from 'lodash'
-import PasswordLayout from './../PasswordLayout'
-import { cn } from '@/components/utils'
 
 export default function PasswordValidator() {
   const [length, setLength] = useState(8)

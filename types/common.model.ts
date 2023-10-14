@@ -10,5 +10,10 @@ export interface RelatedProjectsType {
   passwordGenerator: RelatedProjectMetaType
   passwordValidator: RelatedProjectMetaType
   CSSLoaders: RelatedProjectMetaType
-  quotes:RelatedProjectMetaType
+  quotes: RelatedProjectMetaType
+}
+
+export interface PageProps<PData, SData> {
+  params: PData
+  searchParams: SData
 }

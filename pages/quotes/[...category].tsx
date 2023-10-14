@@ -8,8 +8,8 @@ import { IQuote, IQuoteItem } from '@/types/quotes.model'
 import { GetServerSideProps } from 'next'
 import Link from 'next/link'
 import { FC } from 'react'
+// import { motion } from 'framer-motion'
 import { motion } from 'framer-motion'
-
 export interface ICategory {
   className: string
   quotes: IQuoteItem
@@ -31,7 +31,10 @@ const Category: FC<ICategory> = ({ category, quotes, item }) => {
     },
   })
   return (
-    <ProjectLayout title="" description="">
+    <ProjectLayout
+      title={item?.content || quotes?.title}
+      description={item ? '' : quotes?.description}
+    >
       <div className="px-4 lg:px-0 max-w-[1200px] mx-auto w-full">
         {item && <SingleQuote item={item} category={category} />}
 

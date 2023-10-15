@@ -5,7 +5,7 @@ import {
   LOADER_PARAMS,
 } from '@/common/loaders-constants'
 import ProjectLayout from '@/components/projects/ProjectLayout'
-import LoaderLoop from '@/components/projects/css-loaders'
+import LoaderLoop from '@/components/projects/css-loaders/Loader'
 import CustomizeLoader from '@/components/projects/css-loaders/CustomizeLoader'
 import LoaderModel from '@/components/projects/css-loaders/LoaderModel'
 import { LoaderType } from '@/types/css-loaders.model'

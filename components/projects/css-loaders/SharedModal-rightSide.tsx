@@ -1,124 +1,115 @@
+import Container from '@/components/shared/Container'
 import { copyText } from '@/components/utils/text'
 import { ILoaderParams, LoaderType } from '@/types/css-loaders.model'
+import { Disclosure, Transition } from '@headlessui/react'
 import React from 'react'
 import SyntaxHighlighter from 'react-syntax-highlighter'
-import { CopyButton } from '../../shared/button/CopyButton'
-import CustomizeLoader from './CustomizeLoader'
+import { CopyButton } from '../../shared/CopyButton'
 
 const SharedModalRightSide = ({
   indexProps,
-  activeLoader,
-  setting,
-  sourceCode,
+  activeLoader, // setting,
 }: {
   indexProps: number
   activeLoader: LoaderType
-  setting: ILoaderParams
-  sourceCode: boolean
+  // setting: ILoaderParams
 }) => {
-  console.log('activeLoader', activeLoader)
-  const rootString = `:root {
-    --loader-primary: #${setting.primaryColor};
-    --loader-secondary: #${setting.secondaryColor};
-    --loader-border: ${setting.border};
-    --loader-width: ${setting.size};
-    --loader-speed: ${setting.speed};
-  }
-`
+  const rootString = ''
+  //   const rootString = `:root {
+  //     --loader-primary: #${setting.primaryColor};
+  //     --loader-secondary: #${setting.secondaryColor};
+  //     --loader-border: ${setting.border};
+  //     --loader-width: ${setting.size};
+  //     --loader-speed: ${setting.speed};
+  //   }
+  // `
 
   return (
     <>
-      <h1 className="flex justify-between items-center mb-3 mt-5 px-3">
-        Loader {indexProps}
-      </h1>
-      <div className="divider my-2 "></div>
-      <div>
-        {/* {loading ? (
-          <div className="mx-auto max-w-[1000px] flex gap-3">
-            <div className="flex animate-pulse flex-wrap gap-x-3 gap-y-3 md:gap-x-5 md:gap-y-5 justify-center mx-auto w-full">
-              <div className="flex flex-col text-left grow sm:grow-0  gap-1  min-w-[156px] ">
-                <div className="h-[25px] bg-base-300 rounded-lg"></div>
-                <div className="h-[32px] bg-base-300 rounded-lg"></div>
-              </div>
-              <div className="flex flex-col text-left grow sm:grow-0  gap-1  min-w-[94px] ">
-                <div className="h-[25px] bg-base-300 rounded-lg"></div>
-                <div className="h-[32px] bg-base-300 rounded-lg"></div>
-              </div>
-              <div className="flex flex-col text-left grow sm:grow-0  gap-1  min-w-[94px] ">
-                <div className="h-[25px] bg-base-300 rounded-lg"></div>
-                <div className="h-[32px] bg-base-300 rounded-lg"></div>
-              </div>
-              <div className="flex flex-col text-left grow sm:grow-0  gap-1  min-w-[149px] ">
-                <div className="h-[25px] bg-base-300 rounded-lg"></div>
-                <div className="h-[32px] bg-base-300 rounded-lg"></div>
-              </div>
-              <div className="flex flex-col text-left grow sm:grow-0  gap-1  min-w-[149px] ">
-                <div className="h-[25px] bg-base-300 rounded-lg"></div>
-                <div className="h-[32px] bg-base-300 rounded-lg"></div>
-              </div>
-              <div className="flex flex-col text-left grow sm:grow-0  gap-1  min-w-[49.6px] ">
-                <div className="h-[25px] bg-base-300 rounded-lg"></div>
-                <div className="h-[32px] bg-base-300 rounded-lg"></div>
-              </div>
-            </div>
-          </div>
-        ) : ( */}
-        {/* )} */}
+      <Container>
+        <Disclosure>
+          {({ open }) => (
+            <>
+              <Disclosure.Button className="flex w-full rounded justify-between items-center  p-5 min-w-full bg-base-200 hover:bg-base-300  ">
+                <h2 className="m-0 text-xl md:text-3xl">Source code</h2>
 
-        <div className="hidden lg:block">
-          {sourceCode && (
-            <CustomizeLoader
-              size="btn-sm"
-              index={indexProps}
-              // setState={setSetting}
-            />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className={`${
+                    open ? 'rotate-180 transform' : ''
+                  } transition-all h-7 w-7`}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4.5 15.75l7.5-7.5 7.5 7.5"
+                  />
+                </svg>
+              </Disclosure.Button>
+              <Transition
+                enter="transition duration-100 ease-out"
+                enterFrom="transform scale-95 opacity-0"
+                enterTo="transform scale-100 opacity-100"
+                leave="transition duration-75 ease-out"
+                leaveFrom="transform scale-100 opacity-100"
+                leaveTo="transform scale-95 opacity-0"
+              >
+                <Disclosure.Panel className="px-4 py-4 border border-base-300 rounded  border-sm">
+                  <div className="">
+                    <Card
+                      title="HTML"
+                      titleProps={
+                        <CopyButton
+                          className="btn btn-sm btn-circle "
+                          onClick={() => copyText(activeLoader.html)}
+                        />
+                      }
+                    >
+                      <SyntaxHighlighter
+                        language="html"
+                        showLineNumbers
+                        customStyle={{
+                          margin: 0,
+                          borderRadius: 0,
+                        }}
+                      >
+                        {activeLoader.html}
+                      </SyntaxHighlighter>
+                    </Card>
+                    <br />
+                    <Card
+                      title="CSS"
+                      titleProps={
+                        <CopyButton
+                          className="btn btn-sm btn-circle "
+                          onClick={() =>
+                            copyText(rootString + activeLoader.css)
+                          }
+                        />
+                      }
+                    >
+                      <SyntaxHighlighter
+                        language="css"
+                        showLineNumbers
+                        wrapLines
+                        customStyle={{ margin: 0, borderRadius: 0 }}
+                      >
+                        {rootString + activeLoader.css}
+                      </SyntaxHighlighter>
+                    </Card>
+                  </div>
+                </Disclosure.Panel>
+              </Transition>
+            </>
           )}
-          <div className="divider "></div>
-        </div>
-        {
-          <div className="">
-            <Card
-              title="HTML"
-              titleProps={
-                <CopyButton
-                  className="btn btn-sm btn-circle "
-                  onClick={() => copyText(activeLoader.html)}
-                />
-              }
-            >
-              <SyntaxHighlighter
-                language="html"
-                showLineNumbers
-                customStyle={{
-                  margin: 0,
-                  borderRadius: 0,
-                }}
-              >
-                {activeLoader.html}
-              </SyntaxHighlighter>
-            </Card>
-            <br />
-            <Card
-              title="CSS"
-              titleProps={
-                <CopyButton
-                  className="btn btn-sm btn-circle "
-                  onClick={() => copyText(rootString + activeLoader.css)}
-                />
-              }
-            >
-              <SyntaxHighlighter
-                language="css"
-                showLineNumbers
-                wrapLines
-                customStyle={{ margin: 0, borderRadius: 0 }}
-              >
-                {rootString + activeLoader.css}
-              </SyntaxHighlighter>
-            </Card>
-          </div>
-        }
-      </div>
+        </Disclosure>
+      </Container>
+
+      <div></div>
     </>
   )
 }
@@ -143,37 +134,4 @@ const Card = ({
     </div>
   )
 }
-// const SkeletonCustomize = () => {
-//   return (
-//     <div className="mx-auto max-w-[1000px] flex gap-3">
-//       <div className="flex animate-pulse flex-wrap gap-x-3 gap-y-3 md:gap-x-5 md:gap-y-5 justify-center mx-auto w-full">
-//         <div className="flex flex-col text-left grow sm:grow-0  gap-1  min-w-[156px] ">
-//           <div className="h-[25px] bg-base-300 rounded-lg"></div>
-//           <div className="h-[32px] bg-base-300 rounded-lg"></div>
-//         </div>
-//         <div className="flex flex-col text-left grow sm:grow-0  gap-1  min-w-[94px] ">
-//           <div className="h-[25px] bg-base-300 rounded-lg"></div>
-//           <div className="h-[32px] bg-base-300 rounded-lg"></div>
-//         </div>
-//         <div className="flex flex-col text-left grow sm:grow-0  gap-1  min-w-[94px] ">
-//           <div className="h-[25px] bg-base-300 rounded-lg"></div>
-//           <div className="h-[32px] bg-base-300 rounded-lg"></div>
-//         </div>
-//         <div className="flex flex-col text-left grow sm:grow-0  gap-1  min-w-[149px] ">
-//           <div className="h-[25px] bg-base-300 rounded-lg"></div>
-//           <div className="h-[32px] bg-base-300 rounded-lg"></div>
-//         </div>
-//         <div className="flex flex-col text-left grow sm:grow-0  gap-1  min-w-[149px] ">
-//           <div className="h-[25px] bg-base-300 rounded-lg"></div>
-//           <div className="h-[32px] bg-base-300 rounded-lg"></div>
-//         </div>
-//         <div className="flex flex-col text-left grow sm:grow-0  gap-1  min-w-[49.6px] ">
-//           <div className="h-[25px] bg-base-300 rounded-lg"></div>
-//           <div className="h-[32px] bg-base-300 rounded-lg"></div>
-//         </div>
-//       </div>
-//     </div>
-//   )
-// }
-
 export default SharedModalRightSide

@@ -1,8 +1,8 @@
+import { CopyButton } from '@/components/shared/CopyButton'
 import { cn } from '@/components/utils'
-import React from 'react'
-import { motion } from 'framer-motion'
+import { transition } from '@/components/utils/animation'
 import { copyText } from '@/components/utils/text'
-import { CopyButton } from '@/components/shared/button/CopyButton'
+import { motion } from 'framer-motion'
 
 const PasswordLayout = ({
   password,
@@ -21,8 +21,8 @@ const PasswordLayout = ({
     await copyText(password)
   }
   return (
-    <div className="max-w-[600px] m-auto">
-      <div className="flex items-center relative">
+    <div className="max-w-[650px] m-auto">
+      <motion.div {...transition(0.4)} className="flex items-center relative">
         <input
           className={cn(
             'input input-bordered w-full text-xl md:text-2xl input-lg pl-4 pr-[85px]',
@@ -34,12 +34,6 @@ const PasswordLayout = ({
         <div className=" flex gap-2 absolute right-5 ">
           <CopyButton
             onClick={onCopy}
-            whileHover={{
-              scale: 1.05,
-            }}
-            whileTap={{
-              scale: 0.95,
-            }}
             title="Copy"
             role="button"
             width={6}
@@ -48,17 +42,19 @@ const PasswordLayout = ({
 
           {inputBody}
         </div>
-      </div>
+      </motion.div>
 
-      <h3 className="mb-2">{subHeading}</h3>
-      <div
-        className="transition-all card input input-bordered h-full  bg-base-100 shadow-xl  p-4 sm:p-8 rounded-lg items-start  flex flex-col gap-5"
-        style={{
-          borderColor: 'hsl(var(--bc) / var(--tw-border-opacity))',
-        }}
-      >
-        {children}
-      </div>
+      <motion.div {...transition(0.5)}>
+        <h4 className="mb-2">{subHeading}</h4>
+        <div
+          className="transition-all card border input-bordered  h-full  bg-base-100 shadow-xl  p-4 sm:p-8 rounded-lg items-start  flex flex-col gap-5"
+          style={{
+            borderColor: 'hsl(var(--bc) / var(--tw-border-opacity))',
+          }}
+        >
+          {children}
+        </div>
+      </motion.div>
     </div>
   )
 }

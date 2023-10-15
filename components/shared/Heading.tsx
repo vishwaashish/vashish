@@ -1,3 +1,4 @@
+'use client'
 import { motion } from 'framer-motion'
 import { transition } from '../utils/animation'
 import React, { FC } from 'react'

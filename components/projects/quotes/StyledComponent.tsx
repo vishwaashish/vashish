@@ -15,7 +15,7 @@ export const QuoteCards = ({
   return (
     <motion.div
       className={cn(
-        'grid py-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 mx-auto',
+        'grid pt-5 pb-12 md:py-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 mx-auto',
         className,
       )}
       {...(delay && transition(0.29))}

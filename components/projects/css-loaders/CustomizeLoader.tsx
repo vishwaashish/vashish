@@ -1,3 +1,4 @@
+'use client'
 import {
   DEFAULT_SETTINGS,
   LOADER_BORDER_SIZES,
@@ -8,7 +9,7 @@ import {
 import { cn } from '@/components/utils'
 import { ILoaderParams, InputSizeType } from '@/types/css-loaders.model'
 import dynamic from 'next/dynamic'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import { FC, memo, useEffect } from 'react'
 
 const ColorPickerButton = dynamic(
@@ -19,11 +20,13 @@ const ColorPickerButton = dynamic(
 interface CustomizeLoader {
   size?: InputSizeType
   index?: number | null
+  state: ILoaderParams
 }
 
 const CustomizeLoader: FC<CustomizeLoader> = ({
   index,
   size: btnSize = 'btn-md',
+  state,
 }) => {
   const router = useRouter()
 
@@ -34,7 +37,7 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
     primaryColor = '570df8',
     secondaryColor = 'd8dde4',
     sourceCode = 'false',
-  }: any = router.query
+  } = state
 
   useEffect(() => {
     document.documentElement.style.setProperty('--loader-width', size)
@@ -60,17 +63,17 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
   }: ILoaderParams) => {
     if (index) {
       router.push(
-        {
-          query: {
-            loaderId: index,
-            border,
-            size,
-            speed,
-            primaryColor,
-            secondaryColor,
-            sourceCode,
-          },
-        },
+        // {
+        //   query: {
+        //     loaderId: index,
+        //     border,
+        //     size,
+        //     speed,
+        //     primaryColor,
+        //     secondaryColor,
+        //     sourceCode,
+        //   },
+        // },
         `/css-loaders/${index}?${LOADER_PARAMS({
           border,
           size,
@@ -79,7 +82,7 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
           secondaryColor,
           sourceCode,
         })}`,
-        { shallow: true },
+        // { shallow: true },
       )
     } else {
       router.push(
@@ -93,9 +96,9 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
             sourceCode,
           }),
         undefined,
-        {
-          shallow: true,
-        },
+        // {
+        //   shallow: true,
+        // },
       )
     }
   }
@@ -114,6 +117,8 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
   const formControl = 'flex flex-col text-left grow sm:grow-0 '
   const buttonGroup = 'btn-group1 join drop-shadow'
 
+  const label = btnSize === 'btn-sm' ? 'text-xs mb-1' : ''
+
   const wrapper =
     'flex flex-wrap gap-x-3 gap-y-3 md:gap-x-5 md:gap-y-5 justify-center mx-auto w-full'
 
@@ -124,7 +129,9 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
       <div className="mx-auto max-w-[1000px] flex gap-3">
         <div className={wrapper}>
           <div className={formControl}>
-            <label htmlFor="size">Size</label>
+            <label className={label} htmlFor="size">
+              Size
+            </label>
 
             <div className={buttonGroup}>
               {LOADER_SIZES.map(item => {
@@ -154,7 +161,9 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
             </div>
           </div>
           <div className={formControl}>
-            <label htmlFor="border-size">Border size</label>
+            <label className={label} htmlFor="border-size">
+              Border size
+            </label>
 
             <div className={buttonGroup}>
               {LOADER_BORDER_SIZES.map(item => {
@@ -182,7 +191,9 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
             </div>
           </div>
           <div className={formControl}>
-            <label htmlFor="border-size">Loader speed</label>
+            <label className={label} htmlFor="border-size">
+              Loader speed
+            </label>
 
             <div className={buttonGroup}>
               {LOADER_SPEED.map(item => {
@@ -210,7 +221,9 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
             </div>
           </div>
           <div className={formControl}>
-            <label htmlFor="primaryColor">Primary Color</label>
+            <label className={label} htmlFor="primaryColor">
+              Primary Color
+            </label>
 
             <ColorPickerButton
               value={'#' + primaryColor}
@@ -228,7 +241,9 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
             />
           </div>
           <div className={formControl}>
-            <label htmlFor="secodaryColor">Secodary Color</label>
+            <label className={label} htmlFor="secodaryColor">
+              Secodary Color
+            </label>
 
             <ColorPickerButton
               value={'#' + secondaryColor}
@@ -246,7 +261,9 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
             />
           </div>
           <div className={formControl}>
-            <label htmlFor="secodaryColor">Reset</label>
+            <label className={label} htmlFor="secodaryColor">
+              Reset
+            </label>
 
             <div className="tooltip mr-auto" data-tip="Reset">
               <button
@@ -293,7 +310,7 @@ const ButtonSize = ({
   size: InputSizeType
 }) => {
   return (
-    <div className="grow tooltip" data-tip={title} >
+    <div className="grow tooltip" data-tip={title}>
       <button
         id={id}
         className={cn(

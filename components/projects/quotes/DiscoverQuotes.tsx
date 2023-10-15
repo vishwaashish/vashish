@@ -3,7 +3,7 @@ import { randomQuotes } from '@/services/quotes'
 import { IQuoteItem } from '@/types/quotes.model'
 import { FC, useEffect } from 'react'
 import { QuoteCard, QuoteCards } from './StyledComponent'
-import { HeadPara } from '@/components/style/Heading'
+import { HeadPara } from '@/components/shared/Heading'
 interface IDiscoverQuotes {
   quotes: IQuoteItem[]
 }

@@ -1,35 +1,51 @@
-import { LoaderType } from '@/types/css-loaders.model'
-import { useRouter } from 'next/router'
-import { FC } from 'react'
+'use client'
+import { ILoaderParams, LoaderType } from '@/types/css-loaders.model'
+import { useRouter } from 'next/navigation'
+import { FC, useState } from 'react'
 import SharedModal from './SharedModal'
-
+import { LOADER_PARAMS } from '@/common/loaders-constants'
+import { motion } from 'framer-motion'
 interface Carousel {
   index: number
   element: LoaderType
+  state: ILoaderParams
 }
 
-const Carousel: FC<Carousel> = ({ index, element }) => {
+const Carousel: FC<Carousel> = ({ index, element, state }) => {
   const router = useRouter()
 
-  function closeModal() {
-    router.push('/css-loaders', undefined, { shallow: true })
+  const [direction, setDirection] = useState<number>(0)
+  const [curIndex, setCurIndex] = useState<number>(index)
+
+  function handleClose() {
+    router.push(`/css-loaders?${LOADER_PARAMS(state)}`, {})
   }
 
-  function changeLoaderId(newVal: number): void {}
+  function changeLoaderId(newVal: number): void {
+    if (newVal > index) {
+      setDirection(1)
+    } else {
+      setDirection(-1)
+    }
+
+    setCurIndex(newVal)
+
+    router.push(`/css-loaders/${newVal}?${LOADER_PARAMS(state)}`)
+  }
 
   return (
-    <div className="relative z-50">
-      <button
-        className="absolute inset-0 z-50 cursor-default  backdrop-blur-2xl "
-        onClick={closeModal}
-      ></button>
-      <SharedModal
-        index={index}
-        changeLoaderId={changeLoaderId}
-        currentPhoto={element}
-        closeModal={closeModal}
-        navigation={false}
-      />
+    <div className="">
+      <motion.div className="relative z-50  ">
+        <SharedModal
+          index={curIndex}
+          direction={direction}
+          changeLoaderId={changeLoaderId}
+          closeModal={handleClose}
+          // state={state}
+          currentLoader={element}
+        />
+        <br />
+      </motion.div>
     </div>
   )
 }

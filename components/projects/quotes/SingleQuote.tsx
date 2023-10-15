@@ -1,8 +1,8 @@
 'use client'
-import { CopyButton } from '@/components/shared/button/CopyButton'
+import { CopyButton } from '@/components/shared/CopyButton'
 import { cn } from '@/components/utils'
 import { transition } from '@/components/utils/animation'
-import { copyText } from '@/components/utils/text'
+import { copyText, removeHypen } from '@/components/utils/text'
 import { IQuote } from '@/types/quotes.model'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
@@ -41,7 +41,7 @@ const SingleQuote: FC<ISingleQuote> = ({ item, category }) => {
           {...transition(0.29)}
           className="mx-auto text-1xl max-w-screen-md text-center "
         >
-          - {item.author}
+          <i>- {item.author}</i>
         </motion.p>
         <div className="ml-auto flex  flex-wrap justify-center items-center gap-x-2 gap-y-4  text-center md:text-right ">
           <motion.div {...transition(0.49)}>
@@ -51,7 +51,7 @@ const SingleQuote: FC<ISingleQuote> = ({ item, category }) => {
           </motion.div>
           <motion.div {...transition(0.59)}>
             <Link href={`/quotes/${category}`} className={btn}>
-              {category}
+              {removeHypen(category)}
             </Link>
           </motion.div>
           <motion.div {...transition(0.6)}>

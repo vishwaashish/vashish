@@ -1,71 +1,71 @@
+'use client'
+import { HeadPara } from '@/components/shared/Heading'
 import { LoaderType } from '@/types/css-loaders.model'
-import dynamic from 'next/dynamic'
-import Link from 'next/link'
-import { FC, memo } from 'react'
+import { FC } from 'react'
+import Loader from './Loader'
+import CustomizeLoader from './CustomizeLoader'
+import { DEFAULT_SETTINGS, LOADER_PARAMS } from '@/common/loaders-constants'
 
-const InnerHTML = dynamic(
-  () => import('@/components/shared/element/InnerHtml'),
-  {
-    ssr: false,
-  },
-)
-
-interface LoaderLoop extends LoaderType {
-  // onCode: (str: LoaderType) => void
-
-  href?: string
-  as?: string
+interface CSSLoadersProps {
+  loaders: LoaderType[]
+  query: any
 }
+const CSSLoaders: FC<CSSLoadersProps> = ({ loaders, query }) => {
+  console.log('query', query)
+  const {
+    size = DEFAULT_SETTINGS.size,
+    border = DEFAULT_SETTINGS.border,
+    speed = DEFAULT_SETTINGS.speed,
+    primaryColor = '570df8',
+    secondaryColor = 'd8dde4',
+    sourceCode = 'false',
+  }: any = query
 
-const LoadersLoop: FC<LoaderLoop> = ({
-  id,
-  html,
-  css,
-  href = '',
-  as = '',
-  //  onCode
-}) => {
-  // const handleChange = (e: FormEvent<HTMLButtonElement>) => {
-  //   e.stopPropagation()
-  //   e.preventDefault()
-  //   onCode({
-  //     id,
-  //     html,
-  //     css,
-  //   })
-  // }
+  const state = {
+    size,
+    speed,
+    border,
+    primaryColor,
+    secondaryColor,
+    sourceCode,
+  }
   return (
-    <Link
-      shallow
-      href={href || `/css-loaders/?loaderId=${id}`}
-      as={as || `/css-loaders/${id}`}
-      key={String(id)}
-      className=" group/item transition-all relative aspect-video w-full flex justify-center items-center  rounded-lg bg-base-200 h-full shadow-inner  hover:shadow-[0_0_2px_4px_#570df8]"
+    <HeadPara
+      title="CSS Loaders Gallery"
+      className="prose lg:prose-md  prose-h1:leading-none  prose-h1:mb-0  text-center max-w-full"
     >
-      {/* <button
-        className="group/edit invisible btn-outline btn-primary group-hover/item:visible btn btn-md btn-circle absolute right-2 top-2  "
-        onClick={handleChange}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="w-5 h-5"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
+      <p>
+        Enhance User Experience and Aesthetics with Our Range of Creative CSS
+        Loaders for Seamless Loading Animations
+      </p>
+      <p>
+        📌 To bookmark this page, simply press <kbd className="kbd">Ctrl+D</kbd>
+        .
+      </p>
+      <br />
+      {/* <Suspense fallback="Loadiing"> */}
+      <CustomizeLoader state={state} />
+      <br />
+      {/* </Suspense> */}
+      <br />
+      {/* <br /> */}
+      {/* <AnimatePresence> */}
+      {/* {loaderId && <LoaderModel state={state} onClose={onClose} />} */}
+      {/* </AnimatePresence> */}
+      <div className="transition-all grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full  mx-auto ">
+        {loaders.map(item => (
+          <Loader
+            key={item.id}
+            html={item.html}
+            id={item.id}
+            css={item.css}
+            href={`/css-loaders/?loaderId=${item.id}&${LOADER_PARAMS(state)}`}
+            as={`/css-loaders/${item.id}?${LOADER_PARAMS(state)}`}
           />
-        </svg>
-      </button> */}
-      <InnerHTML html={html} css={css} />
-    </Link>
+        ))}
+      </div>
+    </HeadPara>
   )
 }
 
-LoadersLoop.displayName = 'LoadersLoop'
-
-export default memo(LoadersLoop)
+export default CSSLoaders

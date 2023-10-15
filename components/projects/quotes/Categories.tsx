@@ -1,6 +1,6 @@
 'use client'
 
-import { HeadPara } from '@/components/style/Heading'
+import { HeadPara } from '@/components/shared/Heading'
 import { transition } from '@/components/utils/animation'
 import { IQuoteCategory } from '@/types/quotes.model'
 import Link from 'next/link'

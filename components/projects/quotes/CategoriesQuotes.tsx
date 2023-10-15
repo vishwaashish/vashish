@@ -5,7 +5,7 @@ import { IQuoteItem } from '@/types/quotes.model'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { QuoteCard, QuoteCards } from './StyledComponent'
-import { HeadPara } from '@/components/style/Heading'
+import { HeadPara } from '@/components/shared/Heading'
 
 const CategoriesQuotes = ({
   quotes,

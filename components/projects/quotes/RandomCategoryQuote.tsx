@@ -1,5 +1,5 @@
 'use client'
-import { HeadPara } from '@/components/style/Heading'
+import { HeadPara } from '@/components/shared/Heading'
 import { transition } from '@/components/utils/animation'
 import { IQuote } from '@/types/quotes.model'
 import { FC } from 'react'

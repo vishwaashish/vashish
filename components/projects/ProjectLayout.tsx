@@ -7,19 +7,19 @@ import Container from '../shared/Container'
 
 interface ProjectLayout {
   children: React.ReactNode
-  title: string
-  description: string
+  // title: string
+  // description: string
   className?: string
 }
 const ProjectLayout: FC<ProjectLayout> = ({
-  title,
-  description,
+  // title,
+  // description,
   className,
   children,
 }) => {
   return (
     <>
-      <InsertHead title={title} description={description} />
+      {/* <InsertHead title={title} description={description} /> */}
       <Header />
       <Container className={className}>{children}</Container>
       <RelatedStyle1 />

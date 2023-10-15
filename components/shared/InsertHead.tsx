@@ -21,7 +21,6 @@ const InsertHead: FC<InsertHead> = ({ title, description }) => {
         {description && (
           <>
             <meta name="description" content={description} />
-            {/* <meta property="og:site_name" content={window.origin} /> */}
             <meta property="og:description" content={description} />
             <meta name="twitter:description" content={description} />
           </>

@@ -13,6 +13,7 @@ export interface IQuote {
   tags: string[]
   authorSlug: string
   categories: string[]
+  path: string
 }
 
 export type IQuotesCollection = IQuoteItem[]

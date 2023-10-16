@@ -8,6 +8,7 @@ import {
   IQuote,
 } from '@/types/quotes.model'
 import quotes from './../assets/json/quotes.json'
+import _ from 'lodash'
 
 const quotesCollection: IQuotesCollection = quotes
 
@@ -30,9 +31,7 @@ export async function getCategories(): Promise<
 export async function getQuotesByCategories(
   category: string,
 ): Promise<IQuoteResponse<IQuoteItem>> {
-  const quotes: IQuoteItem | undefined = quotesCollection.find(
-    cat => cat.path === category,
-  )
+  const quotes = _.find(quotesCollection, { path: category })
 
   if (quotes) {
     return { quotes }
@@ -40,42 +39,43 @@ export async function getQuotesByCategories(
     return Promise.reject('Category does not exist')
   }
 }
+
 export async function getQuotesByCategoriesContent(
   category: string,
+  path: string,
 ): Promise<IQuoteResponse<IQuote | null>> {
-  const allQuotes: IQuote[] = quotesCollection.reduce((prev: any, next) => {
-    return prev.concat(next.content)
-  }, [])
-  const quotes = allQuotes.find(val => val.content === category)
-  return { quotes: quotes || null }
+  const quoteItem = _.find(quotesCollection, { path: category })
+
+  const quotes =
+    (quoteItem && quoteItem.content.find(val => val.path === path)) || null
+
+  return { quotes }
 }
 
 export async function randomQuotes(
   n: number = 5,
 ): Promise<IQuoteResponse<IQuoteItem[]>> {
-  const quotes = quotesCollection
-  // const newArray: IQuoteItem[] = Array.from({ length: n }, () => {
-  //   const index = Math.floor(Math.random() * quotes.length)
-  //   const len = Math.floor(Math.random() * quotes[index].length)
-  //   return quotes[index][len]
-  // })
-  // return { quotes: newArray }
-  return { quotes: [] }
+  const quotes = _.cloneDeep(quotesCollection)
+
+  const randomItem = _.sampleSize(_.shuffle(quotes), n)
+
+  const data = _.map(randomItem, item => ({
+    ...item,
+    content: _.slice(_.shuffle(item.content), 0, 1),
+  }))
+
+  return { quotes: data }
 }
 export async function randomQuotesByCatagories(
   category: string,
   n: number = 5,
-): Promise<IQuoteResponse<IQuoteItem[]>> {
-  try {
-    // const response = await getQuotesByCategories(category)
-    // const randomQuotes = response.quotes
-    //   .sort(() => Math.random() - 0.5)
-    //   .slice(0, n)
+): Promise<IQuoteResponse<IQuote[]>> {
+  const response = await getQuotesByCategories(category)
 
-    // return { quotes: randomQuotes }
-    // return { quotes:  }
-    return Promise.reject('empty')
-  } catch (error) {
-    return Promise.reject(error)
-  }
+  const randomQuotes = _.sampleSize(
+    _.shuffle(response.quotes?.content || []),
+    n,
+  )
+
+  return { quotes: randomQuotes || [] }
 }

@@ -14,6 +14,12 @@ export const copyText = async (
   })
 }
 
+export const addHypen = (label: string) => label.split(' ').join('-')
+export const removeHypen = (label: string) => label.split('-').join(' ')
+
+export const capatalize = (label: string) =>
+  label.charAt(0).toUpperCase() + label.slice(1)
+
 export function hslToHex(h: number, s: number, l: number) {
   h = ((h % 360) + 360) % 360 // Ensure h is within [0, 360)
   s = Math.min(100, Math.max(0, s)) // Clamp s within [0, 100]

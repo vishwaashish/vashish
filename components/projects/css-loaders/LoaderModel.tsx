@@ -1,10 +1,9 @@
 import { LOADER_PARAMS } from '@/common/loaders-constants'
-import { ILoaderParams, LoaderType } from '@/types/css-loaders.model'
+import { ILoaderParams } from '@/types/css-loaders.model'
 import { Dialog } from '@headlessui/react'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 import { FC, useRef, useState } from 'react'
-import SharedModal from './SharedModal'
 
 // const SharedModal = lazy(() => import('./SharedModal'))
 
@@ -75,13 +74,13 @@ const LoaderModel: FC<LoaderModel> = ({ state, onClose }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
-          <SharedModal
+          {/* <SharedModal
             index={curIndex}
             direction={direction}
-            changeLoaderId={changeLoaderId}
+            // changeLoaderId={changeLoaderId}
             closeModal={handleClose}
-            navigation={true}
-          />
+            // navigation={true}
+          /> */}
         </Dialog.Panel>
       </Dialog>
     </>

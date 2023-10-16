@@ -20,3 +20,6 @@ export interface LoaderType {
 }
 
 export type InputSizeType = 'btn-sm' | 'btn-md' | 'btn-lg'
+
+export type ILoadersResponse<T> = { loaders: T }
+export type ILoaderResponse<T> = { loader: T }

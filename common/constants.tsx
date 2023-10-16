@@ -27,6 +27,7 @@ export const projectMeta: RelatedProjectsType = {
         />
       </svg>
     ),
+    img: require('@/assets/images/password-generator.jpeg'),
     className: '',
   },
 
@@ -56,6 +57,7 @@ export const projectMeta: RelatedProjectsType = {
         />
       </svg>
     ),
+    img: require('@/assets/images/password-validator.jpeg'),
     className: '',
   },
   CSSLoaders: {
@@ -80,6 +82,7 @@ export const projectMeta: RelatedProjectsType = {
         />
       </svg>
     ),
+    img: require('@/assets/images/loader.jpeg'),
     className: '',
   },
   quotes: {
@@ -103,6 +106,7 @@ export const projectMeta: RelatedProjectsType = {
         />
       </svg>
     ),
+    img: require('@/assets/images/quotes.jpeg'),
     className: '',
   },
 }

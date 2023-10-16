@@ -1,58 +1,64 @@
-import { IQuote } from '@/types/quotes.model'
-import Link from 'next/link'
-import React, { FC } from 'react'
-import { motion } from 'framer-motion'
-import { CopyButton } from '@/components/shared/button/CopyButton'
+'use client'
+import { CopyButton } from '@/components/shared/CopyButton'
 import { cn } from '@/components/utils'
-import { copyText } from '@/components/utils/text'
+import { transition } from '@/components/utils/animation'
+import { copyText, removeHypen } from '@/components/utils/text'
+import { IQuote } from '@/types/quotes.model'
+import { motion } from 'framer-motion'
+import Link from 'next/link'
+import { FC } from 'react'
 interface ISingleQuote {
   item: IQuote
   category: string
 }
 const SingleQuote: FC<ISingleQuote> = ({ item, category }) => {
   const btn =
-    'bg-gray-200 hover:bg-primary text-black hover:text-white font-semibold px-4 p-2 rounded-full mx-auto  max-w-screen-md text-center text-lg'
+    'bg-gray-200 capitalize hover:bg-primary text-black hover:text-white font-semibold px-4 p-2 rounded-full mx-auto  max-w-screen-md text-center '
 
-  const transition = (delay: number) => ({
-    initial: { opacity: 0, y: 40 },
-    animate: { opacity: 1, y: 0 },
-    transition: {
-      delay: delay,
-      duration: 0.95,
-      ease: [0.165, 0.84, 0.44, 1],
-    },
-  })
+  const textSize = (size: number) => {
+    if (size < 100) {
+      return 'text-4xl  md:text-6xl md:leading-snug'
+    }
+    if (size < 200) {
+      return 'text-3xl  md:text-5xl md:leading-snug'
+    }
+
+    return 'text-1xl  md:text-4xl md:leading-snug'
+  }
   return (
-    <div className="flex px-8 py-8 min-h-screen-header">
-      <div className="flex flex-col my-auto gap-y-4 w-full mx-auto">
+    <div className="flex md:py-8 md:px-8 min-h-screen-header">
+      <div className="flex flex-col my-auto gap-y-4  w-full mx-auto">
         <motion.h1
           {...transition(0.15)}
-          className="text-center text-4xl md:text-6xl font-bold w-full"
+          className={cn(
+            'text-center  font-bold w-full md:leading-snug',
+            textSize(item.content.length),
+          )}
         >
           <q>{item.content}</q>
         </motion.h1>
         <motion.p
           {...transition(0.29)}
-          className="mx-auto text-2xl max-w-screen-md text-center "
+          className="mx-auto text-1xl max-w-screen-md text-center "
         >
-          - {item.author}
+          <i>- {item.author}</i>
         </motion.p>
-        <div className="ml-auto flex items-center gap-2 text-center md:text-right ">
+        <div className="ml-auto flex  flex-wrap justify-center items-center gap-x-2 gap-y-4  text-center md:text-right ">
           <motion.div {...transition(0.49)}>
-            <Link href={`/quotes`} className={btn}>
+            {/* <Link href={`/quotes`} className={btn}>
               Quotes
-            </Link>
+            </Link> */}
           </motion.div>
           <motion.div {...transition(0.59)}>
             <Link href={`/quotes/${category}`} className={btn}>
-              {category}
+              {removeHypen(category)}
             </Link>
           </motion.div>
           <motion.div {...transition(0.6)}>
             <CopyButton
               onClick={() => copyText(item.content)}
-              className={cn(btn, 'p-3')}
-            />
+              className={cn(btn, 'p-2')}
+            ></CopyButton>
           </motion.div>
         </div>
       </div>

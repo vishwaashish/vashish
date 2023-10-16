@@ -1,7 +1,8 @@
+
 import Link from 'next/link'
-import { FormEvent, memo, useCallback, useEffect, useState } from 'react'
-import { cn } from '../utils'
+import { memo, useCallback, useEffect, useState } from 'react'
 import Container from '../shared/Container'
+import { cn } from '../utils'
 
 const themeOptions = [
   'light',

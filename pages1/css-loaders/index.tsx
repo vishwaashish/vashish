@@ -41,8 +41,8 @@ export default function CSSLoaders({ loaders }: { loaders: LoaderType[] }) {
 
   return (
     <ProjectLayout
-      title={projectMeta.CSSLoaders.title}
-      description={projectMeta.CSSLoaders.description}
+      // title={projectMeta.CSSLoaders.title}
+      // description={projectMeta.CSSLoaders.description}
     >
       <section>
         <article className="prose lg:prose-md  prose-h1:leading-none  prose-h1:mb-0  text-center max-w-full">
@@ -61,7 +61,7 @@ export default function CSSLoaders({ loaders }: { loaders: LoaderType[] }) {
           <br />
           <br />
           {/* <Suspense fallback="Loadiing"> */}
-          <CustomizeLoader />
+          {/* <CustomizeLoader /> */}
           {/* </Suspense> */}
           <br />
           <br />

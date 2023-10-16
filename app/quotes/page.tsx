@@ -6,12 +6,12 @@ import { getCategories, randomQuotes } from '@/services/quotes'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
+title: projectMeta.quotes.title,
+description: projectMeta.quotes.description,
+openGraph: {
   title: projectMeta.quotes.title,
   description: projectMeta.quotes.description,
-  openGraph: {
-    title: projectMeta.quotes.title,
-    description: projectMeta.quotes.description,
-  },
+},
 }
 
 export default async function Quotes() {

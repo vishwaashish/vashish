@@ -8,21 +8,21 @@ import { CopyButton } from '../../shared/CopyButton'
 
 const SharedModalRightSide = ({
   indexProps,
-  activeLoader, // setting,
+  activeLoader, //
+  setting,
 }: {
   indexProps: number
   activeLoader: LoaderType
-  // setting: ILoaderParams
+  setting: ILoaderParams
 }) => {
-  const rootString = ''
-  //   const rootString = `:root {
-  //     --loader-primary: #${setting.primaryColor};
-  //     --loader-secondary: #${setting.secondaryColor};
-  //     --loader-border: ${setting.border};
-  //     --loader-width: ${setting.size};
-  //     --loader-speed: ${setting.speed};
-  //   }
-  // `
+  const rootString = `:root {
+      --loader-primary: #${setting.primaryColor};
+      --loader-secondary: #${setting.secondaryColor};
+      --loader-border: ${setting.border};
+      --loader-width: ${setting.size};
+      --loader-speed: ${setting.speed};
+    }
+  `
 
   return (
     <>
@@ -31,7 +31,7 @@ const SharedModalRightSide = ({
           {({ open }) => (
             <>
               <Disclosure.Button className="flex w-full rounded justify-between items-center  p-5 min-w-full bg-base-200 hover:bg-base-300  ">
-                <h2 className="m-0 text-xl md:text-3xl">Source code</h2>
+                <h2 className="m-0 text-xl md:text-2xl">Source code</h2>
 
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

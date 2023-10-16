@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 const RelatedStyle1 = () => {
-  const pathname = usePathname()
+  const pathname = usePathname() || ''
 
   const relatedArray: RelatedProjectMetaType[] = Object.values(
     projectMeta,

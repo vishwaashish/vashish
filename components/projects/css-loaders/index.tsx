@@ -11,7 +11,6 @@ interface CSSLoadersProps {
   query: any
 }
 const CSSLoaders: FC<CSSLoadersProps> = ({ loaders, query }) => {
-  console.log('query', query)
   const {
     size = DEFAULT_SETTINGS.size,
     border = DEFAULT_SETTINGS.border,

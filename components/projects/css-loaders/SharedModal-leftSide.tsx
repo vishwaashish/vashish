@@ -1,3 +1,4 @@
+'use client'
 import { cn } from '@/components/utils'
 import React, { FC, memo, useMemo } from 'react'
 import { motion } from 'framer-motion'
@@ -20,7 +21,7 @@ interface SharedModalLeftSide {
   onLeft: () => void
   onRight: () => void
   loadersLength: number
-  // setting: ILoaderParams
+  setting: ILoaderParams
 }
 const SharedModalLeftSide: FC<SharedModalLeftSide> = ({
   closeModal,
@@ -30,46 +31,17 @@ const SharedModalLeftSide: FC<SharedModalLeftSide> = ({
   direction,
   activeLoader,
   loadersLength,
-  // setting,
+  setting,
 }) => {
+  console.log('direction', direction)
   const buttonClass = 'btn btn-sm  btn-circle md:btn-md shadow'
 
-  const loader = useMemo(
-    () => (
-      <motion.div
-        className=""
-        key={index}
-        custom={direction}
-        variants={{
-          enter: (direction: number) => {
-            return {
-              x: direction < 0 ? -500 : -500,
-              opacity: 0,
-              y: 0,
-            }
-          },
-          center: {
-            x: 0,
-            opacity: 1,
-            y: 0,
-          },
-          exit: (direction: number) => {
-            return {
-              x: direction > 0 ? -500 : -500,
-              opacity: 0,
-              y: 0,
-            }
-          },
-        }}
-        initial="enter"
-        animate="center"
-        exit="exit"
-      >
-        <InnerHTML html={activeLoader.html} css={activeLoader?.css} />
-      </motion.div>
-    ),
-    [activeLoader?.css, activeLoader.html, direction, index],
-  )
+  // const loader = useMemo(
+  //   () => (
+
+  //   ),
+  //   [activeLoader?.css, activeLoader.html, direction, index],
+  // )
   return (
     <>
       <div className="absolute top-1  flex items-center gap-2 p-3 ">
@@ -100,7 +72,7 @@ const SharedModalLeftSide: FC<SharedModalLeftSide> = ({
       </div>
 
       <span
-        className="absolute animate-bounce bottom-0 tooltip flex items-center gap-2 p-3 block lg:hidden"
+        className="absolute animate-bounce bottom-0 tooltip  items-center gap-2 p-3 block lg:hidden"
         data-tip="Scroll Down"
       >
         <svg
@@ -166,10 +138,37 @@ const SharedModalLeftSide: FC<SharedModalLeftSide> = ({
       }
 
       <div className="absolute  bottom-5 hidden md:block">
-        {/* <CustomizeLoader size="btn-sm" state={setting} /> */}
+        <CustomizeLoader size="btn-sm" state={setting} />
       </div>
 
-      {loader}
+      {/* <motion.div
+        className="w-full h-full grid place-content-center"
+        key={index}
+        custom={direction}
+        variants={{
+          enter: (direction: number) => {
+            return {
+              x: direction < 0 ? -500 : 500,
+              opacity: 0,
+            }
+          },
+          center: {
+            x: 0,
+            opacity: 1,
+          },
+          exit: (direction: number) => {
+            return {
+              x: direction > 0 ? -500 : 500,
+              opacity: 0,
+            }
+          },
+        }}
+        initial="enter"
+        animate="center"
+        exit="exit"
+      >
+        <InnerHTML html={activeLoader.html} css={activeLoader?.css} />
+      </motion.div> */}
     </>
   )
 }

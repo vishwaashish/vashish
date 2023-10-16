@@ -4,6 +4,7 @@ import RelatedStyle1 from './related/RelatedStyle1'
 import InsertHead from '../shared/InsertHead'
 import Header from '../header'
 import Container from '../shared/Container'
+import RelatedProject from './related/RelatedProject'
 
 interface ProjectLayout {
   children: React.ReactNode
@@ -22,7 +23,9 @@ const ProjectLayout: FC<ProjectLayout> = ({
       {/* <InsertHead title={title} description={description} /> */}
       <Header />
       <Container className={className}>{children}</Container>
-      <RelatedStyle1 />
+      {/* <RelatedStyle1 /> */}
+      <br />
+      <RelatedProject />
     </>
   )
 }

@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
 import { useEffect } from 'react'
 import { gradient } from '@/components/Gradient'
+import RelatedProject from '@/components/projects/related/RelatedProject'
 export default function Home() {
   useEffect(() => {
     gradient.initGradient('#gradient-canvas')
@@ -49,7 +50,7 @@ export default function Home() {
             <Headers mode="dark" />
             <main
               className="flex justify-center flex-col max-w-[1200px] mx-auto  w-full px-4 "
-              style={{ minHeight: 'calc(100dvh - 39px - 64px)' }}
+              style={{ minHeight: 'calc(100dvh - 39px )' }}
             >
               <motion.h1
                 initial={{ opacity: 0, y: 40 }}
@@ -108,7 +109,7 @@ export default function Home() {
                     Star on Github
                   </Link>
                 </motion.div>
-
+                {/* 
                 <motion.div
                   initial={{ opacity: 0, y: 40 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -193,12 +194,14 @@ export default function Home() {
                   >
                     Quotes
                   </Link>
-                </motion.div>
+                </motion.div> */}
               </div>
             </main>
           </div>
         </div>
       </AnimatePresence>
+
+      <RelatedProject />
     </>
   )
 }

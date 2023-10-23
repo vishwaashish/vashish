@@ -267,7 +267,10 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
 
             <div className="tooltip mr-auto" data-tip="Reset">
               <button
-                className={cn('btn btn-primary group   text-white', btnSize)}
+                className={cn(
+                  'btn no-animation active:focus:scale-95 btn-primary group   text-white',
+                  btnSize,
+                )}
                 onClick={onResetForm}
               >
                 <svg
@@ -315,7 +318,7 @@ const ButtonSize = ({
         id={id}
         className={cn(
           active && 'btn-active btn-primary text-white',
-          'btn join-item aspect-square w-full ',
+          'no-animation active:focus:scale-95 btn join-item aspect-square w-full ',
           size,
         )}
         onClick={onClick}

@@ -32,7 +32,7 @@ const ColorPickerButton = ({
       <input
         type="color"
         className={cn(
-          'p-0 no-animation border-0 btn join-item appearance-none',
+          'no-animation active:focus:scale-95 p-0  border-0 btn join-item appearance-none',
           size,
         )}
         value={value}
@@ -58,7 +58,7 @@ const ColorPickerButton = ({
 
       <button
         className={cn(
-          'btn  join-item swap swap-flip min-w-[100px] border-0 border-l-2 border-neutral-content grow ',
+          'btn  no-animation active:focus:scale-95 join-item swap swap-flip min-w-[100px] border-0 border-l-2 border-neutral-content grow ',
           copied && 'swap-active',
           size,
         )}

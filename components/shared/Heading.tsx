@@ -24,7 +24,7 @@ export const HeadPara: FC<IHeadPara> = ({
   return (
     <div
       className={cn(
-        'prose lg:prose-lg prose-a:no-underline unse min-w-full mx-auto md:pt-12 md:px-8 text-center',
+        'prose lg:prose-lg prose-a:no-underline  min-w-full mx-auto md:pt-12 md:px-8 text-center',
         className,
       )}
     >

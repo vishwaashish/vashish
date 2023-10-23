@@ -11,10 +11,13 @@ const RelatedProject = () => {
     <section>
       <Container className="pt-0">
         <HeadPara title="Explore More Tools" titleDelay={0.19}></HeadPara>
-        <QuoteCards delay={0.29} className="max-w-[900px] grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
+        <QuoteCards
+          delay={0.29}
+          className="max-w-[900px] grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 "
+        >
           {Object.values(projectMeta).map((item: RelatedProjectMetaType) => (
             <Link
-              href={item.path}
+              href={'/' + item.path}
               key={item.title}
               className="after:content group relative"
             >
@@ -24,7 +27,10 @@ const RelatedProject = () => {
                 sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, (max-width: 1536px) 33vw, 25vw"
                 alt={item.title}
               />
-              <h3 className="font-semibold mt-3 text-md"> {item.title}</h3>
+              <h3 className="font-semibold mt-3 text-sm md:text-md">
+                {' '}
+                {item.title}
+              </h3>
             </Link>
           ))}
         </QuoteCards>

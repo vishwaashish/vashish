@@ -1,4 +1,4 @@
-import { StaticImageData } from "next/image"
+import { StaticImageData } from 'next/image'
 
 export interface RelatedProjectMetaType {
   title: string
@@ -14,6 +14,7 @@ export interface RelatedProjectsType {
   passwordValidator: RelatedProjectMetaType
   CSSLoaders: RelatedProjectMetaType
   quotes: RelatedProjectMetaType
+  basicCalculator: RelatedProjectMetaType
 }
 
 export interface PageProps<PData, SData> {

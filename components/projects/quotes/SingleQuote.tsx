@@ -12,8 +12,7 @@ interface ISingleQuote {
   category: string
 }
 const SingleQuote: FC<ISingleQuote> = ({ item, category }) => {
-  const btn =
-    'bg-gray-200 capitalize hover:bg-primary text-black hover:text-white font-semibold px-4 p-2 rounded-full mx-auto  max-w-screen-md text-center '
+  const btn = 'btn btn-site glass'
 
   const textSize = (size: number) => {
     if (size < 100) {
@@ -57,7 +56,7 @@ const SingleQuote: FC<ISingleQuote> = ({ item, category }) => {
           <motion.div {...transition(0.6)}>
             <CopyButton
               onClick={() => copyText(item.content)}
-              className={cn(btn, 'p-2')}
+              className={btn}
             ></CopyButton>
           </motion.div>
         </div>

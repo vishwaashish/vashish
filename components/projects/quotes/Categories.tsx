@@ -20,7 +20,7 @@ const Categories = ({ categories }: { categories: IQuoteCategory[] }) => {
         {categories.map(category => (
           <div key={category.name} className="">
             <Link
-              className="flex flex-col h-full"
+              className="flex flex-col h-full "
               href={`/quotes/${category.path}`}
             >
               <div className="flex justify-center items-center rounded-xl bg-base-200 hover:bg-primary hover:text-white  aspect-video">

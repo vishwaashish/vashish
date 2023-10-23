@@ -1,4 +1,3 @@
-
 import Link from 'next/link'
 import { memo, useCallback, useEffect, useState } from 'react'
 import Container from '../shared/Container'

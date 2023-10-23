@@ -14,8 +14,9 @@ const CategoriesQuotes = ({
   quotes: IQuoteItem
   category: string
 }) => {
-  const btn =
-    'bg-gray-200 hover:bg-primary text-black hover:text-white font-semibold px-4 p-2 rounded-full mx-auto  max-w-screen-md text-center text-lg'
+  const btn = 'btn glass btn-site'
+  // const btn =
+  //   'bg-gray-200 hover:bg-primary text-black hover:text-white font-semibold px-4 p-2 rounded-full mx-auto  max-w-screen-md text-center text-lg'
 
   return (
     <>

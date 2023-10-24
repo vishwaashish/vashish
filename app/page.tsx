@@ -1,25 +1,25 @@
 'use client'
+import { gradient } from '@/components/Gradient'
 import Headers from '@/components/header'
-import InsertHead from '@/components/shared/InsertHead'
 import { AnimatePresence, motion } from 'framer-motion'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { useEffect } from 'react'
-import { gradient } from '@/components/Gradient'
-import RelatedProject from '@/components/projects/related/RelatedProject'
+
+const RelatedProject = dynamic(
+  () => import('@/components/projects/related/RelatedProject'),
+  {
+    ssr: false,
+  },
+)
+
 export default function Home() {
   useEffect(() => {
     gradient.initGradient('#gradient-canvas')
   }, [])
+
   return (
     <>
-      <InsertHead
-        title="Ashishkumar Vishwakarma"
-        description="I'm a passionate frontend developer with a strong
-                  foundation in engineering. With a deep love for clean and
-                  user-friendly design, I transform ideas into beautifully
-                  crafted, responsive web experiences."
-      />
-
       <AnimatePresence>
         <div className="relative font-inter ">
           <motion.canvas

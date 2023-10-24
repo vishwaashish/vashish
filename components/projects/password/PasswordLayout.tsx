@@ -45,7 +45,7 @@ const PasswordLayout = ({
       </motion.div>
 
       <motion.div {...transition(0.5)}>
-        <h4 className="mb-2">{subHeading}</h4>
+        <p className="mb-2 pt-5 ">{subHeading}</p>
         <div
           className="transition-all card border input-bordered  h-full  bg-base-100 shadow-xl  p-4 sm:p-8 rounded-lg items-start  flex flex-col gap-5"
           style={{

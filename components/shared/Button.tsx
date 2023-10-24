@@ -6,7 +6,7 @@ const Button = () => {
 }
 
 interface TooltipIcon {
-  onClick?: (e:FormEvent<HTMLButtonElement>) => void
+  onClick?: (e: FormEvent<HTMLButtonElement>) => void
   children: React.ReactNode
   label?: string
   className?: string
@@ -22,6 +22,7 @@ export const Icon: FC<TooltipIcon> = ({
     <motion.button
       className={cn('h-full grid place-content-center', className)}
       role="button"
+      aria-label={label}
       onClick={onClick}
     >
       {children}

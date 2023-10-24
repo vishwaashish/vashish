@@ -37,6 +37,7 @@ const ColorPickerButton = ({
         )}
         value={value}
         onChange={onChange}
+        aria-label="Color Picker"
       />
       <style>
         {`
@@ -63,6 +64,7 @@ const ColorPickerButton = ({
           size,
         )}
         onClick={onCopy}
+        aria-label={'Copied! ' + value}
       >
         <span className="swap-on capitalize">Copied!</span>
         <span className="swap-off">{value}</span>

@@ -1,10 +1,17 @@
-'use client'
+// 'use client'
+import { DEFAULT_SETTINGS } from '@/common/loaders-constants'
 import { HeadPara } from '@/components/shared/Heading'
 import { LoaderType } from '@/types/css-loaders.model'
 import { FC } from 'react'
-import Loader from './Loader'
-import CustomizeLoader from './CustomizeLoader'
-import { DEFAULT_SETTINGS, LOADER_PARAMS } from '@/common/loaders-constants'
+// import Loader from './Loader'
+import dynamic from 'next/dynamic'
+import Loaders from './Loaders'
+import { CustomizeSkeleton } from './Skeleton'
+
+const CustomizeLoader = dynamic(() => import('./CustomizeLoader'), {
+  ssr: false,
+  loading: () => <CustomizeSkeleton />,
+})
 
 interface CSSLoadersProps {
   loaders: LoaderType[]
@@ -42,27 +49,12 @@ const CSSLoaders: FC<CSSLoadersProps> = ({ loaders, query }) => {
         .
       </p>
       <br />
-      {/* <Suspense fallback="Loadiing"> */}
+
       <CustomizeLoader state={state} />
       <br />
-      {/* </Suspense> */}
       <br />
-      {/* <br /> */}
-      {/* <AnimatePresence> */}
-      {/* {loaderId && <LoaderModel state={state} onClose={onClose} />} */}
-      {/* </AnimatePresence> */}
-      <div className="transition-all grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full  mx-auto ">
-        {loaders.map(item => (
-          <Loader
-            key={item.id}
-            html={item.html}
-            id={item.id}
-            css={item.css}
-            href={`/css-loaders/?loaderId=${item.id}&${LOADER_PARAMS(state)}`}
-            as={`/css-loaders/${item.id}?${LOADER_PARAMS(state)}`}
-          />
-        ))}
-      </div>
+
+      <Loaders loaders={loaders} state={state} />
     </HeadPara>
   )
 }

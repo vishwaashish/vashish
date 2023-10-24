@@ -6,16 +6,16 @@ import {
   LOADER_SIZES,
   LOADER_SPEED,
 } from '@/common/loaders-constants'
+import ColorPickerButton from '@/components/shared/element/ColorPickerButton'
 import { cn } from '@/components/utils'
 import { ILoaderParams, InputSizeType } from '@/types/css-loaders.model'
-import dynamic from 'next/dynamic'
 import { useRouter } from 'next/navigation'
 import { FC, memo, useEffect } from 'react'
 
-const ColorPickerButton = dynamic(
-  () => import('@/components/shared/element/ColorPickerButton'),
-  { ssr: false },
-)
+// const ColorPickerButton = dynamic(
+//   () => import('@/components/shared/element/ColorPickerButton'),
+//   { ssr: false },
+// )
 
 interface CustomizeLoader {
   size?: InputSizeType
@@ -137,7 +137,6 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
               {LOADER_SIZES.map(item => {
                 return (
                   <ButtonSize
-                    id={'size-' + item}
                     // active={state.size === item.size + 'px'}
                     active={size === item.size + 'px'}
                     // onClick={() => handleRange(item.size)}
@@ -169,7 +168,6 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
               {LOADER_BORDER_SIZES.map(item => {
                 return (
                   <ButtonSize
-                    id={'border-size-' + item}
                     active={border === item.size + 'px'}
                     onClick={() => {
                       handleRoute({
@@ -199,7 +197,6 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
               {LOADER_SPEED.map(item => {
                 return (
                   <ButtonSize
-                    id={'loader-size-' + item}
                     active={speed === item.size + 's'}
                     onClick={() => {
                       handleRoute({
@@ -271,6 +268,8 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
                   'btn no-animation active:focus:scale-95 btn-primary group   text-white',
                   btnSize,
                 )}
+                role="button"
+                aria-label="Reset"
                 onClick={onResetForm}
               >
                 <svg
@@ -298,14 +297,12 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
 export default memo(CustomizeLoader)
 
 const ButtonSize = ({
-  id,
   onClick,
   label,
   active,
   title,
   size = 'btn-md',
 }: {
-  id: string
   active: boolean
   onClick: () => void
   label: string
@@ -315,13 +312,14 @@ const ButtonSize = ({
   return (
     <div className="grow tooltip" data-tip={title}>
       <button
-        id={id}
         className={cn(
           active && 'btn-active btn-primary text-white',
           'no-animation active:focus:scale-95 btn join-item aspect-square w-full ',
           size,
         )}
         onClick={onClick}
+        role="button"
+        aria-label={label}
       >
         {label}
       </button>

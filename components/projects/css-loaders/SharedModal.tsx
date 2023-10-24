@@ -1,13 +1,18 @@
 'use client'
 import { LOADER } from '@/common/loaders-constants'
-import InnerHTML from '@/components/shared/element/InnerHtml'
 import { ILoaderParams, LoaderType } from '@/types/css-loaders.model'
 import { MotionConfig, motion } from 'framer-motion'
 import { memo } from 'react'
 import SharedModalLeftSide from './SharedModal-leftSide'
 import SharedModalRightSide from './SharedModal-rightSide'
 import { cn } from '@/components/utils'
-
+import dynamic from 'next/dynamic'
+const InnerHTML = dynamic(
+  () => import('@/components/shared/element/InnerHtml'),
+  {
+    ssr: false,
+  },
+)
 interface SharedModal {
   index: number
   closeModal: () => void

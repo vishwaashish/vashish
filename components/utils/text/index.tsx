@@ -4,14 +4,26 @@ export const copyText = async (
   text: string,
   msg: string = 'Copied to clipboard!',
 ) => {
-  console.log(text)
-  if (!text) return toast.error('Copied text is invalid!')
-  return await navigator.clipboard.writeText(text).then(val => {
+  if (!text) {
+    toast.error('Copied text is invalid!')
+    return Promise.reject('Invalid copied text')
+  }
+
+  if (!window.isSecureContext) {
+    toast.error('Clipboard access requires a secure (HTTPS) connection.')
+    return Promise.reject('Insecure connection')
+  }
+
+  try {
+    await navigator.clipboard.writeText(text)
     toast.success(msg, {
       id: text,
     })
     return text
-  })
+  } catch (error) {
+    toast.error('Error copying to clipboard')
+    return Promise.reject('Clipboard write error')
+  }
 }
 
 export const addHypen = (label: string) => label.split(' ').join('-')

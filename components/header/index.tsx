@@ -1,3 +1,4 @@
+'use client'
 import Link from 'next/link'
 import { memo, useCallback, useEffect, useState } from 'react'
 import Container from '../shared/Container'
@@ -15,24 +16,13 @@ const themeOptions = [
 ]
 
 function Header({ mode = 'all' }: { mode?: 'dark' | 'all' }) {
-  // const [currentTheme, setCurrentTheme] = useState('dracula')
   const [theme, setTheme] = useState(true)
 
   useEffect(() => {
     const data = document.getElementsByTagName('html')[0]
     const theme = data.getAttribute('data-theme') || 'dracula'
-    // setCurrentTheme(theme)
     setTheme(theme === 'dracula' ? true : false)
   }, [])
-
-  // const onThemeChange = useCallback(
-  //   (value: string) => () => {
-  //     const data = document.getElementsByTagName('html')[0]
-  //     data.setAttribute('data-theme', value)
-  //     setCurrentTheme(value)
-  //   },
-  //   [],
-  // )
 
   const onChange = useCallback(() => {
     const data = document.getElementsByTagName('html')[0]
@@ -101,7 +91,7 @@ function Header({ mode = 'all' }: { mode?: 'dark' | 'all' }) {
               )}
               onClick={onChange}
             >
-              <span className="swap-off" aria-label="Light Theme">
+              <span className="swap-off" role="button" aria-label="Light Theme">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="yellow"
@@ -117,7 +107,7 @@ function Header({ mode = 'all' }: { mode?: 'dark' | 'all' }) {
                   />
                 </svg>
               </span>
-              <span className="swap-on" aria-label="Dark Theme">
+              <span className="swap-on" role="button" aria-label="Dark Theme">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"

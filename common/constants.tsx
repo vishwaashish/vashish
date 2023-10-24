@@ -3,12 +3,12 @@ import { RelatedProjectsType } from '@/types/common.model'
 
 export const projectMeta: RelatedProjectsType = {
   passwordGenerator: {
-    title: 'Password Generator',
+    title: 'Generate Strong Random Passwords With Ease',
     // description:
     //   'Create Strong Passwords Easily - Generate secure, random passwords effortlessly.',
     description:
-      'Generate Strong Random Passwords Online - Create secure and unique passwords effortlessly with our Password Generator tool.',
-    path: 'generate-password',
+      'Elevate your digital security with our Random Password Generator. Craft strong, unpredictable passwords effortlessly, bolstering your online protection against unauthorized access. Stay one step ahead of potential threats with ease.',
+    path: '/generate-password',
     icon: className => (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -29,16 +29,16 @@ export const projectMeta: RelatedProjectsType = {
     ),
     img: require('@/assets/images/password-generator.jpeg'),
     className: '',
+    target: '_self',
   },
 
   passwordValidator: {
-    title: 'Password Validator',
-    description:
-      'Check Password Strength Online - Evaluate the strength of your passwords and ensure your online accounts are well-protected with our Password Validator.',
+    title: 'Check Your Password Strength',
+    description: `Discover how strong your password is with our Password Strength Checker. Enter your password, and we'll analyze its robustness based on factors such as length, complexity, and diversity of characters. Strengthen your online security by crafting passwords that pass the test and keep your accounts safe.`,
 
     // description:
     //   'Check Password Strength - Evaluate the security of your passwords instantly.',
-    path: 'validate-password',
+    path: '/validate-password',
     icon: className => (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -59,14 +59,15 @@ export const projectMeta: RelatedProjectsType = {
     ),
     img: require('@/assets/images/password-validator.jpeg'),
     className: '',
+    target: '_self',
   },
   CSSLoaders: {
-    title: 'CSS Loaders',
+    title: 'CSS Loaders Gallery',
     // description:
     //   'Unique CSS Loading Animations - Explore a variety of captivating CSS loading animations for your website.',
     description:
-      'Collection of CSS Loading Animations - Explore a diverse selection of CSS loaders for your web projects, enhancing user experiences with captivating loading animations.',
-    path: 'css-loaders',
+      'Enhance User Experience and Aesthetics with Our Range of Creative CSS Loaders for Seamless Loading Animations.',
+    path: '/css-loaders',
     icon: className => (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -84,14 +85,15 @@ export const projectMeta: RelatedProjectsType = {
     ),
     img: require('@/assets/images/loader.jpeg'),
     className: '',
+    target: '_self',
   },
   quotes: {
-    title: 'Quotes',
+    title: 'Quotes for Every Occasion',
     // description:
     //   'Create Strong Passwords Easily - Generate secure, random passwords effortlessly.',
     description:
-      'Elevate your spirit with our vast collection of inspirational quotes. Explore timeless wisdom from renowned authors and thought leaders or craft your unique insights effortlessly. Share these words of wisdom on social media or adorn your website with thought-provoking insights in just a few clicks.',
-    path: 'quotes',
+      'Discover inspiration, wisdom, and motivation across a spectrum of categories. Explore, share, and find the perfect quote for every moment in life.',
+    path: '/quotes',
     icon: className => (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -108,6 +110,7 @@ export const projectMeta: RelatedProjectsType = {
     ),
     img: require('@/assets/images/quotes.jpeg'),
     className: '',
+    target: '_self',
   },
   basicCalculator: {
     title: 'Free Online Basic Calculator',
@@ -131,5 +134,24 @@ export const projectMeta: RelatedProjectsType = {
     ),
     img: require('@/assets/images/basic-calculator.jpeg'),
     className: '',
+    target: '_self',
+  },
+  lockscreen: {
+    title: 'Your Personalized Lockscreen',
+    description: ``,
+    path: 'https://lock-screen.vercel.app',
+    icon: className => <></>,
+    img: require('@/assets/images/lockscreen.jpeg'),
+    className: '',
+    target: '_blank',
+  },
+  blogsite: {
+    title: 'Adventures in Blogland',
+    description: ``,
+    path: 'https://vishwaashish.github.io/React-blogsite/',
+    icon: className => <></>,
+    img: require('@/assets/images/blogsite.jpeg'),
+    className: '',
+    target: '_blank',
   },
 }

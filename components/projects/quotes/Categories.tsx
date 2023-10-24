@@ -1,17 +1,20 @@
 'use client'
 
 import { HeadPara } from '@/components/shared/Heading'
-import { transition } from '@/components/utils/animation'
 import { IQuoteCategory } from '@/types/quotes.model'
 import Link from 'next/link'
 import { QuoteCards } from './StyledComponent'
+import { projectMeta } from '@/common/constants'
 
 const Categories = ({ categories }: { categories: IQuoteCategory[] }) => {
   return (
     <>
-      <HeadPara title="Quote Categories" titleDelay={0.19} />
-
-      <br />
+      <HeadPara
+        title={projectMeta.quotes.title}
+        description={projectMeta.quotes.description}
+        titleDelay={0.19}
+        descriptionDelay={0.29}
+      />
 
       <QuoteCards
         delay={0.29}

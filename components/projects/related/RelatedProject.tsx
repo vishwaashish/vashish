@@ -13,14 +13,15 @@ const RelatedProject = () => {
         <HeadPara title="Explore More Tools" titleDelay={0.19}></HeadPara>
         <QuoteCards
           delay={0.29}
-          className="max-w-[900px] grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 "
+          className=" grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 "
         >
           {Object.values(projectMeta).map(
             (item: RelatedProjectMetaType, index: number) => (
               <Link
-                href={'/' + item.path}
+                href={item.path}
                 key={item.title}
                 className="after:content group relative"
+                target={item.target}
               >
                 <Image
                   className="rounded-2xl transform brightness-90 transition will-change-auto group-hover:brightness-110 "

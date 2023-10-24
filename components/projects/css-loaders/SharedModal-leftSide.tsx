@@ -1,17 +1,12 @@
-'use client'
-import { cn } from '@/components/utils'
-import React, { FC, memo, useMemo } from 'react'
-import { motion } from 'framer-motion'
-import dynamic from 'next/dynamic'
-import { ILoaderParams, LoaderType } from '@/types/css-loaders.model'
 import { Icon } from '@/components/shared/Button'
-import CustomizeLoader from './CustomizeLoader'
-const InnerHTML = dynamic(
-  () => import('@/components/shared/element/InnerHtml'),
-  {
-    ssr: false,
-  },
-)
+import { cn } from '@/components/utils'
+import { ILoaderParams, LoaderType } from '@/types/css-loaders.model'
+import dynamic from 'next/dynamic'
+import { FC, memo } from 'react'
+
+const CustomizeLoader = dynamic(() => import('./CustomizeLoader'), {
+  ssr: false,
+})
 
 interface SharedModalLeftSide {
   activeLoader: LoaderType
@@ -173,4 +168,4 @@ const SharedModalLeftSide: FC<SharedModalLeftSide> = ({
   )
 }
 
-export default memo(SharedModalLeftSide)
+export default SharedModalLeftSide

@@ -1,11 +1,11 @@
 'use client'
+import { Icon } from '@/components/shared/Button'
 import { HeadPara } from '@/components/shared/Heading'
 import { getRandom } from '@/components/utils'
 import { transition } from '@/components/utils/animation'
 import { motion } from 'framer-motion'
 import _ from 'lodash'
 import { ChangeEvent, useCallback, useEffect, useState } from 'react'
-import PasswordLayout from '../PasswordLayout'
 import {
   CategoriesMap,
   CategoryModal,
@@ -18,7 +18,8 @@ import {
   initialCategory,
   initialState,
 } from './data'
-import { Icon } from '@/components/shared/Button'
+
+import PasswordLayout from '../PasswordLayout'
 
 export default function GeneratePassword() {
   const [password, setPassword] = useState<string>('')
@@ -118,6 +119,9 @@ export default function GeneratePassword() {
     },
     [setPassword],
   )
+  const onGenerate = useCallback(() => {
+    generatePassword(isCheck, length)
+  }, [generatePassword, isCheck, length])
 
   const onCategories = useCallback(
     ([pname, pvalue]: CategoriesMap) =>
@@ -173,7 +177,7 @@ export default function GeneratePassword() {
           handleChange={handleChange}
           subHeading="Customize your password"
           inputBody={
-            <Icon label="Generate">
+            <Icon label="Generate" onClick={onGenerate}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -195,7 +199,6 @@ export default function GeneratePassword() {
             <p className="my-1">Password Length</p>
             <div className="flex gap-5 mt-2">
               <input
-                id="passwordLength"
                 type="number"
                 min="1"
                 max="50"
@@ -203,6 +206,7 @@ export default function GeneratePassword() {
                 onChange={onSetLengthInputChange}
                 onBlur={onSetLengthInputBlur}
                 className="input input-bordered  w-15 text-center pr-0"
+                aria-label="Password Length"
               />
               <input
                 className="range range-primary my-auto flex-auto"
@@ -212,6 +216,7 @@ export default function GeneratePassword() {
                 step="1"
                 value={length}
                 onChange={onSetLength}
+                aria-label="Password Length"
               />
             </div>
           </div>

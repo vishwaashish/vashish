@@ -14,14 +14,12 @@ const DiscoverQuotes: FC<IDiscoverQuotes> = ({ quotes }) => {
       <br />
       <QuoteCards delay={0.29}>
         {quotes?.map(({ content, path }, index) => (
-          <>
-            <QuoteCard
-              key={`${content[0].content} ${index}`}
-              path={`/quotes/${path}/${content[0].path}`}
-              content={content[0].content}
-              author={content[0].author}
-            />
-          </>
+          <QuoteCard
+            key={`${content[0].content} ${index}`}
+            path={`/quotes/${path}/${content[0].path}`}
+            content={content[0].content}
+            author={content[0].author}
+          />
         ))}
       </QuoteCards>
     </div>

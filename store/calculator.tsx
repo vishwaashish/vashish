@@ -112,10 +112,10 @@ export const calculatorSlice = createSlice({
     },
 
     populateHistory: (state, action: PayloadAction<IHistory>) => {
-      const { first, operation, total } = action.payload
+      const { first, second, operation, total } = action.payload
       return {
         ...state,
-        current: String(total),
+        current: String(second),
         previous: String(first),
         operation: operation,
       }

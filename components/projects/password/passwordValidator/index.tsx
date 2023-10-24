@@ -121,6 +121,7 @@ export default function PasswordValidator() {
               onChange={onSetLengthInputChange}
               onBlur={onSetLengthInputBlur}
               className="input input-bordered  w-15 text-center pr-0"
+              aria-label="Password Length"
             />
             <input
               className="range range-primary my-auto flex-auto"
@@ -130,6 +131,7 @@ export default function PasswordValidator() {
               step="1"
               value={length}
               onChange={onLength}
+              aria-label="Password Length"
             />
           </div>
         </div>
@@ -158,7 +160,7 @@ export default function PasswordValidator() {
                   viewBox="0 0 24 24"
                   fill="currentColor"
                   className="w-6 h-6 swap-off"
-                  aria-details="error"
+                  aria-label="error"
                 >
                   <path
                     fillRule="evenodd"
@@ -172,7 +174,7 @@ export default function PasswordValidator() {
                   viewBox="0 0 24 24"
                   fill="currentColor"
                   className="w-6 h-6 swap-on"
-                  aria-details="success"
+                  aria-label="success"
                 >
                   <path
                     fillRule="evenodd"

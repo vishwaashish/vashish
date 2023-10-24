@@ -22,13 +22,11 @@ export const NumberButton = ({
   digit,
   dispatch,
   className = '',
-  ...rest
 }: INumberButton) => {
   return (
     <button
       className={cn(btn, className)}
       onClick={() => dispatch(addDigit(digit))}
-      {...rest}
     >
       {digit}
     </button>
@@ -39,13 +37,11 @@ export const OperationButton = ({
   operation,
   className,
   dispatch,
-  ...rest
 }: IOperationButton) => {
   return (
     <button
       className={cn(btn, 'bg-primary text-white', className)}
       onClick={() => dispatch(chooseOperation(operation))}
-      {...rest}
     >
       {operation}
     </button>
@@ -54,11 +50,14 @@ export const OperationButton = ({
 
 export const Button = ({
   className,
+  onClick,
   children,
-  ...rest
 }: Omit<IButton, 'dispatch'>) => {
   return (
-    <button className={cn(btn, 'bg-primary text-white', className)} {...rest}>
+    <button
+      className={cn(btn, 'bg-primary text-white', className)}
+      onClick={onClick}
+    >
       {children}
     </button>
   )

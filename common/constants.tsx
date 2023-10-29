@@ -155,3 +155,5 @@ export const projectMeta: RelatedProjectsType = {
     target: '_blank',
   },
 }
+
+export const LOCAL_DATA = 'vashish-theme'

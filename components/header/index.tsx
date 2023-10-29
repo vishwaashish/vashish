@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { memo, useCallback, useEffect, useState } from 'react'
 import Container from '../shared/Container'
 import { cn } from '../utils'
+import { LOCAL_DATA } from '@/common/constants'
 
 const themeOptions = [
   'light',
@@ -20,10 +21,11 @@ function Header({ mode = 'all' }: { mode?: 'dark' | 'all' }) {
 
   useEffect(() => {
     const data = document.getElementsByTagName('html')[0]
+
     const theme = data.getAttribute('data-theme') || 'dracula'
+
     setTheme(theme === 'dracula' ? true : false)
   }, [])
-
   const onChange = useCallback(() => {
     const data = document.getElementsByTagName('html')[0]
 
@@ -33,6 +35,38 @@ function Header({ mode = 'all' }: { mode?: 'dark' | 'all' }) {
       return !val
     })
   }, [])
+
+  // useEffect(() => {
+  //   const savedTheme = localStorage.getItem(LOCAL_DATA)
+  //   const data = document.getElementsByTagName('html')[0]
+
+  //   if (savedTheme) {
+  //     setTheme(savedTheme === 'dark')
+  //     data.setAttribute(
+  //       'data-theme',
+  //       savedTheme === 'dark' ? 'dracula' : 'light',
+  //     )
+  //   } else {
+  //     const prefersDarkMode = window.matchMedia(
+  //       '(prefers-color-scheme: dark)',
+  //     ).matches
+
+  //     data.setAttribute('data-theme', prefersDarkMode ? 'dracula' : 'light')
+  //     localStorage.setItem(LOCAL_DATA, prefersDarkMode ? 'dark' : 'light')
+
+  //     setTheme(prefersDarkMode)
+  //   }
+  // }, [])
+
+  // const onChange = useCallback(() => {
+  //   const data = document.getElementsByTagName('html')[0]
+
+  //   setTheme(val => {
+  //     data.setAttribute('data-theme', val ? 'light' : 'dracula')
+  //     localStorage.setItem(LOCAL_DATA, val ? 'light' : 'dark')
+  //     return !val
+  //   })
+  // }, [])
 
   const btnClass = 'btn btn-ghost btn-circle btn-sm h-auto p-2 w-auto'
   return (

@@ -1,4 +1,4 @@
-import { copyText } from '@/components/utils/text'
+import { copyToClipboard } from '@/components/utils/text'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { Dialog } from '@headlessui/react'
 import { FC, useEffect, useState } from 'react'
@@ -66,7 +66,7 @@ const SourceCodeModel: FC<SourceCodeModel> = ({ open, close, loader }) => {
                 titleProps={
                   <CopyButton
                     className="btn btn-sm btn-circle "
-                    onClick={() => copyText(loader.html)}
+                    onClick={() => copyToClipboard(loader.html)}
                   />
                 }
               >
@@ -84,7 +84,7 @@ const SourceCodeModel: FC<SourceCodeModel> = ({ open, close, loader }) => {
                 titleProps={
                   <CopyButton
                     className="btn btn-sm btn-circle "
-                    onClick={() => copyText(rootString + loader.css)}
+                    onClick={() => copyToClipboard(rootString + loader.css)}
                   />
                 }
               >

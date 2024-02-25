@@ -1,28 +1,24 @@
 import toast from 'react-hot-toast'
 
-export const copyText = async (
-  text: string,
+export const copyToClipboard = async (
+  data: string | Blob,
   msg: string = 'Copied to clipboard!',
 ) => {
-  if (!text) {
-    toast.error('Copied text is invalid!')
-    return Promise.reject('Invalid copied text')
-  }
-
-  if (!window.isSecureContext) {
-    toast.error('Clipboard access requires a secure (HTTPS) connection.')
-    return Promise.reject('Insecure connection')
-  }
-
   try {
-    await navigator.clipboard.writeText(text)
-    toast.success(msg, {
-      id: text,
-    })
-    return text
+    if (typeof data === 'string') {
+      await navigator.clipboard.writeText(data)
+    } else if (data instanceof Blob) {
+      const item = new ClipboardItem({ 'image/png': data })
+      await navigator.clipboard.write([item])
+    } else {
+      throw new Error('Unsupported data type')
+    }
+
+    toast.success(msg, { id: String(data) })
+    return true
   } catch (error) {
     toast.error('Error copying to clipboard')
-    return Promise.reject('Clipboard write error')
+    return false
   }
 }
 

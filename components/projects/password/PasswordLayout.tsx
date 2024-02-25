@@ -1,7 +1,7 @@
 import { CopyButton } from '@/components/shared/CopyButton'
 import { cn } from '@/components/utils'
 import { transition } from '@/components/utils/animation'
-import { copyText } from '@/components/utils/text'
+import { copyToClipboard } from '@/components/utils/text'
 import { motion } from 'framer-motion'
 
 const PasswordLayout = ({
@@ -18,7 +18,7 @@ const PasswordLayout = ({
   inputBody?: any
 }) => {
   const onCopy = async () => {
-    await copyText(password)
+    await copyToClipboard(password)
   }
   return (
     <div className="max-w-[650px] m-auto">

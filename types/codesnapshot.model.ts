@@ -6,4 +6,13 @@ export interface ICodeSnapShort {
   lineNumber: boolean
   editorPadding: number
   editorSetting: boolean
+  editorBackground: IBackground
+  editorHeader: boolean
+  editorRadius: number
+}
+
+export interface IBackground {
+  backgroundColor: string
+  backgroundImage: string
+  label: string
 }

@@ -9,7 +9,7 @@ import {
   setThemes,
 } from '@/store/codesnapshotStore'
 import { ICodeSnapShort } from '@/types/codesnapshot.model'
-import { Suspense, useCallback, useEffect, useRef } from 'react'
+import { Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { bundledLanguages, bundledThemes } from 'shiki/bundle/web'
 import ExportOptions from './ExportOptions'
@@ -29,22 +29,48 @@ function CodeSnapShot() {
     lineNumber,
     editorPadding,
     editorSetting,
+    editorBackground,
+    editorHeader,
+    editorRadius,
   }: ICodeSnapShort = useSelector(selectCodeSnapShotState)
+  const [textarea, setTextArea] = useState([10, 100])
+
   const dispatch = useDispatch()
   const editorRef = useRef<HTMLDivElement>(null)
 
   const memoizedHighlightCode = useCallback(async () => {
     try {
-      const highlighted = await renderCode(code, language, themes, lineNumber)
+      const highlighted = await renderCode(
+        code,
+        language,
+        themes,
+        lineNumber,
+        editorHeader,
+      )
       highlighted && dispatch(setHighlightedCode(highlighted))
+
+      // const targetDivElement = document.querySelector(
+      //   '.shikitextarea',
+      // ) as HTMLElement
+      // if (targetDivElement && divElement) {
+      //   console.log(divElement, divElement.clientHeight, targetDivElement)
+      //   targetDivElement.style.height = divElement?.clientHeight + 50 + 'px'
+      // }
     } catch (e) {
       console.error(e)
     }
-  }, [code, language, themes, lineNumber, dispatch])
+  }, [code, language, themes, lineNumber, editorHeader, dispatch])
 
   useEffect(() => {
     memoizedHighlightCode()
   }, [memoizedHighlightCode])
+
+  useEffect(() => {
+    const divElement = document.querySelector('.shikicontainer')
+    console.log(divElement)
+    divElement &&
+      setTextArea([divElement.clientHeight + 100, divElement.clientWidth])
+  }, [code])
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -146,26 +172,43 @@ function CodeSnapShot() {
 
       <br />
 
-      <textarea
-        className="textarea textarea-bordered w-full  bg-transparent"
-        value={code}
-        placeholder="Enter Code"
-        rows={5}
-        onChange={handleChange}
-      ></textarea>
-
-      <div ref={editorRef} className="not-prose">
-        <Suspense fallback={<>Loading...</>}>
-          <div
-            className={` bg-red-500`}
-            style={{ padding: editorPadding + 'rem' }}
-          >
+      <div className="relative font-sans not-prose text-sm ">
+        <div ref={editorRef} className="">
+          <Suspense fallback={<>Loading...</>}>
             <div
-              className="flex-grow overflow-auto bg-transparent rounded-lg text-sm"
-              dangerouslySetInnerHTML={{ __html: highlightedCode }}
-            />
-          </div>
-        </Suspense>
+              className="relative"
+              style={{
+                padding: editorPadding + 'rem',
+                backgroundColor: editorBackground.backgroundColor,
+                backgroundImage: editorBackground.backgroundImage,
+              }}
+            >
+              <div className='relative'>
+                <textarea
+                  style={{
+                    fontFamily:
+                      'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+                    height: textarea[0] + 'px',
+                    width: textarea[1] + 'px',
+                    left: lineNumber ? '20px' : '3px',
+                    top: editorHeader ? '44px' :'4px',
+                  }}
+                  className="shikitextarea overflow-hidden textarea textarea-bordered border-0 outline-0 focus:outline-0 caret-slate-100 text-transparent leading-relaxed resize-none  w-full bg-transparent absolute "
+                  value={code}
+                  placeholder="Enter Code"
+                  onChange={handleChange}
+                ></textarea>
+                <div
+                  className="flex-grow overflow-auto bg-transparent "
+                  style={{
+                    borderRadius: editorRadius + 'px',
+                  }}
+                  dangerouslySetInnerHTML={{ __html: highlightedCode }}
+                />
+              </div>
+            </div>
+          </Suspense>
+        </div>
       </div>
     </HeadPara>
   )

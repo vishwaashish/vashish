@@ -1,8 +1,7 @@
 // reducers/codeSlice.ts
-import { ICodeSnapShort } from '@/types/codesnapshot.model'
-import { createSlice, PayloadAction, ThunkAction } from '@reduxjs/toolkit'
-import { RootState } from '.'
-import renderCode from '@/components/projects/codesnapshot/shikiRenderer'
+import { EDITOR_BACK_COLOR } from '@/common/codesnapshot-constant'
+import { IBackground, ICodeSnapShort } from '@/types/codesnapshot.model'
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
 export const codeSlice = createSlice({
   name: 'code',
@@ -14,6 +13,9 @@ export const codeSlice = createSlice({
     lineNumber: false,
     editorPadding: 1,
     editorSetting: false,
+    editorBackground: EDITOR_BACK_COLOR[0],
+    editorHeader: true,
+    editorRadius: 8,
   } as ICodeSnapShort,
 
   reducers: {
@@ -26,7 +28,6 @@ export const codeSlice = createSlice({
     setThemes: (state, action: PayloadAction<string>) => {
       state.themes = action.payload
     },
-
     setHighlightedCode: (state, action: PayloadAction<string>) => {
       state.highlightedCode = action.payload
     },
@@ -36,8 +37,17 @@ export const codeSlice = createSlice({
     setEditorPadding: (state, action: PayloadAction<number>) => {
       state.editorPadding = action.payload
     },
+    setEditorBackground: (state, action: PayloadAction<IBackground>) => {
+      state.editorBackground = action.payload
+    },
+    setEditorRadius: (state, action: PayloadAction<number>) => {
+      state.editorRadius = action.payload
+    },
     setEditorSetting: state => {
       state.editorSetting = !state.editorSetting
+    },
+    setEditorHeader: state => {
+      state.editorHeader = !state.editorHeader
     },
   },
 })
@@ -50,6 +60,9 @@ export const {
   setLineNumber,
   setEditorPadding,
   setEditorSetting,
+  setEditorBackground,
+  setEditorHeader,
+  setEditorRadius,
 } = codeSlice.actions
 
 export const selectCodeSnapShotState = (state: { codesnap: ICodeSnapShort }) =>

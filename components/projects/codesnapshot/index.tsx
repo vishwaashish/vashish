@@ -14,9 +14,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { bundledLanguages, bundledThemes } from 'shiki/bundle/web'
 import ExportOptions from './ExportOptions'
 import renderCode from './shikiRenderer'
-import { InputSizeType } from '@/types/css-loaders.model'
-import { cn } from '@/components/utils'
-
+import InfiniteViewer from 'react-infinite-viewer'
 // import EditorSetting from './EditorSetting'
 import dynamic from 'next/dynamic'
 const EditorSetting = dynamic(() => import('./EditorSetting'))
@@ -33,7 +31,7 @@ function CodeSnapShot() {
     editorHeader,
     editorRadius,
   }: ICodeSnapShort = useSelector(selectCodeSnapShotState)
-  const [textarea, setTextArea] = useState([10, 100])
+  const [textarea, setTextArea] = useState([-1, -1])
 
   const dispatch = useDispatch()
   const editorRef = useRef<HTMLDivElement>(null)
@@ -172,42 +170,72 @@ function CodeSnapShot() {
 
       <br />
 
-      <div className="relative font-sans not-prose text-sm ">
-        <div ref={editorRef} className="">
-          <Suspense fallback={<>Loading...</>}>
-            <div
-              className="relative"
-              style={{
-                padding: editorPadding + 'rem',
-                backgroundColor: editorBackground.backgroundColor,
-                backgroundImage: editorBackground.backgroundImage,
-              }}
-            >
-              <div className='relative'>
-                <textarea
+      <div className="grid grid-cols-1 gap-4 relative font-sans not-prose text-sm ">
+        <textarea
+          style={{
+            fontFamily:
+              'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+            height: textarea[0] == -1 ? '100%' : textarea[0] + 'px',
+            // width: textarea[1] == -1 ? '100%' : textarea[1] + 'px',
+            // left: lineNumber ? '20px' : '3px',
+            // top: editorHeader ? '44px' : '4px',
+          }}
+          className="shikitextarea overflow-hidden w-full textarea textarea-bordered 1border-0 1outline-0 focus:outline-0 caret-slate-100 text-transparent1 leading-relaxed resize-none   bg-transparent 1absolute "
+          value={code}
+          placeholder="Enter Code"
+          onChange={handleChange}
+        ></textarea>
+        <div className="flex justify-center items-center">
+          <InfiniteViewer
+            className="viewer w-full h-[50vh]"
+            threshold={200}
+            rangeX={[-5000, 5000]}
+            rangeY={[-5000, 5000]}
+            onScroll={e => {
+              console.log(e)
+            }}
+            displayHorizontalScroll={true}
+            displayVerticalScroll={true}
+          >
+            <div className="viewport">
+              <div ref={editorRef} className="">
+                <Suspense fallback={<>Loading...</>}>
+                  <div
+                    className="relative w-min"
+                    style={{
+                      padding: editorPadding + 'rem',
+                      backgroundColor: editorBackground.backgroundColor,
+                      backgroundImage: editorBackground.backgroundImage,
+                    }}
+                  >
+                    <div className="relative">
+                      {/* <textarea
                   style={{
                     fontFamily:
                       'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
-                    height: textarea[0] + 'px',
-                    width: textarea[1] + 'px',
+                    height: textarea[0] == -1 ? '100%' : textarea[0] + 'px',
+                    width: textarea[1] == -1 ? '100%' : textarea[1] + 'px',
                     left: lineNumber ? '20px' : '3px',
-                    top: editorHeader ? '44px' :'4px',
+                    top: editorHeader ? '44px' : '4px',
                   }}
-                  className="shikitextarea overflow-hidden textarea textarea-bordered border-0 outline-0 focus:outline-0 caret-slate-100 text-transparent leading-relaxed resize-none  w-full bg-transparent absolute "
+                  className="shikitextarea overflow-hidden textarea textarea-bordered 1border-0 1outline-0 focus:outline-0 caret-slate-100 text-transparent1 leading-relaxed resize-none  w-full bg-transparent absolute "
                   value={code}
                   placeholder="Enter Code"
                   onChange={handleChange}
-                ></textarea>
-                <div
-                  className="flex-grow overflow-auto bg-transparent "
-                  style={{
-                    borderRadius: editorRadius + 'px',
-                  }}
-                  dangerouslySetInnerHTML={{ __html: highlightedCode }}
-                />
+                ></textarea> */}
+                      <div
+                        className=" overflow-auto bg-transparent "
+                        style={{
+                          borderRadius: editorRadius + 'px',
+                        }}
+                        dangerouslySetInnerHTML={{ __html: highlightedCode }}
+                      />
+                    </div>
+                  </div>
+                </Suspense>
               </div>
             </div>
-          </Suspense>
+          </InfiniteViewer>
         </div>
       </div>
     </HeadPara>
@@ -215,34 +243,3 @@ function CodeSnapShot() {
 }
 
 export default CodeSnapShot
-
-const ButtonSize = ({
-  onClick,
-  label,
-  active,
-  title,
-  size = 'btn-md',
-}: {
-  active: boolean
-  onClick: () => void
-  label: string
-  title: string
-  size: InputSizeType
-}) => {
-  return (
-    <div className="grow tooltip" data-tip={title}>
-      <button
-        className={cn(
-          active && 'btn-active btn-primary text-white',
-          'no-animation active:focus:scale-95 btn join-item aspect-square w-full ',
-          size,
-        )}
-        onClick={onClick}
-        role="button"
-        aria-label={label}
-      >
-        {label}
-      </button>
-    </div>
-  )
-}

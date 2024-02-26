@@ -1,3 +1,4 @@
+import { createElement } from 'react'
 import {
   bundledLanguages,
   bundledThemes,
@@ -64,15 +65,26 @@ export async function renderCode(
   const lineNumbers = Array.from({ length: lines.length }, (_, i) => i + 1)
 
   var highlightedCodeWithLineNumbers: string = ''
+  var count: string = ''
+  // if (lineNumber) {
+  // highlightedCodeWithLineNumbers = result
+  //   .split('\n')
+  //   .map((line: string, index: number) => {
+  //     const leadingSpaces = line.match(/^\s*/)?.[0] || '' // use optional chaining and nullish coalescing
+  //     const spaces = '&nbsp;'.repeat(leadingSpaces.length)
+  //     return `<div class="flex"><span class="mr-2 text-gray-400">${lineNumbers[index]}</span>${spaces}${line}</div>`
+  //     // return `<div class="flex"><span class="mr-2 text-gray-400">${lineNumbers[index]}</span><code>${line}</code></div>`
+  //   })
+  //   .join('\n')
+  // } else {
+  highlightedCodeWithLineNumbers = result
+  // }
+
   if (lineNumber) {
-    highlightedCodeWithLineNumbers = result
+    count = highlightedCodeWithLineNumbers
       .split('\n')
-      .map((line: string, index: number) => {
-        return `<div class="flex"><span class="mr-2 text-gray-400">${lineNumbers[index]}</span>${line}</div>`
-      })
+      .map((_i, index) => `<span key={index}>${index + 1}</span>`)
       .join('\n')
-  } else {
-    highlightedCodeWithLineNumbers = result
   }
 
   return `<div class=" text-left" style="background-color: ${bgColor};">
@@ -96,7 +108,12 @@ export async function renderCode(
   </div>`
       : ''
   }
-<div class="px-5 py-3 shikicontainer leading-relaxed">
+<div class="px-5 py-3 shikicontainer leading-relaxed flex flex-row">
+${
+  lineNumber
+    ? `<div class="flex flex-col " style="padding-right:1rem">${count}</div>`
+    : ''
+}
 ${highlightedCodeWithLineNumbers}
 </div>
   </div>`

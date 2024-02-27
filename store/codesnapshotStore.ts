@@ -1,5 +1,6 @@
 // reducers/codeSlice.ts
 import { EDITOR_BACK_COLOR } from '@/common/codesnapshot-constant'
+import { darkenColor } from '@/components/utils'
 import { IBackground, ICodeSnapShort } from '@/types/codesnapshot.model'
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
@@ -16,6 +17,13 @@ export const codeSlice = createSlice({
     editorBackground: EDITOR_BACK_COLOR[0],
     editorHeader: true,
     editorRadius: 8,
+    editorlineNumberCode: '',
+    editorStyle: {
+      headerColor: 'transparent',
+      backgroundColor: 'transparent',
+      height: 47,
+      width: 0,
+    },
   } as ICodeSnapShort,
 
   reducers: {
@@ -28,8 +36,35 @@ export const codeSlice = createSlice({
     setThemes: (state, action: PayloadAction<string>) => {
       state.themes = action.payload
     },
-    setHighlightedCode: (state, action: PayloadAction<string>) => {
-      state.highlightedCode = action.payload
+    setHighlightedCode: (
+      state,
+      action: PayloadAction<{ code: string; isLineNumber: boolean }>,
+    ) => {
+      const code = action.payload.code
+      const isLineNumber = action.payload.isLineNumber
+
+      const bgColorRegex =
+        /background-color:\s*(#[a-fA-F0-9]{6}|#[a-fA-F0-9]{3}|[a-zA-Z]+)/
+      const bgColorMatch = code.match(bgColorRegex)
+      const bgColor = bgColorMatch ? bgColorMatch[1] : 'transparent'
+      const headerColor = darkenColor(bgColor, 8) || bgColor
+
+      state.highlightedCode = code
+      state.editorStyle.headerColor = headerColor
+      state.editorStyle.backgroundColor = bgColor
+      var count: string = ''
+
+      if (isLineNumber) {
+        count = code
+          .split('\n')
+          .map((_i, index) => `<span key={index}>${index + 1}</span>`)
+          .join('\n')
+      }
+
+      state.editorlineNumberCode = count
+    },
+    setEditorlineNumberCode: (state, action: PayloadAction<string>) => {
+      state.editorlineNumberCode = action.payload
     },
     setLineNumber: (state, action: PayloadAction<boolean>) => {
       state.lineNumber = action.payload
@@ -49,6 +84,13 @@ export const codeSlice = createSlice({
     setEditorHeader: state => {
       state.editorHeader = !state.editorHeader
     },
+    setEditorStyleWidthHeight: (
+      state,
+      action: PayloadAction<{ width: number; height: number }>,
+    ) => {
+      state.editorStyle.height = action.payload.height
+      state.editorStyle.width = action.payload.width
+    },
   },
 })
 
@@ -63,6 +105,8 @@ export const {
   setEditorBackground,
   setEditorHeader,
   setEditorRadius,
+  setEditorlineNumberCode,
+  setEditorStyleWidthHeight,
 } = codeSlice.actions
 
 export const selectCodeSnapShotState = (state: { codesnap: ICodeSnapShort }) =>

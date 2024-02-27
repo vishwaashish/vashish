@@ -17,6 +17,7 @@ import renderCode from './shikiRenderer'
 import InfiniteViewer from 'react-infinite-viewer'
 // import EditorSetting from './EditorSetting'
 import dynamic from 'next/dynamic'
+import EditorContainer from './EditorContainer'
 const EditorSetting = dynamic(() => import('./EditorSetting'))
 function CodeSnapShot() {
   const {
@@ -30,52 +31,56 @@ function CodeSnapShot() {
     editorBackground,
     editorHeader,
     editorRadius,
+    editorlineNumberCode,
+    editorStyle,
   }: ICodeSnapShort = useSelector(selectCodeSnapShotState)
   const [textarea, setTextArea] = useState([-1, -1])
 
   const dispatch = useDispatch()
   const editorRef = useRef<HTMLDivElement>(null)
 
-  const memoizedHighlightCode = useCallback(async () => {
-    try {
-      const highlighted = await renderCode(
-        code,
-        language,
-        themes,
-        lineNumber,
-        editorHeader,
-      )
-      highlighted && dispatch(setHighlightedCode(highlighted))
+  // const memoizedHighlightCode = useCallback(async () => {
+  //   try {
+  //     const highlighted = await renderCode(
+  //       code,
+  //       language,
+  //       themes,
+  //       lineNumber,
+  //       editorHeader,
+  //     )
+  //     highlighted &&
+  //       dispatch(setHighlightedCode({ code: highlighted, isLineNumber: true }))
+  //     //highlighted && dispatch(setEditorlineNumberCode(highlighted))
 
-      // const targetDivElement = document.querySelector(
-      //   '.shikitextarea',
-      // ) as HTMLElement
-      // if (targetDivElement && divElement) {
-      //   console.log(divElement, divElement.clientHeight, targetDivElement)
-      //   targetDivElement.style.height = divElement?.clientHeight + 50 + 'px'
-      // }
-    } catch (e) {
-      console.error(e)
-    }
-  }, [code, language, themes, lineNumber, editorHeader, dispatch])
+  //     // const targetDivElement = document.querySelector(
+  //     //   '.shikitextarea',
+  //     // ) as HTMLElement
+  //     // if (targetDivElement && divElement) {
+  //     //   console.log(divElement, divElement.clientHeight, targetDivElement)
+  //     //   targetDivElement.style.height = divElement?.clientHeight + 50 + 'px'
+  //     // }
+  //   } catch (e) {
+  //     console.error(e)
+  //   }
+  // }, [code, language, themes, lineNumber, editorHeader, dispatch])
 
-  useEffect(() => {
-    memoizedHighlightCode()
-  }, [memoizedHighlightCode])
+  // useEffect(() => {
+  //   memoizedHighlightCode()
+  // }, [memoizedHighlightCode])
 
-  useEffect(() => {
-    const divElement = document.querySelector('.shikicontainer')
-    console.log(divElement)
-    divElement &&
-      setTextArea([divElement.clientHeight + 100, divElement.clientWidth])
-  }, [code])
+  // useEffect(() => {
+  //   const divElement = document.querySelector('.shikicontainer')
+  //   console.log(divElement)
+  //   divElement &&
+  //     setTextArea([divElement.clientHeight + 100, divElement.clientWidth])
+  // }, [code])
 
-  const handleChange = useCallback(
-    (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-      dispatch(setCode(e.target.value))
-    },
-    [dispatch],
-  )
+  // const handleChange = useCallback(
+  //   (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  //     dispatch(setCode(e.target.value))
+  //   },
+  //   [dispatch],
+  // )
 
   const handleLanguageChange = useCallback(
     (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -170,8 +175,7 @@ function CodeSnapShot() {
 
       <br />
 
-      <div className="grid grid-cols-1 gap-4 relative font-sans not-prose text-sm ">
-        <textarea
+      {/* <textarea
           style={{
             fontFamily:
               'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
@@ -184,10 +188,11 @@ function CodeSnapShot() {
           value={code}
           placeholder="Enter Code"
           onChange={handleChange}
-        ></textarea>
+        ></textarea> */}
+      {/* <div className="grid grid-cols-1 gap-4 relative font-sans not-prose text-sm ">
         <div className="flex justify-center items-center">
           <InfiniteViewer
-            className="viewer w-full h-[50vh]"
+            className="viewer w-full h-[50vh] border"
             threshold={200}
             rangeX={[-5000, 5000]}
             rangeY={[-5000, 5000]}
@@ -208,28 +213,71 @@ function CodeSnapShot() {
                       backgroundImage: editorBackground.backgroundImage,
                     }}
                   >
-                    <div className="relative">
-                      {/* <textarea
-                  style={{
-                    fontFamily:
-                      'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
-                    height: textarea[0] == -1 ? '100%' : textarea[0] + 'px',
-                    width: textarea[1] == -1 ? '100%' : textarea[1] + 'px',
-                    left: lineNumber ? '20px' : '3px',
-                    top: editorHeader ? '44px' : '4px',
-                  }}
-                  className="shikitextarea overflow-hidden textarea textarea-bordered 1border-0 1outline-0 focus:outline-0 caret-slate-100 text-transparent1 leading-relaxed resize-none  w-full bg-transparent absolute "
-                  value={code}
-                  placeholder="Enter Code"
-                  onChange={handleChange}
-                ></textarea> */}
+                    <div
+                      className="relative  "
+                      style={{
+                        borderRadius: editorRadius + 'px',
+                      }}
+                    >
                       <div
-                        className=" overflow-auto bg-transparent "
+                        className="window-controls flex h-10 w-full items-center justify-between gap-4 px-5"
+                        style={{ backgroundColor: editorStyle.headerColor }}
+                      >
+                        <div className="grid h-full w-full items-center grid-cols-[60px_1fr_60px] gap-4">
+                          <div className="flex items-center gap-2">
+                            <div className="h-[13px] w-[13px] rounded-full bg-[#ff5f57]"></div>
+                            <div className="h-[13px] w-[13px] rounded-full bg-[#febc2e]"></div>
+                            <div className="h-[13px] w-[13px] rounded-full bg-[#28c840]"></div>
+                          </div>
+                          <div className="filename flex justify-center"></div>
+                          <div></div>
+                        </div>
+                      </div>
+                      <div
+                        className="px-5 py-3 shikicontainer leading-relaxed flex flex-row"
                         style={{
-                          borderRadius: editorRadius + 'px',
+                          backgroundColor: editorStyle.backgroundColor,
                         }}
-                        dangerouslySetInnerHTML={{ __html: highlightedCode }}
-                      />
+                      >
+                        <div
+                          className="flex flex-col "
+                          style={{ paddingRight: '1rem' }}
+                          dangerouslySetInnerHTML={{
+                            __html: editorlineNumberCode,
+                          }}
+                        />
+                        <div className="relative">
+                          <textarea
+                            style={{
+                              fontFamily:
+                                'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+                              height:
+                                textarea[0] == -1 ? '100%' : textarea[0] + 'px',
+                              // width:
+                              //   textarea[1] == -1 ? '100%' : textarea[1] + 'px',
+                              //                              width: 100%
+                              // left: lineNumber ? '20px' : '3px',
+                              // top: editorHeader ? '44px' : '4px',
+                            }}
+                            className="shikitextarea overflow-hidden textarea p-0 left-0 top-0 textarea-bordered border-0 outline-0 focus:outline-0 caret-slate-100 text-transparent1 leading-relaxed resize-none  w-full bg-transparent absolute "
+                            value={code}
+                            placeholder="Enter Code"
+                            onChange={handleChange}
+                          ></textarea>
+
+                          <div
+                            className=" overflow-auto text-left rounded-none bg-transparent "
+                            style={
+                              {
+                                // borderRadius: editorRadius + 'px',
+                              }
+                            }
+                            dangerouslySetInnerHTML={{
+                              __html: highlightedCode,
+                            }}
+                          />
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </Suspense>
@@ -237,7 +285,8 @@ function CodeSnapShot() {
             </div>
           </InfiniteViewer>
         </div>
-      </div>
+      </div> */}
+      <EditorContainer ref={editorRef} />
     </HeadPara>
   )
 }

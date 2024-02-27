@@ -108,7 +108,7 @@ const EditorSetting = () => {
         </button>
         <ul
           tabIndex={0}
-          className="dropdown-content z-[1] menu !px-2 shadow bg-base-100 rounded-box"
+          className="dropdown-content z-[10] menu !px-2 shadow bg-base-100 rounded-box"
         >
           {backgroundColorOptions}
         </ul>

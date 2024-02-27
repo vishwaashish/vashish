@@ -80,43 +80,45 @@ export async function renderCode(
   highlightedCodeWithLineNumbers = result
   // }
 
-  if (lineNumber) {
-    count = highlightedCodeWithLineNumbers
-      .split('\n')
-      .map((_i, index) => `<span key={index}>${index + 1}</span>`)
-      .join('\n')
-  }
+  // if (lineNumber) {
+  //   count = highlightedCodeWithLineNumbers
+  //     .split('\n')
+  //     .map((_i, index) => `<span key={index}>${index + 1}</span>`)
+  //     .join('\n')
+  // }
 
-  return `<div class=" text-left" style="background-color: ${bgColor};">
-  ${
-    isHeader
-      ? `<div
-  class="window-controls flex h-10 w-full items-center justify-between gap-4 px-5"
-  style="background-color: ${headerColor}"
-  >
-  <div class="grid h-full w-full items-center grid-cols-[60px_1fr_60px] gap-4">
-    <div class="flex items-center gap-2">
-      <div class="h-[13px] w-[13px] rounded-full bg-[#ff5f57]"></div>
-      <div class="h-[13px] w-[13px] rounded-full bg-[#febc2e]"></div>
-      <div class="h-[13px] w-[13px] rounded-full bg-[#28c840]"></div>
-    </div>
-    <div class="filename flex justify-center">
-      
-    </div>
-    <div></div>
-  </div>
-  </div>`
-      : ''
-  }
-<div class="px-5 py-3 shikicontainer leading-relaxed flex flex-row">
-${
-  lineNumber
-    ? `<div class="flex flex-col " style="padding-right:1rem">${count}</div>`
-    : ''
-}
-${highlightedCodeWithLineNumbers}
-</div>
-  </div>`
+  return highlightedCodeWithLineNumbers
+
+  //   return `<div class=" text-left" style="background-color: ${bgColor};">
+  //   ${
+  //     isHeader
+  //       ? `<div
+  //   class="window-controls flex h-10 w-full items-center justify-between gap-4 px-5"
+  //   style="background-color: ${headerColor}"
+  //   >
+  //   <div class="grid h-full w-full items-center grid-cols-[60px_1fr_60px] gap-4">
+  //     <div class="flex items-center gap-2">
+  //       <div class="h-[13px] w-[13px] rounded-full bg-[#ff5f57]"></div>
+  //       <div class="h-[13px] w-[13px] rounded-full bg-[#febc2e]"></div>
+  //       <div class="h-[13px] w-[13px] rounded-full bg-[#28c840]"></div>
+  //     </div>
+  //     <div class="filename flex justify-center">
+
+  //     </div>
+  //     <div></div>
+  //   </div>
+  //   </div>`
+  //       : ''
+  //   }
+  // <div class="px-5 py-3 shikicontainer leading-relaxed flex flex-row">
+  // ${
+  //   lineNumber
+  //     ? `<div class="flex flex-col " style="padding-right:1rem">${count}</div>`
+  //     : ''
+  // }
+  // ${highlightedCodeWithLineNumbers}
+  // </div>
+  //   </div>`
 }
 
 export default renderCode

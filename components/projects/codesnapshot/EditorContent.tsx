@@ -8,7 +8,6 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import renderCode from './shikiRenderer'
 import { useAutosizeTextArea } from './useAutosizeTextArea'
-import { Show } from '@/components/shared/Show'
 
 const EditorContent = () => {
   const {

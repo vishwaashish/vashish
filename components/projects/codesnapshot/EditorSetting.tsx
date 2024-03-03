@@ -60,14 +60,14 @@ const EditorSetting = () => {
       onClick={() => handleEditorBackgroundChange(option)}
       key={option.label}
     >
-        <div
+      <div
         title={option.label}
-          className="w-8 h-8 shadow-md shadow-slate-700"
-          style={{
-            backgroundColor: option.backgroundColor,
-            backgroundImage: option.backgroundImage,
-          }}
-        ></div>
+        className="w-8 h-8 shadow-md shadow-slate-700"
+        style={{
+          backgroundColor: option.backgroundColor,
+          backgroundImage: option.backgroundImage,
+        }}
+      ></div>
     </li>
   ))
 
@@ -103,29 +103,6 @@ const EditorSetting = () => {
         />
       </FormGroup>
 
-      <FormGroup label="background" className="dropdown dropdown-end">
-        <button
-          tabIndex={0}
-          role="button"
-          className="btn py-[0.9px] btn-transparent !pr-[0.9px] !pl-1  !min-h-0 !h-[24px] text-xs"
-        >
-          {editorContainer.label || 'Default'}
-          <div
-            className="w-6 h-full border-2"
-            style={{
-              backgroundColor: editorContainer.backgroundColor,
-              backgroundImage: editorContainer.backgroundImage,
-            }}
-          ></div>
-        </button>
-        <ul
-          tabIndex={0}
-          className="dropdown-content z-[10] menu !px-2 shadow bg-base-100 rounded-box flex flex-row flex-wrap min-w-[300px] gap-2"
-        >
-          {backgroundColorOptions}
-        </ul>
-      </FormGroup>
-
       <FormGroup label="Border Radius">
         <input
           className="range range-primary my-auto flex-auto"
@@ -148,6 +125,29 @@ const EditorSetting = () => {
           value={padding}
           onChange={handleEditorPaddingChange}
         />
+      </FormGroup>
+
+      <FormGroup label="background" className="dropdown md:dropdown-end">
+        <button
+          tabIndex={0}
+          role="button"
+          className="btn py-[0.9px] btn-transparent !pr-[0.9px] !pl-1  !min-h-0 !h-[24px] text-xs"
+        >
+          {editorContainer.label || 'Default'}
+          <div
+            className="w-6 h-full border-2"
+            style={{
+              backgroundColor: editorContainer.backgroundColor,
+              backgroundImage: editorContainer.backgroundImage,
+            }}
+          ></div>
+        </button>
+        <ul
+          tabIndex={0}
+          className="dropdown-content z-[10] menu !px-2 shadow bg-base-100 rounded-box flex flex-row flex-wrap sm:min-w-[300px] gap-2 justify-center"
+        >
+          {backgroundColorOptions}
+        </ul>
       </FormGroup>
     </motion.div>
   )

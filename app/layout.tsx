@@ -2,9 +2,9 @@ import Footer from '@/components/footer'
 import ReduxProvider from '@/components/redux'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import NextTopLoader from 'nextjs-toploader'
 import { Toaster } from 'react-hot-toast'
 import './globals.css'
-
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -27,6 +27,7 @@ export default function RootLayout({
   return (
     <html className="!scroll-smooth" lang="en" data-theme="dracula">
       <body className={inter.className}>
+        <NextTopLoader color="var(--loader-primary)" showSpinner={false} />
         <ReduxProvider>
           {children}
           <Toaster

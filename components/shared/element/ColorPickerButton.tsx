@@ -1,5 +1,5 @@
 import { cn } from '@/components/utils'
-import { copyText } from '@/components/utils/text'
+import { copyToClipboard } from '@/components/utils/text'
 import { InputSizeType } from '@/types/css-loaders.model'
 import { useEffect, useState } from 'react'
 
@@ -23,7 +23,7 @@ const ColorPickerButton = ({
   }, [copied])
 
   const onCopy = () => {
-    copyText(value).then(val => {
+    copyToClipboard(value).then(val => {
       setCopied(true)
     })
   }

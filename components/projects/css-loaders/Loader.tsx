@@ -1,6 +1,5 @@
 import InnerHTML from '@/components/shared/element/InnerHtml'
 import { LoaderType } from '@/types/css-loaders.model'
-import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { FC, memo } from 'react'
 

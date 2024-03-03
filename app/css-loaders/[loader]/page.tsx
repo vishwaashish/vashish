@@ -1,6 +1,7 @@
 import { DEFAULT_SETTINGS } from '@/common/loaders-constants'
 import ProjectLayout from '@/components/projects/ProjectLayout'
 import Carousel from '@/components/projects/css-loaders/Carousel'
+
 import { getLoader } from '@/services/loaders'
 import { PageProps } from '@/types/common.model'
 import React from 'react'

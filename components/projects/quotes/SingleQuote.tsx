@@ -2,7 +2,7 @@
 import { CopyButton } from '@/components/shared/CopyButton'
 import { cn } from '@/components/utils'
 import { transition } from '@/components/utils/animation'
-import { copyText, removeHypen } from '@/components/utils/text'
+import { copyToClipboard, removeHypen } from '@/components/utils/text'
 import { IQuote } from '@/types/quotes.model'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
@@ -55,7 +55,7 @@ const SingleQuote: FC<ISingleQuote> = ({ item, category }) => {
           </motion.div>
           <motion.div {...transition(0.6)}>
             <CopyButton
-              onClick={() => copyText(item.content)}
+              onClick={() => copyToClipboard(item.content)}
               className={btn}
             ></CopyButton>
           </motion.div>

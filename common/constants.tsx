@@ -154,6 +154,15 @@ export const projectMeta: RelatedProjectsType = {
     className: '',
     target: '_blank',
   },
+  codesnapshot: {
+    title: 'Cole Snapshot',
+    description: ``,
+    path: '/codesnapshot',
+    icon: className => <></>,
+    img: require('@/assets/images/codesnapshot.jpeg'),
+    className: '',
+    target: '_self',
+  },
 }
 
 export const LOCAL_DATA = 'vashish-theme'

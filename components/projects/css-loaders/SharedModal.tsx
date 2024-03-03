@@ -3,16 +3,12 @@ import { LOADER } from '@/common/loaders-constants'
 import { ILoaderParams, LoaderType } from '@/types/css-loaders.model'
 import { MotionConfig, motion } from 'framer-motion'
 import { memo } from 'react'
-import SharedModalLeftSide from './SharedModal-leftSide'
-import SharedModalRightSide from './SharedModal-rightSide'
+// import SharedModalLeftSide from './SharedModal-leftSide'
 import { cn } from '@/components/utils'
 import dynamic from 'next/dynamic'
-const InnerHTML = dynamic(
-  () => import('@/components/shared/element/InnerHtml'),
-  {
-    ssr: false,
-  },
-)
+const SharedModalLeftSide = dynamic(() => import('././SharedModal-leftSide'))
+const SharedModalRightSide = dynamic(() => import('./SharedModal-rightSide'))
+const InnerHTML = dynamic(() => import('@/components/shared/element/InnerHtml'))
 interface SharedModal {
   index: number
   closeModal: () => void

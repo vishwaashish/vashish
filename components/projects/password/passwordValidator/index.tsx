@@ -28,7 +28,6 @@ export default function PasswordValidator() {
     return convertedState
   })
 
-  console.log(cretaria, length)
 
   const onLength = (e: ChangeEvent<HTMLInputElement> | any) => {
     const value = e.target.value

@@ -32,6 +32,10 @@
   .min-h-screen-header {
     min-height: calc(100vh - 63.99px) !important;
   }
+
+  .shikitextarea{
+    /* all: unset; */
+  }
 }
 
 #gradient-canvas {
@@ -40,3 +44,5 @@
   --gradient-color-3: #e2d8ee;
   --gradient-color-4: #94c8ff;
 }
+
+

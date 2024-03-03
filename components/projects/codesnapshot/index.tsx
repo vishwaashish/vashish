@@ -2,85 +2,26 @@
 import { HeadPara } from '@/components/shared/Heading'
 import {
   selectCodeSnapShotState,
-  setCode,
   setEditorSetting,
-  setHighlightedCode,
   setLanguage,
   setThemes,
 } from '@/store/codesnapshotStore'
 import { ICodeSnapShort } from '@/types/codesnapshot.model'
-import { Suspense, useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { bundledLanguages, bundledThemes } from 'shiki/bundle/web'
 import ExportOptions from './ExportOptions'
-import renderCode from './shikiRenderer'
-import InfiniteViewer from 'react-infinite-viewer'
-// import EditorSetting from './EditorSetting'
 import dynamic from 'next/dynamic'
+import { AnimatePresence } from 'framer-motion'
 import EditorContainer from './EditorContainer'
+import { motion } from 'framer-motion'
+import { transition } from '@/components/utils/animation'
 const EditorSetting = dynamic(() => import('./EditorSetting'))
 function CodeSnapShot() {
-  const {
-    code,
-    language,
-    themes,
-    highlightedCode,
-    lineNumber,
-    editorPadding,
-    editorSetting,
-    editorBackground,
-    editorHeader,
-    editorRadius,
-    editorlineNumberCode,
-    editorStyle,
-  }: ICodeSnapShort = useSelector(selectCodeSnapShotState)
-  const [textarea, setTextArea] = useState([-1, -1])
+  const { programmingLanguage, theme, showSettings }: ICodeSnapShort =
+    useSelector(selectCodeSnapShotState)
 
   const dispatch = useDispatch()
-  const editorRef = useRef<HTMLDivElement>(null)
-
-  // const memoizedHighlightCode = useCallback(async () => {
-  //   try {
-  //     const highlighted = await renderCode(
-  //       code,
-  //       language,
-  //       themes,
-  //       lineNumber,
-  //       editorHeader,
-  //     )
-  //     highlighted &&
-  //       dispatch(setHighlightedCode({ code: highlighted, isLineNumber: true }))
-  //     //highlighted && dispatch(setEditorlineNumberCode(highlighted))
-
-  //     // const targetDivElement = document.querySelector(
-  //     //   '.shikitextarea',
-  //     // ) as HTMLElement
-  //     // if (targetDivElement && divElement) {
-  //     //   console.log(divElement, divElement.clientHeight, targetDivElement)
-  //     //   targetDivElement.style.height = divElement?.clientHeight + 50 + 'px'
-  //     // }
-  //   } catch (e) {
-  //     console.error(e)
-  //   }
-  // }, [code, language, themes, lineNumber, editorHeader, dispatch])
-
-  // useEffect(() => {
-  //   memoizedHighlightCode()
-  // }, [memoizedHighlightCode])
-
-  // useEffect(() => {
-  //   const divElement = document.querySelector('.shikicontainer')
-  //   console.log(divElement)
-  //   divElement &&
-  //     setTextArea([divElement.clientHeight + 100, divElement.clientWidth])
-  // }, [code])
-
-  // const handleChange = useCallback(
-  //   (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-  //     dispatch(setCode(e.target.value))
-  //   },
-  //   [dispatch],
-  // )
 
   const handleLanguageChange = useCallback(
     (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -102,22 +43,25 @@ function CodeSnapShot() {
   return (
     <HeadPara
       title="Code Snapshot"
-      className="prose lg:prose-md  prose-h1:leading-none  prose-h1:mb-0  text-center max-w-full"
+      className="prose lg:prose-md  prose-h1:leading-none  prose-h1:mb-0  text-center max-w-full min-h-[75vh]"
+      titleDelay={0.1}
     >
-      <p>
-        Enhance User Experience and Aesthetics with Our Range of Creative CSS
-        Loaders for Seamless Loading Animations
-      </p>
-      <p>
+      <motion.p {...transition(0.2)}>
+      CodeSnapshot offers seamless customization for your code snippets. Easily adjust styling elements such as padding, font size, and color to suit your preferences. Export your customized code as high-quality images in JPG, PNG, and other formats. Perfect for showcasing your code in presentations, documentation, and social media posts.
+      </motion.p>
+      <motion.p {...transition(0.3)}>
         📌 To bookmark this page, simply press <kbd className="kbd">Ctrl+D</kbd>
         .
-      </p>
+      </motion.p>
 
-      <div className="max-w-lg gap-3 mx-auto flex flex-wrap justify-center items-center">
+      <motion.div
+        {...transition(0.35)}
+        className="max-w-lg gap-3 mx-auto flex flex-wrap justify-center items-center"
+      >
         <select
           style={{ flex: '1 1 120px' }}
           className="select select-bordered w-full max-w-xs"
-          value={language}
+          value={programmingLanguage}
           onChange={handleLanguageChange}
         >
           {Object.keys(bundledLanguages).map(lang => {
@@ -131,7 +75,7 @@ function CodeSnapShot() {
         <select
           style={{ flex: '1 1 120px' }}
           className="select select-bordered w-full max-w-xs bg-light"
-          value={themes}
+          value={theme}
           onChange={handleThemeChange}
         >
           {Object.keys(bundledThemes).map(theme => {
@@ -168,125 +112,17 @@ function CodeSnapShot() {
           </svg>
         </button>
 
-        <ExportOptions element={editorRef.current} />
-      </div>
+        <ExportOptions />
+      </motion.div>
 
-      {editorSetting && <EditorSetting />}
-
+      <AnimatePresence mode="wait">
+        {showSettings && <EditorSetting />}
+      </AnimatePresence>
       <br />
 
-      {/* <textarea
-          style={{
-            fontFamily:
-              'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
-            height: textarea[0] == -1 ? '100%' : textarea[0] + 'px',
-            // width: textarea[1] == -1 ? '100%' : textarea[1] + 'px',
-            // left: lineNumber ? '20px' : '3px',
-            // top: editorHeader ? '44px' : '4px',
-          }}
-          className="shikitextarea overflow-hidden w-full textarea textarea-bordered 1border-0 1outline-0 focus:outline-0 caret-slate-100 text-transparent1 leading-relaxed resize-none   bg-transparent 1absolute "
-          value={code}
-          placeholder="Enter Code"
-          onChange={handleChange}
-        ></textarea> */}
-      {/* <div className="grid grid-cols-1 gap-4 relative font-sans not-prose text-sm ">
-        <div className="flex justify-center items-center">
-          <InfiniteViewer
-            className="viewer w-full h-[50vh] border"
-            threshold={200}
-            rangeX={[-5000, 5000]}
-            rangeY={[-5000, 5000]}
-            onScroll={e => {
-              console.log(e)
-            }}
-            displayHorizontalScroll={true}
-            displayVerticalScroll={true}
-          >
-            <div className="viewport">
-              <div ref={editorRef} className="">
-                <Suspense fallback={<>Loading...</>}>
-                  <div
-                    className="relative w-min"
-                    style={{
-                      padding: editorPadding + 'rem',
-                      backgroundColor: editorBackground.backgroundColor,
-                      backgroundImage: editorBackground.backgroundImage,
-                    }}
-                  >
-                    <div
-                      className="relative  "
-                      style={{
-                        borderRadius: editorRadius + 'px',
-                      }}
-                    >
-                      <div
-                        className="window-controls flex h-10 w-full items-center justify-between gap-4 px-5"
-                        style={{ backgroundColor: editorStyle.headerColor }}
-                      >
-                        <div className="grid h-full w-full items-center grid-cols-[60px_1fr_60px] gap-4">
-                          <div className="flex items-center gap-2">
-                            <div className="h-[13px] w-[13px] rounded-full bg-[#ff5f57]"></div>
-                            <div className="h-[13px] w-[13px] rounded-full bg-[#febc2e]"></div>
-                            <div className="h-[13px] w-[13px] rounded-full bg-[#28c840]"></div>
-                          </div>
-                          <div className="filename flex justify-center"></div>
-                          <div></div>
-                        </div>
-                      </div>
-                      <div
-                        className="px-5 py-3 shikicontainer leading-relaxed flex flex-row"
-                        style={{
-                          backgroundColor: editorStyle.backgroundColor,
-                        }}
-                      >
-                        <div
-                          className="flex flex-col "
-                          style={{ paddingRight: '1rem' }}
-                          dangerouslySetInnerHTML={{
-                            __html: editorlineNumberCode,
-                          }}
-                        />
-                        <div className="relative">
-                          <textarea
-                            style={{
-                              fontFamily:
-                                'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
-                              height:
-                                textarea[0] == -1 ? '100%' : textarea[0] + 'px',
-                              // width:
-                              //   textarea[1] == -1 ? '100%' : textarea[1] + 'px',
-                              //                              width: 100%
-                              // left: lineNumber ? '20px' : '3px',
-                              // top: editorHeader ? '44px' : '4px',
-                            }}
-                            className="shikitextarea overflow-hidden textarea p-0 left-0 top-0 textarea-bordered border-0 outline-0 focus:outline-0 caret-slate-100 text-transparent1 leading-relaxed resize-none  w-full bg-transparent absolute "
-                            value={code}
-                            placeholder="Enter Code"
-                            onChange={handleChange}
-                          ></textarea>
-
-                          <div
-                            className=" overflow-auto text-left rounded-none bg-transparent "
-                            style={
-                              {
-                                // borderRadius: editorRadius + 'px',
-                              }
-                            }
-                            dangerouslySetInnerHTML={{
-                              __html: highlightedCode,
-                            }}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </Suspense>
-              </div>
-            </div>
-          </InfiniteViewer>
-        </div>
-      </div> */}
-      <EditorContainer ref={editorRef} />
+      <motion.div {...transition(0.4)}>
+        <EditorContainer />
+      </motion.div>
     </HeadPara>
   )
 }

@@ -159,7 +159,7 @@ export const projectMeta: RelatedProjectsType = {
     description: ``,
     path: '/codesnapshot',
     icon: className => <></>,
-    img: require('@/assets/images/blogsite.jpeg'),
+    img: require('@/assets/images/codesnapshot.jpeg'),
     className: '',
     target: '_self',
   },

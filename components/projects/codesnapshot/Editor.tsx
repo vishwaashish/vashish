@@ -3,7 +3,7 @@ import renderCode from './shikiRenderer'
 
 interface EditorProps {
   code: string
-  language: string
+  programmingLanguage: string
   theme: string
   onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
 }
@@ -15,14 +15,14 @@ function Editor({ code, onChange }: EditorProps) {
   //   useEffect(() => {
   //     async function highlightCode() {
   //       try {
-  //         const highlighted = await renderCode(code, language, theme)
+  //         const highlighted = await renderCode(code, programmingLanguage, theme)
   //         setHighlightedCode(highlighted)
   //       } catch (e) {
   //         console.error('Error highlighting code:', e)
   //       }
   //     }
   //     highlightCode()
-  //   }, [code, language, theme])
+  //   }, [code, programmingLanguage, theme])
 
   return (
     <textarea

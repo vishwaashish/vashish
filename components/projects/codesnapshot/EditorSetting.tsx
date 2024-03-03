@@ -1,5 +1,5 @@
 import { EDITOR_BACK_COLOR } from '@/common/codesnapshot-constant'
-import { cn } from '@/components/utils'
+import { FormGroup } from '@/components/shared/Form'
 import {
   selectCodeSnapShotState,
   setEditorBackground,
@@ -8,18 +8,19 @@ import {
   setEditorRadius,
   setLineNumber,
 } from '@/store/codesnapshotStore'
-import { IBackground, ICodeSnapShort } from '@/types/codesnapshot.model'
+import {
+  ICodeSnapShort,
+  IEditorBackgroundConstant,
+} from '@/types/codesnapshot.model'
+import { motion } from 'framer-motion'
 import React, { useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-
 const EditorSetting = () => {
-  const {
-    lineNumber,
-    editorPadding,
-    editorBackground,
-    editorHeader,
-    editorRadius,
-  }: ICodeSnapShort = useSelector(selectCodeSnapShotState)
+  const { showLineNumbers, editorContainer, showHeader }: ICodeSnapShort =
+    useSelector(selectCodeSnapShotState)
+
+  const { padding, borderRadius } = editorContainer
+
   const dispatch = useDispatch()
 
   const handleThemeChange = useCallback(
@@ -47,7 +48,7 @@ const EditorSetting = () => {
     [dispatch],
   )
   const handleEditorBackgroundChange = useCallback(
-    (item: IBackground) => {
+    (item: IEditorBackgroundConstant) => {
       dispatch(setEditorBackground(item))
     },
     [dispatch],
@@ -55,38 +56,49 @@ const EditorSetting = () => {
 
   const backgroundColorOptions = EDITOR_BACK_COLOR.map(option => (
     <li
-      className="!m-0 !p-0"
+      className="!m-0 !p-0 w-min"
       onClick={() => handleEditorBackgroundChange(option)}
       key={option.label}
     >
-      <a className="uppercase">
-        {option.label}
         <div
-          className="w-6 h-full"
+        title={option.label}
+          className="w-8 h-8 shadow-md shadow-slate-700"
           style={{
             backgroundColor: option.backgroundColor,
             backgroundImage: option.backgroundImage,
           }}
         ></div>
-      </a>
     </li>
   ))
 
+  const boxVariant = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  }
+
   return (
-    <div className="border mt-5 rounded-md border-light p-4 flex flex-wrap justify-center items-center gap-5">
+    <motion.div
+      className="border relative z-[1] mt-5 rounded-md border-light p-4 flex flex-wrap justify-center items-center gap-5"
+      key="box"
+      variants={boxVariant}
+      initial="hidden"
+      animate="visible"
+      exit="hidden"
+    >
       <FormGroup label="Line Number">
         <input
           type="checkbox"
           className="toggle"
-          checked={lineNumber}
+          checked={showLineNumbers}
           onChange={handleThemeChange}
         />
       </FormGroup>
+
       <FormGroup label="Header">
         <input
           type="checkbox"
           className="toggle"
-          checked={editorHeader}
+          checked={showHeader}
           onChange={handleEditorHeader}
         />
       </FormGroup>
@@ -97,18 +109,18 @@ const EditorSetting = () => {
           role="button"
           className="btn py-[0.9px] btn-transparent !pr-[0.9px] !pl-1  !min-h-0 !h-[24px] text-xs"
         >
-          {editorBackground.label}
+          {editorContainer.label || 'Default'}
           <div
-            className="w-6 h-full"
+            className="w-6 h-full border-2"
             style={{
-              backgroundColor: editorBackground.backgroundColor,
-              backgroundImage: editorBackground.backgroundImage,
+              backgroundColor: editorContainer.backgroundColor,
+              backgroundImage: editorContainer.backgroundImage,
             }}
           ></div>
         </button>
         <ul
           tabIndex={0}
-          className="dropdown-content z-[10] menu !px-2 shadow bg-base-100 rounded-box"
+          className="dropdown-content z-[10] menu !px-2 shadow bg-base-100 rounded-box flex flex-row flex-wrap min-w-[300px] gap-2"
         >
           {backgroundColorOptions}
         </ul>
@@ -121,7 +133,7 @@ const EditorSetting = () => {
           min="0"
           max="30"
           aria-label="Password Length"
-          value={editorRadius}
+          value={borderRadius}
           onChange={handleEditorRadiusChange}
         />
       </FormGroup>
@@ -133,35 +145,12 @@ const EditorSetting = () => {
           max="7"
           step="1"
           aria-label="Password Length"
-          value={editorPadding}
+          value={padding}
           onChange={handleEditorPaddingChange}
         />
       </FormGroup>
-    </div>
+    </motion.div>
   )
 }
 
 export default EditorSetting
-
-export const FormGroup = ({
-  label,
-  className,
-  children,
-}: {
-  label: string
-  className?: string
-  children: React.ReactNode
-}) => {
-  const formControl = 'flex flex-col text-left grow sm:grow-0 '
-  const buttonGroup = 'btn-group1 join drop-shadow'
-  const labelClass = 'text-xs mb-1'
-  return (
-    <div className={formControl}>
-      <label className={labelClass} htmlFor={label}>
-        {label}
-      </label>
-
-      <div className={cn(buttonGroup, className)}>{children}</div>
-    </div>
-  )
-}

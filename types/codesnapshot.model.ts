@@ -1,27 +1,32 @@
 export interface ICodeSnapShort {
   code: string
-  language: string
-  themes: string
+  programmingLanguage: string
+  theme: string
   highlightedCode: string
-  lineNumber: boolean
-  editorPadding: number
-  editorSetting: boolean
-  editorBackground: IBackground
-  editorHeader: boolean
-  editorRadius: number
-  editorlineNumberCode: string
-  editorStyle: IEditorStyle
+  showLineNumbers: boolean
+  showSettings: boolean
+  showHeader: boolean
+  lineNumberCode: string
+  editorContainer: IEditorContainer
 }
 
-export interface IBackground {
+export interface IEditorContainer {
   backgroundColor: string
   backgroundImage: string
   label: string
+  padding: number
+  borderRadius: number
+  editor: IEditorStyle
 }
 
 export interface IEditorStyle {
   headerColor: string
   backgroundColor: string
-  height: number
-  width: number
+  color: string
+}
+
+export interface IEditorBackgroundConstant {
+  label: string
+  backgroundColor: string
+  backgroundImage: string
 }

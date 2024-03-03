@@ -1,95 +1,100 @@
-// reducers/codeSlice.ts
 import { EDITOR_BACK_COLOR } from '@/common/codesnapshot-constant'
 import { darkenColor } from '@/components/utils'
-import { IBackground, ICodeSnapShort } from '@/types/codesnapshot.model'
+import {
+  IEditorContainer,
+  ICodeSnapShort,
+  IEditorBackgroundConstant,
+} from '@/types/codesnapshot.model'
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
+
+const initialState: ICodeSnapShort = {
+  code: "console.log('Hello, world!')",
+  programmingLanguage: 'javascript',
+  theme: 'dark-plus',
+  highlightedCode: '',
+  showLineNumbers: false,
+  showSettings: false,
+  showHeader: true,
+  lineNumberCode: '',
+  editorContainer: {
+    backgroundColor: EDITOR_BACK_COLOR[0].backgroundColor,
+    backgroundImage: EDITOR_BACK_COLOR[0].backgroundImage,
+    label: EDITOR_BACK_COLOR[0].label,
+    padding: 1,
+    borderRadius: 8,
+    editor: {
+      headerColor: 'rgb(27, 27, 27)',
+      backgroundColor: 'rgb(30, 30, 30)',
+      color: '#D4D4D4',
+    },
+  },
+}
 
 export const codeSlice = createSlice({
   name: 'code',
-  initialState: {
-    code: "console.log('Hello, world!')",
-    language: 'javascript',
-    themes: 'dark-plus',
-    highlightedCode: '',
-    lineNumber: false,
-    editorPadding: 1,
-    editorSetting: false,
-    editorBackground: EDITOR_BACK_COLOR[0],
-    editorHeader: true,
-    editorRadius: 8,
-    editorlineNumberCode: '',
-    editorStyle: {
-      headerColor: 'transparent',
-      backgroundColor: 'transparent',
-      height: 47,
-      width: 0,
-    },
-  } as ICodeSnapShort,
+  initialState: initialState,
 
   reducers: {
     setCode: (state, action: PayloadAction<string>) => {
       state.code = action.payload
     },
     setLanguage: (state, action: PayloadAction<string>) => {
-      state.language = action.payload
+      state.programmingLanguage = action.payload
     },
     setThemes: (state, action: PayloadAction<string>) => {
-      state.themes = action.payload
+      state.theme = action.payload
     },
     setHighlightedCode: (
       state,
       action: PayloadAction<{ code: string; isLineNumber: boolean }>,
     ) => {
-      const code = action.payload.code
-      const isLineNumber = action.payload.isLineNumber
-
-      const bgColorRegex =
-        /background-color:\s*(#[a-fA-F0-9]{6}|#[a-fA-F0-9]{3}|[a-zA-Z]+)/
-      const bgColorMatch = code.match(bgColorRegex)
-      const bgColor = bgColorMatch ? bgColorMatch[1] : 'transparent'
+      const { code, isLineNumber } = action.payload
+      const colorRegex = /#(?:[0-9a-fA-F]{3}){1,2}/g
+      const [bgColor, color] = code.match(colorRegex) || ['#00000', '#fffff']
       const headerColor = darkenColor(bgColor, 8) || bgColor
-
       state.highlightedCode = code
-      state.editorStyle.headerColor = headerColor
-      state.editorStyle.backgroundColor = bgColor
-      var count: string = ''
+      state.editorContainer.editor.headerColor = headerColor
+      state.editorContainer.editor.backgroundColor = bgColor
+      state.editorContainer.editor.color = color
 
-      if (isLineNumber) {
-        count = code
-          .split('\n')
-          .map((_i, index) => `<span key={index}>${index + 1}</span>`)
-          .join('\n')
-      }
+      const count = isLineNumber
+        ? code
+            .split('\n')
+            .map(
+              (_i, index) =>
+                `<code key=${index} style="color:${color}">${index + 1}</code>`,
+            )
+            .join('\n')
+        : ''
 
-      state.editorlineNumberCode = count
+      state.lineNumberCode = count
     },
     setEditorlineNumberCode: (state, action: PayloadAction<string>) => {
-      state.editorlineNumberCode = action.payload
+      state.lineNumberCode = action.payload
     },
     setLineNumber: (state, action: PayloadAction<boolean>) => {
-      state.lineNumber = action.payload
+      state.showLineNumbers = action.payload
     },
     setEditorPadding: (state, action: PayloadAction<number>) => {
-      state.editorPadding = action.payload
+      state.editorContainer.padding = action.payload
     },
-    setEditorBackground: (state, action: PayloadAction<IBackground>) => {
-      state.editorBackground = action.payload
+    setEditorBackground: (
+      state,
+      action: PayloadAction<IEditorBackgroundConstant>,
+    ) => {
+      const { label, backgroundColor, backgroundImage } = action.payload
+      state.editorContainer.label = label
+      state.editorContainer.backgroundColor = backgroundColor
+      state.editorContainer.backgroundImage = backgroundImage
     },
     setEditorRadius: (state, action: PayloadAction<number>) => {
-      state.editorRadius = action.payload
+      state.editorContainer.borderRadius = action.payload
     },
     setEditorSetting: state => {
-      state.editorSetting = !state.editorSetting
+      state.showSettings = !state.showSettings
     },
     setEditorHeader: state => {
-      state.editorHeader = !state.editorHeader
-    },
-    setEditorStyleWidthHeight: (
-      state,
-      action: PayloadAction<{ width: number; height: number }>,
-    ) => {
-      state.editorStyle.height = action.payload.height
-      state.editorStyle.width = action.payload.width
+      state.showHeader = !state.showHeader
     },
   },
 })
@@ -106,22 +111,9 @@ export const {
   setEditorHeader,
   setEditorRadius,
   setEditorlineNumberCode,
-  setEditorStyleWidthHeight,
 } = codeSlice.actions
 
 export const selectCodeSnapShotState = (state: { codesnap: ICodeSnapShort }) =>
   state.codesnap
 
 export default codeSlice.reducer
-
-// export const highlightCodeAsync =
-//   (): ThunkAction<void, RootState, unknown, any> =>
-//   async (dispatch, getState) => {
-//     const { code, language, themes } = selectCodeSnapShotState(getState())
-//     try {
-//       const highlighted = await renderCode(code, language, themes)
-//       dispatch(setHighlightedCode(highlighted))
-//     } catch (e) {
-//       console.error(e)
-//     }
-//   }

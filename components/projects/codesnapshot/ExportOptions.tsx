@@ -11,11 +11,14 @@ interface ExportOptionsProps {
 
 const exportOptions: string[] = ['copy', 'png', 'jpg', 'svg']
 
-const ExportOptions = ({ element }: ExportOptionsProps) => {
-  const [loading, setLoading] = useState(false)
-  const handleAction = useCallback(
-    async (format: string) => {
-      if (!element) return
+const ExportOptions = () =>
+  // { element }: ExportOptionsProps
+  {
+    const [loading, setLoading] = useState(false)
+    const handleAction = useCallback(async (format: string) => {
+      const editor_viewport = document.getElementById('editor_viewport')
+
+      if (!editor_viewport) return
       setLoading(true)
 
       const handleCanvas = (canvas: HTMLCanvasElement) => {
@@ -29,67 +32,80 @@ const ExportOptions = ({ element }: ExportOptionsProps) => {
         })
       }
 
+      const option = {
+        // scale: 10,
+        width: editor_viewport.clientWidth,
+        height: editor_viewport.clientHeight,
+        allowTaint: true,
+        removeContainer: true,
+        logging: true,
+        letterRendering: true,
+        useCORS: true,
+      }
+
       if (format === 'copy') {
-        await html2canvas(element as HTMLElement).then(handleCopy)
+        await html2canvas(editor_viewport as HTMLElement, option).then(
+          handleCopy,
+        )
       } else {
-        await html2canvas(element as HTMLElement).then(handleCanvas)
+        await html2canvas(editor_viewport as HTMLElement, option).then(
+          handleCanvas,
+        )
       }
       setLoading(false)
-    },
-    [element],
-  )
+    }, [])
 
-  const exportOptionsList = exportOptions.map(option => (
-    <li
-      className="!m-0 !p-0"
-      onClick={() => handleAction(option.toLowerCase())}
-      key={option}
-    >
-      <a className="uppercase">{option}</a>
-    </li>
-  ))
-
-  return (
-    <div className="join border border-light">
-      <button
-        className="join-item flex-1 !border-solid border-light !border-0 !border-r-2 btn"
-        onClick={() => handleAction('png')}
-        disabled={!element}
+    const exportOptionsList = exportOptions.map(option => (
+      <li
+        className="!m-0 !p-0"
+        onClick={() => handleAction(option.toLowerCase())}
+        key={option}
       >
-        {!loading ? 'Export' : 'Exporting'}
-      </button>
-      <div className="dropdown dropdown-end join-item">
+        <a className="uppercase">{option}</a>
+      </li>
+    ))
+
+    return (
+      <div className="join border border-light">
         <button
-          tabIndex={0}
-          role="button"
-          className="btn !px-2 join-item"
-          disabled={!element}
+          className="join-item flex-1 !border-solid border-light !border-0 !border-r-2 btn"
+          onClick={() => handleAction('png')}
+          // disabled={!element}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-4 h-4"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="m19.5 8.25-7.5 7.5-7.5-7.5"
-            />
-          </svg>
+          {!loading ? 'Export' : 'Exporting'}
         </button>
-        <ul
-          tabIndex={0}
-          className="dropdown-content z-[1] menu !px-2 shadow bg-base-100 rounded-box"
-        >
-          {exportOptionsList}
-        </ul>
+        <div className="dropdown dropdown-end join-item">
+          <button
+            tabIndex={0}
+            role="button"
+            className="btn !px-2 join-item"
+            // disabled={!element}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-4 h-4"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="m19.5 8.25-7.5 7.5-7.5-7.5"
+              />
+            </svg>
+          </button>
+          <ul
+            tabIndex={0}
+            className="dropdown-content z-[1] menu !px-2 shadow bg-base-100 rounded-box"
+          >
+            {exportOptionsList}
+          </ul>
+        </div>
       </div>
-    </div>
-  )
-}
+    )
+  }
 
 ExportOptions.displayName = 'ExportOptions'
 

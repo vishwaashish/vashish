@@ -1,20 +1,23 @@
-import { Suspense, forwardRef, memo, useEffect, useRef, useState } from 'react'
+import dynamic from 'next/dynamic'
+import { useEffect, useRef } from 'react'
 import InfiniteViewer from 'react-infinite-viewer'
-import EditorContent from './EditorContent' // Assuming EditorContent is a separate component for editor content
+const EditorContent = dynamic(() => import('./EditorContent'))
 
-const EditorContainer = forwardRef<HTMLDivElement, any>((_props, ref) => {
+const EditorContainer = () => {
   const editorRef = useRef<HTMLDivElement>(null)
-
   useEffect(() => {
-    if (editorRef.current) {
-      const height = editorRef.current.clientHeight + 200
-      const code = document.querySelector('.codesnapshotviewer')
-      if (code) {
-        code.setAttribute('style', `height: ${height}px`)
+    const updateHeight = () => {
+      if (editorRef.current) {
+        const code = document.querySelector('.codesnapshotviewer')
+        if (code) {
+          const height = Math.max(400, editorRef.current.clientHeight + 100)
+          code.setAttribute('style', `height: ${height}px`)
+        }
       }
     }
-  })
 
+    updateHeight()
+  })
   return (
     <div className="flex justify-center items-center">
       <InfiniteViewer
@@ -28,15 +31,14 @@ const EditorContainer = forwardRef<HTMLDivElement, any>((_props, ref) => {
         displayHorizontalScroll={true}
         displayVerticalScroll={true}
       >
-        <div className="viewport">
-          <div ref={editorRef}>
-            <EditorContent ref={ref} />
+        <div className="viewport flex justify-center items-center h-full">
+          <div ref={editorRef} className=" w-min " id="editor_viewport">
+            {EditorContent && <EditorContent />}
           </div>
         </div>
       </InfiniteViewer>
     </div>
   )
-})
+}
 
-EditorContainer.displayName = 'EditorContainer'
 export default EditorContainer

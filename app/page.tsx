@@ -25,31 +25,33 @@ export default function Home() {
           <motion.canvas
             initial={{
               filter: 'blur(2px)',
-              // opacity:0
             }}
             animate={{
-              // opacity:1
               filter: 'blur(0px)',
             }}
             transition={{
               duration: 1,
               ease: [0.075, 0.82, 0.965, 1],
             }}
-            style={
-              {
-                // clipPath:
-                // 'polygo`n(100px 0,100% 0,calc(100% + 225px) 100%, 480px 100%)',
-              }
-            }
             id="gradient-canvas"
             data-transition-in
             className="absolute top-0 h-full z-0 w-full"
           ></motion.canvas>
-          <div className=" ">
+
+          <div
+            className=" "
+            style={{
+              background: '#94c8ff',
+              backgroundImage:
+                'linear-gradient(145deg, #bde1ff, #6ca0f4, #e2d8ee,#94c8ff)',
+            }}
+          >
             <Headers mode="dark" />
             <main
               className="flex justify-center flex-col max-w-[1200px] mx-auto  w-full px-4 "
-              style={{ minHeight: 'calc(100dvh - 39px )' }}
+              style={{
+                minHeight: 'calc(100dvh - 39px )',
+              }}
             >
               <motion.h1
                 initial={{ opacity: 0, y: 40 }}

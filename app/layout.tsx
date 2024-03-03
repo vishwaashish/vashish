@@ -27,7 +27,11 @@ export default function RootLayout({
   return (
     <html className="!scroll-smooth" lang="en" data-theme="dracula">
       <body className={inter.className}>
-        <NextTopLoader color="var(--loader-primary)" showSpinner={false} />
+        <NextTopLoader
+          color="var(--loader-primary)"
+          height={3}
+          showSpinner={false}
+        />
         <ReduxProvider>
           {children}
           <Toaster

@@ -2,7 +2,7 @@ import { Icon } from '@/components/shared/Button'
 import { cn } from '@/components/utils'
 import { ILoaderParams, LoaderType } from '@/types/css-loaders.model'
 import dynamic from 'next/dynamic'
-import { FC, memo } from 'react'
+import { FC } from 'react'
 
 const CustomizeLoader = dynamic(() => import('./CustomizeLoader'), {
   ssr: false,

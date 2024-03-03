@@ -1,11 +1,11 @@
 'use client'
-import { ILoaderParams, LoaderType } from '@/types/css-loaders.model'
-import { useRouter } from 'next/navigation'
-import { FC, useEffect, useState } from 'react'
-import SharedModal from './SharedModal'
 import { LOADER, LOADER_PARAMS } from '@/common/loaders-constants'
+import { ILoaderParams, LoaderType } from '@/types/css-loaders.model'
 import { motion } from 'framer-motion'
+import { useRouter } from 'next/navigation'
+import { FC, useState } from 'react'
 import { useSwipeable } from 'react-swipeable'
+import SharedModal from './SharedModal'
 interface Carousel {
   index: number
   element: LoaderType
@@ -22,13 +22,13 @@ const Carousel: FC<Carousel> = ({ index, element, state }) => {
     router.push(`/css-loaders?${LOADER_PARAMS(state)}`, {})
   }
 
-  useEffect(() => {
-    const prefetch = router.prefetch
-    router.prefetch = async () => {}
-    return () => {
-      router.prefetch = prefetch
-    }
-  }, [router])
+  // useEffect(() => {
+  //   const prefetch = router.prefetch
+  //   router.prefetch = async () => {}
+  //   return () => {
+  //     router.prefetch = prefetch
+  //   }
+  // }, [router])
 
   const handlers = useSwipeable({
     onSwipedLeft: () => {

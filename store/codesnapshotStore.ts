@@ -15,6 +15,7 @@ const initialState: ICodeSnapShort = {
   showLineNumbers: false,
   showSettings: false,
   showHeader: true,
+  showInfiniteView: true,
   lineNumberCode: '',
   editorContainer: {
     backgroundColor: EDITOR_BACK_COLOR[0].backgroundColor,
@@ -75,6 +76,9 @@ export const codeSlice = createSlice({
     setLineNumber: (state, action: PayloadAction<boolean>) => {
       state.showLineNumbers = action.payload
     },
+    setInfiniteView: (state, action: PayloadAction<boolean>) => {
+      state.showInfiniteView = action.payload
+    },
     setEditorPadding: (state, action: PayloadAction<number>) => {
       state.editorContainer.padding = action.payload
     },
@@ -111,6 +115,7 @@ export const {
   setEditorHeader,
   setEditorRadius,
   setEditorlineNumberCode,
+  setInfiniteView
 } = codeSlice.actions
 
 export const selectCodeSnapShotState = (state: { codesnap: ICodeSnapShort }) =>

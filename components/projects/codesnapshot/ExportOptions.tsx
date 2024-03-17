@@ -1,111 +1,117 @@
 import { download } from '@/components/utils/image'
 import { copyToClipboard } from '@/components/utils/text'
-import html2canvas from 'html2canvas'
-import { useMemo, useCallback, useState } from 'react'
+import { TExportOption } from '@/types/codesnapshot.model'
+import { toBlob, toJpeg, toPng, toSvg } from 'html-to-image'
+import { useCallback, useState } from 'react'
 
-interface ExportOptionsProps {
-  // format: string
-  // onSelectFormat: (option: string) => void
-  element: any
+const exportOptions: TExportOption[] = ['copy', 'png', 'jpg', 'svg']
+
+const imageFormats: { [key in TExportOption]: Function } = {
+  png: toPng,
+  jpg: toJpeg,
+  svg: toSvg,
+  copy: toBlob,
 }
 
-const exportOptions: string[] = ['copy', 'png', 'jpg', 'svg']
+const ExportOptions = () => {
+  const [loading, setLoading] = useState(false)
+  const [exportExtn, setExportExtn] = useState<TExportOption>('png')
+  const [pixel, setPixel] = useState<number>(3)
 
-const ExportOptions = () =>
-  // { element }: ExportOptionsProps
-  {
-    const [loading, setLoading] = useState(false)
-    const handleAction = useCallback(async (format: string) => {
-      const editor_viewport = document.getElementById('editor_viewport')
-
-      if (!editor_viewport) return
+  const handleAction = useCallback(
+    (format: TExportOption) => {
+      setExportExtn(format)
+      const editorViewport = document.getElementById('editor_viewport')
+      if (!editorViewport) return
       setLoading(true)
-
-      const handleCanvas = (canvas: HTMLCanvasElement) => {
-        const imgData = canvas.toDataURL(`image/${format}`)
-        download(imgData, 'code_snapshot_capture', format)
-      }
-
-      const handleCopy = (canvas: HTMLCanvasElement) => {
-        canvas.toBlob(blob => {
-          blob && copyToClipboard(blob)
+      const conversionMethod = imageFormats[format]
+      if (!conversionMethod) return setLoading(false)
+      const option = { pixelRatio: pixel }
+      conversionMethod(editorViewport, option)
+        .then((data: any) => {
+          if (typeof data === 'string') {
+            download(data, 'code_snapshot_capture', format)
+          }
+          if (format === 'copy' && data) {
+            copyToClipboard(data)
+          }
         })
-      }
+        .catch((error: Error) => {
+          console.error('Error saving image:', error)
+        })
+        .finally(() => {
+          setLoading(false)
+        })
+    },
+    [pixel],
+  )
 
-      const option = {
-        // scale: 10,
-        width: editor_viewport.clientWidth,
-        height: editor_viewport.clientHeight,
-        allowTaint: true,
-        removeContainer: true,
-        logging: true,
-        letterRendering: true,
-        useCORS: true,
-      }
-
-      if (format === 'copy') {
-        await html2canvas(editor_viewport as HTMLElement, option).then(
-          handleCopy,
-        )
-      } else {
-        await html2canvas(editor_viewport as HTMLElement, option).then(
-          handleCanvas,
-        )
-      }
-      setLoading(false)
-    }, [])
-
-    const exportOptionsList = exportOptions.map(option => (
-      <li
-        className="!m-0 !p-0"
-        onClick={() => handleAction(option.toLowerCase())}
-        key={option}
+  const exportOptionsList = exportOptions.map(option => (
+    <li key={option} className="!m-0 !p-0">
+      <span
+        className={`uppercase ${exportExtn === option ? 'active' : ''}`}
+        onClick={() => handleAction(option)}
       >
-        <a className="uppercase">{option}</a>
-      </li>
-    ))
+        {option}
+      </span>
+    </li>
+  ))
 
-    return (
-      <div className="join border border-light">
+  const pixelOptions = [1, 2, 3, 4, 5].map(item => (
+    <li key={item} onClick={() => setPixel(item)} className="!m-0 !p-0">
+      <span className={item === pixel ? 'active' : ''}>{item}x</span>
+    </li>
+  ))
+  return (
+    <div className="join border border-light">
+      <button
+        className="join-item flex-1 !border-solid border-light !border-0 input"
+        onClick={() => handleAction(exportExtn)}
+      >
+        {!loading ? 'Export' : 'Exporting'}
+      </button>
+      <div className="dropdown dropdown-end join-item">
         <button
-          className="join-item flex-1 !border-solid border-light !border-0 !border-r-2 btn"
-          onClick={() => handleAction('png')}
-          // disabled={!element}
+          tabIndex={0}
+          role="button"
+          className="input !px-2 !border-0 !border-x-2 border-light join-item lowercase"
         >
-          {!loading ? 'Export' : 'Exporting'}
+          {pixel}x
         </button>
-        <div className="dropdown dropdown-end join-item">
-          <button
-            tabIndex={0}
-            role="button"
-            className="btn !px-2 join-item"
-            // disabled={!element}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-4 h-4"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="m19.5 8.25-7.5 7.5-7.5-7.5"
-              />
-            </svg>
-          </button>
-          <ul
-            tabIndex={0}
-            className="dropdown-content z-[1] menu !px-2 shadow bg-base-100 rounded-box"
-          >
-            {exportOptionsList}
-          </ul>
-        </div>
+        <ul
+          tabIndex={0}
+          className="dropdown-content z-[1] menu !px-2 shadow bg-base-100 rounded-box"
+        >
+          {pixelOptions}
+        </ul>
       </div>
-    )
-  }
+      <div className="dropdown dropdown-end join-item">
+        <button tabIndex={0} role="button" className="input !px-2 join-item">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-4 h-4"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="m19.5 8.25-7.5 7.5-7.5-7.5"
+            />
+          </svg>
+        </button>
+        <ul
+          tabIndex={0}
+          className="dropdown-content z-[1] menu !px-2 shadow bg-base-100 rounded-box"
+        >
+          {exportOptionsList}
+        </ul>
+      </div>
+    </div>
+  )
+}
 
 ExportOptions.displayName = 'ExportOptions'
 

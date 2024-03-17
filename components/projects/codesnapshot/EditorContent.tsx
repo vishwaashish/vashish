@@ -68,7 +68,7 @@ const EditorContent = () => {
 
   return (
     <div
-      className="relative w-min flex"
+      className="w-min flex"
       style={{
         padding: `${padding}rem`,
         backgroundColor: editorContainer.backgroundColor,
@@ -76,7 +76,7 @@ const EditorContent = () => {
       }}
     >
       <div
-        className="relative not-prose text-sm join join-vertical overflow-hidden"
+        className="not-prose text-sm join join-vertical overflow-hidden"
         style={{
           borderRadius: `${borderRadius}px`,
         }}

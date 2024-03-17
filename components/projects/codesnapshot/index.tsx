@@ -5,9 +5,10 @@ import {
   setEditorSetting,
   setLanguage,
   setThemes,
+  setInfiniteView,
 } from '@/store/codesnapshotStore'
 import { ICodeSnapShort } from '@/types/codesnapshot.model'
-import { useCallback } from 'react'
+import { useCallback, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { bundledLanguages, bundledThemes } from 'shiki/bundle/web'
 import ExportOptions from './ExportOptions'
@@ -18,10 +19,27 @@ import { motion } from 'framer-motion'
 import { transition } from '@/components/utils/animation'
 const EditorSetting = dynamic(() => import('./EditorSetting'))
 function CodeSnapShot() {
-  const { programmingLanguage, theme, showSettings }: ICodeSnapShort =
-    useSelector(selectCodeSnapShotState)
+  const {
+    programmingLanguage,
+    theme,
+    showSettings,
+    showInfiniteView,
+  }: ICodeSnapShort = useSelector(selectCodeSnapShotState)
 
   const dispatch = useDispatch()
+
+  const handleInfiniteViewerChange = useCallback(
+    (show: boolean) => {
+      dispatch(setInfiniteView(show))
+    },
+    [dispatch],
+  )
+  useEffect(() => {
+    if (window.matchMedia('(max-width: 600px)').matches) {
+      console.log('run')
+      handleInfiniteViewerChange(false)
+    }
+  }, [handleInfiniteViewerChange])
 
   const handleLanguageChange = useCallback(
     (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -47,7 +65,11 @@ function CodeSnapShot() {
       titleDelay={0.1}
     >
       <motion.p {...transition(0.2)}>
-      CodeSnapshot offers seamless customization for your code snippets. Easily adjust styling elements such as padding, font size, and color to suit your preferences. Export your customized code as high-quality images in JPG, PNG, and other formats. Perfect for showcasing your code in presentations, documentation, and social media posts.
+        CodeSnapshot offers seamless customization for your code snippets.
+        Easily adjust styling elements such as padding, font size, and color to
+        suit your preferences. Export your customized code as high-quality
+        images in JPG, PNG, and other formats. Perfect for showcasing your code
+        in presentations, documentation, and social media posts.
       </motion.p>
       <motion.p {...transition(0.3)}>
         📌 To bookmark this page, simply press <kbd className="kbd">Ctrl+D</kbd>
@@ -88,7 +110,7 @@ function CodeSnapShot() {
         </select>
 
         <button
-          className="btn !border-solid border-light "
+          className="input !border-solid border-light "
           onClick={handleEditorSettingChange}
         >
           <svg
@@ -121,7 +143,7 @@ function CodeSnapShot() {
       <br />
 
       <motion.div {...transition(0.4)}>
-        <EditorContainer />
+        <EditorContainer showInfiniteView={showInfiniteView} />
       </motion.div>
     </HeadPara>
   )

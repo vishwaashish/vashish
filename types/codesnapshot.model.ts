@@ -4,6 +4,7 @@ export interface ICodeSnapShort {
   theme: string
   highlightedCode: string
   showLineNumbers: boolean
+  showInfiniteView: boolean
   showSettings: boolean
   showHeader: boolean
   lineNumberCode: string
@@ -30,3 +31,5 @@ export interface IEditorBackgroundConstant {
   backgroundColor: string
   backgroundImage: string
 }
+
+export type TExportOption = 'copy' | 'png' | 'jpg' | 'svg'

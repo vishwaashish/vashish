@@ -86,13 +86,14 @@ const EditorContent = () => {
             className="flex join-item m-auto h-10 w-full items-center justify-between gap-4 px-5"
             style={{ backgroundColor: editor.headerColor }}
           >
-            <div className="grid h-full w-full items-center grid-cols-[60px_1fr_60px] gap-4">
+            <div className="grid h-full w-full items-center grid-cols-3 gap-4">
               <div className="flex items-center gap-2">
                 <div className="h-[13px] w-[13px] rounded-full bg-[#ff5f57]"></div>
                 <div className="h-[13px] w-[13px] rounded-full bg-[#febc2e]"></div>
                 <div className="h-[13px] w-[13px] rounded-full bg-[#28c840]"></div>
               </div>
-              <div className="filename flex justify-center"></div>
+              <div className="filename  justify-center">
+              </div>
               <div></div>
             </div>
           </div>
@@ -131,7 +132,7 @@ const EditorContent = () => {
                     'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
                   caretColor: editor.color,
                 }}
-                className="shikitextarea z-1 rounded-none !min-h-0 overflow-hidden textarea p-0 left-0 top-0 textarea-bordered border-0 outline-0 focus:outline-0 caret-slate-1001 text-transparent leading-relaxed resize-none w-full bg-transparent absolute"
+                className="shikitextarea no-scrollbar z-1 rounded-none !min-h-0 overflow-hidden textarea p-0 left-0 top-0 textarea-bordered border-0 outline-0 focus:outline-0 caret-slate-1001 text-transparent leading-relaxed resize-none w-full bg-transparent absolute"
                 value={code}
                 rows={1}
                 placeholder="Enter Code"
@@ -141,9 +142,7 @@ const EditorContent = () => {
               <div
                 ref={editorContent}
                 style={{
-                  // padding: '10px 0 10px 0',
                   minWidth: 100,
-                  // minHeight: 48,
                 }}
                 className="overflow-auto text-left rounded-none bg-transparent"
                 dangerouslySetInnerHTML={{

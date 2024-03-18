@@ -1,5 +1,11 @@
-import { clsx, ClassValue } from 'clsx'
+import { ClassValue, clsx } from 'clsx'
+import babelPlugin from 'prettier/plugins/babel'
+import estreePlugin from 'prettier/plugins/estree'
+import typescriptPlugin from 'prettier/plugins/typescript'
+import prettier from 'prettier/standalone'
 import { twMerge } from 'tailwind-merge'
+
+const plugins = [babelPlugin, typescriptPlugin, estreePlugin]
 
 export const cn = (...input: ClassValue[]) => {
   return twMerge(clsx(input))
@@ -63,4 +69,12 @@ export function oppositeColor(color: string, percentage: number): string {
     .join('')
 
   return '#' + hexColor
+}
+
+export const formatCode = (code: string) => {
+  return prettier.format(code, {
+    semi: false,
+    parser: 'babel',
+    plugins: plugins,
+  })
 }

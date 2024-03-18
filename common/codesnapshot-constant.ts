@@ -66,12 +66,13 @@ export const EDITOR_BACK_COLOR: IEditorBackgroundConstant[] = [
   {
     label: 'Gradiant9',
     backgroundColor: '#59C173',
-    backgroundImage: 'linear-gradient(120deg, #59C173 0%, #5D26C1 100%)',
+    backgroundImage: 'linear-gradient(160deg, #0093E9, #80D0C7)',
   },
   {
     label: 'Gradiant10',
     backgroundColor: '#2BC0E4',
-    backgroundImage: 'linear-gradient(120deg, #2BC0E4 0%, #EAECC6 100%)',
+    backgroundImage:
+      'linear-gradient(45deg, rgb(100, 101, 241), rgb(146, 218, 255), rgb(249, 247, 248))',
   },
   {
     label: 'Gradiant11',
@@ -92,7 +93,8 @@ export const EDITOR_BACK_COLOR: IEditorBackgroundConstant[] = [
   {
     label: 'Gradiant14',
     backgroundColor: '#FFD700',
-    backgroundImage: 'linear-gradient(120deg, #FFD700 0%, #FF9A00 100%)',
+    backgroundImage:
+      'linear-gradient(45deg, rgb(31, 0, 92), rgb(148, 13, 96), rgb(218, 95, 92), rgb(255, 181, 107))',
   },
   {
     label: 'Gradiant15',
@@ -142,12 +144,18 @@ export const EDITOR_BACK_COLOR: IEditorBackgroundConstant[] = [
   {
     label: 'Gradiant24',
     backgroundColor: '#2B32B2',
-    backgroundImage: 'linear-gradient(120deg, #2B32B2 0%, #1488CC 100%)',
+    backgroundImage: 'linear-gradient(to right, #6a3093, #a044ff)',
   },
   {
     label: 'Gradiant25',
     backgroundColor: '#02AAB0',
     backgroundImage: 'linear-gradient(120deg, #02AAB0 0%, #00CDAC 100%)',
+  },
+  {
+    label: 'Gradiant26',
+    backgroundColor: '#ffcc99',
+    backgroundImage:
+      'linear-gradient(to right bottom, #ffcc99, #f6bd83, #edad6e, #e49e59, #da8f44)',
   },
 
   {

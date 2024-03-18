@@ -73,8 +73,9 @@ const EditorSetting = () => {
       key={option.label}
     >
       <div
-        title={option.label}
-        className="w-8 h-8 shadow-md shadow-slate-700"
+        // title={option.label}
+        className="w-8 h-8 shadow-md tooltip"
+        data-tip={option.label}
         style={{
           backgroundColor: option.backgroundColor,
           backgroundImage: option.backgroundImage,

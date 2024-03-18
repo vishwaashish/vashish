@@ -115,7 +115,7 @@ export const {
   setEditorHeader,
   setEditorRadius,
   setEditorlineNumberCode,
-  setInfiniteView
+  setInfiniteView,
 } = codeSlice.actions
 
 export const selectCodeSnapShotState = (state: { codesnap: ICodeSnapShort }) =>

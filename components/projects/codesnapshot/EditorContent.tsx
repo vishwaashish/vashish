@@ -87,13 +87,12 @@ const EditorContent = () => {
             style={{ backgroundColor: editor.headerColor }}
           >
             <div className="grid h-full w-full items-center grid-cols-3 gap-4">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gapa-2">
                 <div className="h-[13px] w-[13px] rounded-full bg-[#ff5f57]"></div>
                 <div className="h-[13px] w-[13px] rounded-full bg-[#febc2e]"></div>
                 <div className="h-[13px] w-[13px] rounded-full bg-[#28c840]"></div>
               </div>
-              <div className="filename  justify-center">
-              </div>
+              <div className="filename  justify-center"></div>
               <div></div>
             </div>
           </div>

@@ -114,7 +114,8 @@ export default function Home() {
       <br />
       <br />
 
-      <RelatedProject />
+      <RelatedProject type='tool'/>
+      <RelatedProject type="project" />
     </>
   )
 }

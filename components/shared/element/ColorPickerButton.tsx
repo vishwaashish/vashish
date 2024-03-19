@@ -32,8 +32,8 @@ const ColorPickerButton = ({
       <input
         type="color"
         className={cn(
-          'no-animation active:focus:scale-95 p-0  border-0 btn join-item appearance-none',
-          size,
+          'no-animation active:focus:scale-95 !px-0  border-0 btn btn-sm join-item appearance-none',
+          `md:${size}`,
         )}
         value={value}
         onChange={onChange}
@@ -59,9 +59,9 @@ const ColorPickerButton = ({
 
       <button
         className={cn(
-          'btn  no-animation active:focus:scale-95 join-item swap swap-flip min-w-[100px] border-0 border-l-2 border-neutral-content grow ',
+          'btn  no-animation active:focus:scale-95 join-item btn-sm  swap swap-flip min-w-[100px] border-0 border-l-2 border-neutral-content grow ',
           copied && 'swap-active',
-          size,
+          `md:${size}`,
         )}
         onClick={onCopy}
         aria-label={'Copied! ' + value}

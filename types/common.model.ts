@@ -6,8 +6,9 @@ export interface RelatedProjectMetaType {
   path: string
   icon: (val?: string) => React.ReactElement
   className: string
-  img: StaticImageData
+  img: string
   target: '_blank' | '_self'
+  type: 'tool' | 'project'
 }
 
 // export interface RelatedProjectsType {

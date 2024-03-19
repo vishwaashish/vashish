@@ -27,9 +27,10 @@ export const projectMeta: RelatedProjectsType = {
         />
       </svg>
     ),
-    img: require('@/assets/images/password-generator.jpeg'),
+    img: '/projects/password-generator.jpeg',
     className: '',
     target: '_self',
+    type: 'tool',
   },
 
   passwordValidator: {
@@ -57,9 +58,10 @@ export const projectMeta: RelatedProjectsType = {
         />
       </svg>
     ),
-    img: require('@/assets/images/password-validator.jpeg'),
+    img: "/projects/password-validator.jpeg",
     className: '',
     target: '_self',
+    type: 'tool',
   },
   CSSLoaders: {
     title: 'CSS Loaders Gallery',
@@ -83,9 +85,10 @@ export const projectMeta: RelatedProjectsType = {
         />
       </svg>
     ),
-    img: require('@/assets/images/loader.jpeg'),
+    img: "/projects/loader.jpeg",
     className: '',
     target: '_self',
+    type: 'tool',
   },
   quotes: {
     title: 'Quotes for Every Occasion',
@@ -108,9 +111,10 @@ export const projectMeta: RelatedProjectsType = {
         />
       </svg>
     ),
-    img: require('@/assets/images/quotes.jpeg'),
+    img: "/projects/quotes.jpeg",
     className: '',
     target: '_self',
+    type: 'tool',
   },
   basicCalculator: {
     title: 'Free Online Basic Calculator',
@@ -132,36 +136,50 @@ export const projectMeta: RelatedProjectsType = {
         />
       </svg>
     ),
-    img: require('@/assets/images/basic-calculator.jpeg'),
+    img: "/projects/basic-calculator.jpeg",
     className: '',
     target: '_self',
+    type: 'tool',
   },
   lockscreen: {
     title: 'Your Personalized Lockscreen',
-    description: ``,
+    description: `Elevate your lockscreen with stunning images and the current time. Stay stylishly informed and enhance your device's appeal instantly`,
     path: 'https://lock-screen.vercel.app',
     icon: className => <></>,
-    img: require('@/assets/images/lockscreen.jpeg'),
+    img: "/projects/lockscreen.jpeg",
     className: '',
     target: '_blank',
+    type: 'project',
   },
   blogsite: {
     title: 'Adventures in Blogland',
-    description: ``,
+    description: `Explore insightful articles and engaging content on our blog site. From practical tips to thought-provoking discussions, we cover a range of topics to enrich your knowledge. Stay informed, inspired, and entertained with our diverse collection of blog posts. Start reading now!`,
     path: 'https://vishwaashish.github.io/React-blogsite/',
     icon: className => <></>,
-    img: require('@/assets/images/blogsite.jpeg'),
+    img: "/projects/blogsite.jpeg",
     className: '',
     target: '_blank',
+    type: 'project',
   },
   codesnapshot: {
-    title: 'Cole Snapshot',
-    description: ``,
+    title: 'Code Snapshot',
+    description: `Customize your code snippets effortlessly with CodeSnapshot. Tailor padding, font size, and color to your liking. Export your personalized code as high-quality JPG, PNG, and more. Ideal for presentations, documentation, and social media. Try now!`,
     path: '/codesnapshot',
     icon: className => <></>,
-    img: require('@/assets/images/codesnapshot.jpeg'),
+    img: "/projects/codesnapshot.jpeg",
     className: '',
     target: '_self',
+    type: 'tool',
+  },
+  villaVueBranders: {
+    title: 'VillaVue Branders: Elevate Your Hoteling Experience',
+    description: `Transform your hotel or villa into a unique brand that attracts attention and engages the senses. Contact us now to elevate your accommodation game.`,
+    path: 'https://villavuebranders.vercel.app/',
+    icon: className => <></>,
+    img: "/projects/villaVueBranders.jpeg",
+    className: '',
+    target: '_blank',
+    type: 'project',
   },
 }
 

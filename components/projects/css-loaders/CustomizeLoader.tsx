@@ -265,8 +265,8 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
             <div className="tooltip mr-auto" data-tip="Reset">
               <button
                 className={cn(
-                  'btn no-animation active:focus:scale-95 btn-primary group   text-white',
-                  btnSize,
+                  'btn btn-sm no-animation active:focus:scale-95 btn-primary group   text-white',
+                  `md:${btnSize}`,
                 )}
                 role="button"
                 aria-label="Reset"
@@ -314,8 +314,8 @@ const ButtonSize = ({
       <button
         className={cn(
           active && 'btn-active btn-primary text-white',
-          'no-animation active:focus:scale-95 btn join-item aspect-square w-full ',
-          size,
+          'no-animation active:focus:scale-95 btn btn-sm join-item aspect-square w-full ',
+          `md:${size}`,
         )}
         onClick={onClick}
         role="button"

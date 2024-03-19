@@ -37,7 +37,8 @@ const ProjectLayout: FC<ProjectLayout> = ({ className, children }) => {
 
       <Container className={className}>{children}</Container>
       <br />
-      <RelatedProject />
+      <RelatedProject type="tool" />
+      <RelatedProject type="project" />
     </>
   )
 }

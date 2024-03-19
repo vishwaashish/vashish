@@ -86,8 +86,8 @@ const EditorContent = () => {
             className="flex join-item m-auto h-10 w-full items-center justify-between gap-4 px-5"
             style={{ backgroundColor: editor.headerColor }}
           >
-            <div className="grid h-full w-full items-center grid-cols-3 gap-4">
-              <div className="flex items-center gap-2">
+            <div className="flex h-full w-full items-center  gap-4">
+              <div className="flex items-center gap-2 w-[55px]">
                 <div className="h-[13px] w-[13px] rounded-full bg-[#ff5f57]"></div>
                 <div className="h-[13px] w-[13px] rounded-full bg-[#febc2e]"></div>
                 <div className="h-[13px] w-[13px] rounded-full bg-[#28c840]"></div>

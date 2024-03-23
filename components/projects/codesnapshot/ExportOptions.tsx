@@ -62,31 +62,38 @@ const ExportOptions = () => {
       <span className={item === pixel ? 'active' : ''}>{item}x</span>
     </li>
   ))
+
+  const dropdownClass =
+    'dropdown-content z-[1] menu !px-2 border border-light shadow bg-base-100 rounded-box'
   return (
     <div className="join border border-light">
       <button
-        className="join-item flex-1 !border-solid border-light !border-0 input"
+        className="join-item flex-1 !border-solid border-light !border-0 input input-sm sm:input-md"
         onClick={() => handleAction(exportExtn)}
       >
         {!loading ? 'Export' : 'Exporting'}
       </button>
-      <div className="dropdown dropdown-end join-item">
+      <div
+        className="dropdown tooltip dropdown-end join-item border-0 !border-l border-light "
+        data-tip="Size"
+      >
         <button
           tabIndex={0}
           role="button"
-          className="input !px-2 !border-0 !border-x-2 border-light join-item lowercase"
+          className="input input-sm sm:input-md !px-2 join-item lowercase"
         >
           {pixel}x
         </button>
-        <ul
-          tabIndex={0}
-          className="dropdown-content z-[1] menu !px-2 shadow bg-base-100 rounded-box"
-        >
+        <ul tabIndex={0} className={dropdownClass}>
           {pixelOptions}
         </ul>
       </div>
-      <div className="dropdown dropdown-end join-item">
-        <button tabIndex={0} role="button" className="input !px-2 join-item">
+      <div className="dropdown  dropdown-end join-item border-0 !border-l border-light">
+        <button
+          tabIndex={0}
+          role="button"
+          className="input input-sm sm:input-md !px-2  join-item"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -102,10 +109,7 @@ const ExportOptions = () => {
             />
           </svg>
         </button>
-        <ul
-          tabIndex={0}
-          className="dropdown-content z-[1] menu !px-2 shadow bg-base-100 rounded-box"
-        >
+        <ul tabIndex={0} className={dropdownClass}>
           {exportOptionsList}
         </ul>
       </div>

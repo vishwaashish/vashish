@@ -121,7 +121,7 @@ export const projectMeta: RelatedProjectsType = {
     // description:
     //   'Create Strong Passwords Easily - Generate secure, random passwords effortlessly.',
     description: `Perform simple arithmetic calculations quickly and easily with our free online basic calculator. Add, subtract, multiply, and divide with just a few clicks. It's a handy tool for everyday math tasks. Give it a try now!`,
-    path: 'basic-calculator',
+    path: '/basic-calculator',
     icon: className => (
       <svg
         xmlns="http://www.w3.org/2000/svg"

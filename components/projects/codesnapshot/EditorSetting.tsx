@@ -23,6 +23,7 @@ const EditorSetting = () => {
     showInfiniteView,
     editorContainer,
     showHeader,
+    showSettings,
   }: ICodeSnapShort = useSelector(selectCodeSnapShotState)
 
   const { padding, borderRadius } = editorContainer
@@ -73,7 +74,6 @@ const EditorSetting = () => {
       key={option.label}
     >
       <div
-        // title={option.label}
         className="w-8 h-8 shadow-md tooltip"
         data-tip={option.label}
         style={{
@@ -89,6 +89,10 @@ const EditorSetting = () => {
     visible: { opacity: 1 },
   }
 
+  if (!showSettings) {
+    return <></>
+  }
+
   return (
     <motion.div
       key="box"
@@ -98,7 +102,7 @@ const EditorSetting = () => {
       exit="hidden"
     >
       <motion.div
-        className="border  z-[1] mt-5 rounded-md border-light p-4 flex flex-wrap justify-center items-center gap-5"
+        className="border  z-[1]  rounded-md border-light p-4 flex flex-wrap justify-center items-center gap-5"
         {...transition(0)}
       >
         <FormGroup label="Infinite Viewer">
@@ -151,10 +155,7 @@ const EditorSetting = () => {
           />
         </FormGroup>
 
-        <FormGroup
-          label="Background"
-          // className="dropdown md:dropdown-end dropdown-bottom"
-        >
+        <FormGroup label="Background">
           <button
             onClick={() => setShowBg(val => !val)}
             role="button"
@@ -169,12 +170,6 @@ const EditorSetting = () => {
               }}
             ></div>
           </button>
-          {/* <ul
-          tabIndex={0}
-          className="dropdown-content z-[10] menu !px-2 shadow bg-base-100 rounded-box flex flex-row flex-wrap sm:min-w-[300px] gap-2 justify-center"
-        >
-          {backgroundColorOptions}
-        </ul> */}
         </FormGroup>
 
         <AnimatePresence mode="wait">

@@ -1,14 +1,16 @@
 import { cn } from '@/components/utils'
+import { selectCodeSnapShotState } from '@/store/codesnapshotStore'
+import { ICodeSnapShort } from '@/types/codesnapshot.model'
 import dynamic from 'next/dynamic'
 import { useRef } from 'react'
 import InfiniteViewer from 'react-infinite-viewer'
+import { useSelector } from 'react-redux'
 const EditorContent = dynamic(() => import('./EditorContent'))
 
-const EditorContainer = ({
-  showInfiniteView,
-}: {
-  showInfiniteView: boolean
-}) => {
+const EditorContainer = () => {
+  const { showInfiniteView }: ICodeSnapShort = useSelector(
+    selectCodeSnapShotState,
+  )
   const editorRef = useRef<HTMLDivElement>(null)
   // useEffect(() => {
   // const updateHeight = () => {
@@ -31,7 +33,7 @@ const EditorContainer = ({
       )}
     >
       <div ref={editorRef} className=" w-min " id="editor_viewport">
-        {EditorContent && <EditorContent />}
+        {<EditorContent />}
       </div>
     </div>
   )
@@ -52,7 +54,9 @@ const EditorContainer = ({
           {renderElement()}
         </InfiniteViewer>
       ) : (
-        <div className="max-w-screen overflow-auto border-2 rounded p-2 md:p-5">{renderElement()}</div>
+        <div className="max-w-screen overflow-auto border-2 rounded p-2 md:p-5">
+          {renderElement()}
+        </div>
       )}
     </div>
   )

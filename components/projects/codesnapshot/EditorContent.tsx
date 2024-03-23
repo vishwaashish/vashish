@@ -66,6 +66,32 @@ const EditorContent = () => {
     }
   }
 
+  const renderHeader = () => (
+    <div
+      className="flex join-item m-auto h-10 w-full items-center justify-between gap-4 px-5"
+      style={{ backgroundColor: editor.headerColor }}
+    >
+      <div className="flex h-full w-full items-center  gap-4">
+        <div className="flex items-center gap-2 w-[55px]">
+          <div className="h-[13px] w-[13px] rounded-full bg-[#ff5f57]"></div>
+          <div className="h-[13px] w-[13px] rounded-full bg-[#febc2e]"></div>
+          <div className="h-[13px] w-[13px] rounded-full bg-[#28c840]"></div>
+        </div>
+        <div className="filename  justify-center"></div>
+        <div></div>
+      </div>
+    </div>
+  )
+
+  if (loading) {
+    return (
+      <div className="flex justify-center flex-wrap animate-pulse gap-1 join join-vertical">
+        <div className="bg-base-200 w-64 h-10 rounded-lg join-item"></div>
+        <div className="bg-base-200 w-64 h-24 rounded-lg join-item"></div>
+      </div>
+    )
+  }
+
   return (
     <div
       className="w-min flex"
@@ -81,24 +107,7 @@ const EditorContent = () => {
           borderRadius: `${borderRadius}px`,
         }}
       >
-        {showHeader ? (
-          <div
-            className="flex join-item m-auto h-10 w-full items-center justify-between gap-4 px-5"
-            style={{ backgroundColor: editor.headerColor }}
-          >
-            <div className="flex h-full w-full items-center  gap-4">
-              <div className="flex items-center gap-2 w-[55px]">
-                <div className="h-[13px] w-[13px] rounded-full bg-[#ff5f57]"></div>
-                <div className="h-[13px] w-[13px] rounded-full bg-[#febc2e]"></div>
-                <div className="h-[13px] w-[13px] rounded-full bg-[#28c840]"></div>
-              </div>
-              <div className="filename  justify-center"></div>
-              <div></div>
-            </div>
-          </div>
-        ) : (
-          ''
-        )}
+        {showHeader ? renderHeader() : null}
 
         <div
           className="px-5 py-2 m-auto join-item shikicontainer leading-relaxed flex flex-row"
@@ -116,40 +125,32 @@ const EditorContent = () => {
             />
           )}
 
-          {loading ? (
-            <div className="animate-pulse w-full py-2">
-              <div className=" bg-slate-200 rounded text-gray-500">
-                Loading...
-              </div>
-            </div>
-          ) : (
-            <div className="relative w-full">
-              <textarea
-                ref={textAreaRef}
-                style={{
-                  fontFamily:
-                    'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
-                  caretColor: editor.color,
-                }}
-                className="shikitextarea no-scrollbar z-1 rounded-none !min-h-0 overflow-hidden textarea p-0 left-0 top-0 textarea-bordered border-0 outline-0 focus:outline-0 caret-slate-1001 text-transparent leading-relaxed resize-none w-full bg-transparent absolute"
-                value={code}
-                rows={1}
-                placeholder="Enter Code"
-                onChange={handleChange}
-                onKeyUp={handleKeyUp}
-              ></textarea>
-              <div
-                ref={editorContent}
-                style={{
-                  minWidth: 100,
-                }}
-                className="overflow-auto text-left rounded-none bg-transparent"
-                dangerouslySetInnerHTML={{
-                  __html: highlightedCode,
-                }}
-              />
-            </div>
-          )}
+          <div className="relative w-full">
+            <textarea
+              ref={textAreaRef}
+              style={{
+                fontFamily:
+                  'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+                caretColor: editor.color,
+              }}
+              className="shikitextarea no-scrollbar z-1 rounded-none !min-h-0 overflow-hidden textarea p-0 left-0 top-0 textarea-bordered border-0 outline-0 focus:outline-0 caret-slate-1001 text-transparent leading-relaxed resize-none w-full bg-transparent absolute"
+              value={code}
+              rows={1}
+              placeholder="Enter Code"
+              onChange={handleChange}
+              onKeyUp={handleKeyUp}
+            ></textarea>
+            <div
+              ref={editorContent}
+              style={{
+                minWidth: 100,
+              }}
+              className="overflow-auto text-left rounded-none bg-transparent"
+              dangerouslySetInnerHTML={{
+                __html: highlightedCode,
+              }}
+            />
+          </div>
         </div>
       </div>
     </div>

@@ -1,8 +1,9 @@
-'use client'
-import { motion } from 'framer-motion'
-import { transition } from '../utils/animation'
-import React, { FC } from 'react'
-import { cn } from '../utils'
+"use client";
+import { motion } from "framer-motion";
+import { transition } from "../utils/animation";
+import {type FC} from "react";
+import type React from "react";
+import { cn } from "../utils";
 
 interface IHeadPara {
   className?: string
@@ -14,36 +15,36 @@ interface IHeadPara {
 }
 
 export const HeadPara: FC<IHeadPara> = ({
-  className = '',
-  title = '',
-  description = '',
-  titleDelay = 0,
-  descriptionDelay = 0,
-  children,
+    className = "",
+    title = "",
+    description = "",
+    titleDelay = 0,
+    descriptionDelay = 0,
+    children,
 }) => {
-  return (
-    <div
-      className={cn(
-        'prose lg:prose-lg prose-a:no-underline  min-w-full mx-auto md:pt-12 md:px-8 text-center',
-        className,
-      )}
-    >
-      <motion.h1
-        {...(titleDelay && transition(titleDelay))}
-        className="  antialiased  capitalize"
-      >
-        {title}
-      </motion.h1>
-
-      {description && (
-        <motion.p
-          {...(descriptionDelay && transition(descriptionDelay))}
-          className="mx-auto md:max-w-screen-md pb-5 "
+    return (
+        <div
+            className={cn(
+                "prose lg:prose-lg prose-a:no-underline min-w-full mx-auto md:pt-12 md:px-8 text-center prose-headings:!text-",
+                className,
+            )}
         >
-          {description}
-        </motion.p>
-      )}
-      {children}
-    </div>
-  )
-}
+            <motion.h1
+                {...(titleDelay && transition(titleDelay))}
+                className="  antialiased  capitalize"
+            >
+                {title}
+            </motion.h1>
+
+            {description && (
+                <motion.p
+                    {...(descriptionDelay && transition(descriptionDelay))}
+                    className="mx-auto md:max-w-screen-md pb-5 "
+                >
+                    {description}
+                </motion.p>
+            )}
+            {children}
+        </div>
+    );
+};

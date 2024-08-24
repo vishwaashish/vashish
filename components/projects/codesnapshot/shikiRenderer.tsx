@@ -1,30 +1,30 @@
 import {
-  bundledLanguages,
-  bundledThemes,
-  getHighlighter,
-} from 'shiki/bundle/web'
+    bundledLanguages,
+    bundledThemes,
+    getHighlighter,
+} from "shiki/bundle/web";
 
-var highlighterPromise: any = null
+let highlighterPromise: any = null;
 
 function getHighlighterInstance() {
-  if (!highlighterPromise) {
-    highlighterPromise = getHighlighter({
-      themes: Object.keys(bundledThemes),
-      langs: Object.keys(bundledLanguages),
-    })
-  }
-  return highlighterPromise
+    if (!highlighterPromise) {
+        highlighterPromise = getHighlighter({
+            themes: Object.keys(bundledThemes),
+            langs: Object.keys(bundledLanguages),
+        });
+    }
+    return highlighterPromise;
 }
 
 export async function renderCode(
-  code = '',
-  lang = 'javascript',
-  theme = 'dark-plus',
+    code = "",
+    lang = "javascript",
+    theme = "dark-plus",
 ) {
-  const highlighter = await getHighlighterInstance()
-  if (!highlighter) return null
-  const result = await highlighter.codeToHtml(code, { lang, theme })
-  return result
+    const highlighter = await getHighlighterInstance();
+    if (!highlighter) return null;
+    const result = await highlighter.codeToHtml(code, { lang, theme });
+    return result;
 }
 
-export default renderCode
+export default renderCode;

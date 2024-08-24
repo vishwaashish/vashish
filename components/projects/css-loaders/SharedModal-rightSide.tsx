@@ -1,8 +1,8 @@
 import Container from '@/components/shared/Container'
 import { copyToClipboard } from '@/components/utils/text'
-import { ILoaderParams, LoaderType } from '@/types/css-loaders.model'
+import { type ILoaderParams, type LoaderType } from '@/types/css-loaders.model'
 import { Disclosure, Transition } from '@headlessui/react'
-import React from 'react'
+import type React from 'react'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { CopyButton } from '../../shared/CopyButton'
 
@@ -65,7 +65,9 @@ const SharedModalRightSide = ({
                       titleProps={
                         <CopyButton
                           className="btn btn-sm btn-circle "
-                          onClick={() => copyToClipboard(activeLoader.html)}
+                          onClick={async () =>
+                            copyToClipboard(activeLoader.html)
+                          }
                         />
                       }
                     >
@@ -86,7 +88,7 @@ const SharedModalRightSide = ({
                       titleProps={
                         <CopyButton
                           className="btn btn-sm btn-circle "
-                          onClick={() =>
+                          onClick={async () =>
                             copyToClipboard(rootString + activeLoader.css)
                           }
                         />

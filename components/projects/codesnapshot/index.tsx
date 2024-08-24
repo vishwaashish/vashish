@@ -3,7 +3,7 @@ import { HeadPara } from '@/components/shared/Heading'
 import { transition } from '@/components/utils/animation'
 import { motion } from 'framer-motion'
 import dynamic from 'next/dynamic'
-const EditorSetting = dynamic(() => import('./EditorSetting'), {
+const EditorSetting = dynamic(async () => import('./EditorSetting'), {
   loading: () => (
     <div className="flex justify-center flex-wrap animate-pulse gap-3">
       <div className=" bg-base-200 w-28 h-12 rounded-lg"></div>
@@ -13,21 +13,24 @@ const EditorSetting = dynamic(() => import('./EditorSetting'), {
     </div>
   ),
 })
-const EditorContainer = dynamic(() => import('./EditorContainer'), {
+const EditorContainer = dynamic(async () => import('./EditorContainer'), {
   loading: () => (
     <div className="flex justify-center flex-wrap animate-pulse gap-3 bg-base-200 w-full h-60 rounded-lg"></div>
   ),
 })
-const EditorFilterOptions = dynamic(() => import('./EditorFilterOptions'), {
-  loading: () => (
-    <div className="flex justify-center flex-wrap animate-pulse gap-3">
-      <div className=" bg-base-200 w-28 h-12 rounded-lg"></div>
-      <div className=" bg-base-200 w-28 h-12 rounded-lg "></div>
-      <div className=" bg-base-200 w-28 h-12 rounded-lg "></div>
-      <div className=" bg-base-200 w-28 h-12 rounded-lg "></div>
-    </div>
-  ),
-})
+const EditorFilterOptions = dynamic(
+  async () => import('./EditorFilterOptions'),
+  {
+    loading: () => (
+      <div className="flex justify-center flex-wrap animate-pulse gap-3">
+        <div className=" bg-base-200 w-28 h-12 rounded-lg"></div>
+        <div className=" bg-base-200 w-28 h-12 rounded-lg "></div>
+        <div className=" bg-base-200 w-28 h-12 rounded-lg "></div>
+        <div className=" bg-base-200 w-28 h-12 rounded-lg "></div>
+      </div>
+    ),
+  },
+)
 function CodeSnapShot() {
   return (
     <HeadPara

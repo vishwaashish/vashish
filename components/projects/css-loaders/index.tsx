@@ -1,14 +1,15 @@
-// 'use client'
+'use client'
 import { DEFAULT_SETTINGS } from '@/common/loaders-constants'
 import { HeadPara } from '@/components/shared/Heading'
-import { LoaderType } from '@/types/css-loaders.model'
-import { FC } from 'react'
+import { type LoaderType } from '@/types/css-loaders.model'
+import { type FC } from 'react'
 // import Loader from './Loader'
+import useWindowSize from '@/components/hooks/useWindowSize'
 import dynamic from 'next/dynamic'
 import Loaders from './Loaders'
 import { CustomizeSkeleton } from './Skeleton'
 
-const CustomizeLoader = dynamic(() => import('./CustomizeLoader'), {
+const CustomizeLoader = dynamic(async () => import('./CustomizeLoader'), {
   ssr: false,
   loading: () => <CustomizeSkeleton />,
 })
@@ -35,6 +36,7 @@ const CSSLoaders: FC<CSSLoadersProps> = ({ loaders, query }) => {
     secondaryColor,
     sourceCode,
   }
+  const { breakpoint } = useWindowSize()
   return (
     <HeadPara
       title="CSS Loaders Gallery"
@@ -50,7 +52,10 @@ const CSSLoaders: FC<CSSLoadersProps> = ({ loaders, query }) => {
       </p>
       <br />
 
-      <CustomizeLoader state={state} />
+      <CustomizeLoader
+        state={state}
+        size={breakpoint === 'sm' ? 'sm' : 'default'}
+      />
       <br />
       <br />
 

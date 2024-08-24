@@ -1,7 +1,7 @@
 'use client'
 
 import { HeadPara } from '@/components/shared/Heading'
-import { IQuoteCategory } from '@/types/quotes.model'
+import { type IQuoteCategory } from '@/types/quotes.model'
 import Link from 'next/link'
 import { QuoteCards } from './StyledComponent'
 import { projectMeta } from '@/common/constants'
@@ -26,7 +26,7 @@ const Categories = ({ categories }: { categories: IQuoteCategory[] }) => {
               className="flex flex-col h-full "
               href={`/quotes/${category.path}`}
             >
-              <div className="flex justify-center items-center rounded-xl bg-base-200 hover:bg-primary hover:text-white  aspect-video">
+              <div className="flex hover:scale-105 justify-center shadow items-center border-muted-foreground rounded-xl transition-all  bg-muted hover:bg-primary   aspect-video">
                 <p className="w-full font-semibold md:text-xl text-center capitalize">
                   {category.name}
                 </p>

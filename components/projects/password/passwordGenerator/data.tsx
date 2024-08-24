@@ -1,16 +1,16 @@
 export const initialState = {
-  lowerCase: { label: 'Lower Case', checked: true },
-  upperCase: { label: 'Upper Case', checked: true },
-  specialChar: { label: 'Special Character', checked: true },
-  digits: { label: 'Digits', checked: true },
-}
+    lowerCase: { label: "Lower Case", checked: true },
+    upperCase: { label: "Upper Case", checked: true },
+    specialChar: { label: "Special Character", checked: true },
+    digits: { label: "Digits", checked: true },
+};
 
 export const charactersUsed = {
-  lowerCase: 'abcdefghijklmnopqrstuvwxyz',
-  upperCase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-  specialChar: "!@#$%^&*()-_=+[]{}|;:',.<>?",
-  digits: '0123456789',
-}
+    lowerCase: "abcdefghijklmnopqrstuvwxyz",
+    upperCase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    specialChar: "!@#$%^&*()-_=+[]{}|;:',.<>?",
+    digits: "0123456789",
+};
 
 export interface charactersModal<T> {
   lowerCase: T
@@ -19,29 +19,29 @@ export interface charactersModal<T> {
   digits: T
 }
 
-export const MAX_CATEGORY_LENGTH = 50
-export const MIN_CATEGORY_LENGTH = 4
+export const MAX_CATEGORY_LENGTH = 50;
+export const MIN_CATEGORY_LENGTH = 4;
 
 export const initialCategory = {
-  easyToRead: {
-    checked: false,
-    label: 'Easy to read',
-    enabled: ['lowerCase', 'upperCase'],
-    disabled: ['specialChar', 'digits'],
-  },
-  pin: {
-    checked: false,
-    label: 'Pin',
-    enabled: ['digits'],
-    disabled: ['lowerCase', 'upperCase', 'specialChar'],
-  },
-  allCharacter: {
-    checked: true,
-    label: 'All characters',
-    enabled: Object.keys(initialState),
-    disabled: [],
-  },
-}
+    easyToRead: {
+        checked: false,
+        label: "Easy to read",
+        enabled: ["lowerCase", "upperCase"],
+        disabled: ["specialChar", "digits"],
+    },
+    pin: {
+        checked: false,
+        label: "Pin",
+        enabled: ["digits"],
+        disabled: ["lowerCase", "upperCase", "specialChar"],
+    },
+    allCharacter: {
+        checked: true,
+        label: "All characters",
+        enabled: Object.keys(initialState),
+        disabled: [],
+    },
+};
 
 export interface StateModel {
   lowerCase: StateObjectModel
@@ -50,7 +50,7 @@ export interface StateModel {
   digits: StateObjectModel
 }
 
-export type StateObjectModel = {
+export interface StateObjectModel {
   label: string
   checked: boolean
 }
@@ -60,7 +60,7 @@ export interface CategoryModal {
   allCharacter: CategoryObjModal
 }
 
-export type CategoryObjModal = {
+export interface CategoryObjModal {
   checked: boolean
   label: string
   enabled: string[]

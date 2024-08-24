@@ -32,4 +32,4 @@ export interface IEditorBackgroundConstant {
   backgroundImage: string
 }
 
-export type TExportOption = 'copy' | 'png' | 'jpg' | 'svg'
+export type TExportOption = "copy" | "png" | "jpg" | "svg"

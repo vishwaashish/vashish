@@ -1,84 +1,36 @@
 'use client'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip'
+import { useTheme } from 'next-themes'
 import Link from 'next/link'
-import { memo, useCallback, useEffect, useState } from 'react'
+import { memo } from 'react'
 import Container from '../shared/Container'
 import { cn } from '../utils'
-import { LOCAL_DATA } from '@/common/constants'
 
-const themeOptions = [
-  'light',
-  'dark',
-  'cupcake',
-  'dracula',
-  'night',
-  'wireframe',
-  'black',
-  'business',
-]
+import { Button } from '@/components/ui/button'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
+import { Moon, Sun } from 'lucide-react'
 
 function Header({ mode = 'all' }: { mode?: 'dark' | 'all' }) {
-  const [theme, setTheme] = useState(true)
+  const { setTheme } = useTheme()
 
-  useEffect(() => {
-    const data = document.getElementsByTagName('html')[0]
-
-    const theme = data.getAttribute('data-theme') || 'dracula'
-
-    setTheme(theme === 'dracula' ? true : false)
-  }, [])
-  const onChange = useCallback(() => {
-    const data = document.getElementsByTagName('html')[0]
-
-    setTheme(val => {
-      data.setAttribute('data-theme', !val ? 'dracula' : 'light')
-
-      return !val
-    })
-  }, [])
-
-  // useEffect(() => {
-  //   const savedTheme = localStorage.getItem(LOCAL_DATA)
-  //   const data = document.getElementsByTagName('html')[0]
-
-  //   if (savedTheme) {
-  //     setTheme(savedTheme === 'dark')
-  //     data.setAttribute(
-  //       'data-theme',
-  //       savedTheme === 'dark' ? 'dracula' : 'light',
-  //     )
-  //   } else {
-  //     const prefersDarkMode = window.matchMedia(
-  //       '(prefers-color-scheme: dark)',
-  //     ).matches
-
-  //     data.setAttribute('data-theme', prefersDarkMode ? 'dracula' : 'light')
-  //     localStorage.setItem(LOCAL_DATA, prefersDarkMode ? 'dark' : 'light')
-
-  //     setTheme(prefersDarkMode)
-  //   }
-  // }, [])
-
-  // const onChange = useCallback(() => {
-  //   const data = document.getElementsByTagName('html')[0]
-
-  //   setTheme(val => {
-  //     data.setAttribute('data-theme', val ? 'light' : 'dracula')
-  //     localStorage.setItem(LOCAL_DATA, val ? 'light' : 'dark')
-  //     return !val
-  //   })
-  // }, [])
-
-  const btnClass = 'btn btn-ghost btn-circle btn-sm h-auto p-2 w-auto'
   return (
-    <div className="">
-      <Container className="navbar relative z-10 py-0">
+    <div className={cn(mode === 'dark' && 'text-[#020817]')}>
+      <Container className="flex items-center w-full px-5 relative z-10 py-2">
         <div className="flex-1">
           <Link
             href="/"
-            className="text-xl  font-bold cursor-pointer flex aligns-center gap-2"
+            className="text-xl font-bold cursor-pointer flex items-center gap-2"
           >
-            {/* AVishwakarma */}
-            {/* fill="#570df8" */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="42"
@@ -88,11 +40,7 @@ function Header({ mode = 'all' }: { mode?: 'dark' | 'all' }) {
             >
               <path
                 d="M24.9463 0L13.4363 24.8431H3.66446L1.73828 29.9181L16.349 29.9591L27.9793 4.91132H37.49L39.9799 0H24.9463Z"
-                // fill="#303030"
-                className={cn(
-                  'fill-base-content',
-                  mode === 'dark' && 'fill-accent-content',
-                )}
+                className={cn('fill-foreground')}
               />
               <path
                 fillRule="evenodd"
@@ -113,78 +61,74 @@ function Header({ mode = 'all' }: { mode?: 'dark' | 'all' }) {
           </Link>
         </div>
         <div className="flex">
-          <span
-            className="tooltip tooltip-bottom before:text-xs "
-            data-tip={theme ? 'Dark' : 'Light'}
-          >
-            <button
-              className={cn(
-                btnClass,
-                ' swap swap-rotate',
-                theme && 'swap-active',
-              )}
-              onClick={onChange}
-            >
-              <span className="swap-off" role="button" aria-label="Light Theme">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="yellow"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-full h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
-                  />
-                </svg>
-              </span>
-              <span className="swap-on" role="button" aria-label="Dark Theme">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant={'link'} size="icon" hover="none">
+                <Sun
+                  fill={cn('yellow')}
+                  className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
+                />
+                <Moon
+                  fill={cn(
+                    'fill-foreground',
+                    mode === 'dark' && 'text-[#020817]',
+                  )}
                   className={cn(
-                    'w-full fill-current  h-5 stroke-2',
-                    mode === 'dark' && 'fill-accent-content',
+                    'absolute fill-foreground stroke-foreground h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100',
+                    mode === 'dark' && 'stroke-[#020817]',
+                  )}
+                />
+                <span className="sr-only">Toggle theme</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem
+                onClick={() => {
+                  setTheme('light')
+                }}
+              >
+                Light
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                onClick={() => {
+                  setTheme('dark')
+                }}
+              >
+                Dark
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                onClick={() => {
+                  setTheme('system')
+                }}
+              >
+                System
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          <Tooltip title="GitHub">
+            <Button variant="link" size="icon" asChild>
+              <a
+                aria-label="Github"
+                target="_blank"
+                href="https://github.com/vishwaashish"
+                rel="noopener, noreferrer"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512"
+                  className={cn(
+                    'fill-foreground',
+                    mode === 'dark' && 'fill-[#020817]',
                   )}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
-                  />
+                  <path d="M256,32C132.3,32,32,134.9,32,261.7c0,101.5,64.2,187.5,153.2,217.9a17.56,17.56,0,0,0,3.8.4c8.3,0,11.5-6.1,11.5-11.4,0-5.5-.2-19.9-.3-39.1a102.4,102.4,0,0,1-22.6,2.7c-43.1,0-52.9-33.5-52.9-33.5-10.2-26.5-24.9-33.6-24.9-33.6-19.5-13.7-.1-14.1,1.4-14.1h.1c22.5,2,34.3,23.8,34.3,23.8,11.2,19.6,26.2,25.1,39.6,25.1a63,63,0,0,0,25.6-6c2-14.8,7.8-24.9,14.2-30.7-49.7-5.8-102-25.5-102-113.5,0-25.1,8.7-45.6,23-61.6-2.3-5.8-10-29.2,2.2-60.8a18.64,18.64,0,0,1,5-.5c8.1,0,26.4,3.1,56.6,24.1a208.21,208.21,0,0,1,112.2,0c30.2-21,48.5-24.1,56.6-24.1a18.64,18.64,0,0,1,5,.5c12.2,31.6,4.5,55,2.2,60.8,14.3,16.1,23,36.6,23,61.6,0,88.2-52.4,107.6-102.3,113.3,8,7.1,15.2,21.1,15.2,42.5,0,30.7-.3,55.5-.3,63,0,5.4,3.1,11.5,11.4,11.5a19.35,19.35,0,0,0,4-.4C415.9,449.2,480,363.1,480,261.7,480,134.9,379.7,32,256,32Z"></path>
                 </svg>
-              </span>
-            </button>
-          </span>
-
-          <span
-            className="tooltip tooltip-bottom before:text-xs "
-            data-tip="GitHub"
-          >
-            <a
-              aria-label="Github"
-              target="_blank"
-              href="https://github.com/vishwaashish"
-              rel="noopener, noreferrer"
-              className={btnClass}
-            >
-              <svg
-                width="20"
-                height="20"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512 512"
-                className={cn(
-                  'inline-block h-5 w-5 fill-current md:h-6 md:w-6',
-                  mode === 'dark' && 'fill-accent-content',
-                )}
-              >
-                <path d="M256,32C132.3,32,32,134.9,32,261.7c0,101.5,64.2,187.5,153.2,217.9a17.56,17.56,0,0,0,3.8.4c8.3,0,11.5-6.1,11.5-11.4,0-5.5-.2-19.9-.3-39.1a102.4,102.4,0,0,1-22.6,2.7c-43.1,0-52.9-33.5-52.9-33.5-10.2-26.5-24.9-33.6-24.9-33.6-19.5-13.7-.1-14.1,1.4-14.1h.1c22.5,2,34.3,23.8,34.3,23.8,11.2,19.6,26.2,25.1,39.6,25.1a63,63,0,0,0,25.6-6c2-14.8,7.8-24.9,14.2-30.7-49.7-5.8-102-25.5-102-113.5,0-25.1,8.7-45.6,23-61.6-2.3-5.8-10-29.2,2.2-60.8a18.64,18.64,0,0,1,5-.5c8.1,0,26.4,3.1,56.6,24.1a208.21,208.21,0,0,1,112.2,0c30.2-21,48.5-24.1,56.6-24.1a18.64,18.64,0,0,1,5,.5c12.2,31.6,4.5,55,2.2,60.8,14.3,16.1,23,36.6,23,61.6,0,88.2-52.4,107.6-102.3,113.3,8,7.1,15.2,21.1,15.2,42.5,0,30.7-.3,55.5-.3,63,0,5.4,3.1,11.5,11.4,11.5a19.35,19.35,0,0,0,4-.4C415.9,449.2,480,363.1,480,261.7,480,134.9,379.7,32,256,32Z"></path>
-              </svg>
-            </a>
-          </span>
+              </a>
+            </Button>
+          </Tooltip>
         </div>
       </Container>
     </div>

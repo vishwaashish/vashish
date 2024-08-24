@@ -17,7 +17,7 @@ export interface IQuote {
 }
 
 export type IQuotesCollection = IQuoteItem[]
-export type IQuoteCategory = Omit<IQuoteItem, 'content' | 'description'>
+export type IQuoteCategory = Omit<IQuoteItem, "content" | "description">
 
-export type IQuoteCategoriesResponse<T> = { categories: T }
-export type IQuoteResponse<T> = { quotes: T }
+export interface IQuoteCategoriesResponse<T> { categories: T }
+export interface IQuoteResponse<T> { quotes: T }

@@ -1,39 +1,40 @@
-import { DEFAULT_SETTINGS } from "@/common/loaders-constants";
-import ProjectLayout from "@/components/projects/ProjectLayout";
-import Carousel from "@/components/projects/css-loaders/Carousel";
+import ProjectLayout from '@/components/projects/ProjectLayout'
+import SingleLoader from '@/components/projects/css-loaders/SingleLoader'
+import { getAllLoaders, getLoader } from '@/services/loaders'
+import { type PageProps } from '@/types/common.model'
+import { LoaderType } from '@/types/css-loaders.model'
+function getNextThree(options: LoaderType[], currentId: number): LoaderType[] {
+  // Find the index of the current loader in the array
+  const currentIndex = options.findIndex(loader => loader.id === currentId)
 
-import { getLoader } from "@/services/loaders";
-import { type PageProps } from "@/types/common.model";
-import React from "react";
+  // Get the next three loaders, wrapping around if necessary
+  const nextLoaders: LoaderType[] = []
+  for (let i = 1; i <= 5; i++) {
+    const nextIndex: number = (currentIndex + i) % options.length
+    nextLoaders.push(options[nextIndex])
+  }
+
+  return nextLoaders
+}
 
 const page = async ({ params, searchParams }: PageProps<any, any>) => {
-    const index = Number(params.loader);
-    const response = await getLoader(index);
-    const element = response.loader;
+  const index = Number(params.loader)
+  const response = await getLoader(index)
+  const loadersResponse = await getAllLoaders()
+  const loaders = getNextThree(loadersResponse.loaders, index)
+  console.log('loaders', loadersResponse)
+  const element = response.loader
 
-    const {
-        size = DEFAULT_SETTINGS.size,
-        border = DEFAULT_SETTINGS.border,
-        speed = DEFAULT_SETTINGS.speed,
-        primaryColor = "570df8",
-        secondaryColor = "d8dde4",
-        sourceCode = "false",
-    }: any = searchParams;
+  return (
+    <ProjectLayout className="py-0 px-1">
+      <SingleLoader
+        index={index}
+        state={searchParams}
+        element={element}
+        loaders={loaders}
+      />
+    </ProjectLayout>
+  )
+}
 
-    const state = {
-        size,
-        speed,
-        border,
-        primaryColor,
-        secondaryColor,
-        sourceCode,
-    };
-
-    return (
-        <ProjectLayout className="py-0 px-1">
-            <Carousel element={element} index={index} state={state} />
-        </ProjectLayout>
-    );
-};
-
-export default page;
+export default page

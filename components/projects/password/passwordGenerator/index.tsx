@@ -234,8 +234,7 @@ export default function GeneratePassword() {
                 return (
                   <div className="form-control" key={pname}>
                     <label className="cursor-pointer label" htmlFor={pname}>
-                      <input
-                        className="radio radio-primary"
+                      <Input
                         name="category"
                         id={pname}
                         value={pname}
@@ -259,8 +258,8 @@ export default function GeneratePassword() {
                 return (
                   <div className="form-control" key={pname}>
                     <label className="label cursor-pointer" htmlFor={pname}>
-                      <input
-                        className={'checkbox checkbox-primary '}
+                      <Input
+                        className={'checkbox'}
                         id={pname}
                         name={pname}
                         checked={pvalue.checked}

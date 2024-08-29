@@ -1,7 +1,9 @@
+import { BundledLanguage, BundledTheme } from "shiki/bundle/web"
+
 export interface ICodeSnapShort {
   code: string
-  programmingLanguage: string
-  theme: string
+  programmingLanguage: BundledLanguage
+  theme: BundledTheme
   highlightedCode: string
   showLineNumbers: boolean
   showInfiniteView: boolean

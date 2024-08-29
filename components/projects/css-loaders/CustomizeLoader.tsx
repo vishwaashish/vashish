@@ -10,11 +10,12 @@ import ColorPickerButton from '@/components/shared/ColorPickerButton'
 import { Button } from '@/components/ui/button'
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
 import { cn } from '@/components/utils'
+import { useAppDispatch, useAppSelector } from '@/store'
+import { selectLoaderState, setLoader } from '@/store/cssLoaders'
 import {
   type ILoaderParams,
   type InputSizeType,
 } from '@/types/css-loaders.model'
-import { useRouter } from 'next/navigation'
 import { type FC, memo, useEffect } from 'react'
 
 // const ColorPickerButton = dynamic(
@@ -25,25 +26,17 @@ import { type FC, memo, useEffect } from 'react'
 interface CustomizeLoader {
   size?: InputSizeType
   index?: number | null
-  state: ILoaderParams
 }
 
 const CustomizeLoader: FC<CustomizeLoader> = ({
   index,
   size: btnSize = 'default',
-  state,
 }) => {
-  const router = useRouter()
+  const dispatch = useAppDispatch()
+  const storeState = useAppSelector(selectLoaderState)
 
-  const {
-    size = DEFAULT_SETTINGS.size,
-    border = DEFAULT_SETTINGS.border,
-    speed = DEFAULT_SETTINGS.speed,
-    primaryColor = '570df8',
-    secondaryColor = 'd8dde4',
-    sourceCode = 'false',
-  } = state
-  console.log('state', state)
+  const { size, border, speed, primaryColor, secondaryColor, sourceCode } =
+    storeState
 
   useEffect(() => {
     document.documentElement.style.setProperty(
@@ -76,39 +69,24 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
   }, [border, primaryColor, secondaryColor, size, speed])
 
   const handleRoute = (newState: ILoaderParams) => {
+    dispatch(setLoader(newState))
+
     if (!index) {
-      return router.push(
-        '?' +
-          LOADER_PARAMS({
-            ...newState,
-          }),
-        {
-          scroll: false,
-        },
+      return window.history.replaceState(
+        null,
+        '',
+         LOADER_PARAMS(newState),
       )
     }
 
-    return router.push(
-      `/css-loaders/${index}?` +
-        LOADER_PARAMS({
-          ...newState,
-        }),
-      {
-        scroll: false,
-      },
+    return window.history.replaceState(
+      null,
+      '',
+      `/css-loaders/${index}` + LOADER_PARAMS(newState),
     )
   }
 
-  const onResetForm = () => {
-    handleRoute({
-      border: DEFAULT_SETTINGS.border,
-      size: DEFAULT_SETTINGS.size,
-      speed: DEFAULT_SETTINGS.speed,
-      primaryColor: '570df8',
-      secondaryColor: 'd8dde4',
-      sourceCode,
-    })
-  }
+  const onResetForm = () => handleRoute(DEFAULT_SETTINGS)
 
   const formControl = 'flex flex-col text-left'
 
@@ -130,7 +108,7 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
             label="Size"
             value={size}
             options={LOADER_SIZES}
-            onChange={size => handleRoute({ ...state, size })}
+            onChange={size => handleRoute({ ...storeState, size })}
             size={btnSize}
             labelClass={label}
           />
@@ -138,7 +116,7 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
             label="Border size"
             value={border}
             options={LOADER_BORDER_SIZES}
-            onChange={border => handleRoute({ ...state, border })}
+            onChange={border => handleRoute({ ...storeState, border })}
             size={btnSize}
             labelClass={label}
           />
@@ -146,7 +124,7 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
             label="Loader speed"
             value={speed}
             options={LOADER_SPEED}
-            onChange={speed => handleRoute({ ...state, speed })}
+            onChange={speed => handleRoute({ ...storeState, speed })}
             size={btnSize}
             labelClass={label}
           />
@@ -199,7 +177,7 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
             <div className="tooltip mr-auto" data-tip="Reset">
               <Button
                 className={cn(
-                  'no-animation active:focus:scale-95 p-0 aspect-square text-white',
+                  'no-animation active:focus:scale-95 p-0 aspect-square text-foreground',
                 )}
                 size={btnSize}
                 role="button"
@@ -231,28 +209,6 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
 }
 export default memo(CustomizeLoader)
 
-const ButtonSize = ({
-  label,
-  title,
-  value,
-}: {
-  label: string
-  title: string
-  value: string
-}) => {
-  return (
-    <ToggleGroupItem
-      value={value}
-      role="button"
-      aria-label={title}
-      title={title}
-      className="data-[state=on]:bg-primary aspect-square bg-background rounded-lg  active:focus:scale-95 "
-    >
-      {label}
-    </ToggleGroupItem>
-  )
-}
-
 const FormFields = ({ label, labelClass, value, options, onChange, size }) => {
   const formControl = 'flex flex-col text-left justify-start '
 
@@ -268,14 +224,20 @@ const FormFields = ({ label, labelClass, value, options, onChange, size }) => {
         size={size}
         onValueChange={onChange}
       >
-        {options.map(option => (
-          <ButtonSize
-            key={option.label}
-            value={option.label}
-            label={option.label}
-            title={option.title}
-          />
-        ))}
+        {options.map(option => {
+          return (
+            <ToggleGroupItem
+              key={option.label}
+              value={option.label}
+              title={option.title}
+              role="button"
+              aria-label={option.title}
+              className="data-[state=on]:bg-primary aspect-square bg-background rounded-lg  active:focus:scale-95 "
+            >
+              {option.label}
+            </ToggleGroupItem>
+          )
+        })}
       </ToggleGroup>
     </div>
   )

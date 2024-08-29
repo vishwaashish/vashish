@@ -1,10 +1,12 @@
+'use client'
 import Container from '@/components/shared/Container'
-import { copyToClipboard } from '@/components/utils/text'
+import InnerHTML from '@/components/shared/InnerHtml'
+import { formatCode } from '@/components/utils'
 import { type ILoaderParams, type LoaderType } from '@/types/css-loaders.model'
-import { Disclosure, Transition } from '@headlessui/react'
 import type React from 'react'
-import SyntaxHighlighter from 'react-syntax-highlighter'
-import { CopyButton } from '../../shared/CopyButton'
+import { useEffect, useState } from 'react'
+import renderCode from '../codesnapshot/shikiRenderer'
+import { getLoaderValues } from './data'
 
 const SharedModalRightSide = ({
   indexProps,
@@ -15,19 +17,43 @@ const SharedModalRightSide = ({
   activeLoader: LoaderType
   setting: ILoaderParams
 }) => {
+  const [state, setState] = useState(['', ''])
+  const values = getLoaderValues(setting)
   const rootString = `:root {
-      --loader-primary: #${setting.primaryColor};
-      --loader-secondary: #${setting.secondaryColor};
-      --loader-border: ${setting.border};
-      --loader-width: ${setting.size};
-      --loader-speed: ${setting.speed};
+      --loader-primary: #${values.primaryColor};
+      --loader-secondary: #${values.secondaryColor};
+      --loader-border: ${values.border};
+      --loader-width: ${values.size};
+      --loader-speed: ${values.speed};
     }
   `
+
+  useEffect(() => {
+    const highlightCode = async () => {
+      try {
+        const htmlFormat = await formatCode(activeLoader.html, 'html')
+        const html = await renderCode(
+          htmlFormat || '',
+          'javascript',
+          'dark-plus',
+        )
+        const cssFormat = await formatCode(rootString + activeLoader.css, 'css')
+        const css = await renderCode(cssFormat || '', 'css', 'dark-plus')
+        setState([html, css])
+      } catch (e) {
+        console.error(e)
+      }
+    }
+
+    highlightCode()
+  }, [activeLoader.html])
 
   return (
     <>
       <Container>
-        <Disclosure>
+        <InnerHTML html={state[0]}></InnerHTML>
+        <InnerHTML html={state[1]}></InnerHTML>
+        {/* <Disclosure>
           {({ open }) => (
             <>
               <Disclosure.Button className="flex w-full rounded justify-between items-center  p-5 min-w-full bg-base-200 hover:bg-base-300  ">
@@ -108,7 +134,7 @@ const SharedModalRightSide = ({
               </Transition>
             </>
           )}
-        </Disclosure>
+        </Disclosure> */}
       </Container>
 
       <div></div>

@@ -18,15 +18,17 @@ export const MODAL_BG = [
   '#4D8076',
 ]
 
-export const LOADER_PARAMS = ({
-  size,
-  border,
-  speed,
-  primaryColor,
-  secondaryColor,
-  sourceCode,
-}: ILoaderParams) =>
-  `size=${size}&border=${border}&speed=${speed}&primaryColor=${primaryColor}&secondaryColor=${secondaryColor}&sourceCode=${sourceCode}`
+export const LOADER_PARAMS = (
+  {
+    // size,
+    // border,
+    // speed,
+    // primaryColor,
+    // secondaryColor,
+    // sourceCode,
+  }: ILoaderParams,
+) => ''
+// `?size=${size}&border=${border}&speed=${speed}&primaryColor=${primaryColor}&secondaryColor=${secondaryColor}&sourceCode=${sourceCode}`
 
 export const LOADER_SIZES: LoaderSizeType[] = [
   {
@@ -92,10 +94,10 @@ export const LOADER_SPEED: LoaderSizeType[] = [
 ]
 
 export const DEFAULT_SETTINGS: ILoaderParams = {
-  size: 'S',
-  primaryColor: '--primary',
-  secondaryColor: '--',
-  border: 'S',
+  size: 'M',
+  primaryColor: '570df8',
+  secondaryColor: 'ffffff',
+  border: 'M',
   speed: 'S',
   sourceCode: 'false',
 }

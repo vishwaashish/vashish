@@ -1,19 +1,20 @@
-import {
-  Tooltip
-} from '@/components/ui/tooltip'
+import { Tooltip } from '@/components/ui/tooltip'
 import { cn } from '@/components/utils'
 import { VariantProps } from 'class-variance-authority'
-import { useEffect, useState } from 'react'
+import { ReactNode, useEffect, useState } from 'react'
 import { Button, buttonVariants } from '../ui/button'
+import { copyToClipboard } from '../utils/text'
 
 interface CopyButtonModel
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   width?: number
   height?: number
+  copy?: string
 }
 
 export const CopyButton = ({
+  copy = '',
   onClick,
   className,
   width = 5,
@@ -36,6 +37,9 @@ export const CopyButton = ({
 
   const click = e => {
     setState(true)
+    if (copy) {
+      copyToClipboard(copy)
+    }
     onClick && onClick(e)
   }
   return (

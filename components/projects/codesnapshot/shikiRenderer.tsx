@@ -1,30 +1,32 @@
 import {
-    bundledLanguages,
-    bundledThemes,
-    getHighlighter,
-} from "shiki/bundle/web";
+  BundledLanguage,
+  bundledLanguages,
+  BundledTheme,
+  bundledThemes,
+  createHighlighter,
+} from 'shiki/bundle/web'
 
-let highlighterPromise: any = null;
+let highlighterPromise: any = null
 
 function getHighlighterInstance() {
-    if (!highlighterPromise) {
-        highlighterPromise = getHighlighter({
-            themes: Object.keys(bundledThemes),
-            langs: Object.keys(bundledLanguages),
-        });
-    }
-    return highlighterPromise;
+  if (!highlighterPromise) {
+    highlighterPromise = createHighlighter({
+      themes: Object.keys(bundledThemes),
+      langs: Object.keys(bundledLanguages),
+    })
+  }
+  return highlighterPromise
 }
 
 export async function renderCode(
-    code = "",
-    lang = "javascript",
-    theme = "dark-plus",
+  code = '',
+  lang: BundledLanguage = 'javascript',
+  theme: BundledTheme = 'dark-plus',
 ) {
-    const highlighter = await getHighlighterInstance();
-    if (!highlighter) return null;
-    const result = await highlighter.codeToHtml(code, { lang, theme });
-    return result;
+  const highlighter = await getHighlighterInstance()
+  if (!highlighter) return null
+  const result = await highlighter.codeToHtml(code, { lang, theme })
+  return result
 }
 
-export default renderCode;
+export default renderCode

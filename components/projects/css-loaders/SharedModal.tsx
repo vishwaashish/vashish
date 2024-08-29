@@ -6,8 +6,9 @@ import { memo } from "react";
 // import SharedModalLeftSide from './SharedModal-leftSide'
 import { cn } from "@/components/utils";
 import dynamic from "next/dynamic";
+import SharedModalRightSide from "./SharedModal-rightSide";
 const SharedModalLeftSide = dynamic(async () => import("././SharedModal-leftSide"));
-const SharedModalRightSide = dynamic(async () => import("./SharedModal-rightSide"));
+// const SharedModalRightSide = dynamic(async () => import("./SharedModal-rightSide"));
 const InnerHTML = dynamic(async () => import("@/components/shared/InnerHtml"));
 interface SharedModal {
   index: number

@@ -7,13 +7,14 @@ const nextConfig = {
   devIndicators: {
     autoPrerender: false,
   },
-  pwa: {
-    disabled: process.env.NODE_ENV === 'development',
-  },
-  compiler: {
-    removeConsole: process.env.NODE_ENV === 'development',
-  },
-  logging: false,
+  // pwa: {
+  //   disabled: process.env.NODE_ENV === 'development',
+  // },
+  // compiler: {
+  //   removeConsole: process.env.NODE_ENV === 'development',
+  // },
+  // logging: false,
 }
 
-module.exports = withPWA(nextConfig)
+module.exports = nextConfig
+// module.exports = withPWA(nextConfig)

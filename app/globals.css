@@ -41,24 +41,24 @@
   }
 
   .dark {
-    --background: 240 10% 3.9%;
+    --background: 240deg 10% 3.92%;
     --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
+    --card: 240deg 10% 7.84%;
     --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
+    --popover: 240deg 10% 7.84%;
     --popover-foreground: 0 0% 98%;
     --primary: 258.89 94.38% 51%;
     --primary-foreground: 0 0% 98%;
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
+    --muted: 240deg 10% 11.76%;
     --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
+    --accent: 240deg 10% 7.84%;
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 85.7% 97.3%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
+    --border: 240deg 10.2% 19.22%;
+    --input: 240deg 10% 11.76%;
     --ring: 240 4.9% 83.9%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
@@ -66,6 +66,32 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
+  /* .dark {
+    --background: 222.22deg 47.37% 11.18%;
+    --foreground: 214.29deg 31.82% 91.37%;
+    --card: 217.24deg 32.58% 17.45%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 258.89 94.38% 51%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 217.24deg 32.58% 17.45%;
+    --muted-foreground: 215deg 20.22% 65.1%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+    --border: 240 3.7% 15.9%;
+    --input: 217.24deg 32.58% 17.45%;
+    --ring: 240 4.9% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  } */
 }
 
 @layer base {
@@ -243,7 +269,6 @@
 
 .range {
   @apply rounded-xl;
-  /* border-radius:20px; */
   height: 1.5rem;
   width: 100%;
   cursor: pointer;
@@ -310,9 +335,9 @@
   box-shadow: none;
 }
 .checkbox {
-  @apply rounded-md border-input;
+  @apply rounded-md border-border;
   flex-shrink: 0;
-  --chkbg: hsl(var(--background));
+  --chkbg: hsl(var(--input));
   --chkfg: hsl(var(--primary));
   height: 1.5rem;
   width: 1.5rem;
@@ -339,7 +364,7 @@
 }
 
 .radio {
-  @apply border-input;
+  @apply border-border;
   flex-shrink: 0;
   height: 1.5rem;
   width: 1.5rem;
@@ -370,26 +395,26 @@
   background-image: none;
   animation: radiomark 0.2s ease-out;
   box-shadow:
-    0 0 0 4px hsl(var(--background) / 0.8) inset,
-    0 0 0 4px hsl(var(--background) / 0.8) inset;
+    0 0 0 4px hsl(var(--input) / 0.8) inset,
+    0 0 0 4px hsl(var(--input) / 0.8) inset;
 }
 @keyframes radiomark {
   0% {
     box-shadow:
-      0 0 0 12px hsl(var(--background)) inset,
-      0 0 0 12px hsl(var(--background)) inset;
+      0 0 0 12px hsl(var(--input)) inset,
+      0 0 0 12px hsl(var(--input)) inset;
   }
 
   50% {
     box-shadow:
-      0 0 0 3px hsl(var(--background)) inset,
-      0 0 0 3px hsl(var(--background)) inset;
+      0 0 0 3px hsl(var(--input)) inset,
+      0 0 0 3px hsl(var(--input)) inset;
   }
 
   to {
     box-shadow:
-      0 0 0 4px hsl(var(--background)) inset,
-      0 0 0 4px hsl(var(--background)) inset;
+      0 0 0 4px hsl(var(--input)) inset,
+      0 0 0 4px hsl(var(--input)) inset;
   }
 }
 

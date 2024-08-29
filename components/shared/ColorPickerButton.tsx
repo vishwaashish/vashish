@@ -30,7 +30,7 @@ const ColorPickerButton = ({
     })
   }
   return (
-    <div className="shadow flex">
+    <div className="shadow flex rounded-lg">
       <input
         type="color"
         className={cn(
@@ -64,7 +64,7 @@ const ColorPickerButton = ({
       <Tooltip title="Copy">
         <Button
           className={cn(
-            'btn  no-animation active:focus:scale-95  swap swap-flip min-w-[80px] bg-background border-input rounded-s-none border  border-s-4 ',
+            'btn  no-animation active:focus:scale-95  swap swap-flip min-w-[80px] bg-background text-foreground border-input rounded-s-none border  border-s-4 ',
             copied && 'swap-active',
           )}
           onClick={onCopy}

@@ -19,7 +19,7 @@ const Carousel: FC<Carousel> = ({ index, element, state }) => {
     const [curIndex, setCurIndex] = useState<number>(index);
 
     function handleClose() {
-        router.push(`/css-loaders?${LOADER_PARAMS(state)}`, {});
+        router.push(`/css-loaders${LOADER_PARAMS(state)}`, {});
     }
 
     // useEffect(() => {
@@ -55,7 +55,7 @@ const Carousel: FC<Carousel> = ({ index, element, state }) => {
 
         setCurIndex(newVal);
 
-        router.push(`/css-loaders/${newVal}?${LOADER_PARAMS(state)}`);
+        router.push(`/css-loaders/${newVal}${LOADER_PARAMS(state)}`);
     }
 
     const onLeft = () => {

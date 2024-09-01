@@ -32,7 +32,7 @@ interface CustomizeLoader {
 const CustomizeLoader: FC<CustomizeLoader> = ({
   index,
   size: btnSize = 'default',
-  className=''
+  className = '',
 }) => {
   const dispatch = useAppDispatch()
   const storeState = useAppSelector(selectLoaderState)
@@ -93,112 +93,115 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
     btnSize === 'sm' && 'text-xs',
     btnSize === 'default' && 'text-sm',
   )
-  const wrapper =
-    'flex flex-wrap gap-x-3 gap-y-3 md:gap-x-5 md:gap-y-5 justify-center mx-auto w-full'
+  // const wrapper =
+  //   'flex flex-wrap gap-x-3 gap-y-3 md:gap-x-5 md:gap-y-5 justify-center mx-auto w-full'
 
   const colorSlice = (value: string) => value.split('').slice(1).join('')
 
   return (
     <>
-      <div className={cn('mx-auto max-w-[1000px] flex gap-3', className)}>
-        <div className={wrapper}>
-          <FormFields
-            label="Size"
-            value={size}
-            options={LOADER_SIZES}
-            onChange={size => handleRoute({ ...storeState, size })}
-            size={btnSize}
-            labelClass={label}
-          />
-          <FormFields
-            label="Border size"
-            value={border}
-            options={LOADER_BORDER_SIZES}
-            onChange={border => handleRoute({ ...storeState, border })}
-            size={btnSize}
-            labelClass={label}
-          />
-          <FormFields
-            label="Loader speed"
-            value={speed}
-            options={LOADER_SPEED}
-            onChange={speed => handleRoute({ ...storeState, speed })}
-            size={btnSize}
-            labelClass={label}
-          />
+      <div
+        className={cn(
+          'max-w-[1000px] flex gap-3  flex-wrap gap-x-3 gap-y-3 md:gap-x-5 md:gap-y-5 justify-center mx-auto w-full',
+          className,
+        )}
+      >
+        <FormFields
+          label="Size"
+          value={size}
+          options={LOADER_SIZES}
+          onChange={size => handleRoute({ ...storeState, size })}
+          size={btnSize}
+          labelClass={label}
+        />
+        <FormFields
+          label="Border size"
+          value={border}
+          options={LOADER_BORDER_SIZES}
+          onChange={border => handleRoute({ ...storeState, border })}
+          size={btnSize}
+          labelClass={label}
+        />
+        <FormFields
+          label="Loader speed"
+          value={speed}
+          options={LOADER_SPEED}
+          onChange={speed => handleRoute({ ...storeState, speed })}
+          size={btnSize}
+          labelClass={label}
+        />
 
-          <div className={formControl}>
-            <label className={label} htmlFor="primaryColor">
-              Primary Color
-            </label>
+        <div className={formControl}>
+          <label className={label} htmlFor="primaryColor">
+            Primary Color
+          </label>
 
-            <ColorPickerButton
-              value={'#' + primaryColor}
-              onChange={(e: any) => {
-                handleRoute({
-                  speed,
-                  size,
-                  border,
-                  primaryColor: colorSlice(e.target.value),
-                  secondaryColor,
-                  sourceCode,
-                })
-              }}
+          <ColorPickerButton
+            value={'#' + primaryColor}
+            onChange={(e: any) => {
+              handleRoute({
+                speed,
+                size,
+                border,
+                primaryColor: colorSlice(e.target.value),
+                secondaryColor,
+                sourceCode,
+              })
+            }}
+            size={btnSize}
+          />
+        </div>
+        <div className={formControl}>
+          <label className={label} htmlFor="secodaryColor">
+            Secodary Color
+          </label>
+
+          <ColorPickerButton
+            value={'#' + secondaryColor}
+            onChange={(e: any) => {
+              handleRoute({
+                speed,
+                size,
+                border,
+                primaryColor,
+                secondaryColor: colorSlice(e.target.value),
+                sourceCode,
+              })
+            }}
+            size={btnSize}
+          />
+        </div>
+        <div className={formControl}>
+          <label className={label} htmlFor="secodaryColor">
+            Reset
+          </label>
+
+          <div className="tooltip mr-auto" data-tip="Reset">
+            <Button
+              className={cn(
+                'no-animation active:focus:scale-95 p-0 aspect-square text-foreground',
+              )}
               size={btnSize}
-            />
-          </div>
-          <div className={formControl}>
-            <label className={label} htmlFor="secodaryColor">
-              Secodary Color
-            </label>
-
-            <ColorPickerButton
-              value={'#' + secondaryColor}
-              onChange={(e: any) => {
-                handleRoute({
-                  speed,
-                  size,
-                  border,
-                  primaryColor,
-                  secondaryColor: colorSlice(e.target.value),
-                  sourceCode,
-                })
-              }}
-              size={btnSize}
-            />
-          </div>
-          <div className={formControl}>
-            <label className={label} htmlFor="secodaryColor">
-              Reset
-            </label>
-
-            <div className="tooltip mr-auto" data-tip="Reset">
-              <Button
-                className={cn(
-                  'no-animation active:focus:scale-95 p-0 aspect-square text-foreground',
-                )}
-                size={btnSize}
-                role="button"
-                variant="outline"
-                aria-label="Reset"
-                onClick={onResetForm}
+              role="button"
+              variant="outline"
+              aria-label="Reset"
+              onClick={onResetForm}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6 group-hover:animate-spin"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-6 h-6 group-hover:animate-spin"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
-                  />
-                </svg>
-              </Button>
-            </div>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
+                />
+              </svg>
+            </Button>
           </div>
         </div>
       </div>

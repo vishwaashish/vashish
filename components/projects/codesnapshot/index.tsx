@@ -47,7 +47,7 @@ function CodeSnapShot() {
         </motion.p>
       </HeadPara>
       <motion.div
-        className="grid lg:grid-cols-8 gap-5 w-full"
+        className="grid grid-cols-1 lg:grid-cols-8 gap-5 w-full"
         {...transition(0.4)}
       >
         <div className="lg:max-w-lg lg:col-span-2">

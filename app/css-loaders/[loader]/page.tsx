@@ -9,7 +9,7 @@ function getNextThree(options: LoaderType[], currentId: number): LoaderType[] {
 
   // Get the next three loaders, wrapping around if necessary
   const nextLoaders: LoaderType[] = []
-  for (let i = 1; i <= 5; i++) {
+  for (let i = 1; i <= 4; i++) {
     const nextIndex: number = (currentIndex + i) % options.length
     nextLoaders.push(options[nextIndex])
   }
@@ -22,7 +22,6 @@ const page = async ({ params, searchParams }: PageProps<any, any>) => {
   const response = await getLoader(index)
   const loadersResponse = await getAllLoaders()
   const loaders = getNextThree(loadersResponse.loaders, index)
-  console.log('loaders', loadersResponse)
   const element = response.loader
 
   return (

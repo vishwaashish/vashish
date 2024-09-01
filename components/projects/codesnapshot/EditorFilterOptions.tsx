@@ -120,8 +120,7 @@ const EditorFilterOptions = () => {
   return (
     <>
       <motion.div className="sticky top-5 lg:max-w-2xl gap-3 mx-auto rounded-lg flex flex-wrap justify-start items-center border-border bg-card p-5">
-        {/* <ThemeSelect /> */}
-        <div className="flex justify-between items-center flex-1 grow w-full">
+        <div className="flex justify-between items-center flex-[1_1_auto] grow w-full">
           <p className="text-lg !m-0 !p-0  ">Customize setting</p>
           <FormGroup
             label="Viewer"
@@ -323,35 +322,6 @@ const EditorFilterOptions = () => {
         </FormGroup>
       </motion.div>
     </>
-  )
-}
-
-const ThemeSelect = () => {
-  const { programmingLanguage }: ICodeSnapShort = useSelector(
-    selectCodeSnapShotState,
-  )
-
-  const dispatch = useDispatch()
-
-  const handleLanguageChange = useCallback(
-    (lang: string) => {
-      dispatch(setLanguage(lang as BundledLanguage))
-    },
-    [dispatch],
-  )
-
-  return (
-    <div
-      className="tooltip"
-      data-tip="Select Language"
-      style={{ flex: '1 1 120px' }}
-    >
-      <SelectField
-        options={Object.keys(bundledLanguages)}
-        onValueChange={handleLanguageChange}
-        defaultValue={programmingLanguage}
-      />
-    </div>
   )
 }
 

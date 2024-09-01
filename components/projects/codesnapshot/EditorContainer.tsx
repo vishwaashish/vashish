@@ -45,7 +45,7 @@ const EditorContainer = () => {
           {renderElement()}
         </InfiniteViewer>
       ) : (
-        <div className=" w-full min-h-[540px] flex justify-around items-center overflow-auto border-2 rounded p-2 md:p-5">
+        <div className=" w-full lg:min-h-[540px] flex justify-around lg:items-center overflow-auto border-2 rounded p-2 md:p-5">
           {renderElement()}
         </div>
       )}

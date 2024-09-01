@@ -20,7 +20,7 @@ const nextConfig = {
   //   disabled: process.env.NODE_ENV === 'development',
   // },
   compiler: {
-    removeConsole: process.env.NODE_ENV === 'development',
+    // removeConsole: process.env.NODE_ENV === 'development',
   },
   // logging: false,
   typescript: {
@@ -29,4 +29,5 @@ const nextConfig = {
 }
 
 // module.exports = nextConfig
-module.exports = withPWA(nextConfig)
+module.exports =
+  process.env.NODE_ENV === 'development' ? nextConfig : withPWA(nextConfig)

@@ -44,8 +44,6 @@ const CSSLoaders: FC<CSSLoadersProps> = ({ loaders, query }) => {
 
       <CustomizeLoader size={breakpoint === 'sm' ? 'sm' : 'default'} />
       <br />
-      <br />
-
       <Loaders loaders={loaders} />
     </HeadPara>
   )

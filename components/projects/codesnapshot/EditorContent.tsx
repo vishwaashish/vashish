@@ -24,8 +24,6 @@ const EditorContent = () => {
     isFormatCode,
   }: ICodeSnapShort = useSelector(selectCodeSnapShotState)
 
-  console.log('isFormatCode', isFormatCode)
-
   const [scode, setScode] = useState('')
   const [newCode, setNewCode] = useState('')
   const [lineNumber, setLineNumber] = useState('')
@@ -100,7 +98,7 @@ const EditorContent = () => {
         }
       }
     })()
-  }, [isFormatCode, scode,dispatch])
+  }, [isFormatCode, scode, dispatch])
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLTextAreaElement>) => {

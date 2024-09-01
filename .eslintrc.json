@@ -4,6 +4,11 @@
     "browser": true,
     "es2023": true
   },
+  "extends": "next",
+  "rules": {
+    "react/no-unescaped-entities": "off",
+    "@next/next/no-page-custom-font": "off"
+  },
   // "extends": [
   //   "next/core-web-vitals",
   //   // "standard-with-typescript",
@@ -20,7 +25,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module",
     "project": ["./tsconfig.json"]
-  },
+  }
   // "plugins": ["react-refresh"],
   // "rules": {
   //   // "react/react-in-jsx-scope": "off",

@@ -23,7 +23,7 @@ const CSSLoaders: FC<CSSLoadersProps> = ({ loaders, query }) => {
   const dispatch = useAppDispatch()
   useEffect(() => {
     if (Object.keys(query).length) dispatch(setLoader(query))
-  }, [query])
+  }, [dispatch, query])
 
   const { breakpoint } = useWindowSize()
 

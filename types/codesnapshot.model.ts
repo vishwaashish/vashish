@@ -1,4 +1,4 @@
-import { BundledLanguage, BundledTheme } from "shiki/bundle/web"
+import { BundledLanguage, BundledTheme } from 'shiki/bundle/web'
 
 export interface ICodeSnapShort {
   code: string
@@ -9,8 +9,22 @@ export interface ICodeSnapShort {
   showInfiniteView: boolean
   showSettings: boolean
   showHeader: boolean
-  lineNumberCode: string
+  // lineNumberCode: string
   editorContainer: IEditorContainer
+  formatOptions: IFormatOptions
+  isFormatCode: boolean
+}
+
+export interface IFormatOptions {
+  semi: boolean
+  singleQuote: boolean
+  tabWidth: number
+  trailingComma: 'none' | 'es5' | 'all'
+  bracketSpacing: boolean
+  jsxBracketSameLine: boolean
+  printWidth: number
+  arrowParens: 'always' | 'avoid'
+  htmlWhitespaceSensitivity: 'css' | 'strict' | 'ignore'
 }
 
 export interface IEditorContainer {
@@ -34,4 +48,4 @@ export interface IEditorBackgroundConstant {
   backgroundImage: string
 }
 
-export type TExportOption = "copy" | "png" | "jpg" | "svg"
+export type TExportOption = 'copy' | 'png' | 'jpg' | 'svg'

@@ -2,9 +2,8 @@
 import { gradient } from "@/components/Gradient";
 import Headers from "@/components/header";
 import { Button } from "@/components/ui/button";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
-import Link from "next/link";
 import { useEffect } from "react";
 
 const RelatedProject = dynamic(

@@ -1,20 +1,18 @@
-import { EDITOR_BACK_COLOR } from '@/common/codesnapshot-constant'
 import { FormGroup } from '@/components/shared/Form'
+import { Switch } from '@/components/ui/switch'
 import { transition } from '@/components/utils/animation'
 import {
   selectCodeSnapShotState,
-  setEditorBackground,
   setEditorHeader,
   setEditorPadding,
   setEditorRadius,
   setInfiniteView,
-  setLineNumber,
+  setLineNumber
 } from '@/store/codesnapshotStore'
 import {
-  type ICodeSnapShort,
-  type IEditorBackgroundConstant,
+  type ICodeSnapShort
 } from '@/types/codesnapshot.model'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import type React from 'react'
 import { useCallback, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -32,8 +30,8 @@ const EditorSetting = () => {
   const dispatch = useDispatch()
 
   const handleThemeChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      dispatch(setLineNumber(e.target.checked))
+    (theme: boolean) => {
+      dispatch(setLineNumber(theme))
     },
     [dispatch],
   )
@@ -49,43 +47,47 @@ const EditorSetting = () => {
     },
     [dispatch],
   )
-  const handleEditorHeader = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      dispatch(setEditorHeader())
-    },
-    [dispatch],
-  )
+  const handleEditorHeader = useCallback(() => {
+    dispatch(setEditorHeader())
+  }, [dispatch])
+
   const handleInfiniteViewerChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      dispatch(setInfiniteView(e.target.checked))
-    },
-    [dispatch],
-  )
-  const handleEditorBackgroundChange = useCallback(
-    (item: IEditorBackgroundConstant) => {
-      dispatch(setEditorBackground(item))
+    (change: boolean) => {
+      dispatch(setInfiniteView(change))
     },
     [dispatch],
   )
 
-  const backgroundColorOptions = EDITOR_BACK_COLOR.map(option => (
-    <li
-      className="!m-0 !p-0 w-min"
-      onClick={() => {
-        handleEditorBackgroundChange(option)
-      }}
-      key={option.label}
-    >
-      <div
-        className="w-8 h-8 shadow-md tooltip"
-        data-tip={option.label}
-        style={{
-          backgroundColor: option.backgroundColor,
-          backgroundImage: option.backgroundImage,
-        }}
-      ></div>
-    </li>
-  ))
+  // const handleEditorBackgroundChange = useCallback(
+  //   (item: IEditorBackgroundConstant) => {
+  //     dispatch(setEditorBackground(item))
+  //   },
+  //   [dispatch],
+  // )
+
+  // const backgroundColorOptions = EDITOR_BACK_COLOR.map(option => (
+  //   // <li
+  //   //   className="!m-0 !p-0 w-min"
+  //   //   onClick={() => {
+  //   //     handleEditorBackgroundChange(option)
+  //   //   }}
+  //   //   key={option.label}
+  //   // >
+  //   <Tooltip title={option.label}>
+  //     <Button
+  //       size="icon"
+  //       onClick={() => {
+  //         handleEditorBackgroundChange(option)
+  //       }}
+  //       key={option.label}
+  //       className="w-8 h-8 shadow-md border-border border rounded-lg"
+  //       style={{
+  //         backgroundColor: option.backgroundColor,
+  //         backgroundImage: option.backgroundImage,
+  //       }}
+  //     ></Button>
+  //   </Tooltip>
+  // ))
 
   const boxVariant = {
     hidden: { opacity: 0 },
@@ -105,32 +107,29 @@ const EditorSetting = () => {
       exit="hidden"
     >
       <motion.div
-        className="border  z-[1]  rounded-md border-light p-4 flex flex-wrap justify-center items-center gap-5"
+        className="border bg-card w-fit mx-auto  z-[1]  rounded-lg border-border p-4 flex flex-wrap justify-center items-center gap-5"
         {...transition(0)}
       >
         <FormGroup label="Infinite Viewer">
-          <input
-            type="checkbox"
-            className="toggle"
+          <Switch
+            id="Infinite Viewer"
             checked={showInfiniteView}
-            onChange={handleInfiniteViewerChange}
+            onCheckedChange={handleInfiniteViewerChange}
           />
         </FormGroup>
         <FormGroup label="Line Number">
-          <input
-            type="checkbox"
-            className="toggle"
+          <Switch
+            id="Line Number"
             checked={showLineNumbers}
-            onChange={handleThemeChange}
+            onCheckedChange={handleThemeChange}
           />
         </FormGroup>
 
         <FormGroup label="Header">
-          <input
-            type="checkbox"
-            className="toggle"
+          <Switch
+            id="Header"
             checked={showHeader}
-            onChange={handleEditorHeader}
+            onCheckedChange={handleEditorHeader}
           />
         </FormGroup>
 
@@ -157,35 +156,6 @@ const EditorSetting = () => {
             onChange={handleEditorPaddingChange}
           />
         </FormGroup>
-
-        <FormGroup label="Background">
-          <button
-            onClick={() => {
-              setShowBg(val => !val)
-            }}
-            role="button"
-            className="input py-[0.9px]  !pr-[0.9px] !pl-1  !min-h-0 !h-[24px] justify-end text-xs min-w-[134px] flex  gap-2 items-center"
-          >
-            {editorContainer.label || 'Default'}
-            <div
-              className="w-6 h-full border-2"
-              style={{
-                backgroundColor: editorContainer.backgroundColor,
-                backgroundImage: editorContainer.backgroundImage,
-              }}
-            ></div>
-          </button>
-        </FormGroup>
-
-        <AnimatePresence mode="wait">
-          {showBg && (
-            <motion.div>
-              <ul className="menu !m-0 !px-0  flex flex-row flex-wrap  gap-2 justify-center">
-                {backgroundColorOptions}
-              </ul>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </motion.div>
     </motion.div>
   )

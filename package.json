@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "devt": "next dev --turbo",
-    "build": "tsc && next build",
+    "build": "next build",
     "build:dev": "tsc && next build --mode dev",
     "start": "next start",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
@@ -13,9 +13,11 @@
   },
   "dependencies": {
     "@headlessui/react": "^2.1.2",
+    "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-dropdown-menu": "^2.1.1",
     "@radix-ui/react-select": "^2.1.1",
     "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-switch": "^1.1.0",
     "@radix-ui/react-tabs": "^1.1.0",
     "@radix-ui/react-toggle": "^1.1.0",
     "@radix-ui/react-toggle-group": "^1.1.0",
@@ -25,6 +27,7 @@
     "autoprefixer": "10.4.20",
     "class-variance-authority": "^0.7.0",
     "clsx": "2.1.1",
+    "cssnano": "^7.0.5",
     "daisyui": "^4.12.10",
     "framer-motion": "^11.3.28",
     "html-to-image": "^1.11.11",

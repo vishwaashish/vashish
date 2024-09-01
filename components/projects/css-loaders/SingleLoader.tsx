@@ -15,6 +15,7 @@ import dynamic from 'next/dynamic'
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Loaders from './Loaders'
+import Container from '@/components/shared/Container'
 
 const CustomizeLoader = dynamic(
   async () => import('@/components/projects/css-loaders/CustomizeLoader'),
@@ -44,7 +45,7 @@ const SingleLoader = ({
 
   useEffect(() => {
     if (Object.keys(state).length) dispatch(setLoader(state))
-  }, [state])
+  }, [state,dispatch])
 
   const rootString = `:root {
         --loader-primary: #${values.primaryColor};
@@ -100,29 +101,30 @@ const SingleLoader = ({
     },
   ]
   return (
-    <>
+    <Container className="py-2">
       <br />
-      <div className="flex gap-4 items-center justify-between w-full">
+      <div className="flex flex-wrap gap-4 items-center justify-between w-full">
         <Button
           variant="ghost"
           onClick={() => {
             router.back()
           }}
+          className="mr-auto"
         >
           <ArrowLeft size={15}></ArrowLeft>
           Go Back
         </Button>
-        <CustomizeLoader size="sm"></CustomizeLoader>
-        <h1 className="text-xl font-bold">Loader{element.id}</h1>
+        <CustomizeLoader size="sm" className="mx-0"></CustomizeLoader>
+        {/* <h1 className="text-xl font-bold">Loader{element.id}</h1> */}
       </div>
       <br />
 
       <div className="block shadow-lg md:flex border-none md:min-h-[250px] rounded-xl overflow-hidden md:resize-y max-w-full md:flex-row md:h-[calc(100vh-190px)]">
         <div
-          className="flex relative  md:min-w-[330px] max-md:min-h-[450px] max-md:w-full h-[calc(100vh-140px)] md:h-auto md:min-h-[100px]"
+          className="flex relative md:w-2/4  md:min-w-[330px]   max-md:min-h-[450px] max-md:w-full h-[calc(100vh-140px)] md:h-auto md:min-h-[100px]"
           style={{
             flex: '0 0 auto',
-            width: '50%',
+            // width: '50%',
           }}
         >
           <div className="absolute hidden md:block w-[5px] h-full bg-input top-0 right-0 z-10"></div>
@@ -153,7 +155,7 @@ const SingleLoader = ({
         />
       }
       {/* <Carousel element={element} index={index} state={state} /> */}
-    </>
+    </Container>
   )
 }
 

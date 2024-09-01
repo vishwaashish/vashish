@@ -9,7 +9,6 @@ import renderCode from '../codesnapshot/shikiRenderer'
 import { getLoaderValues } from './data'
 
 const SharedModalRightSide = ({
-  indexProps,
   activeLoader, //
   setting,
 }: {
@@ -46,7 +45,7 @@ const SharedModalRightSide = ({
     }
 
     highlightCode()
-  }, [activeLoader.html])
+  }, [activeLoader.css, activeLoader.html, rootString])
 
   return (
     <>

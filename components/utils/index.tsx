@@ -1,4 +1,5 @@
 import { type ClassValue, clsx } from 'clsx'
+import { Options } from 'prettier'
 import babelPlugin from 'prettier/plugins/babel'
 import estreePlugin from 'prettier/plugins/estree'
 import html from 'prettier/plugins/html'
@@ -53,7 +54,7 @@ export function darkenColor(color: string, percentage: number): string {
 }
 
 export function oppositeColor(color: string, percentage: number): string {
-  let newColor = []
+  let newColor: number[] = []
   if (color[0] === '#') {
     color = color.slice(1)
     if (color.length === 3) {
@@ -84,10 +85,20 @@ export function oppositeColor(color: string, percentage: number): string {
 export const formatCode = async (
   code: string,
   parser: string = 'babel',
+  options: { [key: string]: any } = {},
 ) => {
-  return prettier.format(code, {
+  const defaultOptions: Options = {
     semi: false,
-    parser: parser,
+    singleQuote: true,
+    tabWidth: 2,
+    trailingComma: 'es5',
+    bracketSpacing: true,
+    jsxBracketSameLine: false,
+    printWidth: 80,
+    arrowParens: 'always',
+    htmlWhitespaceSensitivity: 'css',
     plugins,
-  })
+  }
+  const mergedOptions = { ...defaultOptions, parser, ...options }
+  return prettier.format(code, mergedOptions)
 }

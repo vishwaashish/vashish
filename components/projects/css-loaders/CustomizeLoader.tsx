@@ -26,11 +26,13 @@ import { type FC, memo, useEffect } from 'react'
 interface CustomizeLoader {
   size?: InputSizeType
   index?: number | null
+  className?: string
 }
 
 const CustomizeLoader: FC<CustomizeLoader> = ({
   index,
   size: btnSize = 'default',
+  className=''
 }) => {
   const dispatch = useAppDispatch()
   const storeState = useAppSelector(selectLoaderState)
@@ -72,11 +74,7 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
     dispatch(setLoader(newState))
 
     if (!index) {
-      return window.history.replaceState(
-        null,
-        '',
-         LOADER_PARAMS(newState),
-      )
+      return window.history.replaceState(null, '', LOADER_PARAMS(newState))
     }
 
     return window.history.replaceState(
@@ -102,7 +100,7 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
 
   return (
     <>
-      <div className="mx-auto max-w-[1000px] flex gap-3">
+      <div className={cn('mx-auto max-w-[1000px] flex gap-3', className)}>
         <div className={wrapper}>
           <FormFields
             label="Size"

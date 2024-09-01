@@ -1,9 +1,6 @@
 'use client'
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
+  Tooltip
 } from '@/components/ui/tooltip'
 import { useTheme } from 'next-themes'
 import Link from 'next/link'

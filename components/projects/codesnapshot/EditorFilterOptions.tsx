@@ -1,26 +1,57 @@
-import { formatCode } from '@/components/utils'
+import { EDITOR_BACK_COLOR } from '@/common/codesnapshot-constant'
+import { FormGroup } from '@/components/shared/Form'
+import { Button } from '@/components/ui/button'
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
+import { Switch } from '@/components/ui/switch'
 import {
   selectCodeSnapShotState,
-  setCode,
-  setEditorSetting,
+  setEditorBackground,
+  setEditorHeader,
+  setEditorPadding,
+  setEditorRadius,
   setInfiniteView,
   setLanguage,
+  setLineNumber,
   setThemes,
+  toggleFormatCode,
 } from '@/store/codesnapshotStore'
-import { type ICodeSnapShort } from '@/types/codesnapshot.model'
+import {
+  IEditorBackgroundConstant,
+  type ICodeSnapShort,
+} from '@/types/codesnapshot.model'
+import { SelectProps } from '@radix-ui/react-select'
 import { motion } from 'framer-motion'
 import type React from 'react'
 import { useCallback, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { BundledLanguage, bundledLanguages, BundledTheme, bundledThemes } from 'shiki/bundle/web'
+import {
+  BundledLanguage,
+  bundledLanguages,
+  BundledTheme,
+  bundledThemes,
+} from 'shiki/bundle/web'
 import ExportOptions from './ExportOptions'
 
 const EditorFilterOptions = () => {
-  const { code, programmingLanguage, theme }: ICodeSnapShort = useSelector(
-    selectCodeSnapShotState,
-  )
+  const {
+    showLineNumbers,
+    showHeader,
+    showInfiniteView,
+    programmingLanguage,
+    theme,
+    editorContainer,
+  }: ICodeSnapShort = useSelector(selectCodeSnapShotState)
 
   const dispatch = useDispatch()
+
+  const { padding, borderRadius } = editorContainer
 
   const handleInfiniteViewerChange = useCallback(
     (show: boolean) => {
@@ -35,80 +66,176 @@ const EditorFilterOptions = () => {
   }, [handleInfiniteViewerChange])
 
   const handleLanguageChange = useCallback(
-    (e: React.ChangeEvent<HTMLSelectElement>) => {
-      dispatch(setLanguage(e.target.value as BundledLanguage))
+    (lang: string) => {
+      dispatch(setLanguage(lang as BundledLanguage))
     },
     [dispatch],
   )
 
   const handleThemeChange = useCallback(
-    (e: React.ChangeEvent<HTMLSelectElement>) => {
-      dispatch(setThemes(e.target.value as BundledTheme))
+    (theme: string) => {
+      dispatch(setThemes(theme as BundledTheme))
     },
     [dispatch],
   )
-  const handleEditorSettingChange = useCallback(() => {
-    dispatch(setEditorSetting())
-  }, [dispatch])
+
+  const handleEditorBackgroundChange = useCallback(
+    (item: IEditorBackgroundConstant) => {
+      dispatch(setEditorBackground(item))
+    },
+    [dispatch],
+  )
 
   const onformatCode = useCallback(async () => {
-    try {
-      const data = await formatCode(code, 'babel')
-      dispatch(setCode(data))
-    } catch (e) {
-      console.log(e)
-    }
-  }, [code, dispatch])
+    // try {
+    // const data = await formatCode(code, 'babel')
+    dispatch(toggleFormatCode())
+    // } catch (e) {
+    //   console.log(e)
+    // }
+  }, [dispatch])
 
-  const selectClass =
-    'select select-sm sm:select-md select-bordered w-full max-w-xs'
+  const handleLineChange = useCallback(
+    (theme: boolean) => {
+      dispatch(setLineNumber(theme))
+    },
+    [dispatch],
+  )
+  const handleEditorPaddingChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      dispatch(setEditorPadding(+e.target.value))
+    },
+    [dispatch],
+  )
+  const handleEditorRadiusChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      dispatch(setEditorRadius(+e.target.value))
+    },
+    [dispatch],
+  )
+  const handleEditorHeader = useCallback(() => {
+    dispatch(setEditorHeader())
+  }, [dispatch])
 
-  const btnClass = 'input input-sm sm:input-md !border-solid border-light '
   return (
     <>
-      <motion.div className="max-w-2xl gap-3 mx-auto flex flex-wrap justify-center items-center">
-        <div
-          className="tooltip"
-          data-tip="Select Language"
-          style={{ flex: '1 1 120px' }}
-        >
-          <select
-            className={selectClass}
-            value={programmingLanguage}
-            onChange={handleLanguageChange}
+      <motion.div className="sticky top-5 lg:max-w-2xl gap-3 mx-auto rounded-lg flex flex-wrap justify-start items-center border-border bg-card p-5">
+        {/* <ThemeSelect /> */}
+        <div className="flex justify-between items-center flex-1 grow w-full">
+          <p className="text-lg !m-0 !p-0  ">Customize setting</p>
+          <FormGroup
+            label="Viewer"
+            className="flex-row items-center gap-2 grow-0"
+            labelClassName="mb-0"
           >
-            {Object.keys(bundledLanguages).map(lang => {
-              return (
-                <option key={lang} value={lang}>
-                  {lang}
-                </option>
-              )
-            })}
-          </select>
+            <Switch
+              id="Infinite Viewer"
+              checked={showInfiniteView}
+              onCheckedChange={handleInfiniteViewerChange}
+            />
+          </FormGroup>
         </div>
-        <div
-          className="tooltip"
-          data-tip="Select Theme"
-          style={{ flex: '1 1 120px' }}
+        <FormGroup
+          label="Export"
+          className="flex-[1_1_150px] lg:flex-[1_1_170px]"
         >
-          <select
-            style={{ flex: '1 1 120px' }}
-            className={selectClass}
-            value={theme}
-            onChange={handleThemeChange}
-          >
-            {Object.keys(bundledThemes).map(theme => {
-              return (
-                <option key={theme} value={theme}>
-                  {theme}
-                </option>
-              )
-            })}
-          </select>
-        </div>
+          <ExportOptions />
+        </FormGroup>
 
-        <div className="tooltip" data-tip="Setting">
-          <button className={btnClass} onClick={handleEditorSettingChange}>
+        <FormGroup label="Format">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="bg-background border border-input"
+            onClick={onformatCode}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5"
+              />
+            </svg>
+          </Button>
+        </FormGroup>
+
+        <FormGroup
+          label="Select Language"
+          className="flex-[1_1_150px] lg:flex-[1_1_400px]"
+        >
+          <SelectField
+            options={Object.keys(bundledLanguages)}
+            onValueChange={handleLanguageChange}
+            defaultValue={programmingLanguage}
+          />
+        </FormGroup>
+
+        <FormGroup
+          label="Select Theme"
+          className="flex-[1_1_150px] lg:flex-[1_1_400px]"
+        >
+          <SelectField
+            options={Object.keys(bundledThemes)}
+            onValueChange={handleThemeChange}
+            defaultValue={theme}
+          />
+        </FormGroup>
+
+        <FormGroup
+          label="Select Background"
+          className="flex-[1_1_150px] lg:flex-[1_1_400px]"
+        >
+          <Select
+            defaultValue={editorContainer.label}
+            onValueChange={(val: string) => {
+              handleEditorBackgroundChange(
+                EDITOR_BACK_COLOR.find(color => color.label === val) ||
+                  editorContainer,
+              )
+            }}
+          >
+            <SelectTrigger className="w-full">
+              <SelectValue placeholder={'Select'} />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                {EDITOR_BACK_COLOR.map(lang => {
+                  return (
+                    <SelectItem key={lang.label} value={lang.label}>
+                      <div className="flex items-center gap-2">
+                        <div
+                          onClick={() => {
+                            handleEditorBackgroundChange(lang)
+                          }}
+                          key={lang.label}
+                          className="w-10 h-6 shadow-md border-border border rounded-lg"
+                          style={{
+                            backgroundColor: lang.backgroundColor,
+                            backgroundImage: lang.backgroundImage,
+                          }}
+                        ></div>
+                        <div>{lang.label}</div>
+                      </div>
+                    </SelectItem>
+                  )
+                })}
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </FormGroup>
+        {/* <div className="tooltip" data-tip="Setting">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={handleEditorSettingChange}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -128,10 +255,10 @@ const EditorFilterOptions = () => {
                 d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
               />
             </svg>
-          </button>
-        </div>
-        <div className="tooltip" data-tip="Format Code">
-          <button className={btnClass} onClick={onformatCode}>
+          </Button>
+        </div> */}
+        {/* <div className="tooltip" data-tip="Format Code">
+          <Button variant="ghost" size="icon" onClick={onformatCode}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -146,11 +273,115 @@ const EditorFilterOptions = () => {
                 d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5"
               />
             </svg>
-          </button>
-        </div>
-        <ExportOptions />
+          </Button>
+        </div> */}
+        {/* <div className="flex flex-wrap gap-2 justify-between"> */}
+
+        <FormGroup label="Line Number">
+          <Switch
+            id="Line Number"
+            checked={showLineNumbers}
+            onCheckedChange={handleLineChange}
+          />
+        </FormGroup>
+        <FormGroup label="Header">
+          <Switch
+            id="Header"
+            checked={showHeader}
+            onCheckedChange={handleEditorHeader}
+          />
+        </FormGroup>
+        {/* </div> */}
+        <FormGroup
+          label="Border Radius"
+          className="flex-[1_1_150px] lg:flex-[1_1_400px]"
+        >
+          <input
+            className="range range-primary my-auto flex-auto"
+            type="range"
+            min="0"
+            max="30"
+            aria-label="Password Length"
+            value={borderRadius}
+            onChange={handleEditorRadiusChange}
+          />
+        </FormGroup>
+        <FormGroup
+          label="Padding"
+          className="flex-[1_1_150px] lg:flex-[1_1_400px]"
+        >
+          <input
+            className="range range-primary my-auto flex-auto"
+            type="range"
+            min="0"
+            max="7"
+            step="1"
+            aria-label="Password Length"
+            value={padding}
+            onChange={handleEditorPaddingChange}
+          />
+        </FormGroup>
       </motion.div>
     </>
+  )
+}
+
+const ThemeSelect = () => {
+  const { programmingLanguage }: ICodeSnapShort = useSelector(
+    selectCodeSnapShotState,
+  )
+
+  const dispatch = useDispatch()
+
+  const handleLanguageChange = useCallback(
+    (lang: string) => {
+      dispatch(setLanguage(lang as BundledLanguage))
+    },
+    [dispatch],
+  )
+
+  return (
+    <div
+      className="tooltip"
+      data-tip="Select Language"
+      style={{ flex: '1 1 120px' }}
+    >
+      <SelectField
+        options={Object.keys(bundledLanguages)}
+        onValueChange={handleLanguageChange}
+        defaultValue={programmingLanguage}
+      />
+    </div>
+  )
+}
+
+interface SelectFieldProps extends SelectProps {
+  options: string[]
+  placeholder?: string
+}
+function SelectField({
+  options,
+  placeholder = 'Select',
+  ...rest
+}: SelectFieldProps) {
+  return (
+    <Select {...rest}>
+      <SelectTrigger className="w-full">
+        <SelectValue placeholder={placeholder} />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectGroup>
+          {/* <SelectLabel>Fruits</SelectLabel> */}
+          {options.map(lang => {
+            return (
+              <SelectItem key={lang} value={lang}>
+                {lang}
+              </SelectItem>
+            )
+          })}
+        </SelectGroup>
+      </SelectContent>
+    </Select>
   )
 }
 

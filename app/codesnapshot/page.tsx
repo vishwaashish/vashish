@@ -1,7 +1,7 @@
 import CodeSnapShot from '@/components/projects/codesnapshot'
 import React from 'react'
 import ProjectLayout from '@/components/projects/ProjectLayout'
-import { Metadata } from 'next'
+import { type Metadata } from 'next'
 import { projectMeta } from '@/common/constants'
 
 export const metadata: Metadata = {
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 const page = () => {
   return (
-    <ProjectLayout>
+    <ProjectLayout className='!max-w-screen-2xl'>
       <CodeSnapShot />
     </ProjectLayout>
   )

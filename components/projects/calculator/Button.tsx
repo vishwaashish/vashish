@@ -1,64 +1,30 @@
-import { cn } from '@/components/utils'
-import { AppDispatch } from '@/store'
-import { addDigit, chooseOperation } from '@/store/calculator'
-import { IOperation } from '@/types/calculator.model'
-import { ButtonHTMLAttributes } from 'react'
-
-interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
-  className?: string
-  dispatch: AppDispatch
-}
-
-interface INumberButton extends IButton {
-  digit: string
-}
-interface IOperationButton extends IButton {
-  operation: IOperation
-}
-
-const btn = 'btn glass text-lg h-full drop-shadow w-full '
-
-export const NumberButton = ({
-  digit,
-  dispatch,
-  className = '',
-}: INumberButton) => {
-  return (
-    <button
-      className={cn(btn, className)}
-      onClick={() => dispatch(addDigit(digit))}
-    >
-      {digit}
-    </button>
-  )
-}
+import { Button } from "@/components/ui/button"
+import { addDigit, chooseOperation } from "@/store/calculator"
+import { INumberButton, IOperationButton } from "@/types/calculator.model"
 
 export const OperationButton = ({
   operation,
-  className,
   dispatch,
+  className,
 }: IOperationButton) => {
   return (
-    <button
-      className={cn(btn, 'bg-primary text-white', className)}
+    <Button
+      className={`transition-all hover:scale-105 text-xl  ${className}`}
       onClick={() => dispatch(chooseOperation(operation))}
     >
       {operation}
-    </button>
+    </Button>
   )
 }
 
-export const Button = ({
-  className,
-  onClick,
-  children,
-}: Omit<IButton, 'dispatch'>) => {
+export const NumberButton = ({ digit, dispatch, className }: INumberButton) => {
   return (
-    <button
-      className={cn(btn, 'bg-primary text-white', className)}
-      onClick={onClick}
+    <Button
+      variant="secondary"
+      className={`transition-all hover:scale-105 text-xl ${className}`}
+      onClick={() => dispatch(addDigit(digit))}
     >
-      {children}
-    </button>
+      {digit}
+    </Button>
   )
 }

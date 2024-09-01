@@ -1,9 +1,9 @@
 import { LOADER_PARAMS } from '@/common/loaders-constants'
-import { ILoaderParams } from '@/types/css-loaders.model'
+import { type ILoaderParams } from '@/types/css-loaders.model'
 import { Dialog } from '@headlessui/react'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
-import { FC, useRef, useState } from 'react'
+import { type FC, useRef, useState } from 'react'
 
 // const SharedModal = lazy(() => import('./SharedModal'))
 
@@ -16,11 +16,11 @@ interface LoaderModel {
 const LoaderModel: FC<LoaderModel> = ({ state, onClose }) => {
   const router = useRouter()
 
-  let overlayRef = useRef<HTMLDivElement | null>(null)
+  const overlayRef = useRef<HTMLDivElement | null>(null)
 
   const { loaderId } = router.query
 
-  let index = Number(loaderId)
+  const index = Number(loaderId)
 
   const [direction, setDirection] = useState<number>(0)
   const [curIndex, setCurIndex] = useState<number>(index)
@@ -30,7 +30,7 @@ const LoaderModel: FC<LoaderModel> = ({ state, onClose }) => {
       {
         query: { ...state },
       },
-      `/css-loaders?${LOADER_PARAMS(state)}`,
+      `/css-loaders${LOADER_PARAMS(state)}`,
       {
         shallow: true,
       },
@@ -51,7 +51,7 @@ const LoaderModel: FC<LoaderModel> = ({ state, onClose }) => {
       {
         query: { loaderId: newVal, ...state },
       },
-      `/css-loaders/${newVal}?${LOADER_PARAMS(state)}`,
+      `/css-loaders/${newVal}${LOADER_PARAMS(state)}`,
       { shallow: true },
     )
   }

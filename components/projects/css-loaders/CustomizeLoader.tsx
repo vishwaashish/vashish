@@ -6,11 +6,17 @@ import {
   LOADER_SIZES,
   LOADER_SPEED,
 } from '@/common/loaders-constants'
-import ColorPickerButton from '@/components/shared/element/ColorPickerButton'
+import ColorPickerButton from '@/components/shared/ColorPickerButton'
+import { Button } from '@/components/ui/button'
+import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
 import { cn } from '@/components/utils'
-import { ILoaderParams, InputSizeType } from '@/types/css-loaders.model'
-import { useRouter } from 'next/navigation'
-import { FC, memo, useEffect } from 'react'
+import { useAppDispatch, useAppSelector } from '@/store'
+import { selectLoaderState, setLoader } from '@/store/cssLoaders'
+import {
+  type ILoaderParams,
+  type InputSizeType,
+} from '@/types/css-loaders.model'
+import { type FC, memo, useEffect } from 'react'
 
 // const ColorPickerButton = dynamic(
 //   () => import('@/components/shared/element/ColorPickerButton'),
@@ -20,29 +26,33 @@ import { FC, memo, useEffect } from 'react'
 interface CustomizeLoader {
   size?: InputSizeType
   index?: number | null
-  state: ILoaderParams
+  className?: string
 }
 
 const CustomizeLoader: FC<CustomizeLoader> = ({
   index,
-  size: btnSize = 'btn-md',
-  state,
+  size: btnSize = 'default',
+  className=''
 }) => {
-  const router = useRouter()
+  const dispatch = useAppDispatch()
+  const storeState = useAppSelector(selectLoaderState)
 
-  const {
-    size = DEFAULT_SETTINGS.size,
-    border = DEFAULT_SETTINGS.border,
-    speed = DEFAULT_SETTINGS.speed,
-    primaryColor = '570df8',
-    secondaryColor = 'd8dde4',
-    sourceCode = 'false',
-  } = state
+  const { size, border, speed, primaryColor, secondaryColor, sourceCode } =
+    storeState
 
   useEffect(() => {
-    document.documentElement.style.setProperty('--loader-width', size)
-    document.documentElement.style.setProperty('--loader-border', border)
-    document.documentElement.style.setProperty('--loader-speed', speed)
+    document.documentElement.style.setProperty(
+      '--loader-width',
+      LOADER_SIZES.find(bsize => bsize.label == size)?.size + 'px',
+    )
+    document.documentElement.style.setProperty(
+      '--loader-border',
+      LOADER_BORDER_SIZES.find(bsize => bsize.label == border)?.size + 'px',
+    )
+    document.documentElement.style.setProperty(
+      '--loader-speed',
+      LOADER_SPEED.find(bsize => bsize.label == speed)?.size + 's',
+    )
     document.documentElement.style.setProperty(
       '--loader-primary',
       '#' + primaryColor,
@@ -51,74 +61,38 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
       '--loader-secondary',
       '#' + secondaryColor,
     )
+    return () => {
+      document.documentElement.style.removeProperty('--loader-width')
+      document.documentElement.style.removeProperty('--loader-border')
+      document.documentElement.style.removeProperty('--loader-speed')
+      document.documentElement.style.removeProperty('--loader-primary')
+      document.documentElement.style.removeProperty('--loader-secondary')
+    }
   }, [border, primaryColor, secondaryColor, size, speed])
 
-  const handleRoute = ({
-    border,
-    size,
-    speed,
-    primaryColor,
-    secondaryColor,
-    sourceCode,
-  }: ILoaderParams) => {
-    if (index) {
-      router.push(
-        // {
-        //   query: {
-        //     loaderId: index,
-        //     border,
-        //     size,
-        //     speed,
-        //     primaryColor,
-        //     secondaryColor,
-        //     sourceCode,
-        //   },
-        // },
-        `/css-loaders/${index}?${LOADER_PARAMS({
-          border,
-          size,
-          speed,
-          primaryColor,
-          secondaryColor,
-          sourceCode,
-        })}`,
-        // { shallow: true },
-      )
-    } else {
-      router.push(
-        '?' +
-          LOADER_PARAMS({
-            border,
-            size,
-            speed,
-            primaryColor,
-            secondaryColor,
-            sourceCode,
-          }),
-        undefined,
-        // {
-        //   shallow: true,
-        // },
-      )
+  const handleRoute = (newState: ILoaderParams) => {
+    dispatch(setLoader(newState))
+
+    if (!index) {
+      return window.history.replaceState(null, '', LOADER_PARAMS(newState))
     }
+
+    return window.history.replaceState(
+      null,
+      '',
+      `/css-loaders/${index}` + LOADER_PARAMS(newState),
+    )
   }
 
-  const onResetForm = () => {
-    handleRoute({
-      border: DEFAULT_SETTINGS.border,
-      size: DEFAULT_SETTINGS.size,
-      speed: DEFAULT_SETTINGS.speed,
-      primaryColor: '570df8',
-      secondaryColor: 'd8dde4',
-      sourceCode: sourceCode,
-    })
-  }
+  const onResetForm = () => handleRoute(DEFAULT_SETTINGS)
 
-  const formControl = 'flex flex-col text-left grow sm:grow-0 '
-  const buttonGroup = 'btn-group1 join drop-shadow'
+  const formControl = 'flex flex-col text-left'
 
-  const label = btnSize === 'btn-sm' ? 'text-xs mb-1' : ''
-
+  const label = cn(
+    'text-muted-foreground mb-1',
+    btnSize === 'sm' && 'text-xs',
+    btnSize === 'default' && 'text-sm',
+  )
   const wrapper =
     'flex flex-wrap gap-x-3 gap-y-3 md:gap-x-5 md:gap-y-5 justify-center mx-auto w-full'
 
@@ -126,97 +100,33 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
 
   return (
     <>
-      <div className="mx-auto max-w-[1000px] flex gap-3">
+      <div className={cn('mx-auto max-w-[1000px] flex gap-3', className)}>
         <div className={wrapper}>
-          <div className={formControl}>
-            <label className={label} htmlFor="size">
-              Size
-            </label>
+          <FormFields
+            label="Size"
+            value={size}
+            options={LOADER_SIZES}
+            onChange={size => handleRoute({ ...storeState, size })}
+            size={btnSize}
+            labelClass={label}
+          />
+          <FormFields
+            label="Border size"
+            value={border}
+            options={LOADER_BORDER_SIZES}
+            onChange={border => handleRoute({ ...storeState, border })}
+            size={btnSize}
+            labelClass={label}
+          />
+          <FormFields
+            label="Loader speed"
+            value={speed}
+            options={LOADER_SPEED}
+            onChange={speed => handleRoute({ ...storeState, speed })}
+            size={btnSize}
+            labelClass={label}
+          />
 
-            <div className={buttonGroup}>
-              {LOADER_SIZES.map(item => {
-                return (
-                  <ButtonSize
-                    // active={state.size === item.size + 'px'}
-                    active={size === item.size + 'px'}
-                    // onClick={() => handleRange(item.size)}
-                    onClick={() => {
-                      handleRoute({
-                        size: item.size + 'px',
-                        border,
-                        speed,
-                        primaryColor,
-                        secondaryColor,
-                        sourceCode,
-                      })
-                    }}
-                    key={item.label}
-                    label={item.label}
-                    title={item.title}
-                    size={btnSize}
-                  />
-                )
-              })}
-            </div>
-          </div>
-          <div className={formControl}>
-            <label className={label} htmlFor="border-size">
-              Border size
-            </label>
-
-            <div className={buttonGroup}>
-              {LOADER_BORDER_SIZES.map(item => {
-                return (
-                  <ButtonSize
-                    active={border === item.size + 'px'}
-                    onClick={() => {
-                      handleRoute({
-                        border: item.size + 'px',
-                        size,
-                        speed,
-                        primaryColor,
-                        secondaryColor,
-                        sourceCode,
-                      })
-                    }}
-                    key={item.label}
-                    label={item.label}
-                    title={item.title}
-                    size={btnSize}
-                  />
-                )
-              })}
-            </div>
-          </div>
-          <div className={formControl}>
-            <label className={label} htmlFor="border-size">
-              Loader speed
-            </label>
-
-            <div className={buttonGroup}>
-              {LOADER_SPEED.map(item => {
-                return (
-                  <ButtonSize
-                    active={speed === item.size + 's'}
-                    onClick={() => {
-                      handleRoute({
-                        speed: item.size + 's',
-                        size,
-                        border,
-                        primaryColor,
-                        secondaryColor,
-                        sourceCode,
-                      })
-                    }}
-                    key={item.label}
-                    label={item.label}
-                    title={item.title}
-                    size={btnSize}
-                  />
-                )
-              })}
-            </div>
-          </div>
           <div className={formControl}>
             <label className={label} htmlFor="primaryColor">
               Primary Color
@@ -263,12 +173,13 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
             </label>
 
             <div className="tooltip mr-auto" data-tip="Reset">
-              <button
+              <Button
                 className={cn(
-                  'btn btn-sm no-animation active:focus:scale-95 btn-primary group   text-white',
-                  `md:${btnSize}`,
+                  'no-animation active:focus:scale-95 p-0 aspect-square text-foreground',
                 )}
+                size={btnSize}
                 role="button"
+                variant="outline"
                 aria-label="Reset"
                 onClick={onResetForm}
               >
@@ -286,7 +197,7 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
                     d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
                   />
                 </svg>
-              </button>
+              </Button>
             </div>
           </div>
         </div>
@@ -296,33 +207,36 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
 }
 export default memo(CustomizeLoader)
 
-const ButtonSize = ({
-  onClick,
-  label,
-  active,
-  title,
-  size = 'btn-md',
-}: {
-  active: boolean
-  onClick: () => void
-  label: string
-  title: string
-  size: InputSizeType
-}) => {
+const FormFields = ({ label, labelClass, value, options, onChange, size }) => {
+  const formControl = 'flex flex-col text-left justify-start '
+
   return (
-    <div className="grow tooltip" data-tip={title}>
-      <button
-        className={cn(
-          active && 'btn-active btn-primary text-white',
-          'no-animation active:focus:scale-95 btn btn-sm join-item aspect-square w-full ',
-          `md:${size}`,
-        )}
-        onClick={onClick}
-        role="button"
-        aria-label={label}
-      >
+    <div className={formControl}>
+      <label className={labelClass} htmlFor={label}>
         {label}
-      </button>
+      </label>
+      <ToggleGroup
+        type="single"
+        variant="outline"
+        defaultValue={value}
+        size={size}
+        onValueChange={onChange}
+      >
+        {options.map(option => {
+          return (
+            <ToggleGroupItem
+              key={option.label}
+              value={option.label}
+              title={option.title}
+              role="button"
+              aria-label={option.title}
+              className="data-[state=on]:bg-primary aspect-square bg-background rounded-lg  active:focus:scale-95 "
+            >
+              {option.label}
+            </ToggleGroupItem>
+          )
+        })}
+      </ToggleGroup>
     </div>
   )
 }

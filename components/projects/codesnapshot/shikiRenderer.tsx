@@ -1,16 +1,23 @@
-import {
-  bundledLanguages,
-  bundledThemes,
-  getHighlighter,
-} from 'shiki/bundle/web'
+import { BundledLanguage, BundledTheme } from 'shiki/bundle/web'
 
-var highlighterPromise: any = null
+// Memoize themes and languages once to avoid recomputation
+let highlighterPromise: Promise<any> | null = null
+let memoizedThemes: string[] | null = null
+let memoizedLanguages: string[] | null = null
 
-function getHighlighterInstance() {
+async function getHighlighterInstance() {
   if (!highlighterPromise) {
-    highlighterPromise = getHighlighter({
-      themes: Object.keys(bundledThemes),
-      langs: Object.keys(bundledLanguages),
+    const { createHighlighter, bundledThemes, bundledLanguages } = await import(
+      'shiki/bundle/web'
+    )
+
+    // Memoize themes and languages
+    memoizedThemes = memoizedThemes || Object.keys(bundledThemes)
+    memoizedLanguages = memoizedLanguages || Object.keys(bundledLanguages)
+
+    highlighterPromise = createHighlighter({
+      themes: memoizedThemes,
+      langs: memoizedLanguages,
     })
   }
   return highlighterPromise
@@ -18,13 +25,16 @@ function getHighlighterInstance() {
 
 export async function renderCode(
   code = '',
-  lang = 'javascript',
-  theme = 'dark-plus',
-) {
-  const highlighter = await getHighlighterInstance()
-  if (!highlighter) return null
-  const result = await highlighter.codeToHtml(code, { lang, theme })
-  return result
+  lang: BundledLanguage = 'javascript',
+  theme: BundledTheme = 'dark-plus',
+): Promise<string | null> {
+  try {
+    const highlighter = await getHighlighterInstance()
+    return highlighter ? highlighter.codeToHtml(code, { lang, theme }) : null
+  } catch (error) {
+    console.error('Error rendering code:', error)
+    return null
+  }
 }
 
 export default renderCode

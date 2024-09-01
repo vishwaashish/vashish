@@ -1,4 +1,4 @@
-export type InitialStateModal = {
+export interface InitialStateModal {
   lowerCase: string
   upperCase: string
   specialChar: string
@@ -7,7 +7,7 @@ export type InitialStateModal = {
   containSpace: string
 }
 
-type RegrexObject = {
+interface RegrexObject {
   lowerCase: RegExp
   upperCase: RegExp
   specialChar: RegExp
@@ -16,42 +16,38 @@ type RegrexObject = {
   containSpace: RegExp
 }
 
-export type InitialState = {
-  [key: string]: string
-}
-export type MutateInitialState = {
-  [key: string]: { msg: string; valid: boolean }
-}
+export type InitialState = Record<string, string>;
+export type MutateInitialState = Record<string, { msg: string; valid: boolean }>;
 
-export const MAX_CATEGORY_LENGTH = 50
-export const MIN_CATEGORY_LENGTH = 1
+export const MAX_CATEGORY_LENGTH = 50;
+export const MIN_CATEGORY_LENGTH = 1;
 
-export type ValidResult = {
+export interface ValidResult {
   value: Record<string, { msg: string; valid: boolean }>
   level: number
 }
 export const initialState: InitialState = {
-  lowerCase: 'The password contain lowercase letters.',
-  upperCase: 'The password contain uppercase letters.',
-  specialChar: 'The password contain special characters.',
-  digits: 'The password contain digits.',
-  inRange: 'The password meet the specified length.',
-  containSpace: 'The password does not contain spaces.',
-}
+    lowerCase: "The password contain lowercase letters.",
+    upperCase: "The password contain uppercase letters.",
+    specialChar: "The password contain special characters.",
+    digits: "The password contain digits.",
+    inRange: "The password meet the specified length.",
+    containSpace: "The password does not contain spaces.",
+};
 export const regrex = (length = 8): RegrexObject => ({
-  lowerCase: /(?=.*[a-z])/g,
-  upperCase: /(?=.*[A-Z])/g,
-  specialChar: /(?=.*[\[\]!@#$%^&*()\-_=+{}|;:',.<>?])/g,
-  digits: /(?=.*[0-9])/g,
-  inRange: new RegExp(
-    '^(?=.{' + length + ',' + MAX_CATEGORY_LENGTH + '}$)',
-    'g',
-  ),
-  containSpace: /(?=.*^[^\s]*$)/g,
-})
+    lowerCase: /(?=.*[a-z])/g,
+    upperCase: /(?=.*[A-Z])/g,
+    specialChar: /(?=.*[\[\]!@#$%^&*()\-_=+{}|;:',.<>?])/g,
+    digits: /(?=.*[0-9])/g,
+    inRange: new RegExp(
+        "^(?=.{" + length + "," + MAX_CATEGORY_LENGTH + "}$)",
+        "g",
+    ),
+    containSpace: /(?=.*^[^\s]*$)/g,
+});
 
 export const emogi: InitialState = {
-  success: `<svg
+    success: `<svg
   xmlns="http://www.w3.org/2000/svg"
   viewBox="0 0 24 24"
   fill="currentColor"
@@ -63,8 +59,8 @@ export const emogi: InitialState = {
     clipRule="evenodd"
   />
 </svg>`,
-  error: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+    error: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
   <path fillRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z" clipRule="evenodd" />
 </svg>
 `,
-}
+};

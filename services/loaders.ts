@@ -1,8 +1,8 @@
 import { LOADER } from '@/common/loaders-constants'
 import {
-  ILoaderResponse,
-  ILoadersResponse,
-  LoaderType,
+  type ILoaderResponse,
+  type ILoadersResponse,
+  type LoaderType,
 } from '@/types/css-loaders.model'
 import _ from 'lodash'
 
@@ -13,7 +13,7 @@ export async function getAllLoaders(): Promise<ILoadersResponse<LoaderType[]>> {
 }
 export async function getLoader(
   loaderId: number,
-): Promise<ILoaderResponse<LoaderType >> {
+): Promise<ILoaderResponse<LoaderType>> {
   const currentLoader = _.find(loadersCollection, { id: loaderId })
   if (currentLoader) {
     return { loader: currentLoader }

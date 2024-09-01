@@ -1,14 +1,16 @@
-// 'use client'
-import { DEFAULT_SETTINGS } from '@/common/loaders-constants'
+'use client'
 import { HeadPara } from '@/components/shared/Heading'
-import { LoaderType } from '@/types/css-loaders.model'
-import { FC } from 'react'
+import { type LoaderType } from '@/types/css-loaders.model'
+import { useEffect, type FC } from 'react'
 // import Loader from './Loader'
+import useWindowSize from '@/components/hooks/useWindowSize'
+import { useAppDispatch } from '@/store'
+import { setLoader } from '@/store/cssLoaders'
 import dynamic from 'next/dynamic'
 import Loaders from './Loaders'
 import { CustomizeSkeleton } from './Skeleton'
 
-const CustomizeLoader = dynamic(() => import('./CustomizeLoader'), {
+const CustomizeLoader = dynamic(async () => import('./CustomizeLoader'), {
   ssr: false,
   loading: () => <CustomizeSkeleton />,
 })
@@ -18,23 +20,13 @@ interface CSSLoadersProps {
   query: any
 }
 const CSSLoaders: FC<CSSLoadersProps> = ({ loaders, query }) => {
-  const {
-    size = DEFAULT_SETTINGS.size,
-    border = DEFAULT_SETTINGS.border,
-    speed = DEFAULT_SETTINGS.speed,
-    primaryColor = '570df8',
-    secondaryColor = 'd8dde4',
-    sourceCode = 'false',
-  }: any = query
+  const dispatch = useAppDispatch()
+  useEffect(() => {
+    if (Object.keys(query).length) dispatch(setLoader(query))
+  }, [dispatch, query])
 
-  const state = {
-    size,
-    speed,
-    border,
-    primaryColor,
-    secondaryColor,
-    sourceCode,
-  }
+  const { breakpoint } = useWindowSize()
+
   return (
     <HeadPara
       title="CSS Loaders Gallery"
@@ -50,11 +42,11 @@ const CSSLoaders: FC<CSSLoadersProps> = ({ loaders, query }) => {
       </p>
       <br />
 
-      <CustomizeLoader state={state} />
+      <CustomizeLoader size={breakpoint === 'sm' ? 'sm' : 'default'} />
       <br />
       <br />
 
-      <Loaders loaders={loaders} state={state} />
+      <Loaders loaders={loaders} />
     </HeadPara>
   )
 }

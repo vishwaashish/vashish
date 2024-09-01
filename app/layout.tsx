@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google'
 import NextTopLoader from 'nextjs-toploader'
 import { Toaster } from 'react-hot-toast'
 import './globals.css'
+import { ThemeProvider } from '@/components/theme-provider'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -35,27 +36,34 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html className="!scroll-smooth" lang="en" data-theme="dracula">
+    <html className="!scroll-smooth" lang="en">
       <body className={inter.className}>
-        <NextTopLoader
-          color="var(--loader-primary)"
-          height={3}
-          showSpinner={false}
-        />
-        <ReduxProvider>
-          {children}
-          <Toaster
-            position="top-right"
-            toastOptions={{
-              style: {
-                borderRadius: '10px',
-                background: 'hsl(var(--b1))',
-                color: '(var(--bc))',
-              },
-            }}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <NextTopLoader
+            color="hsl(var(--primary))"
+            height={3}
+            showSpinner={false}
           />
-          <Footer />
-        </ReduxProvider>
+          <ReduxProvider>
+            {children}
+            <Toaster
+              position="top-right"
+              toastOptions={{
+                style: {
+                  borderRadius: 'var(----radius)',
+                  background: 'hsl(var(--background))',
+                  color: '(var(--foreground))',
+                },
+              }}
+            />
+            <Footer />
+          </ReduxProvider>
+        </ThemeProvider>
       </body>
     </html>
   )

@@ -1,4 +1,5 @@
 'use client'
+import { Button } from '@/components/ui/button'
 import { transition } from '@/components/utils/animation'
 import { formatNumber } from '@/components/utils/number'
 import { useAppDispatch, useAppSelector } from '@/store'
@@ -11,10 +12,10 @@ import {
   stateCalculator,
   total,
 } from '@/store/calculator'
-import { IHistory } from '@/types/calculator.model'
+import { type IHistory } from '@/types/calculator.model'
 import { motion } from 'framer-motion'
 import { useCallback, useEffect, useRef } from 'react'
-import { Button, NumberButton, OperationButton } from './Button'
+import { NumberButton, OperationButton } from './Button'
 import CalculatorHistory from './CalculatorHistory'
 
 const DIGIT_KEYS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.']
@@ -65,7 +66,7 @@ const BasicCalculator = () => {
     (history: IHistory) => () => {
       dispatch(populateHistory(history))
       if (ref.current) {
-        const maxHeight = ref?.current?.scrollHeight - window.innerHeight
+        const maxHeight = ref.current.scrollHeight - window.innerHeight
         const height = (window.pageYOffset * 100) / maxHeight
         window.scrollTo({
           top: Math.abs(height),
@@ -79,11 +80,11 @@ const BasicCalculator = () => {
     <div className="">
       <motion.div
         {...transition(0.39)}
-        className="max-w-sm mx-auto grid grid-cols-4 gap-2 mt-5 border-light   p-2 rounded-xl"
+        className="max-w-sm mx-auto grid grid-cols-4 gap-2 mt-5 border-2 border-input  p-2 rounded-xl"
       >
         <div
           ref={ref}
-          className="transition-transform bg-base-200 rounded-lg col-span-full flex flex-col justify-start items-end p-2 gap-1 min-h-[60px] glass"
+          className="border-2 border-input bg-background transition-transform rounded-lg col-span-full flex flex-col justify-start items-end p-2 gap-1 min-h-[60px]"
         >
           <div className="text-md break-words w-full text-right">
             {formatNumber(calculator.previous || '')}
@@ -105,19 +106,23 @@ const BasicCalculator = () => {
         <OperationButton operation="%" dispatch={dispatch}>
           %
         </OperationButton>
-        <OperationButton operation="÷" dispatch={dispatch} className={''} />
-        <OperationButton operation="*" dispatch={dispatch} className={''} />
-        <NumberButton digit="1" dispatch={dispatch} className={''} />
-        <NumberButton digit="2" dispatch={dispatch} className={''} />
-        <NumberButton digit="3" dispatch={dispatch} className={''} />
-        <OperationButton operation="+" dispatch={dispatch} className={''} />
-        <NumberButton digit="4" dispatch={dispatch} className={''} />
-        <NumberButton digit="5" dispatch={dispatch} className={''} />
-        <NumberButton digit="6" dispatch={dispatch} className={''} />
+        <OperationButton operation="÷" dispatch={dispatch} />
+        <OperationButton
+          operation="*"
+          dispatch={dispatch}
+          className="items-baseline"
+        />
+        <NumberButton digit="1" dispatch={dispatch} />
+        <NumberButton digit="2" dispatch={dispatch} />
+        <NumberButton digit="3" dispatch={dispatch} />
+        <OperationButton operation="+" dispatch={dispatch} />
+        <NumberButton digit="4" dispatch={dispatch} />
+        <NumberButton digit="5" dispatch={dispatch} />
+        <NumberButton digit="6" dispatch={dispatch} />
         <OperationButton operation="-" dispatch={dispatch} />
-        <NumberButton digit="7" dispatch={dispatch} className={''} />
-        <NumberButton digit="8" dispatch={dispatch} className={''} />
-        <NumberButton digit="9" dispatch={dispatch} className={''} />
+        <NumberButton digit="7" dispatch={dispatch} />
+        <NumberButton digit="8" dispatch={dispatch} />
+        <NumberButton digit="9" dispatch={dispatch} />
         <Button
           className="row-span-2 h-full"
           onClick={() => {
@@ -126,19 +131,24 @@ const BasicCalculator = () => {
         >
           =
         </Button>
-        <NumberButton digit={'.'} dispatch={dispatch} className="" />
-        <NumberButton digit="0" dispatch={dispatch} className={''} />
+        <NumberButton
+          digit={'.'}
+          dispatch={dispatch}
+          className="items-baseline"
+        />
+        <NumberButton digit="0" dispatch={dispatch} />
         <Button
           onClick={() => {
             dispatch(deleteDigit())
           }}
-          className="bg-unset text-unset"
+          variant="secondary"
+          className={'transition-all hover:scale-105 text-xl'}
         >
           DEL
         </Button>
       </motion.div>
 
-      {!!calculator.history?.length && (
+      {!(calculator.history.length === 0) && (
         <CalculatorHistory
           historys={calculator.history}
           onClick={onHistoryClick}

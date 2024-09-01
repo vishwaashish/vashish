@@ -1,81 +1,81 @@
 // const quote = require('./../assets/json/quotes.json')
 import {
-  IQuoteItem,
-  IQuoteCategoriesResponse,
-  IQuoteResponse,
-  IQuotesCollection,
-  IQuoteCategory,
-  IQuote,
-} from '@/types/quotes.model'
-import quotes from './../assets/json/quotes.json'
-import _ from 'lodash'
+    type IQuoteItem,
+    type IQuoteCategoriesResponse,
+    type IQuoteResponse,
+    type IQuotesCollection,
+    type IQuoteCategory,
+    type IQuote,
+} from "@/types/quotes.model";
+import quotes from "./../assets/json/quotes.json";
+import _ from "lodash";
 
-const quotesCollection: IQuotesCollection = quotes
+const quotesCollection: IQuotesCollection = quotes;
 
 export async function getAllQuotes(): Promise<
   IQuoteResponse<IQuotesCollection>
-> {
-  return { quotes: quotesCollection }
+  > {
+    return { quotes: quotesCollection };
 }
 
 export async function getCategories(): Promise<
   IQuoteCategoriesResponse<IQuoteCategory[]>
-> {
-  const categories: IQuoteCategory[] = quotesCollection.map(item => ({
-    name: item.name,
-    title: item.title,
-    path: item.path,
-  }))
-  return { categories }
+  > {
+    const categories: IQuoteCategory[] = quotesCollection.map(item => ({
+        name: item.name,
+        title: item.title,
+        path: item.path,
+    }));
+    return { categories };
 }
 export async function getQuotesByCategories(
-  category: string,
+    category: string,
 ): Promise<IQuoteResponse<IQuoteItem>> {
-  const quotes = _.find(quotesCollection, { path: category })
+    const quotes = _.find(quotesCollection, { path: category });
 
-  if (quotes) {
-    return { quotes }
-  } else {
-    return Promise.reject('Category does not exist')
-  }
+    if (quotes) {
+        return { quotes };
+    } else {
+        return Promise.reject("Category does not exist");
+    }
 }
 
 export async function getQuotesByCategoriesContent(
-  category: string,
-  path: string,
+    category: string,
+    path: string,
 ): Promise<IQuoteResponse<IQuote | null>> {
-  const quoteItem = _.find(quotesCollection, { path: category })
+    const quoteItem = _.find(quotesCollection, { path: category });
 
-  const quotes =
-    (quoteItem && quoteItem.content.find(val => val.path === path)) || null
+    const quotes =
+    (quoteItem?.content.find(val => val.path === path)) || null;
 
-  return { quotes }
+    return { quotes };
 }
 
 export async function randomQuotes(
-  n: number = 5,
+    n: number = 5,
 ): Promise<IQuoteResponse<IQuoteItem[]>> {
-  const quotes = _.cloneDeep(quotesCollection)
+    const quotes = _.cloneDeep(quotesCollection);
 
-  const randomItem = _.sampleSize(_.shuffle(quotes), n)
+    const randomItem = _.sampleSize(_.shuffle(quotes), n);
 
-  const data = _.map(randomItem, item => ({
-    ...item,
-    content: _.slice(_.shuffle(item.content), 0, 1),
-  }))
+    const data = _.map(randomItem, item => ({
+        ...item,
+        content: _.slice(_.shuffle(item.content), 0, 1),
+    }));
 
-  return { quotes: data }
+    return { quotes: data };
 }
 export async function randomQuotesByCatagories(
-  category: string,
-  n: number = 5,
+    category: string,
+    n: number = 5,
 ): Promise<IQuoteResponse<IQuote[]>> {
-  const response = await getQuotesByCategories(category)
+    const response = await getQuotesByCategories(category);
 
-  const randomQuotes = _.sampleSize(
-    _.shuffle(response.quotes?.content || []),
-    n,
-  )
+    const randomQuotes = _.sampleSize(
+        _.shuffle(response.quotes.content || []),
+        n,
+    );
 
-  return { quotes: randomQuotes || [] }
+    return { quotes: randomQuotes || [] };
 }

@@ -1,5 +1,5 @@
 import { cn } from '@/components/utils'
-import { RelatedProjectsType } from '@/types/common.model'
+import { type RelatedProjectsType } from '@/types/common.model'
 
 export const projectMeta: RelatedProjectsType = {
   passwordGenerator: {
@@ -35,7 +35,8 @@ export const projectMeta: RelatedProjectsType = {
 
   passwordValidator: {
     title: 'Check Your Password Strength',
-    description: `Discover how strong your password is with our Password Strength Checker. Enter your password, and we'll analyze its robustness based on factors such as length, complexity, and diversity of characters. Strengthen your online security by crafting passwords that pass the test and keep your accounts safe.`,
+    description:
+      "Discover how strong your password is with our Password Strength Checker. Enter your password, and we'll analyze its robustness based on factors such as length, complexity, and diversity of characters. Strengthen your online security by crafting passwords that pass the test and keep your accounts safe.",
 
     // description:
     //   'Check Password Strength - Evaluate the security of your passwords instantly.',
@@ -58,7 +59,7 @@ export const projectMeta: RelatedProjectsType = {
         />
       </svg>
     ),
-    img: "/projects/password-validator.jpeg",
+    img: '/projects/password-validator.jpeg',
     className: '',
     target: '_self',
     type: 'tool',
@@ -85,7 +86,7 @@ export const projectMeta: RelatedProjectsType = {
         />
       </svg>
     ),
-    img: "/projects/loader.jpeg",
+    img: '/projects/loader.jpeg',
     className: '',
     target: '_self',
     type: 'tool',
@@ -111,7 +112,7 @@ export const projectMeta: RelatedProjectsType = {
         />
       </svg>
     ),
-    img: "/projects/quotes.jpeg",
+    img: '/projects/quotes.jpeg',
     className: '',
     target: '_self',
     type: 'tool',
@@ -120,7 +121,8 @@ export const projectMeta: RelatedProjectsType = {
     title: 'Free Online Basic Calculator',
     // description:
     //   'Create Strong Passwords Easily - Generate secure, random passwords effortlessly.',
-    description: `Perform simple arithmetic calculations quickly and easily with our free online basic calculator. Add, subtract, multiply, and divide with just a few clicks. It's a handy tool for everyday math tasks. Give it a try now!`,
+    description:
+      "Perform simple arithmetic calculations quickly and easily with our free online basic calculator. Add, subtract, multiply, and divide with just a few clicks. It's a handy tool for everyday math tasks. Give it a try now!",
     path: '/basic-calculator',
     icon: className => (
       <svg
@@ -136,47 +138,51 @@ export const projectMeta: RelatedProjectsType = {
         />
       </svg>
     ),
-    img: "/projects/basic-calculator.jpeg",
+    img: '/projects/basic-calculator.jpeg',
     className: '',
     target: '_self',
     type: 'tool',
   },
   lockscreen: {
     title: 'Your Personalized Lockscreen',
-    description: `Elevate your lockscreen with stunning images and the current time. Stay stylishly informed and enhance your device's appeal instantly`,
+    description:
+      "Elevate your lockscreen with stunning images and the current time. Stay stylishly informed and enhance your device's appeal instantly",
     path: 'https://lock-screen.vercel.app',
-    icon: className => <></>,
-    img: "/projects/lockscreen.jpeg",
+    icon: () => <></>,
+    img: '/projects/lockscreen.jpeg',
     className: '',
     target: '_blank',
     type: 'project',
   },
   blogsite: {
     title: 'Adventures in Blogland',
-    description: `Explore insightful articles and engaging content on our blog site. From practical tips to thought-provoking discussions, we cover a range of topics to enrich your knowledge. Stay informed, inspired, and entertained with our diverse collection of blog posts. Start reading now!`,
+    description:
+      'Explore insightful articles and engaging content on our blog site. From practical tips to thought-provoking discussions, we cover a range of topics to enrich your knowledge. Stay informed, inspired, and entertained with our diverse collection of blog posts. Start reading now!',
     path: 'https://vishwaashish.github.io/React-blogsite/',
-    icon: className => <></>,
-    img: "/projects/blogsite.jpeg",
+    icon: () => <></>,
+    img: '/projects/blogsite.jpeg',
     className: '',
     target: '_blank',
     type: 'project',
   },
   codesnapshot: {
     title: 'Code Snapshot',
-    description: `Customize your code snippets effortlessly with CodeSnapshot. Tailor padding, font size, and color to your liking. Export your personalized code as high-quality JPG, PNG, and more. Ideal for presentations, documentation, and social media. Try now!`,
+    description:
+      'Customize your code snippets effortlessly with CodeSnapshot. Tailor padding, font size, and color to your liking. Export your personalized code as high-quality JPG, PNG, and more. Ideal for presentations, documentation, and social media. Try now!',
     path: '/codesnapshot',
-    icon: className => <></>,
-    img: "/projects/codesnapshot.jpeg",
+    icon: () => <></>,
+    img: '/projects/codesnapshot.jpeg',
     className: '',
     target: '_self',
     type: 'tool',
   },
   villaVueBranders: {
     title: 'VillaVue Branders: Elevate Your Hoteling Experience',
-    description: `Transform your hotel or villa into a unique brand that attracts attention and engages the senses. Contact us now to elevate your accommodation game.`,
+    description:
+      'Transform your hotel or villa into a unique brand that attracts attention and engages the senses. Contact us now to elevate your accommodation game.',
     path: 'https://villavuebranders.vercel.app/',
-    icon: className => <></>,
-    img: "/projects/villaVueBranders.jpeg",
+    icon: () => <></>,
+    img: '/projects/villaVueBranders.jpeg',
     className: '',
     target: '_blank',
     type: 'project',

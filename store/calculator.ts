@@ -1,11 +1,11 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { RootState } from '.'
 import {
-  IHistory,
-  IInitialState,
-  IInitialStateDefault,
-  IOperation,
+  type IHistory,
+  type IInitialState,
+  type IInitialStateDefault,
+  type IOperation,
 } from '@/types/calculator.model'
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
+import { type RootState } from '.'
 
 const initialState: IInitialStateDefault = {
   current: '0',
@@ -15,7 +15,7 @@ const initialState: IInitialStateDefault = {
   history: [],
 }
 
-export const calculatorSlice = createSlice({
+const calculatorSlice = createSlice({
   name: 'calculator',
   initialState,
   reducers: {
@@ -44,17 +44,25 @@ export const calculatorSlice = createSlice({
       }
 
       if (state.current == null) {
-        return {
-          ...state,
-          operation: action.payload,
+        if (isIOperation(action.payload)) {
+          return {
+            ...state,
+            operation: action.payload,
+          }
+        } else {
+          throw new Error('Invalid operation payload')
         }
       }
       if (state.previous === null) {
-        return {
-          ...state,
-          operation: action.payload,
-          previous: state.current,
-          current: null,
+        if (isIOperation(action.payload)) {
+          return {
+            ...state,
+            operation: action.payload,
+            previous: state.current,
+            current: null,
+          }
+        } else {
+          throw new Error('Invalid operation payload')
         }
       }
 
@@ -112,16 +120,21 @@ export const calculatorSlice = createSlice({
     },
 
     populateHistory: (state, action: PayloadAction<IHistory>) => {
-      const { first, second, operation, total } = action.payload
+      const { first, second, operation } = action.payload
       return {
         ...state,
         current: String(second),
         previous: String(first),
-        operation: operation,
+        operation,
       }
     },
   },
 })
+
+// type guard function to check if the payload is an IOperation
+function isIOperation(payload: IOperation | string): payload is IOperation {
+  return true
+}
 
 function evaluate({ current, previous, operation }: IInitialState) {
   const prev: number = parseFloat(previous!)
@@ -158,6 +171,7 @@ function evaluate({ current, previous, operation }: IInitialState) {
 
   return String(computation)
 }
+
 export const stateCalculator = (state: RootState) => state.calculator
 
 export const {

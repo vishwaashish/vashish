@@ -5,21 +5,24 @@ import { getRandom } from '@/components/utils'
 import { transition } from '@/components/utils/animation'
 import { motion } from 'framer-motion'
 import _ from 'lodash'
-import { ChangeEvent, useCallback, useEffect, useState } from 'react'
+import { type ChangeEvent, useCallback, useEffect, useState } from 'react'
 import {
-  CategoriesMap,
-  CategoryModal,
-  InitialMap,
+  type CategoriesMap,
+  type CategoryModal,
+  type InitialMap,
   MAX_CATEGORY_LENGTH,
   MIN_CATEGORY_LENGTH,
-  StateModel,
-  charactersModal,
+  type StateModel,
+  type charactersModal,
   charactersUsed,
   initialCategory,
   initialState,
 } from './data'
 
 import PasswordLayout from '../PasswordLayout'
+import { Tooltip } from '@/components/ui/tooltip'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 
 export default function GeneratePassword() {
   const [password, setPassword] = useState<string>('')
@@ -49,7 +52,7 @@ export default function GeneratePassword() {
   }, [])
 
   const generateRandomPassword = useCallback(
-    (options: charactersModal<boolean>, max: number = length) => {
+    async (options: charactersModal<boolean>, max: number = length) => {
       return new Promise<string>(resolve => {
         let password = ''
         let availableChars = ''
@@ -103,11 +106,12 @@ export default function GeneratePassword() {
       const value = e.target.value
 
       if (+value <= MIN_CATEGORY_LENGTH) {
-        return setLength(MIN_CATEGORY_LENGTH)
+        setLength(MIN_CATEGORY_LENGTH)
+        return
       }
 
       if (+value > MAX_CATEGORY_LENGTH) {
-        return setLength(MAX_CATEGORY_LENGTH)
+        setLength(MAX_CATEGORY_LENGTH)
       }
     },
     [setLength],
@@ -177,28 +181,30 @@ export default function GeneratePassword() {
           handleChange={handleChange}
           subHeading="Customize your password"
           inputBody={
-            <Icon label="Generate" onClick={onGenerate}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6 transition-all hover:animate-spin"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
-                />
-              </svg>
-            </Icon>
+            <Tooltip title={'Generate'}>
+              <Button variant="ghost" size="icon" onClick={onGenerate}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6 transition-all hover:animate-spin"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
+                  />
+                </svg>
+              </Button>
+            </Tooltip>
           }
         >
           <div className="w-full text-left">
             <p className="my-1">Password Length</p>
             <div className="flex gap-5 mt-2">
-              <input
+              <Input
                 type="number"
                 min="1"
                 max="50"
@@ -227,9 +233,8 @@ export default function GeneratePassword() {
               {_.map(Object.entries(categories), ([pname, pvalue]) => {
                 return (
                   <div className="form-control" key={pname}>
-                    <label className="cursor-pointer label " htmlFor={pname}>
-                      <input
-                        className="radio radio-primary"
+                    <label className="cursor-pointer label" htmlFor={pname}>
+                      <Input
                         name="category"
                         id={pname}
                         value={pname}
@@ -237,7 +242,7 @@ export default function GeneratePassword() {
                         onChange={onCategories([pname, pvalue])}
                         type="radio"
                       />
-                      <span className="label-text pl-2">{pvalue.label}</span>
+                      <span className="pl-2">{pvalue.label}</span>
                     </label>
                   </div>
                 )
@@ -253,8 +258,8 @@ export default function GeneratePassword() {
                 return (
                   <div className="form-control" key={pname}>
                     <label className="label cursor-pointer" htmlFor={pname}>
-                      <input
-                        className={`checkbox checkbox-primary `}
+                      <Input
+                        className={'checkbox'}
                         id={pname}
                         name={pname}
                         checked={pvalue.checked}

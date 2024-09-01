@@ -1,10 +1,10 @@
 import { Icon } from '@/components/shared/Button'
 import { cn } from '@/components/utils'
-import { ILoaderParams, LoaderType } from '@/types/css-loaders.model'
+import { type ILoaderParams, type LoaderType } from '@/types/css-loaders.model'
 import dynamic from 'next/dynamic'
-import { FC } from 'react'
+import { type FC } from 'react'
 
-const CustomizeLoader = dynamic(() => import('./CustomizeLoader'), {
+const CustomizeLoader = dynamic(async () => import('./CustomizeLoader'), {
   ssr: false,
 })
 
@@ -46,7 +46,9 @@ const SharedModalLeftSide: FC<SharedModalLeftSide> = ({
       <div className="absolute top-0 right-0 flex items-center gap-2 p-3 ">
         <Icon
           label="Close"
-          onClick={() => closeModal()}
+          onClick={() => {
+            closeModal()
+          }}
           className={cn(buttonClass)}
         >
           <svg
@@ -133,7 +135,7 @@ const SharedModalLeftSide: FC<SharedModalLeftSide> = ({
       }
 
       <div className="absolute  bottom-5 hidden md:block">
-        <CustomizeLoader size="btn-sm" state={setting} />
+        <CustomizeLoader size="sm" state={setting} />
       </div>
 
       {/* <motion.div

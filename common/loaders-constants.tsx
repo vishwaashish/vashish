@@ -1,7 +1,7 @@
 import {
-  ILoaderParams,
-  LoaderSizeType,
-  LoaderType,
+  type ILoaderParams,
+  type LoaderSizeType,
+  type LoaderType,
 } from '@/types/css-loaders.model'
 
 export const LOADER_COUNT = 24
@@ -18,15 +18,17 @@ export const MODAL_BG = [
   '#4D8076',
 ]
 
-export const LOADER_PARAMS = ({
-  size,
-  border,
-  speed,
-  primaryColor,
-  secondaryColor,
-  sourceCode,
-}: ILoaderParams) =>
-  `size=${size}&border=${border}&speed=${speed}&primaryColor=${primaryColor}&secondaryColor=${secondaryColor}&sourceCode=${sourceCode}`
+export const LOADER_PARAMS = (
+  {
+    // size,
+    // border,
+    // speed,
+    // primaryColor,
+    // secondaryColor,
+    // sourceCode,
+  }: ILoaderParams,
+) => ''
+// `?size=${size}&border=${border}&speed=${speed}&primaryColor=${primaryColor}&secondaryColor=${secondaryColor}&sourceCode=${sourceCode}`
 
 export const LOADER_SIZES: LoaderSizeType[] = [
   {
@@ -92,11 +94,11 @@ export const LOADER_SPEED: LoaderSizeType[] = [
 ]
 
 export const DEFAULT_SETTINGS: ILoaderParams = {
-  size: '48px',
-  primaryColor: '--p',
-  secondaryColor: '--nc',
-  border: '5px',
-  speed: '1s',
+  size: 'M',
+  primaryColor: '570df8',
+  secondaryColor: 'ffffff',
+  border: 'M',
+  speed: 'S',
   sourceCode: 'false',
 }
 
@@ -174,7 +176,7 @@ export const modalStyle = {
 export const LOADER: LoaderType[] = [
   {
     id: 1,
-    html: `<div class="loader1"></div>`,
+    html: '<div class="loader1"></div>',
     css: `.loader1 {
       width: var(--loader-width);
       height: var(--loader-width);
@@ -198,7 +200,7 @@ export const LOADER: LoaderType[] = [
   },
   {
     id: 2,
-    html: `<div class="loader2"></div>`,
+    html: '<div class="loader2"></div>',
     css: `.loader2 {
       width: var(--loader-width);
       height: var(--loader-width);
@@ -222,7 +224,7 @@ export const LOADER: LoaderType[] = [
   },
   {
     id: 3,
-    html: `<div class="loader3"></div>`,
+    html: '<div class="loader3"></div>',
     css: `.loader3 {
       width: var(--loader-width);
       height: var(--loader-width);
@@ -270,7 +272,7 @@ export const LOADER: LoaderType[] = [
   },
   {
     id: 4,
-    html: `<div class="loader4"></div>`,
+    html: '<div class="loader4"></div>',
     css: `.loader4 {
       width: var(--loader-width);
       height: var(--loader-width);
@@ -313,7 +315,7 @@ export const LOADER: LoaderType[] = [
   },
   {
     id: 5,
-    html: `<div class="loader5"></div>`,
+    html: '<div class="loader5"></div>',
     css: `.loader5 {
       width: var(--loader-width);
       height: var(--loader-width);
@@ -358,7 +360,7 @@ export const LOADER: LoaderType[] = [
   },
   {
     id: 6,
-    html: `<div class="loader6"></div>`,
+    html: '<div class="loader6"></div>',
     css: `.loader6 {
       width: var(--loader-width);
       height: var(--loader-width);
@@ -409,7 +411,7 @@ export const LOADER: LoaderType[] = [
   },
   {
     id: 7,
-    html: `<div class="loader7"></div>`,
+    html: '<div class="loader7"></div>',
     css: `.loader7 {
       width: var(--loader-width);
       height: var(--loader-width);
@@ -445,7 +447,7 @@ export const LOADER: LoaderType[] = [
   },
   {
     id: 8,
-    html: `<div class="loader8"></div>`,
+    html: '<div class="loader8"></div>',
     css: `.loader8 {
       width: var(--loader-width);
       height: var(--loader-width);
@@ -469,7 +471,7 @@ export const LOADER: LoaderType[] = [
   },
   {
     id: 9,
-    html: `<div class="loader9"></div>`,
+    html: '<div class="loader9"></div>',
     css: `.loader9 {
       width: var(--loader-width);
       height: var(--loader-width);
@@ -506,7 +508,7 @@ export const LOADER: LoaderType[] = [
   },
   {
     id: 10,
-    html: `<div class="loader10"></div>`,
+    html: '<div class="loader10"></div>',
     css: `.loader10 {
       width: var(--loader-width);
       height: var(--loader-width);
@@ -543,7 +545,7 @@ export const LOADER: LoaderType[] = [
   },
   {
     id: 11,
-    html: `<div class="loader11"></div>`,
+    html: '<div class="loader11"></div>',
     css: `.loader11 {
       width: var(--loader-width);
       height: var(--loader-width);
@@ -587,7 +589,7 @@ export const LOADER: LoaderType[] = [
   },
   {
     id: 12,
-    html: `<div class="loader12"></div>`,
+    html: '<div class="loader12"></div>',
     css: `.loader12 {
       width: var(--loader-width);
       height: var(--loader-width);
@@ -629,7 +631,7 @@ export const LOADER: LoaderType[] = [
   },
   {
     id: 13,
-    html: `<div class="loader13"></div>`,
+    html: '<div class="loader13"></div>',
     css: `.loader13 {
       width: var(--loader-width);
       height: var(--loader-width);
@@ -665,7 +667,7 @@ export const LOADER: LoaderType[] = [
   },
   {
     id: 14,
-    html: `<div class="loader14"></div>`,
+    html: '<div class="loader14"></div>',
     css: `.loader14 {
       width: var(--loader-width);
       height: var(--loader-width);
@@ -716,7 +718,7 @@ export const LOADER: LoaderType[] = [
   },
   {
     id: 15,
-    html: `<div class="loader15"></div>`,
+    html: '<div class="loader15"></div>',
     css: `.loader15 {
       width: var(--loader-width);
       height: var(--loader-width);
@@ -774,7 +776,7 @@ export const LOADER: LoaderType[] = [
   },
   {
     id: 16,
-    html: `<div class="loader16"></div>`,
+    html: '<div class="loader16"></div>',
     css: `.loader16 {
       width: var(--loader-width);
       height: var(--loader-width);
@@ -824,7 +826,7 @@ export const LOADER: LoaderType[] = [
   },
   {
     id: 17,
-    html: `<div class="loader17"></div>`,
+    html: '<div class="loader17"></div>',
     css: `.loader17 {
       width: var(--loader-width);
       height: var(--loader-width);
@@ -859,7 +861,7 @@ export const LOADER: LoaderType[] = [
   },
   {
     id: 18,
-    html: `<div class="loader18"></div>`,
+    html: '<div class="loader18"></div>',
     css: `.loader18 {
       color: var(--loader-secondary);
       font-size: calc(var(--loader-border) + 5px);
@@ -967,7 +969,7 @@ export const LOADER: LoaderType[] = [
   },
   {
     id: 19,
-    html: `<div class="loader19"></div>`,
+    html: '<div class="loader19"></div>',
     css: `.loader19 {
       color: var(--loader-secondary);
       font-size: calc(var(--loader-width) - 15px);
@@ -1048,7 +1050,7 @@ export const LOADER: LoaderType[] = [
   },
   {
     id: 20,
-    html: `<div class="loader20"></div>`,
+    html: '<div class="loader20"></div>',
     css: `.loader20 {
       font-size: calc(var(--loader-border) + 2px);
       width: calc(var(--loader-width) - 10px);
@@ -1155,7 +1157,7 @@ export const LOADER: LoaderType[] = [
   },
   {
     id: 21,
-    html: `<div class="loader21"></div>`,
+    html: '<div class="loader21"></div>',
     css: `.loader21 {
       width: var(--loader-width);
       height: var(--loader-width);
@@ -1185,7 +1187,7 @@ export const LOADER: LoaderType[] = [
   },
   {
     id: 22,
-    html: `<div class="loader22"></div>`,
+    html: '<div class="loader22"></div>',
     css: `.loader22 {
       width: var(--loader-width);
       height: var(--loader-width);
@@ -1221,7 +1223,7 @@ export const LOADER: LoaderType[] = [
   },
   {
     id: 23,
-    html: `<div class="loader23"></div>`,
+    html: '<div class="loader23"></div>',
     css: `.loader23 {
       width: var(--loader-width);
       height: var(--loader-width);
@@ -1245,7 +1247,7 @@ export const LOADER: LoaderType[] = [
   },
   {
     id: 24,
-    html: `<div class="loader24"></div>`,
+    html: '<div class="loader24"></div>',
     css: `.loader24 {
       width: var(--loader-width);
       height: var(--loader-width);

@@ -40,7 +40,7 @@ export const QuoteCard = ({
     <Link className="no-underline" href={path}>
       <article
         className={cn(
-          ' prose  min-w-full flex flex-col  my-auto h-full rounded-xl bg-base-200 hover:bg-primary hover:text-white px-5 py-7  md:p-12  ',
+          ' prose  min-w-full flex transition-all hover:scale-105 flex-col  my-auto h-full rounded-xl bg-muted hover:bg-primary hover:text-white px-5 py-7  md:p-12  ',
           className,
         )}
       >
@@ -48,7 +48,7 @@ export const QuoteCard = ({
           <div className=" font-semibold md:text-xl">
             <q>{content}</q>
           </div>
-          <div className="font-normal">
+          <div className="font-normal text-muted-foreground">
             <i>- {author}</i>
           </div>
         </div>

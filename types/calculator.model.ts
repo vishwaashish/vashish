@@ -1,4 +1,9 @@
-export type IOperation = '-' | '+' | '*' | '÷' | '%'
+import { DispatchButton } from "./common.model"
+
+export type IOperation = "-" | "+" | "*" | "÷" | "%" | null
+
+
+
 
 export interface IInitialStateDefault extends IInitialState {
   overwrite: boolean
@@ -8,12 +13,20 @@ export interface IInitialStateDefault extends IInitialState {
 export interface IHistory {
   first: number
   second: number
-  operation: IOperation | string 
+  operation: IOperation
   total: number
 }
 
 export interface IInitialState {
   current: string | null
   previous: string | null
-  operation: IOperation | string | null
+  operation: IOperation 
+}
+
+
+export interface INumberButton extends DispatchButton {
+  digit: string
+}
+export interface IOperationButton extends DispatchButton {
+  operation: IOperation
 }

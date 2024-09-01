@@ -1,11 +1,22 @@
-import { ClassValue, clsx } from 'clsx'
+import { type ClassValue, clsx } from 'clsx'
+import { Options } from 'prettier'
 import babelPlugin from 'prettier/plugins/babel'
 import estreePlugin from 'prettier/plugins/estree'
+import html from 'prettier/plugins/html'
+import markdown from 'prettier/plugins/markdown'
+import cssPlugin from 'prettier/plugins/postcss'
 import typescriptPlugin from 'prettier/plugins/typescript'
 import prettier from 'prettier/standalone'
 import { twMerge } from 'tailwind-merge'
 
-const plugins = [babelPlugin, typescriptPlugin, estreePlugin]
+const plugins = [
+  babelPlugin,
+  typescriptPlugin,
+  estreePlugin,
+  html,
+  cssPlugin,
+  markdown,
+]
 
 export const cn = (...input: ClassValue[]) => {
   return twMerge(clsx(input))
@@ -18,8 +29,8 @@ export const getRandom = (charSet: string) => {
 
 export function darkenColor(color: string, percentage: number): string {
   if (color[0] === '#') {
-    let hex = color.slice(1)
-    let rgb = parseInt(hex, 16)
+    const hex = color.slice(1)
+    const rgb = parseInt(hex, 16)
     let r = (rgb >> 16) & 0xff
     let g = (rgb >> 8) & 0xff
     let b = rgb & 0xff
@@ -30,11 +41,11 @@ export function darkenColor(color: string, percentage: number): string {
 
     return `#${((r << 16) | (g << 8) | b).toString(16).padStart(6, '0')}`
   } else if (color.startsWith('rgb')) {
-    let rgbArray = color.match(/\d+/g)!.map(Number)
+    const rgbArray = color.match(/\d+/g)!.map(Number)
 
-    let r = Math.floor(rgbArray[0] * (1 - percentage / 100))
-    let g = Math.floor(rgbArray[1] * (1 - percentage / 100))
-    let b = Math.floor(rgbArray[2] * (1 - percentage / 100))
+    const r = Math.floor(rgbArray[0] * (1 - percentage / 100))
+    const g = Math.floor(rgbArray[1] * (1 - percentage / 100))
+    const b = Math.floor(rgbArray[2] * (1 - percentage / 100))
 
     return `rgb(${r}, ${g}, ${b})`
   } else {
@@ -43,7 +54,7 @@ export function darkenColor(color: string, percentage: number): string {
 }
 
 export function oppositeColor(color: string, percentage: number): string {
-  var newColor = []
+  let newColor: number[] = []
   if (color[0] === '#') {
     color = color.slice(1)
     if (color.length === 3) {
@@ -71,10 +82,23 @@ export function oppositeColor(color: string, percentage: number): string {
   return '#' + hexColor
 }
 
-export const formatCode = (code: string) => {
-  return prettier.format(code, {
+export const formatCode = async (
+  code: string,
+  parser: string = 'babel',
+  options: { [key: string]: any } = {},
+) => {
+  const defaultOptions: Options = {
     semi: false,
-    parser: 'babel',
-    plugins: plugins,
-  })
+    singleQuote: true,
+    tabWidth: 2,
+    trailingComma: 'es5',
+    bracketSpacing: true,
+    jsxBracketSameLine: false,
+    printWidth: 80,
+    arrowParens: 'always',
+    htmlWhitespaceSensitivity: 'css',
+    plugins,
+  }
+  const mergedOptions = { ...defaultOptions, parser, ...options }
+  return prettier.format(code, mergedOptions)
 }

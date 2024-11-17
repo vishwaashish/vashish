@@ -37,7 +37,10 @@ const LoadersLoop: FC<LoaderLoop> = ({
       )}
       aria-label={'Loader' + id}
     >
-      <InnerHTML  html={html} css={css} />
+      <span className="absolute text-muted-foreground top-0 left-0 bg-popover/40 rounded-tl-lg px-2 py-1 rounded-br-lg drop-shadow">
+        #{id}
+      </span>
+      <InnerHTML html={html} css={css} />
     </Link>
   )
 }

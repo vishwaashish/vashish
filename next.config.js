@@ -14,7 +14,7 @@ const nextConfig = {
   // devIndicators: {
   //   autoPrerender: false,
   // },
-  swcMinify: true,
+  // swcMinify: true,
   transpilePackages: ['components', 'shared', 'shiki'],
   // pwa: {
   //   disabled: process.env.NODE_ENV === 'development',

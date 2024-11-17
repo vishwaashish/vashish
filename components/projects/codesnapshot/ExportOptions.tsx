@@ -8,7 +8,7 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger
+  DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { cn } from '@/components/utils'
 
@@ -77,13 +77,13 @@ const ExportOptions = () => {
             ' rounded-e-none border-e-0 text-nowrap',
           )}
         >
-          Size {pixel}px
+          Pixel {pixel}px
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           {[1, 2, 3, 4, 5].map(lang => {
             return (
               <DropdownMenuItem key={lang} onClick={() => setPixel(lang)}>
-                Size {lang}px
+                Pixel {lang}px
               </DropdownMenuItem>
             )
           })}

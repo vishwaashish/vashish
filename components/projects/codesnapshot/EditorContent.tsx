@@ -12,6 +12,7 @@ import { memo, useCallback, useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import renderCode from './shikiRenderer'
 import { useAutosizeTextArea } from './useAutosizeTextArea'
+import toast from 'react-hot-toast'
 
 const EditorContent = () => {
   const {
@@ -92,9 +93,9 @@ const EditorContent = () => {
           const data = await formatCode(scode, 'babel')
           dispatch(toggleFormatCode())
           setScode(data)
-        } catch (err) {
-          // console.log(err, err.code)
-          // toast.error(err.message)
+          toast.success('Code Formatted.')
+        } catch {
+          toast.error('Something went wrong!')
         }
       }
     })()

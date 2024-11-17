@@ -72,6 +72,8 @@ const calculatorSlice = createSlice({
       }
     },
     total: state => {
+      console.log(state, 'total')
+
       if (!state.current || !state.operation || !state.previous) {
         return state
       }

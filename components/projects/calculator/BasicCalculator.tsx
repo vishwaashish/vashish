@@ -95,7 +95,7 @@ const BasicCalculator = () => {
           </div>
         </div>
         <Button
-          className={'col-span-'}
+          className="transition-allhover:scale-105 text-xl"
           onClick={() => {
             dispatch(clear())
           }}
@@ -124,7 +124,7 @@ const BasicCalculator = () => {
         <NumberButton digit="8" dispatch={dispatch} />
         <NumberButton digit="9" dispatch={dispatch} />
         <Button
-          className="row-span-2 h-full"
+          className="row-span-2 h-full transition-all hover:scale-105 text-xl"
           onClick={() => {
             dispatch(total())
           }}

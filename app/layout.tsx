@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   manifest: '/manifest.json',
   title: {
     default: 'Ashishkumar Vishwakarma',
-    template: '%s | AVishwakarma',
+    template: '%s | VAshish',
   },
   description: `I'm a passionate frontend developer with a strong
   foundation in engineering. With a deep love for clean and

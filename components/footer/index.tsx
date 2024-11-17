@@ -99,7 +99,7 @@ export default function Footer() {
             <div className="mx-auto w-full max-w-[1200px]">
                 <div className="px-4 py-2 gap-2  grid grid-cols-1 sm:grid-cols-2">
                     <span className="text-sm text-center sm:text-left">
-            ©2023 <a href="https://github.com/vishwaashish">AVishwakarma</a>.
+            ©2023 <a href="https://github.com/vishwaashish">VAshish</a>.
             All Rights Reserved.
                     </span>
                     <div className="flex space-x-5 justify-center  sm:justify-end md:mt-0">

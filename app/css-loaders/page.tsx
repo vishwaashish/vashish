@@ -14,7 +14,8 @@ export const metadata: Metadata = {
   },
 }
 
-export default async function page({ searchParams }: PageProps<any, any>) {
+export default async function page(props: PageProps<any, any>) {
+  const searchParams = await props.searchParams;
   const response = await getAllLoaders()
   const loaders = response.loaders
 

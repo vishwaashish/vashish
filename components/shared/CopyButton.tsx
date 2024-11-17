@@ -1,7 +1,7 @@
 import { Tooltip } from '@/components/ui/tooltip'
 import { cn } from '@/components/utils'
 import { VariantProps } from 'class-variance-authority'
-import { ReactNode, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Button, buttonVariants } from '../ui/button'
 import { copyToClipboard } from '../utils/text'
 
@@ -46,7 +46,11 @@ export const CopyButton = ({
     <Tooltip title={state ? 'Copied!' : 'Copy'}>
       <Button
         variant="outline"
-        className={cn('swap ', state && 'swap-active', className)}
+        className={cn(
+          'swap text-muted-foreground',
+          state && 'swap-active',
+          className,
+        )}
         onClick={click}
         size="icon"
         {...rest}

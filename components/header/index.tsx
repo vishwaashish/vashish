@@ -53,7 +53,7 @@ function Header({ mode = 'all' }: { mode?: 'dark' | 'all' }) {
               />
             </svg>
             <span className={cn(mode === 'dark' && 'text-accent-content')}>
-              AVishwakarma
+              VAshish
             </span>
           </Link>
         </div>

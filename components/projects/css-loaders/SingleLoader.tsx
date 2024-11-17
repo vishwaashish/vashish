@@ -10,11 +10,12 @@ import { Button } from '@/components/ui/button'
 import { useAppDispatch, useAppSelector } from '@/store'
 import { selectLoaderState, setLoader } from '@/store/cssLoaders'
 import { ILoaderParams, LoaderType } from '@/types/css-loaders.model'
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, SquareCode } from 'lucide-react'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Loaders from './Loaders'
+import { cn } from '@/components/utils'
 
 const CustomizeLoader = dynamic(
   async () => import('@/components/projects/css-loaders/CustomizeLoader'),
@@ -31,11 +32,11 @@ interface SingleLoaderProps {
   loaders: LoaderType[]
 }
 const SingleLoader = ({ state, element, loaders }: SingleLoaderProps) => {
-  console.log('loaders', loaders)
   const router = useRouter()
   const storeState = useAppSelector(selectLoaderState)
   const values = getLoaderValues(storeState)
   const dispatch = useAppDispatch()
+  const [showSidebar, setShowSidebar] = useState(false)
 
   useEffect(() => {
     if (Object.keys(state).length) dispatch(setLoader(state))
@@ -103,30 +104,48 @@ const SingleLoader = ({ state, element, loaders }: SingleLoaderProps) => {
   ]
   return (
     <Container className="py-2 relative">
-      <div className="block shadow-lg md:mt-4 md:flex border-none md:min-h-[250px] rounded-xl overflow-hidden md:resize-y max-w-full md:flex-row md:h-[calc(100vh-190px)]">
-        <div
-          className="flex relative md:w-2/4  md:min-w-[330px]   max-md:min-h-[450px] max-md:w-full h-[calc(100vh-140px)] md:h-auto md:min-h-[100px]"
-          style={{
-            flex: '0 0 auto',
-            // width: '50%',
-          }}
-        >
-          <div className="flex absolute top-0 flex-wrap gap-4 items-center z-10">
+      <div
+        className={cn(
+          'shadow-lg grid md:divide-x divide-x-0 md:divide-y-0 divide-y border md:mt-4  rounded-xl overflow-hidden md:resize-y max-w-full',
+          !showSidebar ? 'md:grid-cols-1' : 'md:grid-cols-2',
+        )}
+      >
+        <div className="flex relative min-h-[350px] h-[calc(100vh-190px)]">
+          <div className="flex absolute top-0 justify-between w-full flex-wrap gap-4 items-center z-10 pr-2">
+            {/* <span className="absolute text-muted-foreground top-0 left-0 bg-popover/40 rounded-tl-lg px-2 py-1 rounded-br-lg drop-shadow-md">
+          </span> */}
+
             <Button
               variant="ghost"
               onClick={() => {
-                router.back()
+                router.push('/css-loaders')
               }}
-              className="mr-auto"
+              className="hover:bg-transparent"
             >
               <ArrowLeft size={15}></ArrowLeft>
               Go Back
             </Button>
+
+            <div className="bg-popover/40 text-2xl rounded-lg px-2 py-1">
+              #{element.id}
+            </div>
+
+            <Button
+              variant="ghost"
+              onClick={() => {
+                setShowSidebar(val => !val)
+              }}
+              className="hover:bg-transparent"
+            >
+              <SquareCode />
+              &nbsp; Code
+            </Button>
+
             {/* <CustomizeLoader size="sm" className="mx-0"></CustomizeLoader> */}
             {/* <h1 className="text-xl font-bold">Loader{element.id}</h1> */}
           </div>
-          <div className="absolute hidden md:block w-[5px] h-full bg-input top-0 right-0 z-10"></div>
-          <div className="flex flex-1 absolute w-full left-0 top-0 py-10 h-full font-sans border-none ">
+          {/* <div className="absolute hidden md:block w-[5px] h-full bg-input top-0 right-0 z-10"></div> */}
+          <div className="flex flex-1 absolute w-full left-0 top-0 h-full font-sans border-none ">
             <div className="flex h-full w-full text-foreground border-none">
               <div className="flex  items-center justify-center h-full w-full relative z-[1] ">
                 <InnerHTML html={element.html} css={element.css} />
@@ -135,20 +154,22 @@ const SingleLoader = ({ state, element, loaders }: SingleLoaderProps) => {
           </div>
         </div>
 
-        <div className="relative max-w-full w-full overflow-hidden flex flex-col md:h-[600px] md:p-2">
-          <CodeTabs
-            defaultValue={loaderTabs[0].value}
-            options={loaderTabs}
-            codeTabClassName="md:h-[calc(100vh-260px)]"
-          />
-        </div>
+        {showSidebar && (
+          <div className="relative max-w-full w-full overflow-hidden flex flex-col p-2">
+            <CodeTabs
+              defaultValue={loaderTabs[0].value}
+              options={loaderTabs}
+              codeTabClassName="min-h-[350px] max-h-[calc(100vh-190px)]"
+            />
+          </div>
+        )}
       </div>
       <br />
 
       <Loaders
         loaders={loaders}
         className="grid-cols-2 gap-5 md:gap-5 md:grid-cols-4 lg:grid-cols-4 lg:scale-75 lg:hover:scale-75"
-        loaderClass="opacity-30 hover:opacity-100  aspect-square md:aspect-video"
+        loaderClass="opacity-50 hover:opacity-100  aspect-square md:aspect-video"
       />
       <div className="w-full sticky overflow-auto bottom-0 rounded-lg bg-card mt-5">
         <CustomizeLoader

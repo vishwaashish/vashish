@@ -28,14 +28,16 @@ const CodeTab = ({
           'dark-plus',
         )
         const colorRegex = /#(?:[0-9a-fA-F]{3}){1,2}/g
-        const [backgroundColor, textcolor] = renderElement.match(
-          colorRegex,
-        ) || ['#00000', '#fffff']
-        setState(renderElement)
-        setColor({
-          bgColor: backgroundColor,
-          color: textcolor,
-        })
+        if (renderElement) {
+          const [backgroundColor, textcolor] = renderElement.match(
+            colorRegex,
+          ) || ['#00000', '#fffff']
+          setState(renderElement)
+          setColor({
+            bgColor: backgroundColor,
+            color: textcolor,
+          })
+        }
         setLoading(false)
       } catch (e) {
         console.error(e)
@@ -44,7 +46,7 @@ const CodeTab = ({
           'javascript',
           'dark-plus',
         )
-        setState(renderElement)
+        renderElement && setState(renderElement)
         setLoading(false)
       }
     }
@@ -65,7 +67,7 @@ const CodeTab = ({
   return (
     <div
       className={cn(
-        `h-[427px] overflow-auto p-5 text-sm rounded-lg`,
+        `h-[427px] overflow-auto p-5 text-sm rounded-lg relative`,
         className,
       )}
       style={{
@@ -74,8 +76,11 @@ const CodeTab = ({
       }}
     >
       {!!state && (
-        <div className="absolute right-7">
-          <CopyButton copy={state} />
+        <div className="top-2 absolute right-2  dark">
+          <CopyButton
+            copy={state}
+            className="bg-transparent border border-muted-foreground hover:border-accent-foreground"
+          />
         </div>
       )}
       <InnerHTML html={state}></InnerHTML>

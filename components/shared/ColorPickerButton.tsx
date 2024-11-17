@@ -25,7 +25,7 @@ const ColorPickerButton = ({
   }, [copied])
 
   const onCopy = () => {
-    copyToClipboard(value).then(val => {
+    copyToClipboard(value).then(() => {
       setCopied(true)
     })
   }
@@ -34,7 +34,7 @@ const ColorPickerButton = ({
       <input
         type="color"
         className={cn(
-          'no-animation active:focus:scale-95  !px-0  h-full border-0 rounded-s-lg appearance-none',
+          'no-animation active:focus:scale-95  flex !px-0  h-full border-0 rounded-s-lg appearance-none',
           //   size === 'lg' && 'h-12',
           //   size === 'sm' && 'h-9',
         )}

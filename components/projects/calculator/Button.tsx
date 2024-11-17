@@ -9,7 +9,7 @@ export const OperationButton = ({
 }: IOperationButton) => {
   return (
     <Button
-      className={`transition-all hover:scale-105 text-xl  ${className}`}
+      className={`transition-all bg-primary hover:scale-105 text-xl  ${className}`}
       onClick={() => dispatch(chooseOperation(operation))}
     >
       {operation}

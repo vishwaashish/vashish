@@ -11,7 +11,8 @@ interface IPage {
   content: string
 }
 
-const Page = async ({ params }: PageProps<IPage, any>) => {
+const Page = async (props: PageProps<IPage, any>) => {
+    const params = await props.params;
     const { category } = params;
     const response = await getQuotesByCategories(category);
     const randomResult = await randomQuotes(6);
@@ -29,9 +30,8 @@ const Page = async ({ params }: PageProps<IPage, any>) => {
     );
 };
 
-export async function generateMetadata({
-    params,
-}: PageProps<IPage, any>): Promise<Metadata> {
+export async function generateMetadata(props: PageProps<IPage, any>): Promise<Metadata> {
+    const params = await props.params;
     const category = params.category;
 
     const response = await getQuotesByCategories(category);

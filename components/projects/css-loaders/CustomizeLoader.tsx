@@ -98,6 +98,12 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
 
   const colorSlice = (value: string) => value.split('').slice(1).join('')
 
+  const handleChange = (field: string) => (value: string) => {
+    if (value) {
+      handleRoute({ ...storeState, [field]: value })
+    }
+  }
+
   return (
     <>
       <div
@@ -110,7 +116,7 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
           label="Size"
           value={size}
           options={LOADER_SIZES}
-          onChange={size => handleRoute({ ...storeState, size })}
+          onChange={handleChange('size')}
           size={btnSize}
           labelClass={label}
         />
@@ -118,7 +124,7 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
           label="Border size"
           value={border}
           options={LOADER_BORDER_SIZES}
-          onChange={border => handleRoute({ ...storeState, border })}
+          onChange={handleChange('border')}
           size={btnSize}
           labelClass={label}
         />
@@ -126,7 +132,7 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
           label="Loader speed"
           value={speed}
           options={LOADER_SPEED}
-          onChange={speed => handleRoute({ ...storeState, speed })}
+          onChange={handleChange('speed')}
           size={btnSize}
           labelClass={label}
         />
@@ -179,7 +185,7 @@ const CustomizeLoader: FC<CustomizeLoader> = ({
           <div className="tooltip mr-auto" data-tip="Reset">
             <Button
               className={cn(
-                'no-animation active:focus:scale-95 p-0 aspect-square text-foreground',
+                'no-animation group active:focus:scale-95 p-0 aspect-square text-foreground',
               )}
               size={btnSize}
               role="button"
@@ -221,7 +227,7 @@ const FormFields = ({ label, labelClass, value, options, onChange, size }) => {
       <ToggleGroup
         type="single"
         variant="outline"
-        defaultValue={value}
+        value={value}
         size={size}
         onValueChange={onChange}
       >
@@ -233,7 +239,7 @@ const FormFields = ({ label, labelClass, value, options, onChange, size }) => {
               title={option.title}
               role="button"
               aria-label={option.title}
-              className="data-[state=on]:bg-primary aspect-square bg-background rounded-lg  active:focus:scale-95 "
+              className="data-[state=on]:bg-primary data-[state=on]:text-primary-foreground aspect-square bg-background  rounded-lg  active:focus:scale-95 "
             >
               {option.label}
             </ToggleGroupItem>

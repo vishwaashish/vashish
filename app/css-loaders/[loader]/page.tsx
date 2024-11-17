@@ -17,7 +17,9 @@ function getNextThree(options: LoaderType[], currentId: number): LoaderType[] {
   return nextLoaders
 }
 
-const page = async ({ params, searchParams }: PageProps<any, any>) => {
+const page = async (props: PageProps<any, any>) => {
+  const searchParams = await props.searchParams
+  const params = await props.params
   const index = Number(params.loader)
   const response = await getLoader(index)
   const loadersResponse = await getAllLoaders()

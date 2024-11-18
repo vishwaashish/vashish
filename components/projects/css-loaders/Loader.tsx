@@ -32,7 +32,7 @@ const LoadersLoop: FC<LoaderLoop> = ({
       as={as || `/css-loaders/${id}`}
       key={'Loader' + id}
       className={cn(
-        ' group/item transition-all hover:scale-105 relative  aspect-video w-full flex justify-center items-center  rounded-lg bg-muted h-full shadow-inner  hover:shadow-[0_0_2px_4px_#570df8]',
+        ' group/item transition-all hover:scale-105 relative  aspect-video w-full flex justify-center items-center rounded-lg bg-muted h-full shadow-inner hover:shadow-[0_0_2px_4px_#570df8]',
         className,
       )}
       aria-label={'Loader' + id}

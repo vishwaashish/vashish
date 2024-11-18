@@ -40,15 +40,15 @@ export const QuoteCard = ({
     <Link className="no-underline" href={path}>
       <article
         className={cn(
-          ' prose  min-w-full flex transition-all hover:scale-105 flex-col  my-auto h-full rounded-xl bg-muted hover:bg-primary hover:text-white px-5 py-7  md:p-12  ',
+          'min-w-full group flex shadow transition-all hover:scale-105 flex-col  my-auto h-full rounded-xl bg-muted hover:bg-primary hover:text-primary-foreground px-5 py-7  md:p-12  ',
           className,
         )}
       >
         <div className="self-center flex flex-col gap-y-4">
-          <div className=" font-semibold md:text-xl">
-            <q>{content}</q>
+          <div className=" font-semibold  md:text-xl">
+            <q className=''>{content}</q>
           </div>
-          <div className="font-normal text-muted-foreground">
+          <div className="font-normal text-muted-foreground group-hover:text-muted">
             <i>- {author}</i>
           </div>
         </div>

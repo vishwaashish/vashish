@@ -1,9 +1,8 @@
 "use client";
-import { randomQuotes } from "@/services/quotes";
-import { type IQuoteItem } from "@/types/quotes.model";
-import { type FC, useEffect } from "react";
-import { QuoteCard, QuoteCards } from "./StyledComponent";
 import { HeadPara } from "@/components/shared/Heading";
+import { type IQuoteItem } from "@/types/quotes.model";
+import { type FC } from "react";
+import { QuoteCard, QuoteCards } from "./StyledComponent";
 interface IDiscoverQuotes {
   quotes: IQuoteItem[]
 }

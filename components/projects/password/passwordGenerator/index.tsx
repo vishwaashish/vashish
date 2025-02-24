@@ -1,7 +1,7 @@
 'use client'
 import { Icon } from '@/components/shared/Button'
 import { HeadPara } from '@/components/shared/Heading'
-import { getRandom } from '@/components/utils'
+import { cn, getRandom } from '@/components/utils'
 import { transition } from '@/components/utils/animation'
 import { motion } from 'framer-motion'
 import _ from 'lodash'
@@ -257,7 +257,7 @@ export default function GeneratePassword() {
                 const isDisabled = disabled(pname)
                 return (
                   <div className="form-control" key={pname}>
-                    <label className="label cursor-pointer" htmlFor={pname}>
+                    <label className={cn("label cursor-pointer", isDisabled && "label-disabled" )} htmlFor={pname}>
                       <Input
                         className={'checkbox'}
                         id={pname}

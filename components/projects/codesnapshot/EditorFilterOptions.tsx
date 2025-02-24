@@ -119,7 +119,7 @@ const EditorFilterOptions = () => {
 
   return (
     <>
-      <motion.div className="sticky top-5 lg:max-w-2xl gap-3 mx-auto rounded-lg flex flex-wrap justify-start items-center border-2 border-border bg-card p-5">
+      <motion.div className="sticky top-5 lg:max-w-2xl gap-3 mx-auto rounded-lg flex flex-wrap justify-start items-center border-2 border-border bg-background p-5">
         <div className="flex justify-between items-center flex-[1_1_auto] grow w-full">
           <p className="text-lg !m-0 !p-0  ">Customize setting</p>
           <FormGroup

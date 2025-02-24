@@ -47,7 +47,7 @@ export const CopyButton = ({
       <Button
         variant="outline"
         className={cn(
-          'swap text-muted-foreground',
+          'swap ',
           state && 'swap-active',
           className,
         )}

@@ -187,6 +187,17 @@ export const projectMeta: RelatedProjectsType = {
     target: '_blank',
     type: 'project',
   },
+  code_wind: {
+    title: 'Code Wind: Prebuilt UI Components',
+    description:
+      'Supercharge your development with ready-to-use, beautifully designed UI components. Copy, paste, and customize components built with Tailwind CSS for modern web applications.',
+    path: 'https://vashish-code-wind.vercel.app/',
+    icon: () => <></>,
+    img: '/projects/loader.jpeg',
+    className: '',
+    target: '_blank',
+    type: 'project',
+  },
 }
 
 export const LOCAL_DATA = 'vashish-theme'

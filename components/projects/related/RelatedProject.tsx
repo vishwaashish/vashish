@@ -35,7 +35,10 @@ const RelatedProject = ({
               target={item.target}
               key={item.title}
             >
-              <GlareCard className="transform brightness-90 transition will-change-auto rounded-3xl overflow-hidden group-hover:brightness-100">
+              <GlareCard
+                containerClassName="rounded-3xl"
+                className="transform brightness-90 transition will-change-auto rounded-3xl overflow-hidden group-hover:brightness-100"
+              >
                 <Image
                   className=" "
                   src={item.img}

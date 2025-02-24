@@ -14,12 +14,12 @@ const CalculatorHistory: FC<CalculatorHistoryProps> = ({
 }) => {
   return (
     <motion.div {...transition(0.39)}>
-      <h4>History</h4>
+      <h4 className="text-foreground">History</h4>
 
       <div className="flex flex-col">
         {[...historys].reverse().map((history, index) => (
           <button
-            className="btn h-full bg-inherit w-fit mx-auto hover:shadow-md  flex flex-wrap justify-center  border-light p-3 rounded-lg gap-2"
+            className="btn h-full bg-inherit w-fit mx-auto hover:shadow-md  flex flex-wrap justify-center p-3 rounded-lg gap-2"
             key={'history' + index}
             onClick={onClick(history)}
           >
